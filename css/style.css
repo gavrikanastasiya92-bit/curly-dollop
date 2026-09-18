@@ -87,6 +87,15 @@ h2{ font-family:var(--font-head); font-weight:700; font-size:clamp(28px,3.4vw,40
 #about .about-media{ position:relative; height:100%; min-height:60vh; overflow:hidden; }
 @media (max-width:860px){ #about{ grid-template-columns:1fr; } #about .about-media{ order:1; min-height:44vh; } #about .about-text{ order:2; justify-self:stretch; padding:10vw 7vw; max-width:none; } }
 
+/* ===== FOUNDER ===== */
+#founder{ background:var(--lake); color:var(--cream); display:grid; grid-template-columns:1fr 1fr; min-height:80vh; align-items:center; }
+#founder .f-media{ position:relative; height:100%; min-height:48vh; overflow:hidden; }
+#founder .f-text{ padding:8vw 7vw; max-width:580px; }
+#founder .eyebrow{ color:var(--gold); }
+#founder p{ font-size:16px; line-height:1.7; color:rgba(237,230,214,.85); margin-bottom:16px; }
+#founder .cite{ font-size:13.5px; color:rgba(237,230,214,.6); margin-top:22px; padding-top:20px; border-top:1px solid rgba(237,230,214,.15); }
+@media (max-width:860px){ #founder{ grid-template-columns:1fr; } #founder .f-media{ order:1; min-height:34vh; } #founder .f-text{ order:2; padding:9vw 7vw; } }
+
 /* ===== DIRECTIONS ===== */
 #directions{ background:var(--lake); color:var(--cream); padding:9vh 7vw 10vh; }
 #directions .inner{ max-width:1180px; margin:0 auto; }
