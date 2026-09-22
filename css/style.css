@@ -1,7 +1,8 @@
 :root{
-  --lake:#1E3D3A; --lake-deep:#152E2B; --ink:#0F221F;
-  --terracotta:#A84B32; --terracotta-deep:#93412B; --cream:#EDE6D6;
-  --card-bg:#FBF8F2; --wood:#2A2420; --sage:#7C8A6E; --gold:#C98A3B;
+  /* premium-web-builder палитра: тёмный нейтральный + один приглушённый охра-акцент, без зелёного/яркого терракота */
+  --lake:#17130F; --lake-deep:#100D0A; --ink:#0B0908;
+  --terracotta:#B8823C; --terracotta-deep:#9C6E30; --cream:#EDE6D6;
+  --card-bg:#FBF8F2; --wood:#2A2420; --sage:#8C8378; --gold:#B8823C;
   --font-display:'Playfair Display', 'Bitter', Georgia, serif;
   --font-head:'Bitter', serif; --font-body:'Work Sans', sans-serif;
   --r-sm:6px; --r-md:10px; --r-lg:14px; --r-xl:16px; --r-pill:999px;
@@ -59,36 +60,24 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 @keyframes drift{ 0%{transform:translateY(0) translateX(0); opacity:0;} 12%{opacity:.85;} 100%{transform:translateY(-70vh) translateX(var(--dx,20px)); opacity:0;} }
 @media (prefers-reduced-motion: reduce){ .particle{ animation:none; opacity:0; } }
 
-/* ===== NAV — плавающее меню ===== */
+/* ===== NAV — прямо на фоне, без капсулы ===== */
 .nav{
   position:fixed; top:0; left:0; right:0; z-index:50;
   display:flex; justify-content:space-between; align-items:center;
-  padding:18px 6vw; font-family:var(--font-body);
-  background:rgba(21,46,43,0.0);
-  transition:background .4s ease, padding .4s ease, margin .4s ease, border-radius .4s ease, box-shadow .4s ease;
+  padding:26px 6vw; font-family:var(--font-body);
+  background:transparent;
+  transition:background .4s ease, padding .4s ease;
 }
 .nav.scrolled{
-  background:rgba(21,46,43,0.88); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-  margin:14px 3vw 0; padding:11px 24px;
-  border-radius:var(--r-pill); border:1px solid rgba(237,230,214,.08);
-  box-shadow:0 12px 32px rgba(8,14,13,.32);
+  background:linear-gradient(180deg, rgba(11,9,8,.82) 0%, rgba(11,9,8,.55) 55%, transparent 100%);
+  padding:18px 6vw 38px;
 }
-.nav .logo{ font-family:var(--font-head); font-weight:700; color:var(--cream); font-size:19px; text-decoration:none; }
+.nav .logo{ font-family:var(--font-head); font-weight:400; color:var(--cream); font-size:18px; letter-spacing:.03em; text-decoration:none; }
 .nav .links{ display:flex; gap:26px; }
-.nav .links a{
-  color:rgba(237,230,214,0.85); font-size:14px; text-decoration:none;
-  opacity:0; transform:translateY(-8px);
-  transition:opacity .45s ease, transform .45s ease, color .2s ease;
-}
-.nav.scrolled .links a{ opacity:1; transform:translateY(0); }
-.nav.scrolled .links a:nth-child(1){ transition-delay:.03s; }
-.nav.scrolled .links a:nth-child(2){ transition-delay:.09s; }
-.nav.scrolled .links a:nth-child(3){ transition-delay:.15s; }
-.nav.scrolled .links a:nth-child(4){ transition-delay:.21s; }
-.nav.scrolled .links a:nth-child(5){ transition-delay:.27s; }
+.nav .links a{ color:rgba(237,230,214,0.8); font-size:14px; text-decoration:none; transition:color .2s ease; }
 .nav .links a:hover{ color:var(--gold); }
-.nav .cta{ background:var(--terracotta); color:var(--cream); font-size:13.5px; font-weight:500; padding:9px 16px; border-radius:var(--r-sm); text-decoration:none; transition:transform .2s ease; }
-.nav .cta:hover{ transform:translateY(-1px); }
+.nav .cta{ background:transparent; border:1px solid rgba(237,230,214,.5); color:var(--cream); font-size:13.5px; font-weight:500; padding:8px 16px; border-radius:var(--r-sm); text-decoration:none; transition:border-color .2s ease, transform .2s ease; }
+.nav .cta:hover{ border-color:var(--cream); transform:translateY(-1px); }
 @media (max-width:760px){ .nav .links{ display:none; } }
 
 /* ===== HERO ===== */
