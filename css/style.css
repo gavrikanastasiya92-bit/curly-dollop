@@ -93,13 +93,13 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 
 /* ===== HERO ===== */
 #hero{
-  position:relative; min-height:92vh; display:flex; align-items:flex-end; color:var(--cream);
+  position:relative; z-index:0; min-height:92vh; display:flex; align-items:flex-end; color:var(--cream);
 }
 #hero::after{
   content:''; position:absolute; inset:0; z-index:1;
   background:
     radial-gradient(ellipse 60% 50% at 75% 15%, rgba(201,138,59,.14), transparent 60%),
-    linear-gradient(180deg, rgba(15,34,31,.42) 0%, rgba(15,34,31,.58) 45%, var(--ink) 100%);
+    linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.62) 45%, #0d0d0d 100%);
 }
 #hero .wrap{ position:relative; z-index:2; padding-block:16vh 9vh; }
 #hero h1{ font-family:var(--font-display); line-height:1.08; margin-bottom:24px; letter-spacing:0; }
@@ -114,7 +114,12 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 @media (max-width:640px){ #hero .wrap{ padding-block:14vh 10vh; } #hero .cta-row{ flex-direction:column; } #hero .btn{ text-align:center; } }
 
 /* ===== ABOUT ===== */
-#about{ background:var(--cream); color:var(--wood); display:grid; grid-template-columns:1fr 1fr; align-items:center; min-height:100vh; }
+/* мягкий нахлёст: "О месте" физически перекрывает низ hero и вырезано волной, поэтому светлый блок будто наплывает на фото */
+#about{
+  background:var(--cream); color:var(--wood); display:grid; grid-template-columns:1fr 1fr; align-items:center; min-height:100vh; position:relative; z-index:1;
+  margin-top:-64px; padding-top:64px;
+  clip-path: polygon(0% 64px, 8% 50px, 20% 28px, 35% 10px, 50% 0%, 65% 10px, 80% 28px, 92% 50px, 100% 64px, 100% 100%, 0% 100%);
+}
 #about .about-text{ padding:8vw 6vw; max-width:680px; justify-self:end; opacity:0; transform:translateY(18px); transition:opacity .9s ease, transform .9s ease; }
 #about .about-text.in{ opacity:1; transform:translateY(0); }
 #about .rule{ width:56px; height:3px; background:var(--terracotta); margin-bottom:22px; border-radius:2px; }
