@@ -1,0 +1,861 @@
+<title>Ak-Tengir Design System</title>
+<meta name="description" content="Палитра, типографика и приёмы для лендинга юрточного лагеря на Иссык-Куле, собранные по референсам.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,500;1,600&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Yeseva+One&family=Bitter:ital,wght@0,400;0,600;0,700;1,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lake:#1E3D3A; --lake-deep:#152E2B; --ink:#0F221F;
+  --terracotta:#A84B32; --terracotta-deep:#93412B;
+  --cream:#EDE6D6; --card-bg:#FBF8F2;
+  --wood:#2A2420; --sage:#7C8A6E; --gold:#C98A3B;
+
+  --text-on-light:#4A433C; --muted-on-light:#8a8177;
+  --line-light: rgba(42,36,32,.14); --line-dark: rgba(237,230,214,.14);
+
+  --font-display:'Playfair Display', 'Bitter', Georgia, serif;
+  --font-head:'Bitter', Georgia, serif;
+  --font-body:'Work Sans', -apple-system, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --r-sm:6px; --r-md:10px; --r-lg:14px; --r-xl:16px; --r-pill:999px;
+  --gutter: clamp(16px, 6vw, 72px);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--ink); color:var(--cream);
+  font-family:var(--font-body); font-size:16px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;}
+h1,h2,h3,p{margin:0;}
+h1,h2,h3{text-wrap:balance;}
+a{color:inherit;}
+section{position:relative; overflow:hidden;}
+.wrap{max-width:1180px; margin:0 auto; padding-inline:var(--gutter);}
+.rule{width:52px; height:3px; border-radius:2px; background:var(--terracotta); margin-bottom:20px;}
+
+/* reveal-on-scroll, visible by default; JS adds .pre only when it can animate it back in */
+.reveal{opacity:1; transform:none; transition:opacity .8s ease, transform .8s ease;}
+.reveal.pre{opacity:0; transform:translateY(20px);}
+@media (prefers-reduced-motion: reduce){ .reveal.pre{opacity:1; transform:none; transition:none;} }
+
+/* ===== NAV ===== */
+.ds-nav{
+  position:fixed; top:0; left:0; right:0; z-index:80;
+  display:flex; justify-content:space-between; align-items:center; gap:16px;
+  padding:16px var(--gutter);
+  transition:background .4s ease, padding .4s ease, margin .4s ease, border-radius .4s ease, box-shadow .4s ease;
+}
+.ds-nav .logo{font-family:var(--font-head); font-weight:700; font-size:15px; letter-spacing:.02em; text-decoration:none; color:var(--cream); white-space:nowrap;}
+.ds-nav .links{display:flex; gap:20px; overflow-x:auto; scrollbar-width:none;}
+.ds-nav .links::-webkit-scrollbar{display:none;}
+.ds-nav .links a{font-size:12.5px; text-decoration:none; color:rgba(237,230,214,.72); white-space:nowrap; transition:color .2s ease;}
+.ds-nav .links a:hover{color:var(--gold);}
+.ds-nav.scrolled{
+  background:rgba(21,46,43,.9); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  margin:12px 12px 0; padding:11px 22px; border-radius:var(--r-pill);
+  border:1px solid var(--line-dark); box-shadow:0 12px 32px rgba(8,14,13,.35);
+}
+@media (max-width:680px){ .ds-nav .links{display:none;} }
+
+/* ===== HERO ===== */
+#hero{
+  min-height:92vh; display:flex; align-items:flex-end; color:var(--cream);
+  background:
+    radial-gradient(ellipse 60% 50% at 75% 15%, rgba(201,138,59,.16), transparent 60%),
+    linear-gradient(200deg, #0a1a17 0%, var(--ink) 45%, var(--lake) 100%);
+}
+#hero::before{
+  content:''; position:absolute; inset:0;
+  background:
+    repeating-linear-gradient(100deg, rgba(237,230,214,.035) 0 2px, transparent 2px 90px),
+    radial-gradient(ellipse 90% 60% at 20% 100%, rgba(30,61,58,.9), transparent 70%);
+  animation:driftbg 26s ease-in-out infinite alternate;
+}
+@keyframes driftbg{ 0%{transform:scale(1) translateY(0);} 100%{transform:scale(1.06) translateY(-1%);} }
+@media (prefers-reduced-motion: reduce){ #hero::before{animation:none;} }
+#hero .wrap{position:relative; z-index:2; padding-block:16vh 9vh;}
+#hero h1{font-family:var(--font-display); line-height:1.08; margin-bottom:24px; letter-spacing:0;}
+#hero h1 .l1{
+  display:block; font-weight:700;
+  font-size:clamp(38px,7vw,84px); color:var(--cream);
+}
+#hero h1 .l2{
+  display:block; font-style:italic; font-weight:600;
+  font-size:clamp(26px,4.6vw,52px); color:var(--gold); margin-top:4px;
+}
+#hero .sub{max-width:480px; font-size:clamp(15px,1.6vw,17px); line-height:1.65; color:rgba(237,230,214,.8);}
+
+/* ===== SECTION HEAD ===== */
+.head{max-width:640px; margin-bottom:48px;}
+.head.center{margin-inline:auto; text-align:center;}
+.head h2{font-family:var(--font-head); font-weight:700; font-size:clamp(28px,3.6vw,42px); line-height:1.15;}
+.head p{margin-top:14px; font-size:16px; line-height:1.65;}
+
+section.light{background:var(--cream); color:var(--wood);}
+section.dark{background:var(--lake); color:var(--cream);}
+section.light p{color:var(--text-on-light);}
+
+/* ===== PRINCIPLES ===== */
+#principles{padding-block:12vh 10vh;}
+#principles .grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px;}
+#principles .item .num{font-family:var(--font-mono); font-size:12px; color:var(--gold); margin-bottom:14px; display:block;}
+#principles .item h3{font-family:var(--font-head); font-weight:700; font-size:20px; margin-bottom:10px;}
+#principles .item p{font-size:14.5px; line-height:1.6; color:rgba(237,230,214,.75);}
+@media (max-width:900px){ #principles .grid{grid-template-columns:1fr 1fr;} }
+@media (max-width:560px){ #principles .grid{grid-template-columns:1fr;} }
+
+/* ===== PALETTE ===== */
+#palette{padding-block:11vh 10vh;}
+.swatch-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:18px;}
+.swatch{
+  border:none; padding:0; text-align:left; cursor:pointer; background:none;
+  font-family:inherit; color:inherit; border-radius:var(--r-lg); overflow:hidden;
+  box-shadow:0 2px 18px rgba(42,36,32,.1);
+}
+.swatch .fill{height:96px; position:relative;}
+.swatch .fill .copied{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-size:12px; letter-spacing:.04em; text-transform:uppercase; font-weight:600;
+  background:rgba(15,34,31,.72); color:#fff; opacity:0; transition:opacity .2s ease;
+}
+.swatch .fill .copied.show{opacity:1;}
+.swatch .meta{background:var(--card-bg); padding:14px 16px 16px;}
+.swatch .name{font-weight:600; font-size:14px; color:var(--wood);}
+.swatch .hex{font-family:var(--font-mono); font-size:12px; color:var(--muted-on-light); margin-top:3px;}
+.swatch .use{font-size:12px; color:var(--muted-on-light); margin-top:8px; line-height:1.5;}
+@media (max-width:900px){ .swatch-grid{grid-template-columns:1fr 1fr 1fr;} }
+@media (max-width:560px){ .swatch-grid{grid-template-columns:1fr 1fr;} }
+
+/* ===== TYPE ===== */
+#type{padding-block:11vh 10vh;}
+.type-pairing{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:56px;}
+.pill-tag{font-size:12.5px; letter-spacing:.03em; text-transform:uppercase; font-weight:600; padding:8px 16px; border-radius:var(--r-pill); border:1px solid var(--line-dark); color:rgba(237,230,214,.8);}
+.pill-tag b{color:var(--gold); font-weight:700;}
+.font-candidates{margin-bottom:48px;}
+.fc-note{font-size:13.5px; color:rgba(237,230,214,.65); margin-bottom:18px;}
+.fc-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+.fc-item{background:var(--lake-deep); border:1px solid var(--line-dark); border-radius:var(--r-lg); padding:22px 24px;}
+.fc-label{display:block; font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--gold); margin-bottom:12px;}
+.fc-label i{color:rgba(237,230,214,.5); font-style:normal;}
+.fc-sample{display:block; font-size:clamp(22px,3vw,30px); line-height:1.2; color:var(--cream);}
+@media (max-width:640px){ .fc-grid{grid-template-columns:1fr;} }
+.specimen{border-top:1px solid var(--line-dark); padding-block:28px; display:grid; grid-template-columns:160px 1fr; gap:24px; align-items:baseline;}
+.specimen .label{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:rgba(237,230,214,.5);}
+.specimen .sample{color:var(--cream);}
+.specimen.display .sample{font-family:var(--font-display); font-weight:900; text-transform:uppercase; font-size:clamp(30px,5vw,58px); line-height:1.02;}
+.specimen.display-italic .sample{font-family:var(--font-display); font-style:italic; font-weight:600; font-size:clamp(24px,3.4vw,38px); color:var(--gold);}
+.specimen.head .sample{font-family:var(--font-head); font-weight:700; font-size:clamp(24px,3vw,32px);}
+.specimen.quote .sample{font-family:var(--font-head); font-style:italic; font-weight:600; font-size:clamp(19px,2.2vw,25px); color:var(--sage); line-height:1.4;}
+.specimen.body .sample{font-size:16px; line-height:1.7; color:rgba(237,230,214,.85); max-width:60ch;}
+.specimen.mono .sample{font-family:var(--font-mono); font-size:14px; color:var(--gold); background:rgba(237,230,214,.06); display:inline-block; padding:6px 12px; border-radius:var(--r-sm);}
+@media (max-width:640px){ .specimen{grid-template-columns:1fr; gap:8px;} }
+
+/* ===== BUTTONS ===== */
+#buttons{padding-block:11vh 10vh;}
+.btn{font-family:var(--font-body); font-weight:500; font-size:15px; padding:15px 28px; border-radius:var(--r-sm); text-decoration:none; display:inline-block; border:1.5px solid transparent; cursor:pointer; transition:transform .15s ease, background .2s ease, border-color .2s ease;}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--terracotta); color:var(--cream);}
+.btn-primary:hover{background:var(--terracotta-deep);}
+.btn-secondary-dark{background:transparent; border-color:rgba(237,230,214,.55); color:var(--cream);}
+.btn-secondary-dark:hover{border-color:var(--cream);}
+.btn-secondary-light{background:transparent; border-color:rgba(42,36,32,.3); color:var(--wood);}
+.btn-secondary-light:hover{border-color:var(--wood);}
+.btn-link{background:none; border:none; padding:0; font-size:14px; font-weight:500; color:var(--gold); border-bottom:1px solid rgba(201,138,59,.4); padding-bottom:2px; border-radius:0;}
+.row-demo{display:flex; gap:16px; flex-wrap:wrap; align-items:center; padding:36px var(--gutter); border-radius:var(--r-xl); margin-bottom:20px;}
+.row-demo.on-dark{background:var(--lake-deep);}
+.row-demo.on-light{background:var(--card-bg); border:1px solid var(--line-light);}
+.chips-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px;}
+.chip{font-size:13px; font-weight:600; padding:8px 15px; border-radius:var(--r-md);}
+.chip.gold{color:var(--gold); background:rgba(201,138,59,.12); border:1px solid rgba(201,138,59,.35);}
+.chip.dashed{font-size:10.5px; text-transform:uppercase; letter-spacing:.03em; color:rgba(237,230,214,.55); border:1px dashed rgba(237,230,214,.32); border-radius:var(--r-pill); padding:5px 10px;}
+.chip.price{display:flex; justify-content:space-between; gap:14px; font-size:13px; font-weight:500; padding:10px 16px; background:rgba(237,230,214,.06); border:1px solid var(--line-dark); border-radius:var(--r-md); min-width:200px;}
+.chip.price span{color:var(--gold); font-weight:600;}
+
+/* ===== CARDS ===== */
+#cards{padding-block:11vh 12vh;}
+.card-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:56px;}
+.ph{
+  width:100%; aspect-ratio:4/3; border-radius:inherit; position:relative; overflow:hidden;
+  background:radial-gradient(ellipse at 65% 25%, rgba(201,138,59,.22) 0%, transparent 55%), linear-gradient(160deg, var(--lake-deep) 0%, var(--ink) 100%);
+}
+.ph::after{content:''; position:absolute; inset:0; background:repeating-linear-gradient(115deg, rgba(255,255,255,.05) 0 1px, transparent 1px 14px);}
+.room-card{background:var(--card-bg); color:var(--wood); border-radius:var(--r-xl); overflow:hidden; box-shadow:0 2px 24px rgba(42,36,32,.1);}
+.room-card .ph{border-radius:0;}
+.room-card .body{padding:22px 22px 26px;}
+.room-card .top{display:flex; justify-content:space-between; gap:10px; margin-bottom:8px;}
+.room-card h3{font-family:var(--font-head); font-weight:700; font-size:19px;}
+.room-card .price{font-family:var(--font-head); font-weight:700; font-size:18px; color:var(--terracotta); white-space:nowrap;}
+.room-card .price span{font-family:var(--font-body); font-weight:400; font-size:11px; color:var(--muted-on-light);}
+.room-card p{font-size:14px; line-height:1.6; color:#544c43; margin-bottom:10px;}
+.room-card .tag{font-style:italic; font-size:13px; color:var(--sage);}
+.feature-card{background:var(--lake-deep); border:1px solid var(--line-dark); border-radius:var(--r-lg); padding:32px 26px; transition:border-color .2s ease;}
+.feature-card:hover{border-color:rgba(201,138,59,.4);}
+.feature-card .ic{width:38px; height:38px; margin-bottom:18px; color:var(--gold);}
+.feature-card h3{font-family:var(--font-head); font-weight:700; font-size:19px; margin-bottom:10px;}
+.feature-card p{font-size:14px; line-height:1.6; color:rgba(237,230,214,.72); margin-bottom:16px;}
+.quote-card{background:var(--card-bg); color:var(--wood); border:1px dashed rgba(42,36,32,.22); border-radius:var(--r-lg); padding:26px 22px; min-height:150px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; text-align:center;}
+.quote-card .mark{font-family:var(--font-head); font-size:32px; color:rgba(168,75,50,.32); line-height:1;}
+.quote-card span{font-size:12px; text-transform:uppercase; letter-spacing:.03em; color:var(--muted-on-light);}
+@media (max-width:900px){ .card-grid{grid-template-columns:1fr 1fr;} }
+@media (max-width:600px){ .card-grid{grid-template-columns:1fr;} }
+
+.collage-head{margin-bottom:22px;}
+.collage-head h3{font-family:var(--font-head); font-weight:700; font-size:20px; color:var(--cream);}
+.collage-head p{margin-top:6px; font-size:14px; color:rgba(237,230,214,.65);}
+.collage-row{display:flex; gap:22px; flex-wrap:wrap;}
+.collage-item{width:150px;}
+.collage-item .ph{aspect-ratio:1/1; border-radius:var(--r-md);}
+.collage-item .cap{margin-top:10px; font-size:13px; line-height:1.4; color:rgba(237,230,214,.82);}
+.collage-item .cap b{display:block; font-family:var(--font-head); font-weight:700; font-size:14.5px; color:var(--cream); margin-bottom:2px;}
+
+/* ===== TRANSITIONS ===== */
+#transitions{padding-block:11vh 0;}
+#transitions .wrap.top{padding-block:0 8vh;}
+.demo-pair{margin-bottom:64px;}
+.demo-pair .demo-label{font-size:13px; color:var(--muted-on-light); margin-top:16px; max-width:64ch; line-height:1.6;}
+.demo-pair .demo-label b{color:var(--wood);}
+.curve-demo{position:relative; border-radius:var(--r-xl); overflow:hidden;}
+.curve-demo .top-block{
+  height:220px; background:radial-gradient(ellipse at 70% 20%, rgba(201,138,59,.28), transparent 55%), linear-gradient(200deg,#0a1a17,var(--lake) 120%);
+  display:flex; align-items:flex-end; padding:24px 28px; color:var(--cream); font-family:var(--font-head); font-weight:700; font-size:20px;
+}
+.curve-demo .bottom-block{ background:var(--card-bg); padding:44px 28px 30px; position:relative; }
+.curve-demo .bottom-block::before{
+  content:''; position:absolute; left:0; right:0; top:-1px; height:44px;
+  background:var(--card-bg); border-radius:50% 50% 0 0 / 100% 100% 0 0; transform:scale(1.4,1) translateY(-1px);
+}
+.curve-demo .bottom-block p{position:relative; z-index:1; color:var(--text-on-light); font-size:14px; max-width:52ch;}
+.tear-demo{position:relative; border-radius:var(--r-xl); overflow:hidden;}
+.tear-demo .top-block{
+  height:200px; background:linear-gradient(200deg,var(--lake-deep),var(--lake)); color:var(--cream);
+  display:flex; align-items:center; padding:24px 28px; font-family:var(--font-head); font-weight:700; font-size:20px;
+  clip-path:polygon(0 0,100% 0,100% 88%,94% 92%,88% 87%,82% 94%,76% 89%,70% 93%,64% 86%,58% 92%,52% 88%,46% 94%,40% 87%,34% 91%,28% 86%,22% 93%,16% 88%,10% 92%,4% 87%,0 91%);
+}
+.tear-demo .bottom-block{ background:var(--card-bg); padding:38px 28px 30px; }
+.tear-demo .bottom-block p{color:var(--text-on-light); font-size:14px; max-width:52ch;}
+.reflect-note{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center; background:var(--lake-deep); border:1px solid var(--line-dark); border-radius:var(--r-xl); padding:34px; margin-bottom:12px;}
+.reflect-note .art{aspect-ratio:16/10; border-radius:var(--r-md); overflow:hidden; position:relative;
+  background:linear-gradient(180deg, var(--lake) 0%, var(--lake) 48%, var(--ink) 50%, var(--lake) 52%, transparent 100%);
+}
+.reflect-note .art::before{content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(15,34,31,.0) 45%, rgba(201,138,59,.18) 50%, rgba(15,34,31,0) 55%);}
+.reflect-note h4{font-family:var(--font-head); font-weight:700; font-size:19px; margin-bottom:10px;}
+.reflect-note p{font-size:14px; line-height:1.65; color:rgba(237,230,214,.75);}
+@media (max-width:760px){ .reflect-note{grid-template-columns:1fr;} }
+.sticky-demo{display:grid; grid-template-columns:1fr 1fr; height:360px; overflow-y:auto; border-radius:var(--r-xl); background:var(--card-bg);}
+.sd-text{position:sticky; top:0; align-self:start; height:360px; display:flex; align-items:center;}
+.sd-text .sd-inner{padding:0 clamp(20px,3vw,36px);}
+.sd-text h4{font-family:var(--font-head); font-weight:700; font-size:19px; color:var(--wood); margin-bottom:10px;}
+.sd-text p{font-size:14px; line-height:1.6; color:var(--muted-on-light);}
+.sd-photos{padding:20px; display:flex; flex-direction:column; gap:14px;}
+.sd-photos .ph{height:220px; flex-shrink:0;}
+@media (max-width:640px){ .sticky-demo{grid-template-columns:1fr; height:300px;} .sd-text{display:none;} }
+
+/* ===== MARKERS ===== */
+#markers{padding-block:11vh 10vh;}
+.marker-demo{position:relative; border-radius:var(--r-xl); overflow:hidden; aspect-ratio:16/9; background:radial-gradient(ellipse at 40% 30%, rgba(201,138,59,.22), transparent 55%), linear-gradient(200deg,#0a1a17,var(--lake) 120%);}
+.marker-demo .pin{position:absolute; display:flex; align-items:center; gap:9px; font-size:12.5px; color:var(--cream);}
+.marker-demo .pin .dot{width:9px; height:9px; border-radius:50%; border:1.5px solid var(--gold); position:relative; flex-shrink:0;}
+.marker-demo .pin .dot::after{content:''; position:absolute; inset:2px; border-radius:50%; background:var(--gold);}
+.marker-demo .pin b{font-family:var(--font-mono); color:var(--gold); font-weight:600; margin-right:4px;}
+.marker-demo .p1{top:14%; left:8%;}
+.marker-demo .p2{top:46%; left:38%;}
+.marker-demo .p3{bottom:12%; right:9%; text-align:right; flex-direction:row-reverse;}
+.marker-note{margin-top:20px; font-size:13.5px; color:rgba(237,230,214,.6); max-width:64ch; line-height:1.6;}
+
+/* ===== MAP ===== */
+#map{padding-block:11vh 12vh;}
+.map-frame{background:var(--lake-deep); border:1px solid var(--line-dark); border-radius:var(--r-xl); padding:clamp(20px,4vw,44px);}
+.map-frame svg{width:100%; height:auto; display:block;}
+.map-legend{display:flex; gap:28px; flex-wrap:wrap; margin-top:22px; font-size:13px; color:rgba(237,230,214,.7);}
+.map-legend .k{display:inline-flex; align-items:center; gap:8px;}
+.map-legend .sw{width:14px; height:14px; border-radius:4px; display:inline-block;}
+
+/* ===== MOTION ===== */
+#motion{padding-block:11vh 10vh;}
+.collage-hero-demo{background:var(--card-bg); color:var(--wood); border-radius:var(--r-xl); padding:30px clamp(20px,4vw,34px); margin-bottom:52px;}
+.ch-text h3{font-family:var(--font-head); font-weight:700; font-size:19px; margin-bottom:8px;}
+.ch-text p{font-size:14px; line-height:1.6; color:var(--muted-on-light); max-width:62ch;}
+.ch-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; grid-template-rows:150px 110px; gap:12px; margin-top:26px;}
+.ch-tile{height:100%; opacity:1; transform:translateY(0); transition:opacity .7s ease, transform .7s ease;}
+.ch-tile .ph{width:100%; height:100%;}
+.ch-a{grid-column:1; grid-row:1 / 3;}
+.ch-b{grid-column:2; grid-row:1;}
+.ch-c{grid-column:3; grid-row:1;}
+.ch-d{grid-column:2 / 4; grid-row:2;}
+.ch-tile.ch-a{transition-delay:0s;}
+.ch-tile.ch-b{transition-delay:.12s;}
+.ch-tile.ch-c{transition-delay:.24s;}
+.ch-tile.ch-d{transition-delay:.36s;}
+.collage-hero-demo.pre .ch-tile{opacity:0; transform:translateY(34px);}
+@media (prefers-reduced-motion: reduce){ .collage-hero-demo.pre .ch-tile{opacity:1; transform:none;} }
+@media (max-width:640px){ .ch-grid{grid-template-columns:1fr 1fr; grid-template-rows:120px 90px 90px;} .ch-a{grid-column:1/3; grid-row:1;} .ch-b{grid-column:1; grid-row:2;} .ch-c{grid-column:2; grid-row:2;} .ch-d{grid-column:1/3; grid-row:3;} }
+.motion-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+.motion-card{background:var(--card-bg); border-radius:var(--r-lg); overflow:hidden; box-shadow:0 2px 20px rgba(42,36,32,.1);}
+.motion-card .stage{height:140px; position:relative; overflow:hidden; background:linear-gradient(160deg,var(--lake-deep),var(--ink));}
+.motion-card .body{padding:18px 20px 22px;}
+.motion-card h4{font-family:var(--font-head); font-weight:700; font-size:16px; color:var(--wood); margin-bottom:6px;}
+.motion-card p{font-size:13px; line-height:1.55; color:var(--muted-on-light);}
+.stage.kb-demo .ph2{position:absolute; inset:0; background:radial-gradient(ellipse at 60% 30%, rgba(201,138,59,.3) 0%, transparent 60%), linear-gradient(160deg,var(--lake-deep),var(--ink)); animation:kb 6s ease-in-out infinite alternate;}
+@keyframes kb{0%{transform:scale(1);}100%{transform:scale(1.14);}}
+.stage.shimmer-demo::before{content:''; position:absolute; inset:-20% -40%; background:linear-gradient(78deg, transparent 42%, rgba(255,255,255,.16) 50%, transparent 58%); animation:shimmer 4.5s ease-in-out infinite;}
+@keyframes shimmer{0%,100%{transform:translateX(-22%);}50%{transform:translateX(22%);}}
+.stage.particle-demo .particle{position:absolute; bottom:-10px; width:5px; height:5px; border-radius:50%; background:radial-gradient(circle, var(--gold) 0%, rgba(201,138,59,0) 70%); opacity:0; animation:drift 4.5s ease-in infinite;}
+@keyframes drift{0%{transform:translateY(0) translateX(0); opacity:0;}12%{opacity:.9;}100%{transform:translateY(-140px) translateX(var(--dx,14px)); opacity:0;}}
+@media (prefers-reduced-motion: reduce){ .kb-demo .ph2, .shimmer-demo::before, .particle-demo .particle{animation:none; opacity:0;} }
+@media (max-width:860px){ .motion-grid{grid-template-columns:1fr 1fr;} }
+@media (max-width:560px){ .motion-grid{grid-template-columns:1fr;} }
+
+/* ===== FLOW (лента) ===== */
+#flow{padding-block:11vh 10vh;}
+.flow-list{border-top:1px solid var(--line-dark);}
+.flow-row{display:grid; grid-template-columns:150px 34px 1fr 150px; gap:18px; align-items:center; padding:16px 0; border-bottom:1px solid var(--line-dark);}
+.flow-row .sec-name{font-family:var(--font-head); font-weight:700; font-size:15px;}
+.flow-row .sec-id{display:block; font-family:var(--font-mono); font-size:11px; color:rgba(237,230,214,.45); margin-top:2px;}
+.flow-bar{width:12px; border-radius:6px; background:linear-gradient(180deg, var(--gold), var(--terracotta)); justify-self:center;}
+.flow-row .sec-note{font-size:13.5px; color:rgba(237,230,214,.72); line-height:1.5;}
+.flow-tag{justify-self:end; font-size:11px; font-weight:600; letter-spacing:.03em; text-transform:uppercase; padding:5px 11px; border-radius:var(--r-pill); white-space:nowrap;}
+.flow-tag.plain{color:rgba(237,230,214,.55); border:1px dashed rgba(237,230,214,.3);}
+.flow-tag.curve{color:var(--gold); background:rgba(201,138,59,.14); border:1px solid rgba(201,138,59,.35);}
+.flow-tag.tear{color:#e59a7a; background:rgba(168,75,50,.16); border:1px solid rgba(168,75,50,.4);}
+.flow-tag.reflect{color:#9fd3c9; background:rgba(124,138,110,.18); border:1px solid rgba(124,138,110,.4);}
+@media (max-width:760px){
+  .flow-row{grid-template-columns:24px 1fr; grid-template-areas:"bar name" "bar note" "bar tag"; row-gap:6px;}
+  .flow-bar{grid-area:bar; width:8px; height:100%;}
+  .flow-row .sec-name{grid-area:name;}
+  .flow-row .sec-note{grid-area:note;}
+  .flow-tag{grid-area:tag; justify-self:start;}
+}
+
+/* ===== PHOTO PROMPTS ===== */
+#photo{padding-block:11vh 10vh;}
+.promptbox{background:var(--lake-deep); border:1px solid var(--line-dark); border-radius:var(--r-lg); padding:22px 24px; margin-bottom:36px;}
+.promptbox .k{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--gold); margin-bottom:10px; display:block;}
+.promptbox code{font-family:var(--font-mono); font-size:13.5px; line-height:1.7; color:rgba(237,230,214,.92); white-space:pre-wrap; word-break:break-word;}
+.prompt-grid{display:flex; flex-direction:column; gap:14px;}
+.prompt-item{background:var(--card-bg); border-radius:var(--r-lg); padding:20px 22px; display:grid; grid-template-columns:170px 70px 1fr; gap:18px; align-items:start;}
+.prompt-item .p-sec{font-family:var(--font-head); font-weight:700; font-size:15px; color:var(--wood);}
+.prompt-item .p-sec small{display:block; font-family:var(--font-body); font-weight:400; font-size:12px; color:var(--muted-on-light); margin-top:4px;}
+.prompt-item .p-ratio{font-family:var(--font-mono); font-size:12px; color:var(--terracotta); align-self:center; text-align:center; background:rgba(168,75,50,.08); border-radius:var(--r-sm); padding:6px 4px;}
+.prompt-item .p-text{font-family:var(--font-mono); font-size:12.5px; line-height:1.65; color:var(--text-on-light);}
+@media (max-width:760px){ .prompt-item{grid-template-columns:1fr; gap:8px;} .prompt-item .p-ratio{justify-self:start;} }
+.avoid-list{list-style:none; padding:0; margin:22px 0 0; display:grid; grid-template-columns:1fr 1fr; gap:10px 22px; font-size:14px; color:rgba(237,230,214,.78);}
+.avoid-list li{padding-left:20px; position:relative; line-height:1.5;}
+.avoid-list li::before{content:'—'; position:absolute; left:0; color:var(--terracotta);}
+@media (max-width:640px){ .avoid-list{grid-template-columns:1fr;} }
+
+/* ===== ANTI-SLOP ===== */
+#antislop{padding-block:11vh 10vh;}
+.pair-grid{display:flex; flex-direction:column; gap:14px;}
+.pair-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+.pair-row .no, .pair-row .yes{border-radius:var(--r-md); padding:16px 18px; font-size:14px; line-height:1.55;}
+.pair-row .no{background:rgba(168,75,50,.07); border:1px solid rgba(168,75,50,.22); color:var(--wood);}
+.pair-row .yes{background:rgba(124,138,110,.1); border:1px solid rgba(124,138,110,.3); color:var(--wood);}
+.pair-row .tagline{display:block; font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; font-weight:700; margin-bottom:6px;}
+.pair-row .no .tagline{color:var(--terracotta);}
+.pair-row .yes .tagline{color:#5c6b4f;}
+@media (max-width:700px){ .pair-row{grid-template-columns:1fr;} }
+
+/* ===== TOKENS TABLE ===== */
+#tokens{padding-block:11vh 14vh;}
+.token-table{width:100%; border-collapse:collapse; font-size:14px;}
+.token-table th{text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted-on-light); padding:10px 14px; border-bottom:1px solid var(--line-light);}
+.token-table td{padding:12px 14px; border-bottom:1px solid var(--line-light); color:var(--wood);}
+.token-table td:first-child{font-family:var(--font-mono); color:var(--terracotta); font-size:13px;}
+.table-wrap{overflow-x:auto; background:var(--card-bg); border-radius:var(--r-lg); padding:8px 8px; margin-bottom:20px;}
+#tokens .closing{font-size:14.5px; line-height:1.7; color:var(--text-on-light); max-width:68ch; margin-top:8px;}
+
+footer{background:var(--wood); color:rgba(237,230,214,.55); text-align:center; padding:28px; font-size:13px;}
+</style>
+
+<nav class="ds-nav">
+  <a class="logo" href="#hero">AK · TENGIR — DS</a>
+  <div class="links">
+    <a href="#principles">Принципы</a>
+    <a href="#palette">Палитра</a>
+    <a href="#type">Типографика</a>
+    <a href="#buttons">Кнопки</a>
+    <a href="#cards">Карточки</a>
+    <a href="#transitions">Переходы</a>
+    <a href="#markers">Метки</a>
+    <a href="#map">Карта</a>
+    <a href="#motion">Движение</a>
+    <a href="#flow">Лента</a>
+    <a href="#photo">Фото и промпты</a>
+    <a href="#antislop">Без ИИ-шаблона</a>
+    <a href="#tokens">Токены</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="wrap">
+    <h1>
+      <span class="l1">Светлое</span>
+      <span class="l2">пространство</span>
+    </h1>
+    <p class="sub">Дизайн-система Ak-Tengir: палитра, шрифты, компоненты и приёмы для лендинга на Иссык-Куле.</p>
+  </div>
+</section>
+
+<section id="principles" class="dark reveal">
+  <div class="wrap">
+    <div class="rule"></div>
+    <div class="grid">
+      <div class="item"><span class="num">01</span><h3>Природное, не искусственное</h3><p>Только оттенки, которые встречаются в природе: вода, войлок, зола, шалфей, латунь очага — без неона и синтетики.</p></div>
+      <div class="item"><span class="num">02</span><h3>Подлинность</h3><p>Реальные факты и цифры вместо рекламных оборотов. Меньше «не просто X, а Y» — больше конкретики.</p></div>
+      <div class="item"><span class="num">03</span><h3>Тишина и воздух</h3><p>Секции дышат, лента ощущается непрерывной — как берег, а не набор карточек.</p></div>
+      <div class="item"><span class="num">04</span><h3>Ремесло</h3><p>Войлок, дерево, керамика, дым костра — материальность вместо плоских иконок.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="palette" class="light reveal">
+  <div class="wrap">
+    <div class="head">
+      <h2>Природные, благородные тона</h2>
+      <p>Палитра сайта, плюс два токена — были литералами в коде. Клик по образцу копирует hex.</p>
+    </div>
+    <div class="swatch-grid">
+      <button class="swatch" data-hex="#1E3D3A"><div class="fill" style="background:#1E3D3A"><span class="copied">Скопировано</span></div><div class="meta"><div class="name">Озеро</div><div class="hex">--lake · #1E3D3A</div><div class="use">Фон тёмных секций, навигация</div></div></button>
+      <button class="swatch" data-hex="#152E2B"><div class="fill" style="background:#152E2B"><span class="copied">Скопировано</span></div><div class="meta"><div class="name">Глубина озера</div><div class="hex">--lake-deep · #152E2B</div><div class="use">Карточки на тёмном фоне</div></div></button>
+      <button class="swatch" data-hex="#0F221F"><div class="fill" style="background:#0F221F"><span class="copied">Скопировано</span></div><div class="meta"><div class="name">Ночь у воды</div><div class="hex">--ink · #0F221F</div><div class="use">Новый токен — база hero и градиентов (был литералом)</div></div></button>
+      <button class="swatch" data-hex="#A84B32"><div class="fill" style="background:#A84B32"><span class="copied">Скопировано</span></div><div class="meta"><div class="name">Терракота</div><div class="hex">--terracotta · #A84B32</div><div class="use">CTA, цены, акценты</div></div></button>
+      <button class="swatch" data-hex="#93412B"><div class="fill" style="background:#93412B"><span class="copied">Скопировано</span></div><div class="meta"><div class="name">Терракота, тлеющая</div><div class="hex">--terracotta-deep · #93412B</div><div class="use">Новый токен — hover у кнопок (был литералом)</div></div></button>
+      <button class="swatch" data-hex="#EDE6D6"><div class="fill" style="background:#EDE6D6"><span class="copied">Скопировано</span></div><div class="meta"><div class="name">Крем / войлок</div><div class="hex">--cream · #EDE6D6</div><div class="use">Фон светлых секций</div></div></button>
+      <button class="swatch" data-hex="#FBF8F2"><div class="fill" style="background:#FBF8F2"><span class="copied">Скопировано</span></div><div class="meta"><div class="name">Полотно карточки</div><div class="hex">--card-bg · #FBF8F2</div><div class="use">Карточки на светлом фоне</div></div></button>
+      <button class="swatch" data-hex="#2A2420"><div class="fill" style="background:#2A2420"><span class="copied">Скопировано</span></div><div class="meta"><div class="name">Дерево юрты</div><div class="hex">--wood · #2A2420</div><div class="use">Текст на светлом фоне, футер</div></div></button>
+      <button class="swatch" data-hex="#7C8A6E"><div class="fill" style="background:#7C8A6E"><span class="copied">Скопировано</span></div><div class="meta"><div class="name">Шалфей тропы</div><div class="hex">--sage · #7C8A6E</div><div class="use">Цитаты, факты, второстепенный акцент</div></div></button>
+      <button class="swatch" data-hex="#C98A3B"><div class="fill" style="background:#C98A3B"><span class="copied">Скопировано</span></div><div class="meta"><div class="name">Латунь очага</div><div class="hex">--gold · #C98A3B</div><div class="use">Eyebrow-подписи, свечение, мелкие акценты</div></div></button>
+    </div>
+  </div>
+</section>
+
+<section id="type" class="dark reveal">
+  <div class="wrap">
+    <div class="head">
+      <h2>Один яркий акцент, спокойная опора</h2>
+      <p style="color:rgba(237,230,214,.72)">Display-шрифт для крупных моментов + простой шрифт рядом — не два ярких сразу.</p>
+    </div>
+
+    <div class="font-candidates">
+      <p class="fc-note">Hero-шрифт ещё не выбран — 4 варианта на кириллице, один и тот же текст. Выбери, остальные уберём.</p>
+      <div class="fc-grid">
+        <div class="fc-item"><span class="fc-label">Bitter <i>(уже на сайте)</i></span><span class="fc-sample" style="font-family:'Bitter',serif; font-weight:700;">Светлое пространство</span></div>
+        <div class="fc-item"><span class="fc-label">Playfair Display</span><span class="fc-sample" style="font-family:'Playfair Display',serif; font-weight:700;">Светлое пространство</span></div>
+        <div class="fc-item"><span class="fc-label">PT Serif</span><span class="fc-sample" style="font-family:'PT Serif',serif; font-weight:700;">Светлое пространство</span></div>
+        <div class="fc-item"><span class="fc-label">Yeseva One</span><span class="fc-sample" style="font-family:'Yeseva One',serif; font-weight:400;">Светлое пространство</span></div>
+      </div>
+    </div>
+
+    <div class="specimen display">
+      <span class="label">Hero display</span>
+      <span class="sample">Юрты и вода</span>
+    </div>
+    <div class="specimen display-italic">
+      <span class="label">Display, курсив</span>
+      <span class="sample">светлое пространство</span>
+    </div>
+    <div class="specimen head">
+      <span class="label">Заголовок H2</span>
+      <span class="sample" style="font-family:var(--font-head)">Три повода приехать</span>
+    </div>
+    <div class="specimen quote">
+      <span class="label">Цитата / прощание</span>
+      <span class="sample">Ак-Тенгир ждёт столько, сколько нужно, чтобы вернуться к себе.</span>
+    </div>
+    <div class="specimen body">
+      <span class="label">Основной текст</span>
+      <span class="sample">11 юрт и 2 пляжных домика на южном берегу Иссык-Куля. Баня — в 5–10 метрах от воды, повар готовит из овощей с собственного пермакультурного огорода.</span>
+    </div>
+    <div class="specimen mono">
+      <span class="label">Числа, коды</span>
+      <span class="sample">$120 / сутки · 8QJF+2M</span>
+    </div>
+  </div>
+</section>
+
+<section id="buttons" class="light reveal">
+  <div class="wrap">
+    <div class="head">
+      <h2>Кнопки и бейджи</h2>
+    </div>
+    <div class="row-demo on-dark">
+      <a class="btn btn-primary" href="#">Забронировать</a>
+      <a class="btn btn-secondary-dark" href="#">Смотреть юрты</a>
+      <a class="btn-link" href="#">Все категории →</a>
+    </div>
+    <div class="row-demo on-light">
+      <a class="btn btn-primary" href="#">Написать в WhatsApp</a>
+      <a class="btn btn-secondary-light" href="#">+996 XXX XXX XXX</a>
+    </div>
+    <div class="chips-row">
+      <span class="chip gold">Без ночёвки — от $25</span>
+      <span class="chip dashed">Цена уточняется</span>
+      <span class="chip price">Сапборд <span>по запросу</span></span>
+    </div>
+  </div>
+</section>
+
+<section id="cards" class="dark reveal">
+  <div class="wrap">
+    <div class="head">
+      <h2>Три вида карточек + приём с подписями</h2>
+    </div>
+    <div class="card-grid">
+      <div class="room-card">
+        <div class="ph"></div>
+        <div class="body">
+          <div class="top"><h3>ВИП юрта</h3><div class="price">$120<span> / сутки</span></div></div>
+          <p>Отдельный вход, панорамный вид на озеро, завтрак включён.</p>
+          <div class="tag">Круглый год</div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20c4-9 8-9 8-16 0 7 4 7 8 16"/><path d="M4 20h16"/></svg>
+        </div>
+        <h3>Ретриты</h3>
+        <p>Открытая площадка: свои программы, приглашённые практики, корпоративные заезды.</p>
+        <a class="btn-link" href="#">Подробнее →</a>
+      </div>
+      <div class="quote-card">
+        <div class="mark">"</div>
+        <span>Отзыв гостя</span>
+      </div>
+    </div>
+
+    <div class="collage-head">
+      <h3>Из огорода и очага</h3>
+      <p>Приём из референсов NANA / «Мои работы» — мелкое фото + короткая лаконичная подпись, для секции «Питание».</p>
+    </div>
+    <div class="collage-row">
+      <div class="collage-item"><div class="ph"></div><div class="cap"><b>Тёплый хлеб</b>из дровяной печи каждое утро</div></div>
+      <div class="collage-item"><div class="ph"></div><div class="cap"><b>Свой огород</b>пермакультура, семена из разных стран</div></div>
+      <div class="collage-item"><div class="ph"></div><div class="cap"><b>Костровая зона</b>из природных валунов</div></div>
+      <div class="collage-item"><div class="ph"></div><div class="cap"><b>Сапборд</b>у самого берега, отдельно от проживания</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="transitions" class="light reveal">
+  <div class="wrap top">
+    <div class="head">
+      <h2>Разрыв, который одновременно сливается</h2>
+      <p>Вместо жёсткой границы между секциями.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="demo-pair">
+      <div class="curve-demo">
+        <div class="top-block">Баня у воды</div>
+        <div class="bottom-block"><p>Мягкая волна наплывает на фото сверху — светлая секция как будто вытекает из тёмной, без прямой линии.</p></div>
+      </div>
+      <div class="demo-label"><b>Мягкий нахлёст</b> — светлый блок с выпуклым верхним краем перекрывает низ фото-секции.</div>
+    </div>
+    <div class="demo-pair">
+      <div class="tear-demo">
+        <div class="top-block">Территория и активности</div>
+        <div class="bottom-block"><p>Рваный край вместо ровной линии — блоки будто оторваны друг от друга, как страница дневника.</p></div>
+      </div>
+      <div class="demo-label"><b>Рваный край</b> — уместен между смысловыми блоками верхнего уровня, не внутри одной темы.</div>
+    </div>
+    <div class="reflect-note">
+      <div class="art"></div>
+      <div>
+        <h4>Отражение как мост</h4>
+        <p>Конец «Баня у воды» → начало «Территория» через один и тот же блик на глади озера.</p>
+      </div>
+    </div>
+
+    <div class="demo-pair">
+      <div class="sticky-demo">
+        <div class="sd-col sd-text">
+          <div class="sd-inner">
+            <h4>Текст стоит, фото едут</h4>
+            <p>Описание секции остаётся на месте, пока рядом прокручиваются кадры — фокус на смысле, а не на прокрутке. Прокрути внутри рамки, чтобы увидеть эффект.</p>
+          </div>
+        </div>
+        <div class="sd-col sd-photos">
+          <div class="ph"></div>
+          <div class="ph"></div>
+          <div class="ph"></div>
+        </div>
+      </div>
+      <div class="demo-label"><b>Sticky-сплит</b> — годится для «О месте», «Баня», «История»: одна колонка на CSS <code>position:sticky</code>, вторая скроллится обычным потоком. Тут зафиксирован текст, но роли можно поменять местами — зафиксировать фото, а список преимуществ прокручивать рядом.</div>
+    </div>
+  </div>
+</section>
+
+<section id="markers" class="dark reveal">
+  <div class="wrap">
+    <div class="head">
+      <h2>Только там, где порядок — часть смысла</h2>
+      <p style="color:rgba(237,230,214,.72)">Не декор ради вида, а реальные шаги брони.</p>
+    </div>
+    <div class="marker-demo">
+      <div class="pin p1"><b>{01}</b>Написать в WhatsApp</div>
+      <div class="pin p2"><b>{02}</b>Подтвердить даты и юрту</div>
+      <div class="pin p3"><b>{03}</b>Приехать на берег</div>
+    </div>
+  </div>
+</section>
+
+<section id="map" class="light reveal">
+  <div class="wrap">
+    <div class="head">
+      <h2>Иллюстративная, а не гугл-эмбед</h2>
+      <p>Контур вместо тайлов, точка лагеря, пунктирный маршрут с расстоянием.</p>
+    </div>
+    <div class="map-frame">
+      <svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lakeFill" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#2f5a55"/>
+            <stop offset="1" stop-color="#1E3D3A"/>
+          </linearGradient>
+        </defs>
+        <path d="M40 190 C 60 120, 160 90, 260 100 C 360 110, 380 70, 470 75 C 570 80, 610 120, 690 140 C 740 155, 760 190, 700 210 C 640 230, 560 205, 470 215 C 380 225, 320 260, 230 250 C 150 242, 60 245, 40 190 Z"
+          fill="url(#lakeFill)" stroke="rgba(237,230,214,.35)" stroke-width="1.5"/>
+        <g stroke="rgba(237,230,214,.14)" stroke-width="1" fill="none">
+          <path d="M20 90 C 200 40, 500 40, 780 90"/>
+          <path d="M10 300 C 220 340, 560 340, 790 300"/>
+        </g>
+        <path d="M120 60 C 90 130, 150 170, 210 150" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-dasharray="4 6"/>
+        <circle cx="120" cy="60" r="4" fill="var(--cream)"/>
+        <text x="132" y="58" fill="rgba(237,230,214,.85)" font-family="Work Sans, sans-serif" font-size="15" font-weight="600">Бишкек</text>
+        <rect x="60" y="95" width="118" height="26" rx="13" fill="rgba(237,230,214,.08)" stroke="rgba(237,230,214,.25)"/>
+        <text x="119" y="112" fill="var(--gold)" font-family="Work Sans, sans-serif" font-size="12" text-anchor="middle">~370 км · 5–6 ч*</text>
+        <circle cx="210" cy="150" r="7" fill="var(--terracotta)" stroke="var(--cream)" stroke-width="2"/>
+        <text x="224" y="146" fill="var(--cream)" font-family="Bitter, serif" font-weight="700" font-size="19">AK-TENGIR</text>
+        <text x="224" y="166" fill="rgba(237,230,214,.65)" font-family="Work Sans, sans-serif" font-size="12.5">Южный берег Иссык-Куля</text>
+        <circle cx="470" cy="150" r="2.5" fill="rgba(237,230,214,.4)"/>
+        <text x="480" y="154" fill="rgba(237,230,214,.55)" font-family="Work Sans, sans-serif" font-size="12">Каракол</text>
+        <circle cx="150" cy="205" r="2.5" fill="rgba(237,230,214,.4)"/>
+        <text x="160" y="209" fill="rgba(237,230,214,.55)" font-family="Work Sans, sans-serif" font-size="12">Балыкчы</text>
+      </svg>
+    </div>
+    <div class="map-legend">
+      <span class="k"><span class="sw" style="background:var(--terracotta)"></span>Лагерь</span>
+      <span class="k"><span class="sw" style="background:var(--gold)"></span>Маршрут и расстояние</span>
+      <span class="k"><span class="sw" style="background:rgba(237,230,214,.4)"></span>Ориентиры на берегу</span>
+    </div>
+    <p style="font-size:12.5px; color:var(--muted-on-light); margin-top:14px;">*Расстояние и время — ориентировочно, для макета; уточнить точный адрес перед версткой карты в коде.</p>
+  </div>
+</section>
+
+<section id="motion" class="dark reveal">
+  <div class="wrap">
+    <div class="head">
+      <h2>Уже в js/main.js и style.css</h2>
+    </div>
+
+    <div class="collage-hero-demo reveal">
+      <div class="ch-text">
+        <h3>Коллаж-hero при входе</h3>
+        <p>По референсу adriennwhite.com — вместо одного фонового фото 3–4 кадра поднимаются в кадр лесенкой, с небольшой задержкой друг за другом. Сразу видно несколько сильных снимков, а не один.</p>
+      </div>
+      <div class="ch-grid">
+        <div class="ch-tile ch-a"><div class="ph"></div></div>
+        <div class="ch-tile ch-b"><div class="ph"></div></div>
+        <div class="ch-tile ch-c"><div class="ph"></div></div>
+        <div class="ch-tile ch-d"><div class="ph"></div></div>
+      </div>
+    </div>
+
+    <div class="motion-grid">
+      <div class="motion-card">
+        <div class="stage kb-demo"><div class="ph2"></div></div>
+        <div class="body"><h4>Ken Burns</h4><p>Медленное дыхание фото — зум 22 сек, зациклен. Класс <code>.kenburns</code>.</p></div>
+      </div>
+      <div class="motion-card">
+        <div class="stage shimmer-demo"></div>
+        <div class="body"><h4>Мерцание воды</h4><p>Диагональный блик, как рябь на озере. Класс <code>.shimmer</code>.</p></div>
+      </div>
+      <div class="motion-card">
+        <div class="stage particle-demo">
+          <div class="particle" style="left:20%; --dx:18px; animation-delay:0s;"></div>
+          <div class="particle" style="left:50%; --dx:-14px; animation-delay:1.2s;"></div>
+          <div class="particle" style="left:75%; --dx:10px; animation-delay:2.4s;"></div>
+          <div class="particle" style="left:35%; --dx:-8px; animation-delay:.6s;"></div>
+        </div>
+        <div class="body"><h4>Искры / пепел</h4><p>Плавающие частицы в hero и «Истории». Уважают <code>prefers-reduced-motion</code>.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="flow" class="dark reveal">
+  <div class="wrap">
+    <div class="head">
+      <h2>Дыхание, а не одинаковые экраны</h2>
+      <p style="color:rgba(237,230,214,.72)">Порядок секций <code>index.html</code>: высота и темп чередуются осознанно, переходы — только на 3–4 главных стыках.</p>
+    </div>
+    <div class="flow-list">
+      <div class="flow-row"><div><span class="sec-name">Hero</span><span class="sec-id">#hero</span></div><div class="flow-bar" style="height:64px"></div><div class="sec-note">Полный экран, обещание + два CTA. Долгий вдох перед лентой.</div><span class="flow-tag plain">обычный стык</span></div>
+      <div class="flow-row"><div><span class="sec-name">О месте</span><span class="sec-id">#about</span></div><div class="flow-bar" style="height:40px"></div><div class="sec-note">Короче hero, текст+фото сплит. Пауза для чтения.</div><span class="flow-tag plain">обычный стык</span></div>
+      <div class="flow-row"><div><span class="sec-name">История и основатель</span><span class="sec-id">#founder</span></div><div class="flow-bar" style="height:48px"></div><div class="sec-note">Тёмный фон продолжает hero — без разрыва, один и тот же лагерь.</div><span class="flow-tag reflect">отражение-мост</span></div>
+      <div class="flow-row"><div><span class="sec-name">Три повода</span><span class="sec-id">#directions</span></div><div class="flow-bar" style="height:36px"></div><div class="sec-note">Компактный блок карточек — самый «структурный» экран ленты.</div><span class="flow-tag plain">обычный стык</span></div>
+      <div class="flow-row"><div><span class="sec-name">Размещение</span><span class="sec-id">#stay</span></div><div class="flow-bar" style="height:56px"></div><div class="sec-note">Длинный грид, светлый фон — самый «товарный» экран, ему нужен воздух до и после.</div><span class="flow-tag plain">обычный стык</span></div>
+      <div class="flow-row"><div><span class="sec-name">Баня</span><span class="sec-id">#banya</span></div><div class="flow-bar" style="height:52px"></div><div class="sec-note">Фото воды на всю высоту — здесь уместен блик/отражение как переход дальше.</div><span class="flow-tag curve">мягкий нахлёст</span></div>
+      <div class="flow-row"><div><span class="sec-name">Питание</span><span class="sec-id">#food</span></div><div class="flow-bar" style="height:44px"></div><div class="sec-note">Коллаж мелких фото+подписей — другой ритм, чем сплиты вокруг.</div><span class="flow-tag plain">обычный стык</span></div>
+      <div class="flow-row"><div><span class="sec-name">Территория</span><span class="sec-id">#territory</span></div><div class="flow-bar" style="height:50px"></div><div class="sec-note">Смысловая граница: от быта — к смене темпа ретрита. Здесь уместен разрыв.</div><span class="flow-tag tear">рваный край</span></div>
+      <div class="flow-row"><div><span class="sec-name">Ретриты</span><span class="sec-id">#retreats</span></div><div class="flow-bar" style="height:46px"></div><div class="sec-note">Цитата вместо карточек — намеренно медленнее соседних секций.</div><span class="flow-tag plain">обычный стык</span></div>
+      <div class="flow-row"><div><span class="sec-name">Отзывы</span><span class="sec-id">#reviews</span></div><div class="flow-bar" style="height:28px"></div><div class="sec-note">Самый короткий экран ленты — вдох перед логистикой.</div><span class="flow-tag plain">обычный стык</span></div>
+      <div class="flow-row"><div><span class="sec-name">Как добраться</span><span class="sec-id">#location</span></div><div class="flow-bar" style="height:42px"></div><div class="sec-note">Карта вместо фото — единственный не-фото экран ленты.</div><span class="flow-tag plain">обычный стык</span></div>
+      <div class="flow-row"><div><span class="sec-name">Бронирование</span><span class="sec-id">#booking</span></div><div class="flow-bar" style="height:34px"></div><div class="sec-note">Финальный выдох — прощальная фраза, а не форма из десяти полей.</div><span class="flow-tag plain">обычный стык</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="photo" class="light reveal">
+  <div class="wrap">
+    <div class="head">
+      <h2>Один свет на весь сайт — откуда бы ни взялось фото</h2>
+      <p>Общий стилевой суффикс на конец любого промпта, чтобы фото из разных источников выглядели одной съёмкой.</p>
+    </div>
+    <div class="promptbox">
+      <span class="k">Стилевой суффикс</span>
+      <code>… muted natural color grade, deep teal-green shadows with warm amber highlights, documentary travel photography, subtle film grain, soft golden-hour or blue-hour light, no text, no watermark, no logo, no people looking at camera</code>
+    </div>
+    <div class="prompt-grid">
+      <div class="prompt-item">
+        <div class="p-sec">Hero<small>#hero, фон на весь экран</small></div>
+        <div class="p-ratio">21:9</div>
+        <div class="p-text">dusk photograph of a small felt-yurt camp on the shore of a vast alpine lake, Tian Shan mountain silhouette behind, warm firelight glowing from yurt windows, still teal water reflecting the amber sky, low haze, wide shot, no visible people</div>
+      </div>
+      <div class="prompt-item">
+        <div class="p-sec">О месте<small>#about, сплит-фото</small></div>
+        <div class="p-ratio">3:4</div>
+        <div class="p-text">felt yurts scattered across a lakeside meadow at golden hour, dry autumn grass in the foreground, snow-capped peaks far behind, warm low sunlight, empty of people, calm and spacious framing</div>
+      </div>
+      <div class="prompt-item">
+        <div class="p-sec">Юрты / размещение<small>.room-photo, 4:3</small></div>
+        <div class="p-ratio">4:3</div>
+        <div class="p-text">interior of a handwoven felt yurt at dusk, warm lantern light, wooden lattice frame (uuk) visible above, cream and rust textiles, low camera angle, intimate and lived-in, shallow depth of field</div>
+      </div>
+      <div class="prompt-item">
+        <div class="p-sec">Баня<small>#banya, фото на всю высоту</small></div>
+        <div class="p-ratio">3:4</div>
+        <div class="p-text">wooden yurt sauna a few meters from a lake shore at blue hour, warm glow through a stained-glass window of the entry room, faint steam, wet stones in the foreground, moody and quiet</div>
+      </div>
+      <div class="prompt-item">
+        <div class="p-sec">Питание / огород<small>.collage-item, 1:1 × неск.</small></div>
+        <div class="p-ratio">1:1</div>
+        <div class="p-text">close-up of fresh-baked bread cooling on a rough wooden board outdoors, soft morning light — and separately: dew-covered vegetable leaves in a permaculture garden bed, overcast diffused light, earthy greens and browns</div>
+      </div>
+      <div class="prompt-item">
+        <div class="p-sec">Территория / сапборд<small>#territory, фото на всю высоту</small></div>
+        <div class="p-ratio">3:4</div>
+        <div class="p-text">lone standup paddleboarder silhouette on still lake water at sunrise, mountains faintly reflected, minimal composition, generous empty water on one side for a text overlay</div>
+      </div>
+      <div class="prompt-item">
+        <div class="p-sec">Ретриты<small>.retreats-photo, 16:7</small></div>
+        <div class="p-ratio">16:7</div>
+        <div class="p-text">wide panoramic view of a glass-walled yoga pavilion on a hillside above the lake, golden hour light through the glass, a stone fire-pit circle nearby, serene and empty, plain sky band at the top for a headline</div>
+      </div>
+    </div>
+    <p style="font-size:13px; color:var(--muted-on-light); margin-top:22px; margin-bottom:6px; font-weight:600; text-transform:uppercase; letter-spacing:.04em;">Чего избегать в любом кадре</p>
+    <ul class="avoid-list" style="color:var(--text-on-light);">
+      <li>Глянцевый пересвеченный «сток» — вместо него матовый, чуть приглушённый свет</li>
+      <li>Позирующие люди в кадр в камеру — если люди есть, то со спины или в движении</li>
+      <li>Неоновая или бирюзово-инстаграмная цветокоррекция — держим тёплый/зелёный природный баланс</li>
+      <li>Идеально симметричная «постановочная» композиция — асимметрия живее</li>
+      <li>Современный пластик/техника в кадре — только войлок, дерево, камень, металл очага</li>
+      <li>Плотный кадр без пустого места — оставляйте зону под текст, как в .hero-inner</li>
+    </ul>
+  </div>
+</section>
+
+<section id="antislop" class="dark reveal">
+  <div class="wrap">
+    <div class="head">
+      <h2>Тёплый + serif + terracotta — это ещё не готовый сайт</h2>
+      <p style="color:rgba(237,230,214,.72)">Природная палитра сама по себе не спасает от шаблонности — разница в конкретике и неравномерности.</p>
+    </div>
+    <div class="pair-grid">
+      <div class="pair-row">
+        <div class="no"><span class="tagline">Типовой ход</span>«Не просто лагерь, а место силы» / «Откройте для себя незабываемые впечатления»</div>
+        <div class="yes"><span class="tagline">Уже решено в проекте</span>Конкретные факты: 11 юрт, баня в 5–10 м от воды, повар 10+ лет, огород с итальянским агрономом</div>
+      </div>
+      <div class="pair-row">
+        <div class="no"><span class="tagline">Типовой ход</span>Каждая секция = eyebrow + центр-H2 + 3 одинаковые карточки с иконкой в кружке</div>
+        <div class="yes"><span class="tagline">Система выше</span>У каждой секции своя структура: сплит-фото, коллаж-подписи, цитата, карта, метки — под содержание, не под шаблон</div>
+      </div>
+      <div class="pair-row">
+        <div class="no"><span class="tagline">Типовой ход</span>Один и тот же radius+shadow на всех блоках подряд</div>
+        <div class="yes"><span class="tagline">Уже в токенах</span>Радиус и тень расставлены по роли — pill только у навигации/бейджей, dashed-рамка только у заглушек/отзывов</div>
+      </div>
+      <div class="pair-row">
+        <div class="no"><span class="tagline">Типовой ход</span>Нумерация 01–05 «для красоты» на случайных блоках</div>
+        <div class="yes"><span class="tagline">Уже решено выше</span>Метки {01}/{02} — только там, где порядок реален (шаги брони)</div>
+      </div>
+      <div class="pair-row">
+        <div class="no"><span class="tagline">Типовой ход</span>Все секции высотой ровно 100vh, один и тот же ритм от начала до конца</div>
+        <div class="yes"><span class="tagline">См. «Лента»</span>Высота и темп меняются по смыслу — короткий отзыв после длинного грида юрт</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tokens" class="light reveal">
+  <div class="wrap">
+    <div class="head">
+      <h2>Токены отступов и радиусов</h2>
+    </div>
+    <div class="table-wrap">
+      <table class="token-table">
+        <thead><tr><th>Токен</th><th>Значение</th><th>Где используется</th></tr></thead>
+        <tbody>
+          <tr><td>--r-sm</td><td>6px</td><td>Кнопки</td></tr>
+          <tr><td>--r-md</td><td>10px</td><td>Бейджи, чипы, drop-in</td></tr>
+          <tr><td>--r-lg</td><td>14px</td><td>Карточки features, quote-card</td></tr>
+          <tr><td>--r-xl</td><td>16px</td><td>room-card, фото-блоки, карта</td></tr>
+          <tr><td>--r-pill</td><td>999px</td><td>Плавающая навигация, бейджи-пилюли</td></tr>
+          <tr><td>секция, вертикаль</td><td>9–10vh верх/низ</td><td>Паддинги всех секций</td></tr>
+          <tr><td>секция, гутер</td><td>clamp(16px, 6vw, 72px)</td><td>Горизонтальные поля — держит 16px и на телефоне</td></tr>
+          <tr><td>грид-гэп</td><td>20–28px</td><td>card-grid, features, room grid</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="closing"><code>--ink</code> и <code>--terracotta-deep</code> — новые токены, раньше были литералами в коде. Остальные приёмы выше — на очереди при вёрстке нужных секций.</p>
+  </div>
+</section>
+
+<footer>Ak-Tengir · дизайн-система собрана по референсам · css/style.css остаётся источником правды</footer>
+
+<script>
+(function(){
+  var nav = document.querySelector('.ds-nav');
+  function onScroll(){
+    if(!nav) return;
+    if(window.scrollY > 30) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  document.querySelectorAll('.swatch').forEach(function(sw){
+    sw.addEventListener('click', function(){
+      var hex = sw.getAttribute('data-hex');
+      try{ navigator.clipboard.writeText(hex); }catch(e){}
+      var tip = sw.querySelector('.copied');
+      if(tip){
+        tip.classList.add('show');
+        setTimeout(function(){ tip.classList.remove('show'); }, 1100);
+      }
+    });
+  });
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if('IntersectionObserver' in window && !reduced){
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('pre'); });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.remove('pre'); io.unobserve(en.target); }
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
