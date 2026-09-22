@@ -168,8 +168,7 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 #directions .card{ background:var(--lake-deep); border:1px solid rgba(237,230,214,.08); border-radius:var(--r-lg); padding:38px 30px; opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s ease, border-color .2s ease; }
 #directions .card.in{ opacity:1; transform:translateY(0); }
 #directions .card:hover{ border-color:rgba(201,138,59,.4); }
-#directions .icon{ width:46px; height:46px; margin-bottom:22px; }
-#directions .icon svg{ width:100%; height:100%; }
+#directions .card .rule{ width:40px; height:3px; background:var(--terracotta); border-radius:2px; margin-bottom:20px; }
 #directions .card h3{ font-family:var(--font-head); font-weight:700; font-size:21px; margin-bottom:12px; color:var(--cream); }
 #directions .card p{ font-size:15px; line-height:1.65; color:rgba(237,230,214,.75); margin-bottom:20px; }
 #directions .card a{ font-size:14px; font-weight:500; color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(201,138,59,.4); padding-bottom:2px; }
@@ -223,11 +222,8 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 #food .inner{ max-width:900px; margin:0 auto; }
 #food p.lead{ font-size:17px; line-height:1.55; color:#4A433C; max-width:620px; margin:0 auto 46px; }
 #food .food-photo{ position:relative; overflow:hidden; max-width:720px; aspect-ratio:16/9; margin:0 auto 52px; border-radius:var(--r-xl); box-shadow:0 8px 32px rgba(42,36,32,.14); }
-#food .row{ display:flex; justify-content:center; gap:44px; flex-wrap:wrap; }
-#food .item{ max-width:150px; }
-#food .item .ic{ width:44px; height:44px; margin:0 auto 12px; }
-#food .item .ic svg{ width:100%; height:100%; }
-#food .item span{ font-size:14px; color:var(--wood); font-weight:500; }
+#food .row{ display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+#food .tag{ font-size:13px; font-weight:600; color:var(--sage); background:rgba(124,138,110,.1); border:1px solid rgba(124,138,110,.3); border-radius:var(--r-pill); padding:8px 16px; }
 #food .meals{ margin-top:52px; padding-top:32px; border-top:1px solid rgba(42,36,32,.12); display:flex; justify-content:center; gap:56px; flex-wrap:wrap; }
 #food .meal{ text-align:center; }
 #food .meal .label{ font-size:13px; color:var(--sage); text-transform:uppercase; letter-spacing:.03em; margin-bottom:6px; }
@@ -260,10 +256,7 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 #retreats .lead{ font-size:17px; line-height:1.7; color:rgba(237,230,214,.8); max-width:560px; margin:0 auto 50px; }
 #retreats .quote{ font-family:var(--font-head); font-style:italic; font-weight:600; font-size:clamp(20px,2.4vw,28px); color:var(--sage); margin:0 auto 56px; max-width:640px; }
 #retreats .features{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-bottom:52px; }
-#retreats .feature{ background:rgba(237,230,214,.05); border:1px solid rgba(237,230,214,.1); border-radius:12px; padding:24px 16px; }
-#retreats .feature .ic{ width:34px; height:34px; margin:0 auto 12px; }
-#retreats .feature .ic svg{ width:100%; height:100%; }
-#retreats .feature span{ font-size:13.5px; color:rgba(237,230,214,.85); }
+#retreats .feature{ background:rgba(237,230,214,.05); border:1px solid rgba(237,230,214,.1); border-radius:var(--r-lg); padding:20px 16px; font-size:13.5px; font-weight:500; color:rgba(237,230,214,.85); }
 #retreats .retreats-photo{ position:relative; overflow:hidden; aspect-ratio:16/7; border-radius:var(--r-xl); }
 #retreats .retreats-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
 @media (max-width:760px){ #retreats .features{ grid-template-columns:1fr 1fr; } }
