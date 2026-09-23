@@ -17,11 +17,11 @@
      на каждом стыке секций через классы .tear-b (низ) / .tear-t (верх), см. css/style.css -->
 <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
   <defs>
-    <filter id="tearNoiseA" x="-30%" y="-30%" width="160%" height="160%">
+    <filter id="tearNoiseA" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
       <feTurbulence type="fractalNoise" baseFrequency="5 26" numOctaves="5" seed="7" result="n"/>
       <feDisplacementMap in="SourceGraphic" in2="n" scale="0.26" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
-    <filter id="tearNoiseB" x="-30%" y="-30%" width="160%" height="160%">
+    <filter id="tearNoiseB" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
       <feTurbulence type="fractalNoise" baseFrequency="6 24" numOctaves="5" seed="23" result="n"/>
       <feDisplacementMap in="SourceGraphic" in2="n" scale="0.26" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
@@ -57,7 +57,6 @@
 <!-- HERO -->
 <section id="hero">
   <img class="ph-bg kenburns" src="assets/images/hero.jpg" alt="Ak-Tengir на закате" data-slot="hero">
-  <div class="particles" id="particles"></div>
   <div class="wrap">
     <h1>
       <span class="l1">Не нужно искать <span class="l1-tight">красивые виды</span></span>
@@ -126,7 +125,6 @@
 <section id="founder">
   <div class="f-media">
     <img src="assets/images/founder.jpg" alt="Женишбек Назаралиев" data-slot="founder">
-    <div class="particles" id="particles-founder"></div>
   </div>
   <div class="f-text">
     <h2>

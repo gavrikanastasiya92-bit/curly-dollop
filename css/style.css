@@ -50,16 +50,6 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 @keyframes shimmer-move{ 0%,100%{ transform:translateX(-22%); } 50%{ transform:translateX(22%); } }
 @media (prefers-reduced-motion: reduce){ .shimmer::before{ animation:none; display:none; } }
 
-/* ===== FLOATING PARTICLES (искры/пепел) ===== */
-.particles{ position:absolute; inset:0; z-index:1; pointer-events:none; }
-.particle{
-  position:absolute; bottom:-10px; width:5px; height:5px; border-radius:50%;
-  background:radial-gradient(circle, var(--gold) 0%, rgba(201,138,59,0) 70%);
-  opacity:0; animation:drift 9s ease-in infinite;
-}
-@keyframes drift{ 0%{transform:translateY(0) translateX(0); opacity:0;} 12%{opacity:.85;} 100%{transform:translateY(-70vh) translateX(var(--dx,20px)); opacity:0;} }
-@media (prefers-reduced-motion: reduce){ .particle{ animation:none; opacity:0; } }
-
 /* ===== NAV — прямо на фоне, без капсулы ===== */
 .nav{
   position:fixed; top:0; left:0; right:0; z-index:50;
