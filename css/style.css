@@ -103,11 +103,11 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 #hero h1 .l2{ display:block; font-style:italic; font-weight:600; font-size:clamp(22px,3.6vw,38px); color:var(--gold); margin-top:6px; }
 #hero .sub{ font-size:clamp(15px,1.6vw,17px); line-height:1.65; color:rgba(237,230,214,.85); max-width:480px; margin-bottom:14px; text-shadow:0 1px 8px rgba(0,0,0,.3); }
 
-/* пунктирный мостик от заголовка к кнопке брони: спуск, завиток, разворот в сторону и заход сбоку к кнопке */
-#hero .hero-bridge{ position:relative; height:120px; margin-left:10px; margin-bottom:4px; pointer-events:none; opacity:.85; }
+/* пунктирный мостик от заголовка к кнопке брони: петля, широкий росчерк в сторону неба/фона и разворот назад к кнопке */
+#hero .hero-bridge{ position:relative; height:150px; margin-left:10px; margin-bottom:2px; pointer-events:none; opacity:.85; }
 #hero .hero-bridge svg{ position:absolute; left:0; top:0; overflow:visible; }
 
-#hero .cta-row{ position:relative; display:flex; align-items:flex-start; gap:22px; flex-wrap:wrap; }
+#hero .cta-row{ position:relative; display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
 #hero .btn{
   font-size:12.5px; padding:10px 22px; border-radius:var(--r-pill);
   transition:transform .25s ease, background .25s ease, border-color .25s ease;
@@ -116,19 +116,17 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 #hero .btn:active{ transform:scale(.95); }
 #hero .btn-primary{
   background:rgba(184,130,60,.22); border-color:rgba(184,130,60,.9); color:var(--cream);
-  margin-top:0;
 }
 #hero .btn-primary:hover{ background:rgba(184,130,60,.4); }
 #hero .btn-secondary{
   background:rgba(237,230,214,.06); border-color:rgba(237,230,214,.45); color:var(--cream);
-  margin-top:26px; margin-left:4px;
+  margin-left:auto;
 }
 #hero .btn-secondary:hover{ border-color:var(--cream); background:rgba(237,230,214,.14); }
 @media (max-width:640px){
   #hero .wrap{ padding-block:14vh 10vh; }
   #hero .cta-row{ flex-direction:column; align-items:flex-start; gap:16px; }
   #hero .btn{ font-size:12px; padding:9px 20px; }
-  #hero .btn-primary{ margin-left:0; }
   #hero .btn-secondary{ margin-top:0; margin-left:22px; }
   #hero .hero-bridge{ display:none; }
 }
@@ -141,6 +139,17 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
   clip-path: url(#aboutWave);
 }
 @media (max-width:760px){ #about{ clip-path: url(#aboutWaveMobile); margin-top:-56px; } }
+
+/* эхо-отражение горного силуэта: та же композиция едва угадывается ниже границы блоков */
+#about .mountain-echo{ position:absolute; top:0; left:0; width:100%; height:90px; z-index:-1; pointer-events:none; }
+#about .mountain-echo path{ fill:rgba(42,36,32,.05); }
+#about .echo-rock{
+  position:absolute; z-index:-1; pointer-events:none; top:8px; left:13%; width:68px; height:88px;
+  background:rgba(42,36,32,.055);
+  clip-path:polygon(30% 0%, 55% 8%, 78% 28%, 100% 55%, 82% 100%, 45% 92%, 12% 70%, 0% 38%);
+  transform:rotate(-4deg);
+}
+@media (max-width:760px){ #about .mountain-echo, #about .echo-rock{ display:none; } }
 /* оторванные кусочки фото/бумаги, будто отслоились с рваного края и осыпались на беж */
 #about .torn-fleck{
   position:absolute; z-index:3; pointer-events:none;
