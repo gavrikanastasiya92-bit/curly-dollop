@@ -53,66 +53,47 @@
   </div>
 </section>
 
-<!-- О МЕСТЕ -->
-<svg width="0" height="0" style="position:absolute;">
-  <clipPath id="aboutWave" clipPathUnits="objectBoundingBox">
-    <path d="M0,0.045 C0.04,0.03 0.08,0.025 0.12,0.038 L0.15,0.065 L0.18,0.012 L0.22,0.058 C0.25,0.07 0.28,0.072 0.31,0.06 L0.34,0.02 L0.36,0.075 L0.385,0.008 L0.41,0.05 L0.425,0.028 L0.45,0.078 L0.47,0.015 L0.495,0.045 L0.51,0.06 L0.535,0.01 L0.555,0.05 C0.58,0.025 0.61,0.015 0.64,0.02 C0.67,0.008 0.7,0.005 0.73,0.012 C0.76,0.02 0.78,0.03 0.8,0.045 L0.84,0.07 L0.87,0.03 C0.91,0.045 0.95,0.055 1,0.06 L1,1 L0,1 Z"/>
-  </clipPath>
-  <clipPath id="aboutWaveMobile" clipPathUnits="objectBoundingBox">
-    <path d="M0,0.035 C0.14,0.008 0.24,0.008 0.32,0.032 C0.4,0.05 0.46,0.05 0.5,0.04 C0.6,0.015 0.7,0.015 0.78,0.038 C0.87,0.05 0.93,0.045 1,0.03 L1,1 L0,1 Z"/>
-  </clipPath>
-  <clipPath id="founderWave" clipPathUnits="objectBoundingBox">
-    <path d="M0,0.04 C0.05,0.05 0.09,0.048 0.13,0.035 L0.16,0.008 L0.19,0.05 C0.23,0.06 0.26,0.058 0.29,0.045 L0.32,0.072 L0.35,0.012 L0.38,0.055 L0.41,0.025 L0.44,0.068 C0.48,0.018 0.52,0.008 0.56,0.018 C0.6,0.028 0.63,0.042 0.67,0.038 L0.7,0.006 L0.73,0.052 L0.76,0.022 L0.79,0.06 C0.83,0.045 0.87,0.03 0.91,0.04 C0.94,0.048 0.97,0.044 1,0.035 L1,1 L0,1 Z"/>
-  </clipPath>
-  <clipPath id="founderWaveMobile" clipPathUnits="objectBoundingBox">
-    <path d="M0,0.03 C0.16,0.006 0.26,0.006 0.34,0.028 C0.42,0.045 0.48,0.045 0.53,0.035 C0.63,0.012 0.73,0.012 0.81,0.033 C0.89,0.045 0.95,0.04 1,0.026 L1,1 L0,1 Z"/>
-  </clipPath>
-</svg>
+<!-- О МЕСТЕ — переход скалой из референс-фото -->
+<div class="rock-seam" aria-hidden="true">
+  <div class="rock-img"></div>
+  <div class="rock-glow"></div>
+</div>
 <section id="about">
-  <svg class="mountain-echo" viewBox="0 0 1000 140" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,70 L120,59 L150,101 L180,19 L220,90 L310,93 L340,31 L360,117 L385,12 L410,78 L425,44 L450,121 L470,23 L495,70 L510,93 L535,16 L555,78 L640,31 L730,19 L800,70 L840,109 L870,47 L1000,93 L1000,0 L0,0 Z"/>
-  </svg>
-  <div class="rock-haze" aria-hidden="true"></div>
-  <div class="echo-rock" aria-hidden="true"></div>
-  <div class="torn-fleck tf-1" aria-hidden="true"></div>
-  <div class="torn-fleck tf-2" aria-hidden="true"></div>
-  <div class="torn-fleck tf-3" aria-hidden="true"></div>
   <div class="inner">
     <div class="about-head">
       <div class="rule"></div>
       <h2><span class="nowrap">«Ак-Тенгир»</span> переводится как <span class="accent">«светлое пространство»</span></h2>
       <p>Место выбрано осознанно: с одной стороны горы, с другой — Иссык-Куль. Первые десять лет сюда нельзя было просто приехать — только по личному приглашению. Сейчас двери открыты для всех, а тишина осталась.</p>
     </div>
-    <div class="collage-row">
-      <div class="collage-item ci-stones" style="--tilt:-3deg;">
-        <div class="ci-frame">
-          <img src="assets/images/about-detail-stones.jpg" alt="Природный валун и каменная отмостка на территории">
-          <div class="ci-overlay"><b>Природные камни</b><span>валун и тропа, по которой хочется идти медленно</span></div>
-        </div>
+    <div class="story-row">
+      <div class="story-item">
+        <div class="story-frame"><img src="assets/images/banya.jpg" alt="Баня — печь с камнями внутри юрты"></div>
+        <div class="cap"><b>Баня</b><span>пар и чабрец после дня в горах</span></div>
       </div>
-      <div class="collage-item ci-water" style="--tilt:-2deg;">
-        <div class="ci-frame">
-          <img src="assets/images/about-detail-water.jpg" alt="Вид на Иссык-Куль с террасы">
-          <div class="ci-overlay"><b>Волны Иссык-Куля</b><span>слышно с порога юрты, засыпаешь под этот звук</span></div>
-        </div>
+      <svg class="story-arrow" viewBox="0 0 56 24" aria-hidden="true">
+        <defs><marker id="storyArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--terracotta)"/></marker></defs>
+        <path d="M2,18 C18,20 30,10 42,8" marker-end="url(#storyArrow)"/>
+      </svg>
+      <div class="story-item">
+        <div class="story-frame"><img src="assets/images/room-standard.jpg" alt="Спальня в юрте"></div>
+        <div class="cap"><b>Своя юрта</b><span>мягкий свет, войлок под ногами</span></div>
       </div>
-      <div class="collage-item ci-garden" style="--tilt:2deg;">
-        <div class="ci-frame">
-          <img src="assets/images/about-detail-garden.jpg" alt="Яблоки и ягоды со своего огорода">
-          <div class="ci-overlay"><b>Свой огород</b><span>яблоки и ягоды прямо с грядки к завтраку</span></div>
-        </div>
-      </div>
-      <div class="collage-item ci-banya" style="--tilt:3deg;">
-        <div class="ci-frame">
-          <img src="assets/images/about-detail-banya.jpg" alt="Баня и чай из чабреца">
-          <div class="ci-overlay"><b>Баня и чай</b><span>пар, чабрец и тишина после долгого дня</span></div>
-        </div>
+      <svg class="story-arrow" viewBox="0 0 56 24" aria-hidden="true">
+        <path d="M2,8 C18,6 30,18 42,16" marker-end="url(#storyArrow)"/>
+      </svg>
+      <div class="story-item">
+        <div class="story-frame"><img src="assets/images/room-beach.jpg" alt="Окна юрты с видом на Иссык-Куль"></div>
+        <div class="cap"><b>Окна на воду</b><span>просыпаешься — и сразу видишь озеро</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ИСТОРИЯ И ОСНОВАТЕЛЬ -->
+<!-- ИСТОРИЯ И ОСНОВАТЕЛЬ — та же скала, отражённая по вертикали -->
+<div class="rock-seam flip" aria-hidden="true">
+  <div class="rock-img"></div>
+  <div class="rock-glow"></div>
+</div>
 <section id="founder">
   <div class="f-media">
     <img src="assets/images/founder.jpg" alt="Женишбек Назаралиев" data-slot="founder">
