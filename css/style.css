@@ -69,8 +69,9 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
   transition:background .4s ease, padding .4s ease;
 }
 .nav.scrolled{
-  background:linear-gradient(180deg, rgba(11,9,8,.82) 0%, rgba(11,9,8,.55) 55%, transparent 100%);
-  padding:18px 6vw 38px;
+  background:var(--ink);
+  padding:16px 6vw;
+  box-shadow:0 4px 20px rgba(0,0,0,.25);
 }
 .nav .logo{ font-family:var(--font-head); font-weight:400; color:var(--cream); font-size:18px; letter-spacing:.03em; text-decoration:none; }
 .nav .links{ display:flex; gap:26px; }
@@ -159,36 +160,43 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 }
 @media (max-width:860px){ #founder{ grid-template-columns:1fr; } #founder .f-media{ order:1; min-height:34vh; } #founder .f-text{ order:2; padding:9vw 7vw; } }
 
-/* ===== DIRECTIONS — блок-меню (карточки-коллаж) ===== */
+/* ===== DIRECTIONS — блок-меню (карточки-коллаж вразброс) ===== */
 #directions{ background:var(--cream); color:var(--wood); padding:11vh 7vw 12vh; }
 #directions .inner{ max-width:1180px; margin:0 auto; }
-#directions .head{ text-align:center; max-width:600px; margin:0 auto 64px; }
+#directions .head{ text-align:center; max-width:600px; margin:0 auto 48px; }
 #directions h2{ color:var(--wood); }
-#directions .menu-collage{ display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start; gap:28px 34px; }
+#directions .menu-collage{ position:relative; width:100%; max-width:980px; height:660px; margin:0 auto; }
+#directions .menu-line{ position:absolute; inset:0; width:100%; height:100%; z-index:0; }
+#directions .menu-line path{ fill:none; stroke:rgba(42,36,32,.3); stroke-width:1.5; stroke-dasharray:3 7; stroke-linecap:round; }
 #directions .menu-card{
-  display:block; text-decoration:none; background:#fff; padding:8px 8px 16px; border-radius:2px;
-  box-shadow:0 10px 30px rgba(42,36,32,.14); transform:rotate(var(--tilt,0deg)); transition:transform .3s ease, box-shadow .3s ease;
+  position:absolute; display:block; text-decoration:none; background:#fff; padding:8px 8px 16px; border-radius:2px; z-index:1;
+  box-shadow:0 10px 30px rgba(42,36,32,.16); transform:rotate(var(--tilt,0deg)); transition:transform .3s ease, box-shadow .3s ease;
 }
-#directions .menu-card:hover{ transform:rotate(var(--tilt,0deg)) scale(1.045); box-shadow:0 16px 40px rgba(42,36,32,.2); }
+#directions .menu-card:hover{ transform:rotate(var(--tilt,0deg)) scale(1.045); box-shadow:0 16px 40px rgba(42,36,32,.22); z-index:2; }
 #directions .menu-card img{ display:block; width:100%; height:100%; object-fit:cover; }
 #directions .menu-card .cap{
   display:block; margin-top:12px; text-align:center; font-family:var(--font-head); font-weight:700; font-size:14.5px; color:var(--wood);
   transition:color .2s ease;
 }
 #directions .menu-card:hover .cap{ color:var(--terracotta); }
-#directions .mc-yurts{ width:210px; height:280px; margin-top:22px; }
-#directions .mc-yurts img{ height:212px; }
-#directions .mc-lake{ width:200px; height:266px; margin-top:0; }
-#directions .mc-lake img{ height:198px; }
-#directions .mc-banya{ width:300px; height:225px; margin-top:44px; }
-#directions .mc-banya img{ height:180px; }
-#directions .mc-retreats{ width:280px; height:211px; margin-top:6px; }
-#directions .mc-retreats img{ height:166px; }
+#directions .mc-yurts{ left:0%; top:6%; width:200px; height:325px; }
+#directions .mc-yurts img{ height:267px; }
+#directions .mc-lake{ left:22%; top:52%; width:180px; height:297px; }
+#directions .mc-lake img{ height:239px; }
+#directions .mc-banya{ left:42%; top:0%; width:270px; height:259px; }
+#directions .mc-banya img{ height:201px; }
+#directions .mc-retreats{ left:66%; top:45%; width:240px; height:237px; }
+#directions .mc-retreats img{ height:179px; }
 @media (max-width:760px){
-  #directions .menu-collage{ gap:22px; }
-  #directions .menu-card, #directions .mc-yurts, #directions .mc-lake, #directions .mc-banya, #directions .mc-retreats{ width:calc(50% - 12px); height:auto; margin-top:0; transform:none; }
-  #directions .menu-card img{ height:auto; aspect-ratio:3/4; }
-  #directions .menu-card:hover{ transform:none; }
+  #directions .menu-collage{ height:auto; max-width:420px; }
+  #directions .menu-line{ display:none; }
+  #directions .menu-card{ position:relative; left:auto !important; top:auto !important; width:64% !important; height:auto !important; margin-bottom:28px; }
+  #directions .menu-card img{ height:auto !important; aspect-ratio:3/4; }
+  #directions .mc-yurts{ margin-left:0; }
+  #directions .mc-lake{ margin-left:auto; }
+  #directions .mc-banya{ margin-left:8%; }
+  #directions .mc-retreats{ margin-left:auto; }
+  #directions .menu-card:hover{ transform:rotate(var(--tilt,0deg)); }
 }
 
 /* ===== STAY ===== */
