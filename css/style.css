@@ -73,28 +73,38 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 
 /* ===== HERO ===== */
 #hero{
-  position:relative; z-index:2; min-height:92vh; display:flex; align-items:flex-end; color:var(--cream);
+  position:relative; z-index:2; overflow:visible; color:var(--cream);
 }
-/* единое полотно hero → about → founder: фон hero скроллится вместе со страницей.
-   Низ фото и тёмной подложки рвётся неровным, фотографичным краем (SVG feTurbulence +
-   feDisplacementMap как маска, см. #tear-defs в index.html) — никакой геометрии, ткань
-   изображения будто осыпается в область следующего блока. #about тем же приёмом
-   подведён отрицательным отступом под этот край, поэтому кремовый фон проступает
-   именно в проёмах неровного контура, а не за ровной линией. */
-#hero .ph-bg, #hero::after{
+/* Sticky-фото (десктоп/планшет): фото зафиксировано на время скролла hero, текст идёт
+   обычным потоком поверх него (margin-top:-100vh возвращает .wrap на фото) и уезжает
+   вверх самостоятельно, пока фото стоит на месте — тот же приём, что на референсе с
+   медузами. Для этого hero должен быть выше 100vh (иначе sticky-элементу физически
+   некуда «прилипать» — единственная причина существования нижнего padding у .wrap:
+   он не декоративный отступ, а сама дистанция скролла, на которой держится фото),
+   и #hero{overflow:visible} обязателен (глобальное section{overflow:hidden} тут
+   отключено намеренно, иначе sticky не сработает ни при какой высоте).
+   На мобильной ширине эффект того не стоит: там либо hero короче эффекта (и sticky
+   вообще не включается — родителю физически некуда прилипать), либо высота специально
+   раздувается под него ценой лишнего скролла до контента — то, от чего и уходим.
+   Поэтому на мобильном фото просто закреплено внутри карточки hero заданной высоты
+   (см. медиазапрос ниже), без sticky и без лишнего «воздуха». */
+#hero .ph-bg-wrap{ position:sticky; top:0; height:100vh; overflow:hidden; z-index:0; }
+#hero .ph-bg-wrap .ph-bg, #hero .ph-bg-wrap .ph-overlay{
+  position:absolute; inset:0;
   -webkit-mask-image:url(#tearMaskDown); mask-image:url(#tearMaskDown);
 }
+#hero .ph-bg{ width:100%; height:100%; object-fit:cover; display:block; }
 /* без kenburns-зума: на этом кадре внизу трава/камыши, и приближение со временем
    затягивало её в область рваного края маски. object-position сдвигает кадр так,
    чтобы трава оставалась ниже видимой зоны уже в статике, а не только за счёт зума. */
 #hero .ph-bg{ object-position:center 28%; }
-#hero::after{
-  content:''; position:absolute; inset:0; z-index:1;
+#hero .ph-overlay{
+  z-index:1;
   background:
     radial-gradient(ellipse 60% 50% at 75% 15%, rgba(201,138,59,.14), transparent 60%),
     linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.62) 42%, #0d0d0d 80%, #0d0d0d 100%);
 }
-#hero .wrap{ position:relative; z-index:2; padding-block:16vh max(9vh, 170px); }
+#hero .wrap{ position:relative; z-index:2; margin-top:-100vh; padding-block:58vh clamp(220px, 40vh, 460px); }
 #hero h1{ font-family:var(--font-display); line-height:1.08; margin-bottom:24px; letter-spacing:0; }
 #hero h1 .l1{ display:block; font-weight:700; font-size:clamp(28px,4.8vw,60px); color:var(--cream); text-shadow:0 2px 16px rgba(0,0,0,.35); }
 #hero h1 .l1-tight{ white-space:nowrap; }
@@ -122,7 +132,11 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 }
 #hero .btn-secondary:hover{ border-color:var(--cream); background:rgba(237,230,214,.14); }
 @media (max-width:640px){
-  #hero .wrap{ padding-block:14vh max(10vh, 115px); }
+  /* sticky тут не даёт эффекта (см. комментарий выше) — фото просто заполняет
+     карточку hero заданной высоты, текст обычным потоком поверх, без -100vh */
+  #hero{ min-height:64vh; display:flex; align-items:flex-end; }
+  #hero .ph-bg-wrap{ position:absolute; inset:0; height:auto; }
+  #hero .wrap{ margin-top:0; padding-block:14vh clamp(40px, 6vh, 70px); }
   #hero .cta-row{ flex-direction:column; align-items:flex-start; gap:16px; }
   #hero .btn{ font-size:12px; padding:9px 20px; }
   #hero .btn-secondary{ margin-top:0; margin-left:22px; }
@@ -135,6 +149,21 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
   margin-top:clamp(-120px, -10vw, -80px);
   padding:calc(70px + clamp(80px, 8vw, 130px)) 7vw calc(10vh + clamp(80px, 8vw, 130px));
 }
+/* редкие рваные вкрапления по левому/правому краю — тот же приём, что и на верхнем/
+   нижнем шве (не сплошная рамка, а 2 отдельных «вылезающих» осколка на сторону),
+   тон под соседнюю тёмную зону: тёмный hero сверху, lake founder снизу */
+#about .edge-tear{ position:absolute; z-index:0; pointer-events:none; width:40px; }
+#about .edge-tear.left{ left:0; }
+#about .edge-tear.right{ right:0; transform:scaleX(-1); }
+#about .edge-tear.top{
+  top:64px; height:96px; background:#0d0d0d;
+  clip-path:polygon(0 0, 0 100%, 58% 90%, 28% 76%, 74% 60%, 38% 46%, 86% 30%, 42% 16%);
+}
+#about .edge-tear.bottom{
+  bottom:84px; height:112px; background:var(--lake);
+  clip-path:polygon(0 0, 0 100%, 62% 88%, 30% 72%, 78% 58%, 34% 42%, 82% 24%, 40% 8%);
+}
+@media (max-width:760px){ #about .edge-tear{ display:none; } }
 #about .inner{ max-width:1100px; margin:0 auto; }
 #about .about-head{ max-width:640px; margin:0 auto 56px; text-align:center; }
 #about .rule{ width:44px; height:3px; background:var(--terracotta); border-radius:2px; margin:0 auto 20px; }
