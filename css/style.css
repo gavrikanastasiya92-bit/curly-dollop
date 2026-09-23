@@ -103,39 +103,45 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 #hero .btn-secondary:hover{ border-color:var(--cream); }
 @media (max-width:640px){ #hero .wrap{ padding-block:14vh 10vh; } #hero .cta-row{ flex-direction:column; } #hero .btn{ text-align:center; } }
 
-/* ===== ABOUT ===== */
-/* мягкий нахлёст: "О месте" физически перекрывает низ hero и вырезано волной, поэтому светлый блок будто наплывает на фото */
+/* ===== ABOUT — без большого фото, текст вспомогательный, коллаж вразброс ===== */
+/* мягкий нахлёст: "О месте" физически перекрывает низ hero, вырезано плавной дугой (не ломаной) */
 #about{
-  background:var(--cream); color:var(--wood); display:grid; grid-template-columns:1fr 1fr; align-items:center; min-height:100vh; position:relative; z-index:1;
-  margin-top:-64px; padding-top:64px;
-  clip-path: polygon(0% 64px, 8% 50px, 20% 28px, 35% 10px, 50% 0%, 65% 10px, 80% 28px, 92% 50px, 100% 64px, 100% 100%, 0% 100%);
+  background:var(--cream); color:var(--wood); position:relative; z-index:1;
+  margin-top:-64px; padding:120px 7vw 10vh;
+  clip-path: url(#aboutWave);
 }
-#about .about-text{ padding:8vw 6vw; max-width:680px; justify-self:end; opacity:0; transform:translateY(18px); transition:opacity .9s ease, transform .9s ease; }
-#about .about-text.in{ opacity:1; transform:translateY(0); }
-#about .rule{ width:56px; height:3px; background:var(--terracotta); margin-bottom:22px; border-radius:2px; }
-#about h2{ margin-bottom:20px; color:var(--wood); }
+#about .inner{ max-width:1100px; margin:0 auto; }
+#about .about-head{ max-width:640px; margin:0 auto 56px; text-align:center; }
+#about .rule{ width:44px; height:3px; background:var(--terracotta); border-radius:2px; margin:0 auto 20px; }
+#about h2{ margin-bottom:14px; color:var(--wood); font-size:clamp(24px,2.8vw,32px); }
 #about h2 .accent{ font-family:var(--font-display); font-style:italic; font-weight:600; color:var(--terracotta); }
-#about p{ font-size:16.5px; line-height:1.5; color:#4A433C; margin-bottom:14px; }
-#about .collage-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
-#about .collage-item{ width:112px; transform:rotate(var(--tilt,0deg)); }
-#about .collage-item:nth-child(2){ margin-top:24px; }
-#about .collage-item:nth-child(3){ margin-top:-6px; }
-#about .collage-item:nth-child(4){ margin-top:16px; }
-#about .collage-item img{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:var(--r-md); display:block; box-shadow:0 6px 18px rgba(42,36,32,.18); }
-#about .collage-item .cap{ margin-top:10px; font-size:12.5px; line-height:1.4; color:#6b6259; }
-#about .collage-item .cap b{ display:block; font-family:var(--font-head); font-weight:700; font-size:13.5px; color:var(--wood); margin-bottom:2px; }
-#about .about-media{ position:relative; height:100%; min-height:60vh; overflow:hidden; }
+#about p{ font-size:14.5px; line-height:1.6; color:#6b6259; }
+#about .collage-row{ position:relative; width:100%; max-width:720px; height:340px; margin:0 auto; }
+#about .collage-item{ position:absolute; transform:rotate(var(--tilt,0deg)); }
+#about .collage-item img{ display:block; object-fit:cover; border-radius:var(--r-md); box-shadow:0 8px 22px rgba(42,36,32,.2); background:#fff; padding:6px 6px 0; box-sizing:border-box; }
+#about .collage-item .cap{ display:block; margin-top:8px; font-size:12px; line-height:1.4; color:#6b6259; text-align:center; }
+#about .collage-item .cap b{ display:block; font-family:var(--font-head); font-weight:700; font-size:12.5px; color:var(--wood); margin-bottom:1px; }
+#about .ci-stones{ left:2%; top:33%; width:125px; }
+#about .ci-stones img{ width:125px; height:125px; }
+#about .ci-water{ left:22%; top:0%; width:150px; }
+#about .ci-water img{ width:150px; height:150px; }
+#about .ci-garden{ left:48%; top:40%; width:105px; }
+#about .ci-garden img{ width:105px; height:105px; }
+#about .ci-banya{ left:66%; top:5%; width:145px; }
+#about .ci-banya img{ width:145px; height:145px; }
 #about::after{
   content:''; position:absolute; left:0; right:0; bottom:0; height:120px; z-index:5; pointer-events:none;
   background:linear-gradient(180deg, transparent 0%, rgba(201,138,59,.10) 55%, var(--lake) 100%);
 }
-@media (max-width:860px){
-  #about{ grid-template-columns:1fr; }
-  #about .about-media{ order:1; min-height:44vh; }
-  #about .about-text{ order:2; justify-self:stretch; padding:10vw 7vw; max-width:none; }
-  #about .collage-row{ gap:14px 16px; justify-content:center; }
-  #about .collage-item{ width:calc(50% - 8px); }
-  #about .collage-item:nth-child(n){ margin-top:0; transform:none; }
+@media (max-width:760px){
+  #about{ padding:100px 7vw 10vh; }
+  #about .collage-row{ height:auto; max-width:320px; display:flex; flex-direction:column; align-items:center; }
+  #about .collage-item{ position:relative; left:auto !important; top:auto !important; width:58% !important; margin-bottom:26px; }
+  #about .collage-item img{ width:100% !important; height:auto !important; aspect-ratio:1/1; }
+  #about .ci-stones{ align-self:flex-start; }
+  #about .ci-water{ align-self:flex-end; }
+  #about .ci-garden{ align-self:flex-start; margin-left:10%; }
+  #about .ci-banya{ align-self:flex-end; }
 }
 
 /* ===== FOUNDER ===== */
