@@ -83,19 +83,17 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 
 /* ===== HERO ===== */
 #hero{
-  position:relative; z-index:0; min-height:92vh; display:flex; align-items:flex-end; color:var(--cream);
+  position:relative; min-height:92vh; display:flex; align-items:flex-end; color:var(--cream);
 }
-/* фото и его подложка закреплены во вьюпорте — текст поверх скроллится независимо (параллакс) */
-#hero .ph-bg{ position:fixed; }
-#hero .particles{ position:fixed; }
+/* единое полотно hero → about → founder: фон hero скроллится вместе со страницей
+   (без параллакса — он требовал fixed-слоёв и z-index-эквилибристики, которая и
+   ломала бесшовный переход), и не осветляется у своего низа — тон остаётся тёмным
+   до самого конца, ровно там, где его подхватывает скала на своём непрозрачном крае. */
 #hero::after{
-  content:''; position:fixed; inset:0; z-index:1;
+  content:''; position:absolute; inset:0; z-index:1;
   background:
     radial-gradient(ellipse 60% 50% at 75% 15%, rgba(201,138,59,.14), transparent 60%),
-    linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.62) 42%, #0d0d0d 82%, var(--cream) 100%);
-}
-@media (prefers-reduced-motion: reduce){
-  #hero .ph-bg, #hero .particles, #hero::after{ position:absolute; }
+    linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.62) 42%, #0d0d0d 80%, #0d0d0d 100%);
 }
 #hero .wrap{ position:relative; z-index:2; padding-block:16vh max(9vh, 170px); }
 #hero h1{ font-family:var(--font-display); line-height:1.08; margin-bottom:24px; letter-spacing:0; }
@@ -132,44 +130,25 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
   #hero .hero-bridge{ display:none; }
 }
 
-/* ===== СКАЛА-ШОВ: реальное фото-референс (не вектор), используется дважды — прямо и зеркально =====
-   Ассеты уже обрезаны до скалы + её собственного плавного затухания в прозрачность (без "мусорного"
-   полупрозрачного неба по краю) — никакой отдельной CSS-дымки поверх не накладываем, только фильтр цвета. */
-.rock-seam{
-  position:relative; z-index:1; width:100%; overflow:hidden; pointer-events:none;
-  height:clamp(140px, 23vw, 260px);
-  margin-top:clamp(-120px, -11vw, -85px);
-}
-.rock-seam.bottom{ z-index:3; }
+/* ===== СКАЛА-ШОВ: реальное фото, единое полотно с hero/about/founder =====
+   Ассеты — не прямоугольники, а сама силуэтная форма скалы: сплошной чёрный камень
+   на одном крае, плавно тающий в полную прозрачность к другому (проверено попиксельно).
+   Поэтому картинка ставится в естественных пропорциях (без object-fit:cover и без
+   привязанной к вьюпорту высоты) — так её родное затухание никогда не обрезается и
+   не даёт жёсткого края ни на одной ширине экрана. Между блоками — обычный поток
+   документа, без отрицательных отступов и z-index: opaque-край скалы касается тёмного
+   низа hero/founder, прозрачный край открывает кремовый фон about под собой. */
+.rock-seam{ display:block; width:100%; line-height:0; pointer-events:none; }
 .rock-seam .rock-img{
-  position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; object-position:top;
+  display:block; width:100%; height:auto;
   filter:sepia(.45) saturate(1.5) hue-rotate(-12deg) brightness(.92) contrast(1.05);
-}
-.rock-seam.bottom .rock-img{ object-position:bottom; }
-@media (max-width:760px){
-  .rock-seam{ height:clamp(150px, 40vw, 220px); margin-top:clamp(-100px, -18vw, -70px); }
 }
 
 /* ===== ABOUT — история в фотографиях, без большого фото ===== */
-/* тёплая дымка (охра/терракот вместо серо-голубого из референса) тянется от скалы дальше в контент,
-   а не обрывается сразу в чистый крем — та же дымка повторяется внизу перед скалой к founder */
 #about{
-  background:var(--cream); color:var(--wood); position:relative; z-index:2;
-  margin-top:clamp(-92px, -7vw, -60px); padding:70px 7vw 10vh;
+  background:var(--cream); color:var(--wood); padding:70px 7vw 10vh;
 }
-#about::before, #about::after{
-  content:''; position:absolute; left:0; right:0; z-index:0; pointer-events:none;
-  height:clamp(180px, 22vw, 320px);
-}
-#about::before{
-  top:0;
-  background:linear-gradient(180deg, rgba(201,138,59,.26) 0%, rgba(201,138,59,.11) 40%, rgba(237,230,214,0) 100%);
-}
-#about::after{
-  bottom:0;
-  background:linear-gradient(0deg, rgba(201,138,59,.26) 0%, rgba(201,138,59,.11) 40%, rgba(237,230,214,0) 100%);
-}
-#about .inner{ position:relative; z-index:1; max-width:1100px; margin:0 auto; }
+#about .inner{ max-width:1100px; margin:0 auto; }
 #about .about-head{ max-width:640px; margin:0 auto 56px; text-align:center; }
 #about .rule{ width:44px; height:3px; background:var(--terracotta); border-radius:2px; margin:0 auto 20px; }
 #about h2{ margin-bottom:14px; color:var(--wood); font-size:clamp(24px,2.8vw,32px); }
@@ -195,7 +174,7 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 /* ===== FOUNDER ===== */
 #founder{
   background:var(--lake); color:var(--cream); display:grid; grid-template-columns:1fr 1fr; min-height:80vh; align-items:center;
-  position:relative; z-index:4; margin-top:clamp(-70px, -5vw, -40px);
+  position:relative;
 }
 #founder .f-media{ position:relative; height:100%; min-height:48vh; overflow:hidden; }
 #founder .f-text{ padding:8vw 7vw; max-width:580px; }
