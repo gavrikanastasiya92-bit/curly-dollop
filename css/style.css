@@ -138,11 +138,16 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
   height:clamp(130px, 15vw, 210px);
   margin-top:clamp(-140px, -9vw, -95px);
 }
-.rock-seam.flip{ z-index:3; transform:scaleY(-1); }
-.rock-seam .rock-img{ position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:fill; }
+.rock-seam.bottom{ z-index:3; }
+.rock-seam .rock-img{ position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+/* верхний ассет: скала сверху, дымка проявляется книзу до крема */
 .rock-seam .rock-glow{
   position:absolute; inset:0;
   background:linear-gradient(180deg, rgba(237,230,214,0) 0%, rgba(201,138,59,.14) 45%, rgba(237,230,214,.35) 68%, var(--cream) 97%);
+}
+/* нижний (зеркальный) ассет: скала снизу, дымка проявляется кверху до крема */
+.rock-seam.bottom .rock-glow{
+  background:linear-gradient(180deg, var(--cream) 3%, rgba(237,230,214,.35) 32%, rgba(201,138,59,.14) 55%, rgba(237,230,214,0) 100%);
 }
 @media (max-width:760px){
   .rock-seam{ height:clamp(92px, 20vw, 145px); margin-top:clamp(-90px, -13vw, -60px); }
