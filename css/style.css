@@ -151,11 +151,25 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 }
 
 /* ===== ABOUT — история в фотографиях, без большого фото ===== */
+/* тёплая дымка (охра/терракот вместо серо-голубого из референса) тянется от скалы дальше в контент,
+   а не обрывается сразу в чистый крем — та же дымка повторяется внизу перед скалой к founder */
 #about{
   background:var(--cream); color:var(--wood); position:relative; z-index:2;
   margin-top:clamp(-92px, -7vw, -60px); padding:70px 7vw 10vh;
 }
-#about .inner{ max-width:1100px; margin:0 auto; }
+#about::before, #about::after{
+  content:''; position:absolute; left:0; right:0; z-index:0; pointer-events:none;
+  height:clamp(180px, 22vw, 320px);
+}
+#about::before{
+  top:0;
+  background:linear-gradient(180deg, rgba(201,138,59,.26) 0%, rgba(201,138,59,.11) 40%, rgba(237,230,214,0) 100%);
+}
+#about::after{
+  bottom:0;
+  background:linear-gradient(0deg, rgba(201,138,59,.26) 0%, rgba(201,138,59,.11) 40%, rgba(237,230,214,0) 100%);
+}
+#about .inner{ position:relative; z-index:1; max-width:1100px; margin:0 auto; }
 #about .about-head{ max-width:640px; margin:0 auto 56px; text-align:center; }
 #about .rule{ width:44px; height:3px; background:var(--terracotta); border-radius:2px; margin:0 auto 20px; }
 #about h2{ margin-bottom:14px; color:var(--wood); font-size:clamp(24px,2.8vw,32px); }
