@@ -35,9 +35,15 @@
     </h1>
     <p class="sub">Юрты на самом берегу Иссык-Куля. Баня с чаем из чабреца, домашняя еда и вода в двух шагах от кровати.</p>
     <div class="hero-bridge" aria-hidden="true">
-      <svg width="150" height="46" viewBox="0 0 150 46">
-        <path d="M2,3 C 44,4 78,20 118,34" fill="none" stroke="rgba(237,230,214,.5)" stroke-width="1.4" stroke-dasharray="1 7" stroke-linecap="round"/>
-        <circle cx="122" cy="36" r="2.6" fill="var(--gold)"/>
+      <svg width="150" height="100" viewBox="0 0 150 100">
+        <defs>
+          <marker id="bridgeArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--gold)"/>
+          </marker>
+        </defs>
+        <path d="M6,6 C 42,-3 55,18 34,30 C 15,40 12,53 28,58 C 42,62 45,47 30,42 C 17,38 12,50 18,66 C 24,84 38,90 50,95"
+          fill="none" stroke="rgba(237,230,214,.55)" stroke-width="1.4" stroke-dasharray="1 7" stroke-linecap="round"
+          marker-end="url(#bridgeArrow)"/>
       </svg>
     </div>
     <div class="cta-row">
@@ -50,7 +56,10 @@
 <!-- О МЕСТЕ -->
 <svg width="0" height="0" style="position:absolute;">
   <clipPath id="aboutWave" clipPathUnits="objectBoundingBox">
-    <path d="M0,0.03 L0.025,0.06 L0.05,0.015 L0.075,0.045 L0.1,0.08 L0.13,0.02 L0.16,0.055 L0.19,0.01 L0.22,0.04 L0.25,0.07 L0.28,0.015 L0.31,0.05 L0.34,0.085 L0.37,0.025 L0.4,0.06 L0.43,0.012 L0.46,0.048 L0.49,0.02 L0.52,0.075 L0.55,0.03 L0.58,0.06 L0.61,0.01 L0.64,0.05 L0.67,0.08 L0.7,0.02 L0.73,0.045 L0.76,0.015 L0.79,0.065 L0.82,0.03 L0.85,0.055 L0.88,0.01 L0.91,0.04 L0.94,0.07 L0.97,0.02 L1,0.045 L1,1 L0,1 Z"/>
+    <path d="M0,0.05 L0.08,0.012 L0.16,0.072 C0.19,0.08 0.22,0.075 0.25,0.065 C0.29,0.02 0.33,0.02 0.37,0.06 C0.4,0.075 0.43,0.08 0.46,0.078 L0.52,0.006 L0.58,0.07 C0.61,0.078 0.64,0.075 0.67,0.062 C0.7,0.03 0.74,0.028 0.78,0.055 C0.81,0.065 0.83,0.07 0.85,0.06 L0.89,0.018 L0.93,0.06 C0.96,0.07 0.98,0.065 1,0.05 L1,1 L0,1 Z"/>
+  </clipPath>
+  <clipPath id="aboutWaveMobile" clipPathUnits="objectBoundingBox">
+    <path d="M0,0.035 C0.14,0.008 0.24,0.008 0.32,0.032 C0.4,0.05 0.46,0.05 0.5,0.04 C0.6,0.015 0.7,0.015 0.78,0.038 C0.87,0.05 0.93,0.045 1,0.03 L1,1 L0,1 Z"/>
   </clipPath>
 </svg>
 <section id="about">
@@ -65,20 +74,28 @@
     </div>
     <div class="collage-row">
       <div class="collage-item ci-stones" style="--tilt:-3deg;">
-        <img src="assets/images/about-detail-stones.jpg" alt="Природный валун и каменная отмостка на территории">
-        <div class="cap"><b>Природные камни</b>места для практик</div>
+        <div class="ci-frame">
+          <img src="assets/images/about-detail-stones.jpg" alt="Природный валун и каменная отмостка на территории">
+          <div class="ci-overlay"><b>Природные камни</b><span>валун и тропа, по которой хочется идти медленно</span></div>
+        </div>
       </div>
-      <div class="collage-item ci-water" style="--tilt:2deg;">
-        <img src="assets/images/about-detail-water.jpg" alt="Вид на Иссык-Куль с террасы">
-        <div class="cap"><b>Волны Иссык-Куля</b>слышно с порога юрты</div>
+      <div class="collage-item ci-water" style="--tilt:-2deg;">
+        <div class="ci-frame">
+          <img src="assets/images/about-detail-water.jpg" alt="Вид на Иссык-Куль с террасы">
+          <div class="ci-overlay"><b>Волны Иссык-Куля</b><span>слышно с порога юрты, засыпаешь под этот звук</span></div>
+        </div>
       </div>
-      <div class="collage-item ci-garden" style="--tilt:-2deg;">
-        <img src="assets/images/about-detail-garden.jpg" alt="Яблоки и ягоды со своего огорода">
-        <div class="cap"><b>Свой огород</b>прямо с грядки</div>
+      <div class="collage-item ci-garden" style="--tilt:2deg;">
+        <div class="ci-frame">
+          <img src="assets/images/about-detail-garden.jpg" alt="Яблоки и ягоды со своего огорода">
+          <div class="ci-overlay"><b>Свой огород</b><span>яблоки и ягоды прямо с грядки к завтраку</span></div>
+        </div>
       </div>
       <div class="collage-item ci-banya" style="--tilt:3deg;">
-        <img src="assets/images/about-detail-banya.jpg" alt="Баня и чай из чабреца">
-        <div class="cap"><b>Баня и чай</b>из чабреца</div>
+        <div class="ci-frame">
+          <img src="assets/images/about-detail-banya.jpg" alt="Баня и чай из чабреца">
+          <div class="ci-overlay"><b>Баня и чай</b><span>пар, чабрец и тишина после долгого дня</span></div>
+        </div>
       </div>
     </div>
   </div>
