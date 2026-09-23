@@ -132,28 +132,22 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
   #hero .hero-bridge{ display:none; }
 }
 
-/* ===== СКАЛА-ШОВ: реальное фото-референс (не вектор), используется дважды — прямо и зеркально ===== */
+/* ===== СКАЛА-ШОВ: реальное фото-референс (не вектор), используется дважды — прямо и зеркально =====
+   Ассеты уже обрезаны до скалы + её собственного плавного затухания в прозрачность (без "мусорного"
+   полупрозрачного неба по краю) — никакой отдельной CSS-дымки поверх не накладываем, только фильтр цвета. */
 .rock-seam{
   position:relative; z-index:1; width:100%; overflow:hidden; pointer-events:none;
-  height:clamp(130px, 15vw, 210px);
-  margin-top:clamp(-140px, -9vw, -95px);
+  height:clamp(140px, 23vw, 260px);
+  margin-top:clamp(-120px, -11vw, -85px);
 }
 .rock-seam.bottom{ z-index:3; }
 .rock-seam .rock-img{
-  position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; object-position:center;
+  position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; object-position:top;
   filter:sepia(.45) saturate(1.5) hue-rotate(-12deg) brightness(.92) contrast(1.05);
 }
-/* верхний ассет: скала сверху, дымка проявляется книзу до крема */
-.rock-seam .rock-glow{
-  position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(237,230,214,0) 0%, rgba(201,138,59,.14) 45%, rgba(237,230,214,.35) 68%, var(--cream) 97%);
-}
-/* нижний (зеркальный) ассет: скала снизу, дымка проявляется кверху до крема */
-.rock-seam.bottom .rock-glow{
-  background:linear-gradient(180deg, var(--cream) 3%, rgba(237,230,214,.35) 32%, rgba(201,138,59,.14) 55%, rgba(237,230,214,0) 100%);
-}
+.rock-seam.bottom .rock-img{ object-position:bottom; }
 @media (max-width:760px){
-  .rock-seam{ height:clamp(160px, 32vw, 220px); margin-top:clamp(-110px, -15vw, -75px); }
+  .rock-seam{ height:clamp(150px, 40vw, 220px); margin-top:clamp(-100px, -18vw, -70px); }
 }
 
 /* ===== ABOUT — история в фотографиях, без большого фото ===== */
