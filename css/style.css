@@ -139,7 +139,10 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
   margin-top:clamp(-140px, -9vw, -95px);
 }
 .rock-seam.bottom{ z-index:3; }
-.rock-seam .rock-img{ position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+.rock-seam .rock-img{
+  position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; object-position:center;
+  filter:sepia(.45) saturate(1.5) hue-rotate(-12deg) brightness(.92) contrast(1.05);
+}
 /* верхний ассет: скала сверху, дымка проявляется книзу до крема */
 .rock-seam .rock-glow{
   position:absolute; inset:0;
