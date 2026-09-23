@@ -89,19 +89,43 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
   content:''; position:absolute; inset:0; z-index:1;
   background:
     radial-gradient(ellipse 60% 50% at 75% 15%, rgba(201,138,59,.14), transparent 60%),
-    linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.62) 45%, #0d0d0d 100%);
+    linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.62) 42%, #0d0d0d 82%, var(--cream) 100%);
 }
 #hero .wrap{ position:relative; z-index:2; padding-block:16vh 9vh; }
 #hero h1{ font-family:var(--font-display); line-height:1.08; margin-bottom:24px; letter-spacing:0; }
 #hero h1 .l1{ display:block; font-weight:700; font-size:clamp(32px,5.6vw,64px); color:var(--cream); text-shadow:0 2px 16px rgba(0,0,0,.35); }
 #hero h1 .l2{ display:block; font-style:italic; font-weight:600; font-size:clamp(22px,3.6vw,38px); color:var(--gold); margin-top:6px; }
-#hero .sub{ font-size:clamp(15px,1.6vw,17px); line-height:1.65; color:rgba(237,230,214,.85); max-width:480px; margin-bottom:36px; text-shadow:0 1px 8px rgba(0,0,0,.3); }
-#hero .cta-row{ display:flex; gap:16px; flex-wrap:wrap; }
-#hero .btn-primary{ background:var(--terracotta); color:var(--cream); }
-#hero .btn-primary:hover{ background:var(--terracotta-deep); }
-#hero .btn-secondary{ background:transparent; border-color:rgba(237,230,214,.55); color:var(--cream); }
-#hero .btn-secondary:hover{ border-color:var(--cream); }
-@media (max-width:640px){ #hero .wrap{ padding-block:14vh 10vh; } #hero .cta-row{ flex-direction:column; } #hero .btn{ text-align:center; } }
+#hero .sub{ font-size:clamp(15px,1.6vw,17px); line-height:1.65; color:rgba(237,230,214,.85); max-width:480px; margin-bottom:14px; text-shadow:0 1px 8px rgba(0,0,0,.3); }
+
+/* пунктирный мостик от заголовка к кнопке брони */
+#hero .hero-bridge{ position:relative; height:46px; margin-left:6px; pointer-events:none; opacity:.85; }
+#hero .hero-bridge svg{ position:absolute; left:0; top:0; overflow:visible; }
+
+#hero .cta-row{ position:relative; display:flex; align-items:flex-start; gap:22px; flex-wrap:wrap; }
+#hero .btn{
+  font-size:12.5px; padding:10px 22px; border-radius:var(--r-pill);
+  transition:transform .25s ease, background .25s ease, border-color .25s ease;
+}
+#hero .btn:hover{ transform:scale(1.06); }
+#hero .btn:active{ transform:scale(.95); }
+#hero .btn-primary{
+  background:rgba(184,130,60,.22); border-color:rgba(184,130,60,.9); color:var(--cream);
+  margin-top:0;
+}
+#hero .btn-primary:hover{ background:rgba(184,130,60,.4); }
+#hero .btn-secondary{
+  background:rgba(237,230,214,.06); border-color:rgba(237,230,214,.45); color:var(--cream);
+  margin-top:26px; margin-left:4px;
+}
+#hero .btn-secondary:hover{ border-color:var(--cream); background:rgba(237,230,214,.14); }
+@media (max-width:640px){
+  #hero .wrap{ padding-block:14vh 10vh; }
+  #hero .cta-row{ flex-direction:column; align-items:flex-start; gap:16px; }
+  #hero .btn{ font-size:12px; padding:9px 20px; }
+  #hero .btn-primary{ margin-left:0; }
+  #hero .btn-secondary{ margin-top:0; margin-left:22px; }
+  #hero .hero-bridge{ display:none; }
+}
 
 /* ===== ABOUT — без большого фото, текст вспомогательный, коллаж вразброс ===== */
 /* мягкий нахлёст: "О месте" физически перекрывает низ hero, вырезано плавной дугой (не ломаной) */
@@ -110,6 +134,19 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
   margin-top:-64px; padding:120px 7vw 10vh;
   clip-path: url(#aboutWave);
 }
+/* оторванные кусочки фото/бумаги, будто отслоились с рваного края и осыпались на беж */
+#about .torn-fleck{
+  position:absolute; z-index:3; pointer-events:none;
+  background-image:url('../assets/images/hero.jpg'); background-size:1500px auto;
+  filter:brightness(.6) contrast(.95) saturate(.7);
+  box-shadow:0 6px 14px rgba(42,36,32,.3), 0 1px 2px rgba(42,36,32,.2);
+  opacity:.94;
+}
+#about .tf-1{ left:9%; top:78px; width:42px; height:32px; transform:rotate(-11deg); clip-path:polygon(4% 18%,32% 0%,58% 14%,82% 2%,100% 28%,90% 72%,58% 100%,22% 84%,0% 96%); background-position:-220px -760px; }
+#about .tf-2{ right:12%; top:94px; width:34px; height:27px; transform:rotate(9deg); clip-path:polygon(8% 0,62% 10%,100% 2%,88% 58%,100% 96%,42% 88%,4% 100%,12% 46%); background-position:-980px -740px; }
+#about .tf-3{ left:44%; top:70px; width:27px; height:22px; transform:rotate(-4deg); clip-path:polygon(12% 2%,72% 0,100% 34%,84% 92%,48% 100%,8% 78%,0% 36%); background-position:-650px -790px; }
+@media (max-width:760px){ #about .torn-fleck{ transform-origin:center; scale:.85; } #about .tf-1{ left:4%; } #about .tf-2{ right:5%; } }
+
 #about .inner{ max-width:1100px; margin:0 auto; }
 #about .about-head{ max-width:640px; margin:0 auto 56px; text-align:center; }
 #about .rule{ width:44px; height:3px; background:var(--terracotta); border-radius:2px; margin:0 auto 20px; }
@@ -174,6 +211,7 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 #directions .menu-collage{ position:relative; width:100%; max-width:980px; height:660px; margin:0 auto; }
 #directions .menu-line{ position:absolute; inset:0; width:100%; height:100%; z-index:0; }
 #directions .menu-line path{ fill:none; stroke:rgba(42,36,32,.3); stroke-width:1.5; stroke-dasharray:3 7; stroke-linecap:round; }
+#directions .menu-line .ml-dot{ fill:var(--terracotta); opacity:.55; }
 #directions .menu-card{
   position:absolute; display:block; text-decoration:none; background:#fff; padding:8px 8px 16px; border-radius:2px; z-index:1;
   box-shadow:0 10px 30px rgba(42,36,32,.16); transform:rotate(var(--tilt,0deg)); transition:transform .3s ease, box-shadow .3s ease;
