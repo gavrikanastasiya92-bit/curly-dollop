@@ -151,22 +151,45 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 #founder h2 .l2{ display:block; font-style:italic; font-weight:600; font-size:clamp(16.5px,1.9vw,21px); color:var(--gold); margin-top:8px; }
 #founder p{ font-size:16px; line-height:1.65; color:rgba(237,230,214,.85); margin-bottom:16px; }
 #founder .cite{ font-size:13.5px; color:rgba(237,230,214,.6); margin-top:22px; padding-top:20px; border-top:1px solid rgba(237,230,214,.15); }
+/* рваный край: тёмная История обрывается неровным краем в светлый блок-меню */
+#founder::after{
+  content:''; position:absolute; left:0; right:0; bottom:-1px; height:38px; z-index:6; pointer-events:none;
+  background:var(--cream);
+  clip-path:polygon(0 100%,100% 100%,100% 86%,94% 94%,88% 85%,82% 96%,76% 87%,70% 95%,64% 84%,58% 94%,52% 86%,46% 96%,40% 85%,34% 93%,28% 87%,22% 96%,16% 86%,10% 94%,4% 84%,0 92%);
+}
 @media (max-width:860px){ #founder{ grid-template-columns:1fr; } #founder .f-media{ order:1; min-height:34vh; } #founder .f-text{ order:2; padding:9vw 7vw; } }
 
-/* ===== DIRECTIONS ===== */
-#directions{ background:var(--lake); color:var(--cream); padding:9vh 7vw 10vh; }
+/* ===== DIRECTIONS — блок-меню (карточки-коллаж) ===== */
+#directions{ background:var(--cream); color:var(--wood); padding:11vh 7vw 12vh; }
 #directions .inner{ max-width:1180px; margin:0 auto; }
-#directions .head{ text-align:center; max-width:600px; margin:0 auto 56px; }
-#directions h2{ color:var(--cream); }
-#directions .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-#directions .card{ background:var(--lake-deep); border:1px solid rgba(237,230,214,.08); border-radius:var(--r-lg); padding:38px 30px; opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s ease, border-color .2s ease; }
-#directions .card.in{ opacity:1; transform:translateY(0); }
-#directions .card:hover{ border-color:rgba(201,138,59,.4); }
-#directions .card .rule{ width:40px; height:3px; background:var(--terracotta); border-radius:2px; margin-bottom:20px; }
-#directions .card h3{ font-family:var(--font-head); font-weight:700; font-size:21px; margin-bottom:12px; color:var(--cream); }
-#directions .card p{ font-size:15px; line-height:1.65; color:rgba(237,230,214,.75); margin-bottom:20px; }
-#directions .card a{ font-size:14px; font-weight:500; color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(201,138,59,.4); padding-bottom:2px; }
-@media (max-width:900px){ #directions .cards{ grid-template-columns:1fr; } }
+#directions .head{ text-align:center; max-width:600px; margin:0 auto 64px; }
+#directions h2{ color:var(--wood); }
+#directions .menu-collage{ display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start; gap:28px 34px; }
+#directions .menu-card{
+  display:block; text-decoration:none; background:#fff; padding:8px 8px 16px; border-radius:2px;
+  box-shadow:0 10px 30px rgba(42,36,32,.14); transform:rotate(var(--tilt,0deg)); transition:transform .3s ease, box-shadow .3s ease;
+}
+#directions .menu-card:hover{ transform:rotate(var(--tilt,0deg)) scale(1.045); box-shadow:0 16px 40px rgba(42,36,32,.2); }
+#directions .menu-card img{ display:block; width:100%; height:100%; object-fit:cover; }
+#directions .menu-card .cap{
+  display:block; margin-top:12px; text-align:center; font-family:var(--font-head); font-weight:700; font-size:14.5px; color:var(--wood);
+  transition:color .2s ease;
+}
+#directions .menu-card:hover .cap{ color:var(--terracotta); }
+#directions .mc-yurts{ width:210px; height:280px; margin-top:22px; }
+#directions .mc-yurts img{ height:212px; }
+#directions .mc-lake{ width:200px; height:266px; margin-top:0; }
+#directions .mc-lake img{ height:198px; }
+#directions .mc-banya{ width:300px; height:225px; margin-top:44px; }
+#directions .mc-banya img{ height:180px; }
+#directions .mc-retreats{ width:280px; height:211px; margin-top:6px; }
+#directions .mc-retreats img{ height:166px; }
+@media (max-width:760px){
+  #directions .menu-collage{ gap:22px; }
+  #directions .menu-card, #directions .mc-yurts, #directions .mc-lake, #directions .mc-banya, #directions .mc-retreats{ width:calc(50% - 12px); height:auto; margin-top:0; transform:none; }
+  #directions .menu-card img{ height:auto; aspect-ratio:3/4; }
+  #directions .menu-card:hover{ transform:none; }
+}
 
 /* ===== STAY ===== */
 #stay{ background:var(--cream); color:var(--wood); padding:9vh 7vw 10vh; }
