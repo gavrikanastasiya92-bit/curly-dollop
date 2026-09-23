@@ -12,6 +12,36 @@
 </head>
 <body>
 
+<!-- рваный фотографичный край между блоками: feTurbulence(fractalNoise) + feDisplacementMap
+     искажают край сплошной заливки-маски, а не рисуют декоративный мазок — используется
+     на каждом стыке секций через классы .tear-b (низ) / .tear-t (верх), см. css/style.css -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="tearNoiseA" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="5 26" numOctaves="5" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="0.26" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="tearNoiseB" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="6 24" numOctaves="5" seed="23" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="0.26" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <linearGradient id="tearFadeDown">
+      <stop offset="0.85" stop-color="#fff"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+    <linearGradient id="tearFadeUp">
+      <stop offset="0" stop-color="#000"/>
+      <stop offset="0.15" stop-color="#fff"/>
+    </linearGradient>
+    <mask id="tearMaskDown" maskContentUnits="objectBoundingBox">
+      <rect x="-0.5" y="-0.5" width="2" height="1.5" fill="url(#tearFadeDown)" filter="url(#tearNoiseA)"/>
+    </mask>
+    <mask id="tearMaskUp" maskContentUnits="objectBoundingBox">
+      <rect x="-0.5" y="0" width="2" height="1.5" fill="url(#tearFadeUp)" filter="url(#tearNoiseB)"/>
+    </mask>
+  </defs>
+</svg>
+
 <nav class="nav" id="nav">
   <a href="#hero" class="logo">Ak-Tengir</a>
   <div class="links">
@@ -53,10 +83,7 @@
   </div>
 </section>
 
-<!-- О МЕСТЕ — переход скалой из референс-фото -->
-<div class="rock-seam" aria-hidden="true">
-  <img class="rock-img" src="assets/images/rock-top.png" alt="">
-</div>
+<!-- О МЕСТЕ — рваный фотографичный край hero подведён отрицательным отступом под этот блок -->
 <section id="about">
   <div class="inner">
     <div class="about-head">
@@ -95,10 +122,7 @@
   </div>
 </section>
 
-<!-- ИСТОРИЯ И ОСНОВАТЕЛЬ — та же скала, отражённая по вертикали -->
-<div class="rock-seam bottom" aria-hidden="true">
-  <img class="rock-img" src="assets/images/rock-bottom.png" alt="">
-</div>
+<!-- ИСТОРИЯ И ОСНОВАТЕЛЬ — тот же рваный край, зеркально, подведён под founder -->
 <section id="founder">
   <div class="f-media">
     <img src="assets/images/founder.jpg" alt="Женишбек Назаралиев" data-slot="founder">

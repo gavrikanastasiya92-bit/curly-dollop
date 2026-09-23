@@ -83,12 +83,17 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 
 /* ===== HERO ===== */
 #hero{
-  position:relative; min-height:92vh; display:flex; align-items:flex-end; color:var(--cream);
+  position:relative; z-index:2; min-height:92vh; display:flex; align-items:flex-end; color:var(--cream);
 }
-/* единое полотно hero → about → founder: фон hero скроллится вместе со страницей
-   (без параллакса — он требовал fixed-слоёв и z-index-эквилибристики, которая и
-   ломала бесшовный переход), и не осветляется у своего низа — тон остаётся тёмным
-   до самого конца, ровно там, где его подхватывает скала на своём непрозрачном крае. */
+/* единое полотно hero → about → founder: фон hero скроллится вместе со страницей.
+   Низ фото и тёмной подложки рвётся неровным, фотографичным краем (SVG feTurbulence +
+   feDisplacementMap как маска, см. #tear-defs в index.html) — никакой геометрии, ткань
+   изображения будто осыпается в область следующего блока. #about тем же приёмом
+   подведён отрицательным отступом под этот край, поэтому кремовый фон проступает
+   именно в проёмах неровного контура, а не за ровной линией. */
+#hero .ph-bg, #hero::after{
+  -webkit-mask-image:url(#tearMaskDown); mask-image:url(#tearMaskDown);
+}
 #hero::after{
   content:''; position:absolute; inset:0; z-index:1;
   background:
@@ -130,23 +135,11 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
   #hero .hero-bridge{ display:none; }
 }
 
-/* ===== СКАЛА-ШОВ: реальное фото, единое полотно с hero/about/founder =====
-   Ассеты — не прямоугольники, а сама силуэтная форма скалы: сплошной чёрный камень
-   на одном крае, плавно тающий в полную прозрачность к другому (проверено попиксельно).
-   Поэтому картинка ставится в естественных пропорциях (без object-fit:cover и без
-   привязанной к вьюпорту высоты) — так её родное затухание никогда не обрезается и
-   не даёт жёсткого края ни на одной ширине экрана. Между блоками — обычный поток
-   документа, без отрицательных отступов и z-index: opaque-край скалы касается тёмного
-   низа hero/founder, прозрачный край открывает кремовый фон about под собой. */
-.rock-seam{ display:block; width:100%; line-height:0; pointer-events:none; }
-.rock-seam .rock-img{
-  display:block; width:100%; height:auto;
-  filter:sepia(.45) saturate(1.5) hue-rotate(-12deg) brightness(.92) contrast(1.05);
-}
-
 /* ===== ABOUT — история в фотографиях, без большого фото ===== */
 #about{
-  background:var(--cream); color:var(--wood); padding:70px 7vw 10vh;
+  background:var(--cream); color:var(--wood); position:relative; z-index:1;
+  margin-top:clamp(-120px, -10vw, -80px);
+  padding:calc(70px + clamp(80px, 8vw, 130px)) 7vw calc(10vh + clamp(80px, 8vw, 130px));
 }
 #about .inner{ max-width:1100px; margin:0 auto; }
 #about .about-head{ max-width:640px; margin:0 auto 56px; text-align:center; }
@@ -166,18 +159,25 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 #about .story-arrow > path{ fill:none; stroke:var(--terracotta); stroke-width:1.4; stroke-dasharray:1 6; stroke-linecap:round; }
 @media (max-width:900px){ #about .story-arrow{ display:none; } }
 @media (max-width:760px){
-  #about{ padding:60px 7vw 10vh; }
+  #about{ padding:calc(60px + clamp(80px, 8vw, 130px)) 7vw calc(10vh + clamp(80px, 8vw, 130px)); }
   #about .story-row{ flex-direction:column; align-items:center; gap:22px; }
   #about .story-item{ width:78%; }
 }
 
 /* ===== FOUNDER ===== */
 #founder{
-  background:var(--lake); color:var(--cream); display:grid; grid-template-columns:1fr 1fr; min-height:80vh; align-items:center;
-  position:relative;
+  background:transparent; color:var(--cream); display:grid; grid-template-columns:1fr 1fr; min-height:80vh; align-items:center;
+  position:relative; z-index:2; margin-top:clamp(-120px, -10vw, -80px);
 }
-#founder .f-media{ position:relative; height:100%; min-height:48vh; overflow:hidden; }
-#founder .f-text{ padding:8vw 7vw; max-width:580px; }
+/* тот же рваный приём, зеркально: тёмная подложка founder рвётся неровным краем вверх,
+   в проёмах проступает кремовый about — отдельный слой позади f-media/f-text, чтобы
+   маска не грызла фото и текст, только фон. */
+#founder::before{
+  content:''; position:absolute; inset:0; z-index:0; background:var(--lake);
+  -webkit-mask-image:url(#tearMaskUp); mask-image:url(#tearMaskUp);
+}
+#founder .f-media{ position:relative; z-index:1; height:100%; min-height:48vh; overflow:hidden; }
+#founder .f-text{ position:relative; z-index:1; padding:8vw 7vw; max-width:580px; }
 #founder h2{ font-family:var(--font-display); line-height:1.15; margin-bottom:20px; }
 #founder h2 .l1{ display:block; font-weight:700; font-size:clamp(26px,3.2vw,38px); color:var(--cream); }
 #founder h2 .l2{ display:block; font-style:italic; font-weight:600; font-size:clamp(16.5px,1.9vw,21px); color:var(--gold); margin-top:8px; }
