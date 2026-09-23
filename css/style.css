@@ -97,7 +97,7 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 @media (prefers-reduced-motion: reduce){
   #hero .ph-bg, #hero .particles, #hero::after{ position:absolute; }
 }
-#hero .wrap{ position:relative; z-index:2; padding-block:16vh 9vh; }
+#hero .wrap{ position:relative; z-index:2; padding-block:16vh max(9vh, 170px); }
 #hero h1{ font-family:var(--font-display); line-height:1.08; margin-bottom:24px; letter-spacing:0; }
 #hero h1 .l1{ display:block; font-weight:700; font-size:clamp(28px,4.8vw,60px); color:var(--cream); text-shadow:0 2px 16px rgba(0,0,0,.35); }
 #hero h1 .l1-tight{ white-space:nowrap; }
@@ -125,7 +125,7 @@ img.ph-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover
 }
 #hero .btn-secondary:hover{ border-color:var(--cream); background:rgba(237,230,214,.14); }
 @media (max-width:640px){
-  #hero .wrap{ padding-block:14vh 10vh; }
+  #hero .wrap{ padding-block:14vh max(10vh, 115px); }
   #hero .cta-row{ flex-direction:column; align-items:flex-start; gap:16px; }
   #hero .btn{ font-size:12px; padding:9px 20px; }
   #hero .btn-secondary{ margin-top:0; margin-left:22px; }
