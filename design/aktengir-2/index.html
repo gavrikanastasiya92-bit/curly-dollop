@@ -263,9 +263,10 @@
   /* ——— v16 ——— */
   .kphoto{margin:32px -24px 0;height:calc(min(430px, 100vw - 32px) * 1.1)}
   .strip-wrap.tight .strip button img{object-position:50% 22%}
-  .wide .sec-kitchen .kphoto{grid-column:2;grid-row:2;margin:96px 0 0;height:100%;min-height:520px}
+  .wide .sec-kitchen .kphoto{grid-column:2;grid-row:2;align-self:center;margin:96px 0 0;height:clamp(320px,28vw,420px)}
+  .wide .sec-kitchen .kphoto img{object-position:50% 70%}
   .wide .sec-kitchen .k2{align-self:start}
-  .site.wide .sec-kitchen .kstrip{grid-row:3}
+  .site.wide .sec-kitchen .kstrip{grid-row:3;margin-top:96px!important}
   .site.wide .sec-kitchen .klist{grid-column:1/-1;grid-row:4;margin-top:64px!important;display:grid;grid-template-columns:repeat(3,1fr);column-gap:48px;border-top:0}
   .wide .sec-kitchen .klist li{border-top:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:6px}
   .wide .sec-kitchen .klist li b{order:-1;font-size:30px}
