@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Актенгир 2 · мокап</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,8 +65,7 @@
   .ph:hover img{transform:scale(1.05)}
 
   /* появление при прокрутке (в покое всё видно) */
-  .js .rv.pre{opacity:0;transform:translateY(22px)}
-  .js .rv{transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+  .rv.in{animation:rise 1.1s var(--ease) both}
 
   /* ——— 1 · шапка и первый экран ——— */
   .hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;height:64px;margin-bottom:-64px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;color:#fff;border-bottom:1px solid rgba(255,255,255,.22);transition:background-color .5s ease,color .5s ease,border-color .5s ease}
@@ -85,8 +79,9 @@
   .burger i{display:block;height:1px;background:currentColor;transition:transform .4s var(--ease)}
   .burger:focus-visible{outline:1px dashed currentColor;outline-offset:4px}
 
+  .menu:not(.open){display:none}
   .menu{position:fixed;inset:0;z-index:50;background:var(--milk);display:grid;align-content:center;justify-items:center;gap:22px;opacity:0;pointer-events:none;transition:opacity .5s ease}
-  .menu.open{opacity:1;pointer-events:auto}
+  .menu.open{opacity:1;pointer-events:auto;animation:fade .5s ease}
   .menu a{font-family:var(--serif);font-size:34px;font-weight:500;text-decoration:none}
   .menu img{width:54px;margin-bottom:18px}
   .menu .close{position:absolute;top:18px;right:20px;background:none;border:0;font:inherit;font-size:12px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;color:var(--ink)}
@@ -136,7 +131,8 @@
   .strip-hint{display:flex;justify-content:space-between;padding:14px 24px 0;font-size:11px;letter-spacing:.08em;color:var(--grey)}
 
   .lb{position:fixed;inset:0;z-index:60;background:rgba(24,23,21,.96);color:#fff;display:grid;grid-template-rows:auto 1fr auto;opacity:0;pointer-events:none;transition:opacity .45s ease}
-  .lb.open{opacity:1;pointer-events:auto}
+  .lb:not(.open){display:none}
+  .lb.open{opacity:1;pointer-events:auto;animation:fade .45s ease}
   .lb-top{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;font-size:12px;letter-spacing:.1em}
   .lb-top img{width:26px}
   .lb-top button,.lb-nav button{background:none;border:0;color:#fff;font:inherit;font-size:12px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;padding:8px}
@@ -263,6 +259,148 @@
   .footer nav a:hover{color:var(--milk)}
   .footer small{font-size:11px;letter-spacing:.06em;opacity:.7}
 
+
+  /* ——— v16 ——— */
+  .kphoto{margin:32px -24px 0;height:calc(min(430px, 100vw - 32px) * 1.1)}
+  .strip-wrap.tight .strip button img{object-position:50% 22%}
+  .wide .sec-kitchen .kphoto{grid-column:2;grid-row:2;margin:96px 0 0;height:100%;min-height:520px}
+  .wide .sec-kitchen .k2{align-self:start}
+  .site.wide .sec-kitchen .kstrip{grid-row:3}
+  .site.wide .sec-kitchen .klist{grid-column:1/-1;grid-row:4;margin-top:64px!important;display:grid;grid-template-columns:repeat(3,1fr);column-gap:48px;border-top:0}
+  .wide .sec-kitchen .klist li{border-top:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:6px}
+  .wide .sec-kitchen .klist li b{order:-1;font-size:30px}
+  .site.wide .strip-wrap.tight .strip button img{height:clamp(360px,30vw,480px)}
+  .site.wide .sec-leisure .strip-wrap.tight .strip button img{height:clamp(240px,20vw,330px)}
+  /* ——— версия для компьютера (v14) ——— */
+  .hnav,.hbook{display:none}
+  .vsw.on{color:var(--ink)!important}
+  .vsw:not(.on){opacity:.5}
+  .site{transition:max-width .6s var(--ease)}
+  .site.wide{max-width:1440px;--padx:6vw}
+  body.is-wide .note{max-width:1440px}
+  .wide .hdr{height:76px;margin-bottom:-76px;padding:0 var(--padx)}
+  .wide .hdr .brand{font-size:24px}
+  .wide .hdr .brand .lw,.wide .hdr .brand .lc{width:32px;height:32px}
+  .wide .hnav{display:flex;gap:34px;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+  .wide .hnav a{text-decoration:none;position:relative;padding:6px 0}
+  .wide .hnav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+  .wide .hnav a:hover::after{transform:scaleX(1);transform-origin:left}
+  .wide .hbook{display:inline-flex;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:12px 22px;border:1px solid currentColor;transition:background-color .4s,color .4s}
+  .wide .hdr:not(.solid) .hbook:hover{background:#fff;color:var(--ink)}
+  .wide .hdr.solid .hbook:hover{background:var(--ink);color:var(--milk)}
+  .wide .burger{display:none}
+  .wide .tag{font-size:11.5px}
+  /* типографика крупнее */
+  .wide .h2{font-size:52px;line-height:1.08}
+  .wide .h3{font-size:38px}
+  .wide .txt{font-size:15.5px;line-height:1.8}
+  .wide .lead{font-size:17px}
+  .wide .for{font-size:22px!important}
+  .wide .pad{padding:128px var(--padx)}
+  /* 1 — первый экран */
+  .wide .hero{height:min(92vh,920px);min-height:680px}
+  .wide .hero .center{top:50%;transform:translateY(-50%)}
+  .wide .hero .logo{width:150px}
+  .wide .hero .h1{font-size:96px}
+  .wide .hero .sub{font-size:18px}
+  .wide .hero .foot{bottom:36px}
+  /* 2 — резорт */
+  .wide .sec-resort{display:grid;grid-template-columns:6fr 5fr;column-gap:8vw;align-items:end}
+  .wide .sec-resort .stack{grid-column:1;grid-row:1}
+  .wide .sec-resort .list{grid-column:2;grid-row:1;margin-top:0!important}
+  .wide .sec-resort .views{grid-column:1/-1;grid-row:2;margin:72px calc(-1 * var(--padx)) 0}
+  .wide .sec-resort .views-hint{grid-column:1/-1;grid-row:3}
+  .wide .views button{width:300px;height:420px;margin-right:8px}
+  /* ленты: несколько фото сразу */
+  .wide .strip-wrap{margin-inline:calc(-1 * var(--padx))}
+  .wide .strip-wrap .strip{padding-inline:var(--padx);scroll-padding-inline:var(--padx)}
+  .wide .strip-wrap .strip-hint{padding-inline:var(--padx)}
+  .wide .strip-wrap .strip button{flex:0 0 calc((100% - 3 * 7px) / 4.3)}
+  .wide .strip-wrap .strip button img{height:clamp(300px,26vw,420px)}
+  .wide .strip-wrap.tight .strip button{flex:0 0 calc((100% - 3 * 3px) / 4)}
+  .wide .strip-wrap.tight .strip button img{height:clamp(260px,22vw,360px)}
+  /* 3 — светлое пространство */
+  .wide .story .stack{grid-template-columns:5fr 6fr;column-gap:8vw;grid-auto-flow:dense}
+  .wide .story .stack > *{grid-column:2}
+  .wide .story .stack > .logo{grid-column:1;grid-row:1}
+  .wide .story .stack > .h2{grid-column:1;grid-row:2/6;align-self:start}
+  /* 4 — форматы */
+  .wide .sec-formats .stack{grid-template-columns:5fr 7fr;column-gap:6vw}
+  .wide .sec-formats .stack > *{grid-column:1}
+  .wide .sec-formats .stack > .fmt{grid-column:2;grid-row:1/5;align-self:start}
+  .wide .fmt td:first-child{font-size:26px}
+  .wide .fmt td:last-child{font-size:28px}
+  .wide .fmt td{padding:22px 0}
+  /* 5 — юрты */
+  .wide .sec-rooms{padding-top:40px!important}
+  .wide .room{grid-template-columns:7fr 5fr;column-gap:5vw;align-content:start}
+  .wide .room > *{grid-column:2}
+  .wide .room > .slider{grid-column:1;grid-row:1/7;margin:0}
+  .wide .room > .sl-ctrl{grid-column:1;grid-row:7;margin:0;padding-inline:0}
+  .wide .room > .h3{align-self:end;margin-top:24px}
+  .wide .room:nth-of-type(even){grid-template-columns:5fr 7fr}
+  .wide .room:nth-of-type(even) > *{grid-column:1}
+  .wide .room:nth-of-type(even) > .slider,.wide .room:nth-of-type(even) > .sl-ctrl{grid-column:2}
+  .wide .room + .room{margin-top:110px;padding-top:110px}
+  .wide .room .slides > *{height:clamp(420px,42vw,640px)}
+  .wide .room .price{font-size:32px}
+  /* 6 — баня */
+  .wide .banya{display:grid;grid-template-columns:6fr 5fr;column-gap:5vw;padding:128px var(--padx);align-items:center}
+  .wide .banya > div:first-of-type{padding:0!important}
+  .wide .banya .slider{margin:0}
+  .wide .banya .sl-ctrl{margin:0;padding-inline:0}
+  .wide .banya .slides > *{height:clamp(440px,44vw,660px)}
+  .wide .banya > .pad{padding:0!important}
+  /* 7 — кухня и сад */
+  .wide .sec-kitchen{display:grid;grid-template-columns:5fr 6fr;column-gap:6vw;align-items:start}
+  .wide .sec-kitchen .k1{grid-column:1;grid-row:1}
+  .wide .sec-kitchen .kimg{grid-column:2;grid-row:1;margin:0!important}
+  .wide .sec-kitchen .kimg .slides > *{height:420px}
+  .wide .sec-kitchen .k2{grid-column:1;grid-row:2;margin-top:96px!important}
+  .wide .sec-kitchen .klist{grid-column:2;grid-row:2;align-self:end;margin-top:96px!important}
+  .wide .sec-kitchen .kstrip{grid-column:1/-1;grid-row:3;margin-top:72px!important}
+  /* 8 — досуг */
+  .wide .sec-leisure{display:grid;grid-template-columns:5fr 6fr;column-gap:6vw;align-items:start}
+  .wide .sec-leisure .l1{grid-column:1;grid-row:1}
+  .wide .sec-leisure .l2{grid-column:1;grid-row:2}
+  .wide .sec-leisure .lstrip{grid-column:2;grid-row:1/3;margin:0!important}
+  .wide .sec-leisure .strip-wrap{margin:0}
+  .wide .sec-leisure .strip{display:grid!important;grid-template-columns:1fr 1fr;padding:0!important;overflow:visible}
+  .wide .sec-leisure .strip-wrap.tight .strip button img{height:clamp(220px,19vw,320px)}
+  .wide .sec-leisure .strip-hint{display:none}
+  /* 9 — ретриты */
+  .wide #retreats .stack{max-width:860px;margin-inline:auto}
+  .wide #retreats .h2{font-size:48px}
+  .wide #retreats .slider{max-width:1100px;margin:56px auto 0}
+  .wide #retreats .sl-ctrl{max-width:1100px;margin:0 auto;padding-inline:0}
+  .wide .slider.land .slides > *{height:clamp(420px,46vw,620px)}
+  .wide #retreats .list{display:grid;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:48px auto 0!important;border-top:0}
+  .wide #retreats .list li{border-bottom:0;border-left:1px solid rgba(243,241,236,.18);padding:4px 18px;font-size:13.5px}
+  /* 10 — основатель */
+  .wide .founder{display:grid;grid-template-columns:5fr 6fr;column-gap:6vw;align-items:start}
+  .wide .founder .ph{margin:0;height:clamp(460px,44vw,680px)}
+  .wide .founder > .stack{margin-top:0!important}
+  /* 11 — отзывы */
+  .wide .mark-pause{padding:128px var(--padx)}
+  .wide .mark-pause > .h2{font-size:48px;max-width:22ch}
+  .wide .mark-pause .slider.rev,.wide .mark-pause .sl-ctrl{margin-inline:calc(-1 * var(--padx))}
+  .wide .mark-pause .sl-ctrl{padding-inline:var(--padx)}
+  .wide .slider.rev .slides{padding-inline:var(--padx);scroll-padding-inline:var(--padx)}
+  .wide .slider.rev .slides > .rev-card{flex:0 0 calc((100% - 2 * 12px) / 3.15)}
+  .wide .rev-more{max-width:70ch}
+  /* 12 — карта */
+  .wide #where{display:grid;grid-template-columns:7fr 5fr;align-items:center}
+  .wide .map{height:640px}
+  .wide #where > .pad{padding:64px var(--padx) 64px 5vw!important}
+  /* 13 — бронь */
+  .wide .book{padding-block:140px}
+  .wide .book .btn{justify-self:center;min-width:360px}
+  .wide .book > *{max-width:560px}
+  .center-cta .btn{justify-self:center}
+  /* 14 — подвал */
+  .wide .footer{grid-template-columns:auto 1fr auto;align-items:center;column-gap:48px;padding:56px var(--padx)}
+  .wide .footer nav{justify-content:center}
+
   @media (prefers-reduced-motion:reduce){
     .slider.nudge .slides{animation:none}
     .views{overflow-x:auto}
@@ -270,9 +408,28 @@
     .clouds i,.pin::after{animation:none}
     .load *{animation:none!important}
     *,*::before,*::after{transition:none!important}
-    .js .rv.pre{opacity:1;transform:none}
+    .rv.in{animation:none}
   }
 
+  /* ——— отзывы v13 ——— */
+  .rev-total{display:flex;align-items:center;gap:16px;justify-content:center;text-align:left}
+  .rev-total .big{font-family:var(--serif);font-size:64px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+  .rev-total span:last-child{font-size:12px;line-height:1.6;color:var(--grey)}
+  .rev-total b{display:block;font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink)}
+  .mark-pause .slider.rev{justify-self:stretch;margin-inline:-32px;text-align:left;min-width:0}
+  .mark-pause .sl-ctrl{justify-self:stretch}
+  .slider.rev .slides{gap:12px;padding-inline:32px;scroll-padding-inline:32px}
+  .slider.rev .slides > .rev-card{flex:0 0 88%;height:auto;background:var(--milk);padding:26px 22px 22px;display:flex;flex-direction:column;gap:16px;overflow:visible}
+  .slider.rev .dots{display:none}
+  .mark-pause .sl-ctrl{margin-inline:-32px;padding-inline:32px}
+  .rev-score{font-family:var(--serif);font-size:34px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+  .rev-score small{font-family:var(--sans);font-size:12px;color:var(--grey);margin-left:3px}
+  .rev-q{margin:0;font-family:var(--serif);font-style:italic;font-size:17.5px;line-height:1.45;color:var(--ink);flex:1}
+  .rev-who{margin:0;font-size:12px;letter-spacing:.04em;color:var(--grey);border-top:1px solid var(--line);padding-top:12px}
+  .rev-who b{font-weight:500;color:var(--ink)}
+  .rev-who span{display:block;margin-top:2px;opacity:.8}
+  .rev-more{margin:0;font-size:12.5px;line-height:1.7;color:var(--grey);max-width:36ch}
+  .rev-note{margin:0;font-size:11px;letter-spacing:.04em;color:var(--grey);opacity:.8}
   /* ——— дополнения v11 ——— */
   .fmt tbody tr{cursor:pointer}
   .room,[id]{scroll-margin-top:72px}
@@ -285,6 +442,8 @@
   /* ——— дополнения v10 ——— */
   .slider.land .slides > *{height:calc(min(430px, 100vw - 32px) * .75);background:#232220}
   .slider.land img.fit{object-fit:contain}
+  .slider.land img.sess{object-position:50% 57%}
+  .site.wide .slider.land img.sess{object-position:50% 48%}
   /* ——— дополнения v8 ——— */
   /* ряд видов: промежутки и единая тонировка */
   .views button{margin-right:6px}
@@ -346,13 +505,11 @@
   .dark .list li{border-color:rgba(243,241,236,.18)}
   .dark .list li span{color:rgba(243,241,236,.6)}
 </style>
-</head>
-<body>
-
 
 <header class="note">
   <h1>Актенгир 2 · мокап</h1>
-  <p>Версия 12: в блоке 3 юрты разнесены, фото с занятия в ретритах растянуто по формату. Тексты и цены — по документу «Корректировка сайта Ак Тенгир». Шрифт 3, кнопка 4.</p>
+  <p>Версия 14: добавлена версия для компьютера — переключатель «Телефон / Компьютер» ниже. Тексты и цены — по документу «Корректировка сайта Ак Тенгир». Шрифт 3, кнопка 4.</p>
+  <p class="view-sw">Вид: <button type="button" class="lnk vsw" data-v="phone" style="background:none;border:0;cursor:pointer;color:var(--ink);font-size:11px">Телефон</button> · <button type="button" class="lnk vsw" data-v="desk" style="background:none;border:0;cursor:pointer;color:var(--ink);font-size:11px">Компьютер</button></p>
   <p><b>Блоки перенумерованы</b>, их стало 14. Правки пишите по новым номерам. <button type="button" id="tags" class="lnk" style="background:none;border:0;cursor:pointer;color:var(--ink);font-size:11px">Скрыть метки</button></p>
 </header>
 
@@ -360,6 +517,8 @@
 
   <header class="hdr" id="hdr">
     <a class="brand" href="#top"><img class="lw" src="img/logo-white.png" alt=""><img class="lc" src="img/logo-color.png" alt="">Ak-Tengir</a>
+    <nav class="hnav"><a href="#stay">Размещение</a><a href="#banya">Баня</a><a href="#kitchen">Кухня</a><a href="#retreats">Ретриты</a><a href="#where">Как добраться</a></nav>
+    <a class="hbook" href="#book">Забронировать</a>
     <button class="burger" type="button" id="burger" aria-label="Открыть меню"><i></i><i></i></button>
   </header>
 
@@ -378,14 +537,14 @@
   </section>
 
   <!-- 2 -->
-  <section class="blk pad">
+  <section class="blk pad sec-resort">
     <span class="tag">2 · Резорт</span>
     <div class="stack rv">
       <h2 class="h2">Скрытый между горами и Иссык-Кулем юрточный резорт</h2>
       <p class="txt">Здесь собственный пляж, уют и достаточно пространства, чтобы почувствовать себя подальше от шума и поближе к самому себе.</p>
     </div>
-    <div class="views rv" id="views"><div class="views-track"><button type="button" data-v="0"><img src="img/n-30.jpg" alt="Иссык-Куль и облака"></button><button type="button" data-v="1"><img src="img/n-3.jpg" alt="Сапборды на прозрачной воде"></button><button type="button" data-v="2"><img src="img/n-22.jpg" alt="Лаунж под навесом у воды"></button><button type="button" data-v="3"><img src="img/n-16.jpg" alt="Вид с террасы на озеро"></button><button type="button" data-v="4"><img src="img/n-19.jpg" alt="Юрты на пляже"></button><button type="button" data-v="5"><img src="img/n-47.jpg" alt="Дорога к горам"></button><button type="button" data-v="6"><img src="img/n-15.jpg" alt="Терраса с цветами над озером"></button><button type="button" data-v="7"><img src="img/n-2.jpg" alt="Вид на озеро из беседки"></button><button type="button" data-v="8"><img src="img/n-20.jpg" alt="Сапборды на песке"></button><button type="button" data-v="9"><img src="img/n-6.jpg" alt="Горы на закате"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="0"><img src="img/n-30.jpg" alt="Иссык-Куль и облака"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="1"><img src="img/n-3.jpg" alt="Сапборды на прозрачной воде"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="2"><img src="img/n-22.jpg" alt="Лаунж под навесом у воды"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="3"><img src="img/n-16.jpg" alt="Вид с террасы на озеро"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="4"><img src="img/n-19.jpg" alt="Юрты на пляже"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="5"><img src="img/n-47.jpg" alt="Дорога к горам"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="6"><img src="img/n-15.jpg" alt="Терраса с цветами над озером"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="7"><img src="img/n-2.jpg" alt="Вид на озеро из беседки"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="8"><img src="img/n-20.jpg" alt="Сапборды на песке"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="9"><img src="img/n-6.jpg" alt="Горы на закате"></button></div></div>
-    <div class="views-hint"><span>Ряд плывёт сам, касание открывает фото</span><span>10 видов</span></div>
+    <div class="views rv" id="views"><div class="views-track"><button type="button" data-v="0"><img src="img/n-30.jpg" alt="Иссык-Куль и облака"></button><button type="button" data-v="1"><img src="img/n-3.jpg" alt="Сапборды на прозрачной воде"></button><button type="button" data-v="2"><img src="img/n-22.jpg" alt="Лаунж под навесом у воды"></button><button type="button" data-v="3"><img src="img/n-16.jpg" alt="Вид с террасы на озеро"></button><button type="button" data-v="4"><img src="img/n-19.jpg" alt="Юрты на пляже"></button><button type="button" data-v="5"><img src="img/n-47.jpg" alt="Дорога к горам"></button><button type="button" data-v="6"><img src="img/n-2.jpg" alt="Вид на озеро из беседки"></button><button type="button" data-v="7"><img src="img/n-20.jpg" alt="Сапборды на песке"></button><button type="button" data-v="8"><img src="img/n-6.jpg" alt="Горы на закате"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="0"><img src="img/n-30.jpg" alt="Иссык-Куль и облака"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="1"><img src="img/n-3.jpg" alt="Сапборды на прозрачной воде"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="2"><img src="img/n-22.jpg" alt="Лаунж под навесом у воды"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="3"><img src="img/n-16.jpg" alt="Вид с террасы на озеро"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="4"><img src="img/n-19.jpg" alt="Юрты на пляже"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="5"><img src="img/n-47.jpg" alt="Дорога к горам"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="6"><img src="img/n-2.jpg" alt="Вид на озеро из беседки"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="7"><img src="img/n-20.jpg" alt="Сапборды на песке"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="8"><img src="img/n-6.jpg" alt="Горы на закате"></button></div></div>
+    <div class="views-hint"><span>Ряд плывёт сам, касание открывает фото</span><span>9 видов</span></div>
     <ul class="list rv" style="margin-top:40px">
       <li>10 комфортабельных юрт и 2 пляжных этно-дома</li>
       <li>Вода в 5–10 метрах</li>
@@ -404,11 +563,11 @@
       <p class="txt">Первые десять лет существования Ак-Тенгира сюда нельзя было приехать просто так — попасть сюда можно было только по личному приглашению. Сегодня двери Ак-Тенгира открыты для всех.</p>
       <p class="lead">Но главное здесь остаётся неизменным — тишина, приватность и ощущение свободного, светлого пространства вдали от городского шума.</p>
     </div>
-    <div style="margin-top:40px"><div class="strip-wrap"><div class="strip"><button type="button"><img src="img/n-12.jpg" alt="Юрты среди сосен"></button><button type="button"><img src="img/n-8.jpg" alt="Беседка у воды"></button><button type="button"><img src="img/n-21.jpg" alt="Двор с белыми креслами"></button><button type="button"><img src="img/n-9.jpg" alt="Юрта в саду"></button><button type="button"><img src="img/n-32.jpg" alt="Лежак на песке у юрты"></button><button type="button"><img src="img/n-5.jpg" alt="Дорожка к беседке"></button><button type="button"><img src="img/n-14.jpg" alt="Кресла под камышовым зонтом"></button><button type="button"><img src="img/n-1.jpg" alt="Терраса с занавесями"></button><button type="button"><img src="img/n-7.jpg" alt="Качели в тени"></button><button type="button"><img src="img/n-24.jpg" alt="Резная кровать у юрты"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>10 фото</span></div></div></div>
+    <div style="margin-top:40px"><div class="strip-wrap"><div class="strip"><button type="button"><img src="img/n-12.jpg" alt="Юрты среди сосен"></button><button type="button"><img src="img/n-8.jpg" alt="Беседка у воды"></button><button type="button"><img src="img/n-21.jpg" alt="Двор с белыми креслами"></button><button type="button"><img src="img/n-9.jpg" alt="Юрта в саду"></button><button type="button"><img src="img/n-5.jpg" alt="Дорожка к беседке"></button><button type="button"><img src="img/n-14.jpg" alt="Кресла под камышовым зонтом"></button><button type="button"><img src="img/n-1.jpg" alt="Терраса с занавесями"></button><button type="button"><img src="img/n-7.jpg" alt="Качели в тени"></button><button type="button"><img src="img/n-24.jpg" alt="Резная кровать у юрты"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>9 фото</span></div></div></div>
   </section>
 
   <!-- 4 -->
-  <section class="blk pad" id="stay">
+  <section class="blk pad sec-formats" id="stay">
     <span class="tag">4 · Форматы и цены</span>
     <div class="stack rv">
       <h2 class="h2">Четыре формата проживания</h2>
@@ -428,7 +587,7 @@
   </section>
 
   <!-- 5 -->
-  <section class="blk pad" style="padding-top:0">
+  <section class="blk pad sec-rooms" style="padding-top:0">
     <span class="tag">5 · Юрты</span>
     <article class="room rv" id="room-std">
       <div class="slider"><div class="slides"><div><img src="img/y-st2.jpg" alt="Юрта Стандарт"></div><div><img src="img/y-st3.jpg" alt="Юрта Стандарт"></div><div><img src="img/y-st1.jpg" alt="Юрта Стандарт"></div><div><img src="img/y-st5.jpg" alt="Юрта Стандарт"></div><div><img src="img/y-st6.jpg" alt="Юрта Стандарт"></div><div><img src="img/y-st4.jpg" alt="Юрта Стандарт"></div></div><div class="dots"></div></div>
@@ -466,7 +625,7 @@
   <div class="center-cta"><a class="btn" href="#book">Забронировать</a></div>
 
   <!-- 6 -->
-  <section class="blk banya">
+  <section class="blk banya" id="banya">
     <span class="tag">6 · Этно-баня</span>
     <div style="padding:0 24px"><div class="slider"><div class="slides"><div><img src="img/b-room.jpg" alt="Предбанник с витражными окнами"></div><div><img src="img/b-sunset.jpg" alt="Предбанник на закате, окна на озеро"></div><div class="vid"><video src="img/banya.mp4" poster="img/banya-poster.jpg" autoplay muted loop playsinline></video></div><div><img src="img/b-hats.jpg" alt="Банные шапки «С лёгким паром»"></div></div><div class="dots"></div></div></div>
     <div class="pad stack rv" style="padding-top:44px">
@@ -484,22 +643,23 @@
   </section>
 
   <!-- 7 -->
-  <section class="blk pad">
+  <section class="blk pad sec-kitchen" id="kitchen">
     <span class="tag">7 · Кухня и сад</span>
-    <div class="stack rv">
+    <div class="stack rv k1">
       <h2 class="h2">Кухня</h2>
       <p class="for" style="font-family:var(--serif);font-style:italic;font-size:20px;margin:0">От нашей земли — к вашему столу</p>
       <p class="txt">Уже больше десяти лет для гостей Ак-Тенгира готовит наша команда проверенных поваров. Каждое утро мы печём свежий хлеб и домашнюю выпечку, готовим национальные блюда на открытом огне, а летом и осенью делаем собственные заготовки из овощей и фруктов, выращенных здесь, в Ак-Тенгире.</p>
     </div>
-    <div class="slider" style="margin-top:32px"><div class="slides"><div class="slot"><div><img src="img/logo-color.png" alt=""><span>Место для фото блюд, когда будут хорошие кадры</span></div></div></div><div class="dots"></div></div>
-    <div class="stack rv" style="margin-top:48px">
+    <div class="slider kimg" style="margin-top:32px"><div class="slides"><div class="slot"><div><img src="img/logo-color.png" alt=""><span>Место для фото блюд, когда будут хорошие кадры</span></div></div></div><div class="dots"></div></div>
+    <div class="stack rv k2" style="margin-top:48px">
       <h3 class="h3">Свой сад и пермакультура</h3>
       <p class="txt">Наш огород создан по принципам пермакультуры. Более десяти лет назад его заложил приглашённый специалист из Италии: почва формировалась особым многослойным способом с использованием натурального войлока и разных типов грунта. Это помогает удерживать влагу, сохранять плодородие земли и создавать естественную среду для растений.</p>
       <p class="txt">Сегодня здесь растут свежие травы, баклажаны, помидоры, перцы, огурцы и капуста, а в саду — яблони, вишня, черешня и даже гинкго билоба.</p>
       <p class="lead">Большая часть того, что выращивает наша земля, возвращается на стол наших гостей. Из собственных яблок и местных сезонных фруктов мы готовим компоты, напитки и смузи и подаём их к завтракам, обедам и ужинам.</p>
     </div>
-    <div style="margin-top:32px"><div class="strip-wrap tight"><div class="strip"><button type="button"><img src="img/n-4.jpg" alt="Овощи с огорода"></button><button type="button"><img src="img/n-33.jpg" alt="Урожай огурцов"></button><button type="button"><img src="img/n-34.jpg" alt="Стол с овощами и фруктами"></button><button type="button"><img src="img/n-35.jpg" alt="Урожай капусты"></button><button type="button"><img src="img/n-39.jpg" alt="Сезонные овощи и фрукты"></button><button type="button"><img src="img/n-49.jpg" alt="Ящики с урожаем"></button><button type="button"><img src="img/n-42.jpg" alt="Слива в саду"></button><button type="button"><img src="img/n-51.jpg" alt="Грядки среди сосен"></button><button type="button"><img src="img/n-40.jpg" alt="Корзины с овощами"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>9 фото</span></div></div></div>
-    <ul class="list rv" style="margin-top:40px">
+    <div class="ph kphoto rv"><img src="img/n-51.jpg" alt="Грядки среди сосен"></div>
+    <div class="kstrip" style="margin-top:32px"><div class="strip-wrap tight"><div class="strip"><button type="button"><img src="img/n-4.jpg" alt="Овощи с огорода"></button><button type="button"><img src="img/n-33.jpg" alt="Урожай огурцов"></button><button type="button"><img src="img/n-34.jpg" alt="Стол с овощами и фруктами"></button><button type="button"><img src="img/n-35.jpg" alt="Урожай капусты"></button><button type="button"><img src="img/n-39.jpg" alt="Сезонные овощи и фрукты"></button><button type="button"><img src="img/n-49.jpg" alt="Ящики с урожаем"></button><button type="button"><img src="img/n-42.jpg" alt="Слива в саду"></button><button type="button"><img src="img/n-40.jpg" alt="Корзины с овощами"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>8 фото</span></div></div></div>
+    <ul class="list rv klist" style="margin-top:40px">
       <li><span>Завтрак, шведский стол</span><b>включён</b></li>
       <li><span>Обед, оплачивается отдельно</span><b>1200 сом</b></li>
       <li><span>Ужин, оплачивается отдельно</span><b>1500 сом</b></li>
@@ -507,15 +667,15 @@
   </section>
 
   <!-- 8 -->
-  <section class="blk pad" style="background:var(--sand)">
+  <section class="blk pad sec-leisure" style="background:var(--sand)">
     <span class="tag">8 · Досуг</span>
-    <div class="stack rv">
+    <div class="stack rv l1">
       <h2 class="h2">Активный и спокойный досуг</h2>
       <p class="txt">Сапборды и рыбалка по запросу, плетёные кресла в тени и вид на горы. Всё — как для активного досуга, так и для того, чтобы просто посидеть и почитать с чаем.</p>
       <p class="txt" style="font-size:12.5px">Цены на сапборд и лодку уточняются отдельно.</p>
     </div>
-    <div style="margin-top:32px"><div class="strip-wrap tight"><div class="strip"><button type="button"><img src="img/n-3.jpg" alt="Сапборды на прозрачной воде"></button><button type="button"><img src="img/n-20.jpg" alt="Сапборды на пляже"></button><button type="button"><img src="img/n-22.jpg" alt="Лаунж под навесом над озером"></button><button type="button"><img src="img/n-14.jpg" alt="Кресла под камышовым зонтом"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>4 фото</span></div></div></div>
-    <div class="stack rv" style="margin-top:40px">
+    <div class="lstrip" style="margin-top:32px"><div class="strip-wrap tight"><div class="strip"><button type="button"><img src="img/n-3.jpg" alt="Сапборды на прозрачной воде"></button><button type="button"><img src="img/n-20.jpg" alt="Сапборды на пляже"></button><button type="button"><img src="img/n-22.jpg" alt="Лаунж под навесом над озером"></button><button type="button"><img src="img/n-14.jpg" alt="Кресла под камышовым зонтом"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>4 фото</span></div></div></div>
+    <div class="stack rv l2" style="margin-top:40px">
       <p class="txt">На территории работает небольшой бар: свежесваренный кофе, лимонады, локальные и импортные снеки. Здесь можно попробовать мясные деликатесы, соки и вина местного производства от <b style="color:var(--ink);font-weight:500">Attila</b>.</p>
       <p class="txt">А для неспешного вечера у озера по запросу доступен кальян.</p>
     </div>
@@ -523,7 +683,7 @@
   <div class="center-cta" style="background:var(--sand);padding-top:0"><a class="btn" href="#book">Забронировать</a></div>
 
   <!-- 9 -->
-  <section class="blk pad dark">
+  <section class="blk pad dark" id="retreats">
     <span class="tag">9 · Ретриты</span>
     <div class="stack rv" style="text-align:center;justify-items:center">
       <h2 class="h2">Ак-Тенгир — не только место для отдыха, но и открытая площадка для ваших ретритов и тимбилдингов</h2>
@@ -533,7 +693,7 @@
       <p class="txt">Для компаний мы создаём корпоративные ретриты и тимбилдинги под задачи конкретной команды — с программой, разработанной на основе методики основателя Ак-Тенгира Женишбека Назаралиева.</p>
       <p class="lead" style="color:var(--milk)">Сюда можно приехать со своей программой — или доверить её создание нам.</p>
     </div>
-    <div class="slider land" style="margin-top:36px"><div class="slides"><div><img src="img/r-group.jpg" alt="Групповая практика с наставником"></div><div><img src="img/f-session.jpg" style="object-position:50% 58%" alt="Женишбек Назаралиев ведёт занятие"></div><div><img src="img/r-fire.jpg" alt="Костровая зона: вечерний круг у огня"></div></div><div class="dots"></div></div>
+    <div class="slider land" style="margin-top:36px"><div class="slides"><div><img src="img/r-group.jpg" alt="Групповая практика с наставником"></div><div><img src="img/f-session.jpg" class="sess" alt="Женишбек Назаралиев ведёт занятие"></div><div><img src="img/r-fire.jpg" alt="Костровая зона: вечерний круг у огня"></div></div><div class="dots"></div></div>
     <ul class="list" style="margin-top:32px">
       <li>Стеклянное йога-бунгало для практик</li>
       <li>Костровая зона</li>
@@ -571,14 +731,18 @@
     <span class="tag">11 · Отзывы</span>
     <img class="rv" src="img/logo-color.png" alt="">
     <p class="h2 rv">Гости обычно увозят с собой одну мысль: когда получится вернуться</p>
-    <p class="txt rv" style="max-width:32ch">Место для отзывов гостей, когда они будут собраны.</p>
+    <div class="rev-total rv"><span class="big">8,6</span><span><b>Потрясающе</b>51 отзыв на Booking.com</span></div>
+    <div class="slider rev rv"><div class="slides"><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Очень рекомендую баню: прыгнуть в озеро сразу после парной — чистое блаженство. Еда — отдельный повод приехать: лучшая за всю поездку по Кыргызстану, свежая и очень вкусная. От сада до юрты и блюд чувствуется вкус и забота хозяев. Пишу этот отзыв, чтобы не забыть вернуться.</p><p class="rev-who"><b>Margie</b> · Южная Корея<span>август 2026</span></p></article><article class="rev-card"><div class="rev-score">9<small>/10</small></div><p class="rev-q">Прекрасный небольшой юрточный лагерь. Чисто и ухоженно, вокруг сады и цветы, порхают бабочки. Персонал дружелюбный и готов помочь. Еда — восторг, почти всё выращено здесь же. Пляж отличный: тихо, своя полоска воды и песка на фоне гор. Я приехала поздно, но меня дождались и проводили до юрты. Надеюсь вернуться.</p><p class="rev-who"><b>Naadia</b> · Великобритания<span>август 2024</span></p></article><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Идеальный отдых. Все наши просьбы — обогреватель в юрту, фонарь в сад, поздний ужин — выполнили сразу. Лучшая еда за всю поездку: по качеству, количеству и разнообразию. Удобно ездить в каньон Сказка и по южному берегу. Спасибо, 10 из 10.</p><p class="rev-who"><b>Alex</b> · Германия<span>сентябрь 2026</span></p></article><article class="rev-card"><div class="rev-score">9<small>/10</small></div><p class="rev-q">Территория чудесная и тихая, персонал вежливый и приветливый. Еда — просто восторг: вкусно, разнообразно и сытно. Пляж красивый, вода тёплая. Овчарка Альфа очень ласковая и любит приносить палочки. Всё просто супер.</p><p class="rev-who"><b>Walter</b> · Швейцария<span>июль 2026</span></p></article><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Отличный юрточный лагерь! Выложенные дорожки, беседки, освещение по всей территории. В юртах чисто и просторно, хорошая постель. У каждой юрты свой топчан и кресло-качалка. Отличный пляж с беседками.</p><p class="rev-who"><b>Sergey</b> · Казахстан<span>июль 2024</span></p></article><article class="rev-card"><div class="rev-score">9<small>/10</small></div><p class="rev-q">Прекрасный юрточный лагерь с великолепным отдельным пляжем, ухоженной территорией и удобствами, которых нет в других местах.</p><p class="rev-who"><b>Amir</b> · Россия<span>август 2024</span></p></article><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Очень приветливый персонал, чисто и современно, вкусная еда, красивые виды. Собаки чудесные и ходят за гостями хвостиком. Нас угостили яблоками и грушами из своего сада.</p><p class="rev-who"><b>Eunje</b> · Южная Корея<span>сентябрь 2026</span></p></article><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Персонал очень дружелюбный и готов помочь во всём. Чудесное место на берегу озера. Еда очень хорошая.</p><p class="rev-who"><b>Stefano</b> · Италия<span>апрель 2025</span></p></article><article class="rev-card"><div class="rev-score">8<small>/10</small></div><p class="rev-q">Фантастическое расположение прямо у тихого пляжа. Хорошие юрты, удобная мебель у юрты, ухоженный сад. Хороший завтрак.</p><p class="rev-who"><b>Marlene</b> · Дания<span>июль 2026</span></p></article><article class="rev-card"><div class="rev-score">8<small>/10</small></div><p class="rev-q">Потрясающее место и очень дружелюбный персонал. И отличная еда.</p><p class="rev-who"><b>Sonia</b> · Великобритания<span>апрель 2026</span></p></article><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Очень дружелюбная семья, красивое жильё, чисто.</p><p class="rev-who"><b>Miriam</b> · Австрия<span>июль 2026</span></p></article><article class="rev-card"><div class="rev-score">8<small>/10</small></div><p class="rev-q">Очень чисто и спокойно, замечательный персонал.</p><p class="rev-who"><b>Mark</b> · Австралия<span>октябрь 2025</span></p></article><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Абсолютно всё: от собак во дворе до видов за окном.</p><p class="rev-who"><b>Toktaliev</b> · Кыргызстан<span>август 2026</span></p></article><article class="rev-card"><div class="rev-score">9<small>/10</small></div><p class="rev-q">Отличный завтрак! Юрта супер! Место отличное!</p><p class="rev-who"><b>Eleonora</b> · Россия<span>август 2024</span></p></article><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Потрясающее место!</p><p class="rev-who"><b>Vladimir</b> · Казахстан<span>ноябрь 2024</span></p></article></div><div class="dots"></div></div>
+    <p class="rev-more rv">Ещё 11 гостей поставили оценку без комментария: Rebekka (Германия), Nataliya (Франция), Marie-sophie (Германия), Viktor (Казахстан), Anastasiya (Италия) — 10; Alan (Польша), Wolfgang (Германия), Vadim (Россия) — 9; Claudia (Германия), Helle (Дания), Samuel (Швейцария) — 8.</p>
+    <p class="rev-note rv">Отзывы с Booking.com, переведены на русский и сокращены.</p>
+    <a class="btn rv" href="#book" style="justify-self:center">Забронировать</a>
   </section>
 
   <!-- 12 -->
   <section class="blk" id="where">
     <span class="tag">12 · Как добраться</span>
     <div class="map" id="map">
-      <canvas id="terrain" width="430" height="600" aria-hidden="true"></canvas>
+      <canvas id="terrain" width="820" height="700" aria-hidden="true"></canvas>
       <div class="clouds" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <div class="pin" style="left:57%;top:55%"><b></b></div>
       <div class="map-side"><span></span><p>ak-tengir<br>село тосор,<br>южный берег иссык-куля,<br>кыргызстан</p></div>
@@ -610,7 +774,7 @@
   <footer class="blk footer">
     <span class="tag">14 · Подвал</span>
     <div class="brand"><img src="img/logo-white.png" alt="">Ak-Tengir</div>
-    <nav><a href="#stay">Размещение</a><a href="#where">Как добраться</a><a href="#book">Бронь</a><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></nav>
+    <nav><a href="#stay">Размещение</a><a href="#where">Как добраться</a><a href="#book">Бронь</a><a href="https://www.instagram.com/ak.tengir_yurtresort/" target="_blank" rel="noopener">Instagram</a></nav>
     <small>© Ak-Tengir · юрточный резорт на южном берегу Иссык-Куля</small>
   </footer>
 
@@ -639,8 +803,7 @@
   // появление при прокрутке: прячем только то, что ниже экрана
   var rv=[].slice.call(document.querySelectorAll('.rv'));
   if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
-    rv.forEach(function(el){if(el.getBoundingClientRect().top>innerHeight)el.classList.add('pre')});
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){if(e.boundingClientRect.top>innerHeight*.4)e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
     rv.forEach(function(el){io.observe(el)});
   }
 
@@ -682,11 +845,12 @@
       ctrl=document.createElement('div');ctrl.className='sl-ctrl';
       ctrl.innerHTML='<span class="sl-count"></span><div class="sl-arrows"><button type="button" aria-label="Предыдущее фото">←</button><button type="button" aria-label="Следующее фото">→</button></div>';
       sl.insertAdjacentElement('afterend',ctrl);cnt=ctrl.querySelector('.sl-count');prev=ctrl.querySelectorAll('button')[0];next=ctrl.querySelectorAll('button')[1];
-      prev.onclick=function(){tr.scrollBy({left:-tr.clientWidth,behavior:'smooth'})};
-      next.onclick=function(){tr.scrollBy({left:tr.clientWidth,behavior:'smooth'})};
+      var step=function(){var c=tr.children[0];return c?c.getBoundingClientRect().width+12:tr.clientWidth};
+      prev.onclick=function(){tr.scrollBy({left:-(sl.classList.contains('rev')?step():tr.clientWidth),behavior:'smooth'})};
+      next.onclick=function(){tr.scrollBy({left:(sl.classList.contains('rev')?step():tr.clientWidth),behavior:'smooth'})};
       if('IntersectionObserver' in window){var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){sl.classList.add('nudge');o.disconnect()}},{threshold:.6});o.observe(sl)}
     }
-    function upd(){var k=Math.round(tr.scrollLeft/tr.clientWidth);[].forEach.call(dots.children,function(d,j){d.classList.toggle('on',j===k)});
+    function upd(){var w=sl.classList.contains('rev')&&tr.children[0]?tr.children[0].getBoundingClientRect().width+12:tr.clientWidth;var k=Math.min(n-1,Math.round(tr.scrollLeft/w));if(tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-4)k=n-1;[].forEach.call(dots.children,function(d,j){d.classList.toggle('on',j===k)});
       if(ctrl){cnt.textContent=(k+1)+' / '+n;prev.disabled=k===0;next.disabled=k===n-1}}
     tr.addEventListener('scroll',upd,{passive:true});upd();
   });
@@ -722,11 +886,18 @@
   // смена фона первого экрана
   document.querySelectorAll('.hsw').forEach(function(b){b.onclick=function(){document.getElementById('heroImg').src=b.dataset.src;window.scrollTo({top:document.getElementById('site').offsetTop-20,behavior:'smooth'})}});
 
+  // переключатель «Телефон / Компьютер»
+  (function(){
+    var site=document.getElementById('site'),bs=document.querySelectorAll('.vsw');
+    function set(v){site.classList.toggle('wide',v==='desk');document.body.classList.toggle('is-wide',v==='desk');bs.forEach(function(b){b.classList.toggle('on',b.dataset.v===v)});try{localStorage.setItem('ak2view',v)}catch(e){}
+      document.querySelectorAll('.slides').forEach(function(t){t.scrollLeft=0});onScroll()}
+    bs.forEach(function(b){b.onclick=function(){set(b.dataset.v)}});
+    var saved=null;try{saved=localStorage.getItem('ak2view')}catch(e){}
+    set(saved||(innerWidth>=1000?'desk':'phone'));
+  })();
+
   // метки блоков
   var tg=document.getElementById('tags'),site=document.getElementById('site');
   tg.onclick=function(){var h=site.classList.toggle('hide-tags');tg.textContent=h?'Показать метки':'Скрыть метки'};
 })();
 </script>
-
-</body>
-</html>
