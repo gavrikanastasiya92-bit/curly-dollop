@@ -1,0 +1,119 @@
+<title>Запуск сайта Ак-Тенгир</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@300;400;500&display=swap">
+<style>
+/* Лист-план в системе «Актенгир 2»: одна колонка ~680px, шаги — настоящая последовательность, поэтому с номерами */
+:root{
+  --milk:#F3F1EC; --sand:#E9E5DD; --ink:#2B2A28; --grey:#6F6A62; --line:#D3CEC4; --accent:#C8452C;
+  --serif:"Cormorant Garamond","Georgia","Times New Roman",serif;
+  --sans:"Montserrat","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--milk:#1E1D1B;--sand:#272522;--ink:#EDEAE3;--grey:#A8A298;--line:#3A3733;--accent:#E06A50;color-scheme:dark}}
+:root[data-theme="dark"]{--milk:#1E1D1B;--sand:#272522;--ink:#EDEAE3;--grey:#A8A298;--line:#3A3733;--accent:#E06A50;color-scheme:dark}
+body{background:var(--milk);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:15px;line-height:1.7}
+.wrap{max-width:680px;margin:0 auto;padding-inline:20px;padding-block:56px 72px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,7vw,46px)}
+h2{font-size:30px;margin-top:64px;padding-top:28px;border-top:1px solid var(--line)}
+h3{font-size:22px}
+.lede{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--grey);margin:14px 0 0}
+.caps{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+p{margin:0}
+.stack{display:grid;gap:14px}
+ol.steps{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:30px;counter-reset:s}
+ol.steps li{display:grid;grid-template-columns:44px 1fr;gap:4px 14px;counter-increment:s}
+ol.steps li::before{content:counter(s);grid-row:span 3;font-family:var(--serif);font-size:30px;line-height:1;color:var(--accent)}
+ol.steps li>*{min-width:0}
+.why{color:var(--grey)}
+.why b{font-weight:500;color:var(--ink)}
+ul.plain{margin:6px 0 0;padding-left:18px;color:var(--grey)}
+.tbl{overflow-x:auto;margin-top:24px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:14px 12px 14px 0;border-bottom:1px solid var(--line)}
+th{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+td:first-child{font-weight:500;white-space:nowrap}
+td.price{white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.pick td{background:var(--sand)}
+tr.pick td:first-child{padding-left:10px;border-left:2px solid var(--accent)}
+.rec{margin-top:28px;padding:22px 24px;background:var(--sand)}
+.rec h3{margin-bottom:8px}
+.note{margin-top:14px;font-size:13px;color:var(--grey)}
+ol.todo{margin:20px 0 0;padding-left:20px;display:grid;gap:10px}
+footer{margin-top:64px;font-size:12px;color:var(--grey)}
+a{color:inherit}
+</style>
+
+<div class="wrap">
+  <p class="caps">Ак-Тенгир · юрточный резорт на Иссык-Куле</p>
+  <h1 style="margin-top:14px">Запуск сайта: что делаем и зачем</h1>
+  <p class="lede">Дизайн утверждён 2 октября 2026. Дальше — перенос в настоящий сайт и публикация в интернете.</p>
+
+  <h2>Шаги</h2>
+  <ol class="steps">
+    <li>
+      <h3>Переносим утверждённый макет в сайт</h3>
+      <p class="why"><b>Зачем:</b> сейчас это образец для согласования, в нём служебные метки и переключатель «Телефон / Компьютер». На сайте браузер сам выберет нужную версию.</p>
+      <p class="why">Фото сжимаем с 24 МБ до 3–5 МБ, чтобы сайт быстро открывался даже на мобильном интернете в горах.</p>
+    </li>
+    <li>
+      <h3>Подключаем английскую версию</h3>
+      <p class="why"><b>Зачем:</b> один сайт с переключателем RU / EN и отдельным адресом <span style="white-space:nowrap">/en</span>, чтобы иностранцы находили его в Google. Перевод сначала согласуем.</p>
+    </li>
+    <li>
+      <h3>Проверяем контакты и цены</h3>
+      <p class="why"><b>Зачем:</b> это последнее, что видит гость перед бронью.</p>
+      <ul class="plain"><li>номер WhatsApp и телефон</li><li>цены на юрты, баню и питание</li><li>ссылка на Instagram и адрес</li></ul>
+    </li>
+    <li>
+      <h3>Покупаем домен</h3>
+      <p class="why"><b>Зачем:</b> это адрес сайта, например aktengir.kg или ak-tengir.com. Оплачивается раз в год.</p>
+      <p class="why">Домен регистрируем на имя владельца резорта или на компанию, чтобы сайт всегда принадлежал ей.</p>
+    </li>
+    <li>
+      <h3>Выбираем хостинг и публикуем</h3>
+      <p class="why"><b>Зачем:</b> хостинг — место, где хранится сайт и откуда он открывается у гостей. Варианты ниже.</p>
+    </li>
+    <li>
+      <h3>Настраиваем после запуска</h3>
+      <ul class="plain">
+        <li><b>https</b> — без него браузер помечает сайт как «небезопасный»</li>
+        <li><b>Google Search Console и Яндекс Вебмастер</b> — чтобы сайт появился в поиске</li>
+        <li><b>Google Analytics или Яндекс Метрика</b> — сколько людей заходит и сколько пишет в WhatsApp</li>
+        <li><b>Ссылка на сайт</b> в Instagram, Booking, 2GIS и Google Maps</li>
+      </ul>
+    </li>
+    <li>
+      <h3>Обновляем по мере надобности</h3>
+      <p class="why"><b>Зачем:</b> фото блюд, цены на новый сезон, свежие отзывы. Правка и публикация занимают несколько минут.</p>
+    </li>
+  </ol>
+
+  <h2>Где разместить сайт</h2>
+  <p class="why" style="margin-top:14px">Сайт сделан на чистом HTML, без конструктора и сервера, поэтому подойдёт почти любой хостинг.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Вариант</th><th>Цена</th><th>Плюсы</th><th>Минусы</th></tr></thead>
+      <tbody>
+        <tr class="pick"><td>Cloudflare Pages</td><td class="price">бесплатно</td><td>Быстро открывается по всему миру, https бесплатно, публикация в пару кликов</td><td>Нужно завести аккаунт, настройка один раз</td></tr>
+        <tr class="pick"><td>Netlify</td><td class="price">бесплатно</td><td>Так же просто и быстро, https бесплатно</td><td>Лимиты бесплатного тарифа, но этому сайту их хватит с запасом</td></tr>
+        <tr><td>GitHub Pages</td><td class="price">бесплатно</td><td>Сайт уже хранится на GitHub, переносить ничего не нужно</td><td>Официально не для коммерческих сайтов</td></tr>
+        <tr><td>Платный хостинг</td><td class="price">≈ $2–5 / мес</td><td>Можно платить локально, поддержка на русском</td><td>Платно, файлы загружаются вручную</td></tr>
+        <tr><td>Конструктор (Tilda и т. п.)</td><td class="price">от ≈ $10 / мес</td><td>Тексты можно менять самостоятельно</td><td>Сайт собирать заново, часть дизайна и анимаций потеряется. Не советуем</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rec">
+    <h3>Рекомендация</h3>
+    <p>Cloudflare Pages или Netlify плюс собственный домен. Хостинг бесплатный, сайт быстро открывается и в Кыргызстане, и у иностранных гостей, обновлять просто. Платить нужно только за домен.</p>
+  </div>
+  <p class="note">Цены на домены и платный хостинг ориентировочные. Перед расчётом бюджета их стоит уточнить у регистратора.</p>
+
+  <h2>Что нужно от владельца</h2>
+  <ol class="todo">
+    <li>Выбрать домен или сообщить, если он уже есть.</li>
+    <li>Завести аккаунт хостинга на свою почту. Мы подскажем, как, и подготовим файлы.</li>
+    <li>Проверить контакты, цены и английский перевод.</li>
+  </ol>
+
+  <footer>Ак-Тенгир · план запуска сайта · 2 октября 2026</footer>
+</div>
