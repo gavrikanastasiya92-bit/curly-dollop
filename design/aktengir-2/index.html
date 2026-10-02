@@ -227,6 +227,11 @@
   /* ——— 10 · карта ——— */
   .map{position:relative;height:560px;overflow:hidden;background:#1d211d;color:rgba(243,241,236,.8)}
   .map canvas{position:absolute;inset:0;width:100%;height:100%}
+  .map-sat{position:absolute;max-width:none;filter:saturate(.85) brightness(.82)}
+  .map::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(20,22,20,.55),rgba(20,22,20,0) 45%)}
+  .map .pin,.map .map-side,.map .map-code,.map .map-draft{z-index:2}
+  .map .clouds{z-index:1;opacity:.55}
+  .map .map-draft,.map .map-code,.map .map-side p{text-shadow:0 1px 3px rgba(0,0,0,.8);opacity:.85}
   .clouds{position:absolute;inset:-10% -60%;pointer-events:none}
   .clouds i{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.95),rgba(255,255,255,.55) 45%,rgba(255,255,255,0));filter:blur(6px);animation:cloud 48s linear infinite}
   .clouds i:nth-child(1){width:360px;height:220px;top:4%;left:10%}
@@ -310,7 +315,7 @@
   .wide .sec-resort .stack{grid-column:1;grid-row:1}
   .wide .sec-resort .list{grid-column:2;grid-row:1;margin-top:0!important}
   .wide .sec-resort .views{grid-column:1/-1;grid-row:2;margin:72px calc(-1 * var(--padx)) 0}
-  .wide .sec-resort .views-hint{grid-column:1/-1;grid-row:3}
+  .wide .sec-resort .views-strip{grid-column:1/-1;grid-row:2;margin-top:72px!important}
   .wide .views button{width:300px;height:420px;margin-right:8px}
   /* ленты: несколько фото сразу */
   .wide .strip-wrap{margin-inline:calc(-1 * var(--padx))}
@@ -357,6 +362,7 @@
   .wide .sec-kitchen .k1{grid-column:1;grid-row:1}
   .wide .sec-kitchen .kimg{grid-column:2;grid-row:1;margin:0!important}
   .wide .sec-kitchen .kimg .slides > *{height:420px}
+  .wide .sec-kitchen .kimg .slider{margin-inline:0}
   .wide .sec-kitchen .k2{grid-column:1;grid-row:2;margin-top:96px!important}
   .wide .sec-kitchen .klist{grid-column:2;grid-row:2;align-self:end;margin-top:96px!important}
   .wide .sec-kitchen .kstrip{grid-column:1/-1;grid-row:3;margin-top:72px!important}
@@ -544,8 +550,7 @@
       <h2 class="h2">Скрытый между горами и Иссык-Кулем юрточный резорт</h2>
       <p class="txt">Здесь собственный пляж, уют и достаточно пространства, чтобы почувствовать себя подальше от шума и поближе к самому себе.</p>
     </div>
-    <div class="views rv" id="views"><div class="views-track"><button type="button" data-v="0"><img src="img/n-30.jpg" alt="Иссык-Куль и облака"></button><button type="button" data-v="1"><img src="img/n-3.jpg" alt="Сапборды на прозрачной воде"></button><button type="button" data-v="2"><img src="img/n-22.jpg" alt="Лаунж под навесом у воды"></button><button type="button" data-v="3"><img src="img/n-16.jpg" alt="Вид с террасы на озеро"></button><button type="button" data-v="4"><img src="img/n-19.jpg" alt="Юрты на пляже"></button><button type="button" data-v="5"><img src="img/n-47.jpg" alt="Дорога к горам"></button><button type="button" data-v="6"><img src="img/n-2.jpg" alt="Вид на озеро из беседки"></button><button type="button" data-v="7"><img src="img/n-20.jpg" alt="Сапборды на песке"></button><button type="button" data-v="8"><img src="img/n-6.jpg" alt="Горы на закате"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="0"><img src="img/n-30.jpg" alt="Иссык-Куль и облака"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="1"><img src="img/n-3.jpg" alt="Сапборды на прозрачной воде"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="2"><img src="img/n-22.jpg" alt="Лаунж под навесом у воды"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="3"><img src="img/n-16.jpg" alt="Вид с террасы на озеро"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="4"><img src="img/n-19.jpg" alt="Юрты на пляже"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="5"><img src="img/n-47.jpg" alt="Дорога к горам"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="6"><img src="img/n-2.jpg" alt="Вид на озеро из беседки"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="7"><img src="img/n-20.jpg" alt="Сапборды на песке"></button><button type="button" tabindex="-1" aria-hidden="true" data-v="8"><img src="img/n-6.jpg" alt="Горы на закате"></button></div></div>
-    <div class="views-hint"><span>Ряд плывёт сам, касание открывает фото</span><span>9 видов</span></div>
+    <div class="views-strip" style="margin-top:44px"><div class="strip-wrap"><div class="strip"><button type="button"><img src="img/n-12.jpg" alt="Юрты среди сосен"></button><button type="button"><img src="img/n-8.jpg" alt="Беседка у воды"></button><button type="button"><img src="img/n-21.jpg" alt="Двор с белыми креслами"></button><button type="button"><img src="img/t-topchan.jpg" alt="Топчан во дворе"></button><button type="button"><img src="img/n-5.jpg" alt="Дорожка к беседке"></button><button type="button"><img src="img/t-umbrella-lake.jpg" alt="Терраса под зонтиком с видом на озеро"></button><button type="button"><img src="img/n-14.jpg" alt="Кресла под камышовым зонтом"></button><button type="button"><img src="img/t-apple-tree.jpg" alt="Яблоня у плетёных кресел"></button><button type="button"><img src="img/t-garden-arch.jpg" alt="Тенистый сад с каменными клумбами"></button><button type="button"><img src="img/n-1.jpg" alt="Терраса с занавесями"></button><button type="button"><img src="img/n-7.jpg" alt="Качели в тени"></button><button type="button"><img src="img/n-24.jpg" alt="Резные топчаны у юрт"></button><button type="button"><img src="img/t-tent-yurt.jpg" alt="Шатёр на берегу озера"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>13 фото</span></div></div></div>
     <ul class="list rv" style="margin-top:40px">
       <li>10 комфортабельных юрт и 2 пляжных этно-дома</li>
       <li>Вода в 5–10 метрах</li>
@@ -564,7 +569,7 @@
       <p class="txt">Первые десять лет существования Ак-Тенгира сюда нельзя было приехать просто так — попасть сюда можно было только по личному приглашению. Сегодня двери Ак-Тенгира открыты для всех.</p>
       <p class="lead">Но главное здесь остаётся неизменным — тишина, приватность и ощущение свободного, светлого пространства вдали от городского шума.</p>
     </div>
-    <div style="margin-top:40px"><div class="strip-wrap"><div class="strip"><button type="button"><img src="img/n-12.jpg" alt="Юрты среди сосен"></button><button type="button"><img src="img/n-8.jpg" alt="Беседка у воды"></button><button type="button"><img src="img/n-21.jpg" alt="Двор с белыми креслами"></button><button type="button"><img src="img/n-9.jpg" alt="Юрта в саду"></button><button type="button"><img src="img/n-5.jpg" alt="Дорожка к беседке"></button><button type="button"><img src="img/n-14.jpg" alt="Кресла под камышовым зонтом"></button><button type="button"><img src="img/n-1.jpg" alt="Терраса с занавесями"></button><button type="button"><img src="img/n-7.jpg" alt="Качели в тени"></button><button type="button"><img src="img/n-24.jpg" alt="Резная кровать у юрты"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>9 фото</span></div></div></div>
+    <div style="margin-top:40px"><div class="strip-wrap nocap"><div class="strip"><button type="button"><img src="img/n-30.jpg" alt="Иссык-Куль и облака"></button><button type="button"><img src="img/n-3.jpg" alt="Сапборды на прозрачной воде"></button><button type="button"><img src="img/n-22.jpg" alt="Лаунж под навесом у воды"></button><button type="button"><img src="img/n-16.jpg" alt="Вид с террасы на озеро"></button><button type="button"><img src="img/v-yurts-lake.jpg" alt="Юрты над Иссык-Кулем"></button><button type="button"><img src="img/n-19.jpg" alt="Юрты на пляже"></button><button type="button"><img src="img/n-47.jpg" alt="Дорога к горам"></button><button type="button"><img src="img/n-2.jpg" alt="Вид на озеро из беседки"></button><button type="button"><img src="img/t-window-lake.jpg" alt="Вид на озеро из окна"></button><button type="button"><img src="img/n-6.jpg" alt="Горы на закате"></button><button type="button"><img src="img/v-boards-sunset.jpg" alt="Сапборды на закате"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>11 фото</span></div></div></div>
   </section>
 
   <!-- 4 -->
@@ -584,7 +589,7 @@
         </tbody>
       </table>
     </div>
-    <div style="margin-top:40px"><div class="strip-wrap b4"><div class="strip"><button type="button"><img src="img/n-48.jpg" alt="Резная дверь юрты"></button><button type="button"><img src="img/n-23.jpg" alt="Орнаменты и утварь"></button><button type="button"><img src="img/n-46.jpg" alt="Тюндюк: вид в небо"></button><button type="button"><img src="img/y-d5.jpg" alt="Ванная в Этно-Доме"></button><button type="button"><img src="img/y-d11.jpg" alt="Гостиная Этно-Дома"></button><button type="button"><img src="img/n-45.jpg" alt="Свечи и утварь в юрте"></button><button type="button"><img src="img/y-d7.jpg" alt="Спальня Этно-Дома с окном в сад"></button><button type="button"><img src="img/y-d2.jpg" alt="Вход в Этно-Дом под перголой"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>8 фото</span></div></div></div>
+    <div style="margin-top:40px"><div class="strip-wrap b4 nocap"><div class="strip"><button type="button"><img src="img/n-48.jpg" alt="Резная дверь юрты"></button><button type="button"><img src="img/n-46.jpg" alt="Тюндюк: вид в небо"></button><button type="button"><img src="img/t-curtain-door.jpg" alt="Выход на террасу"></button><button type="button"><img src="img/y-d5.jpg" alt="Ванная в Этно-Доме"></button><button type="button"><img src="img/y-d11.jpg" alt="Гостиная Этно-Дома"></button><button type="button"><img src="img/n-45.jpg" alt="Свечи и утварь в юрте"></button><button type="button"><img src="img/y-d7.jpg" alt="Спальня Этно-Дома с окном в сад"></button><button type="button"><img src="img/y-d2.jpg" alt="Вход в Этно-Дом под перголой"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>8 фото</span></div></div></div>
   </section>
 
   <!-- 5 -->
@@ -607,7 +612,7 @@
     </article>
 
     <article class="room rv" id="room-beach">
-      <div class="slider"><div class="slides"><div><img src="img/y-p1.jpg" alt="Пляжная Премиум Юрта изнутри"></div></div><div class="dots"></div></div>
+      <div class="slider"><div class="slides"><div><img src="img/y-p2.jpg" alt="Выход к озеру из Пляжной юрты"></div><div><img src="img/y-p3.jpg" alt="Спальня Пляжной юрты"></div><div><img src="img/y-p5.jpg" alt="Пляжная Премиум Юрта изнутри"></div></div><div class="dots"></div></div>
       <h3 class="h3">Пляжная Премиум Юрта</h3>
       <div class="row"><span class="price">от $250 <small>/ сутки</small></span><a class="lnk" href="#book">Забронировать</a></div>
       <p class="txt">В паре шагов от воды, закрытая зеленью: резная мебель, панорамный вид на озеро прямо из кровати.</p>
@@ -615,11 +620,12 @@
     </article>
 
     <article class="room rv" id="room-house">
-      <div class="slider"><div class="slides"><div><img src="img/y-d13.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d12.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d18.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d21.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d22.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d19.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d16.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d17.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d9.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d10.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d15.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d3.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d4.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d1.jpg" alt="Премиум Этно-Дом"></div></div><div class="dots"></div></div>
+      <div class="slider"><div class="slides"><div><img src="img/y-d13.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d12.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d18.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d21.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d22.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d19.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d16.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d17.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d9.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d10.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d15.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d3.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d4.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/y-d1.jpg" alt="Премиум Этно-Дом"></div><div><img src="img/n-16.jpg" alt="Вид с террасы на озеро"></div><div><img src="img/t-terrace-flowers.jpg" alt="Терраса с цветами над озером"></div><div><img src="img/t-window-lake.jpg" alt="Вид на озеро из окна"></div></div><div class="dots"></div></div>
       <h3 class="h3">Премиум Этно-Дом</h3>
       <div class="row"><span class="price">от $450 <small>/ сутки</small></span><a class="lnk" href="#book">Забронировать</a></div>
       <p class="txt">Капитальный дом, созданный из двух юрт: стеклянные витражи, пергола в зелени, своя терраса, окружённая цветами, и прямой выход на озеро.</p>
       <p class="for">Тишина дома и душа юрты</p>
+      <p style="margin-top:20px"><a class="lnk" href="https://www.instagram.com/reel/DaK2BUPo3jp/" target="_blank" rel="noopener">Смотреть видеообзор дома</a></p>
     </article>
 
   </section>
@@ -628,7 +634,7 @@
   <!-- 6 -->
   <section class="blk banya" id="banya">
     <span class="tag">6 · Этно-баня</span>
-    <div style="padding:0 24px"><div class="slider"><div class="slides"><div><img src="img/b-room.jpg" alt="Предбанник с витражными окнами"></div><div><img src="img/b-sunset.jpg" alt="Предбанник на закате, окна на озеро"></div><div class="vid"><video src="img/banya.mp4" poster="img/banya-poster.jpg" autoplay muted loop playsinline></video></div><div><img src="img/b-hats.jpg" alt="Банные шапки «С лёгким паром»"></div></div><div class="dots"></div></div></div>
+    <div style="padding:0 24px"><div class="slider"><div class="slides"><div><img src="img/b-room.jpg" alt="Предбанник с витражными окнами"></div><div><img src="img/b-inside.jpg" alt="Баня изнутри: печь и полки"></div><div><img src="img/b-sunset.jpg" alt="Предбанник на закате, окна на озеро"></div><div><img src="img/b-yurt-sunset.jpg" style="object-position:50% 80%" alt="Пляжная юрта на закате"></div><div><img src="img/b-hats.jpg" alt="Банные шапки «С лёгким паром»"></div><div><img src="img/b-sup-sunset.jpg" style="object-position:50% 62%" alt="Сапы на закате"></div><div><img src="img/n-19.jpg" alt="Юрты на пляже"></div><div><img src="img/b-beach-house.jpg" style="object-position:85% 70%" alt="Банный корпус и юрта на пляже"></div></div><div class="dots"></div></div></div>
     <div class="pad stack rv" style="padding-top:44px">
       <h2 class="h2">Этно-баня в настоящей юрте</h2>
       <p class="for" style="font-family:var(--serif);font-style:italic;font-size:20px;margin:0">в 5–10 метрах от воды</p>
@@ -651,7 +657,7 @@
       <p class="for" style="font-family:var(--serif);font-style:italic;font-size:20px;margin:0">От нашей земли — к вашему столу</p>
       <p class="txt">Уже больше десяти лет для гостей Ак-Тенгира готовит наша команда проверенных поваров. Каждое утро мы печём свежий хлеб и домашнюю выпечку, готовим национальные блюда на открытом огне, а летом и осенью делаем собственные заготовки из овощей и фруктов, выращенных здесь, в Ак-Тенгире.</p>
     </div>
-    <div class="slider kimg" style="margin-top:32px"><div class="slides"><div class="slot"><div><img src="img/logo-color.png" alt=""><span>Место для фото блюд, когда будут хорошие кадры</span></div></div></div><div class="dots"></div></div>
+    <div class="kimg" style="margin-top:32px"><div class="slider"><div class="slides"><div><img src="img/n-1.jpg" alt="Шатёр с красными шторами"></div><div><img src="img/k-table.jpg" alt="Завтрак у окна с видом на озеро"></div><div><img src="img/n-8.jpg" alt="Беседка у воды"></div><div><img src="img/k-hammock.jpg" alt="Шатёр-столовая с гамаком"></div></div><div class="dots"></div></div></div>
     <div class="stack rv k2" style="margin-top:48px">
       <h3 class="h3">Свой сад и пермакультура</h3>
       <p class="txt">Наш огород создан по принципам пермакультуры. Более десяти лет назад его заложил приглашённый специалист из Италии: почва формировалась особым многослойным способом с использованием натурального войлока и разных типов грунта. Это помогает удерживать влагу, сохранять плодородие земли и создавать естественную среду для растений.</p>
@@ -675,7 +681,7 @@
       <p class="txt">Сапборды и рыбалка по запросу, плетёные кресла в тени и вид на горы. Всё — как для активного досуга, так и для того, чтобы просто посидеть и почитать с чаем.</p>
       <p class="txt" style="font-size:12.5px">Цены на сапборд и лодку уточняются отдельно.</p>
     </div>
-    <div class="lstrip" style="margin-top:32px"><div class="strip-wrap tight"><div class="strip"><button type="button"><img src="img/n-3.jpg" alt="Сапборды на прозрачной воде"></button><button type="button"><img src="img/n-20.jpg" alt="Сапборды на пляже"></button><button type="button"><img src="img/n-22.jpg" alt="Лаунж под навесом над озером"></button><button type="button"><img src="img/n-14.jpg" alt="Кресла под камышовым зонтом"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>4 фото</span></div></div></div>
+    <div class="lstrip" style="margin-top:32px"><div class="strip-wrap tight"><div class="strip"><button type="button"><img src="img/n-3.jpg" alt="Сапборды на прозрачной воде"></button><button type="button"><img src="img/t-topchan.jpg" alt="Топчан во дворе"></button><button type="button"><img src="img/t-swing.jpg" alt="Качели с подушками"></button><button type="button"><img src="img/n-5.jpg" alt="Дорожка к беседке"></button><button type="button"><img src="img/n-20.jpg" alt="Сапборды на песке"></button><button type="button"><img src="img/n-14.jpg" alt="Кресла под камышовым зонтом"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>6 фото</span></div></div></div>
     <div class="stack rv l2" style="margin-top:40px">
       <p class="txt">На территории работает небольшой бар: свежесваренный кофе, лимонады, локальные и импортные снеки. Здесь можно попробовать мясные деликатесы, соки и вина местного производства от <b style="color:var(--ink);font-weight:500">Attila</b>.</p>
       <p class="txt">А для неспешного вечера у озера по запросу доступен кальян.</p>
@@ -743,12 +749,12 @@
   <section class="blk" id="where">
     <span class="tag">12 · Как добраться</span>
     <div class="map" id="map">
-      <canvas id="terrain" width="820" height="700" aria-hidden="true"></canvas>
+      <canvas id="terrain" width="820" height="700" aria-hidden="true" hidden></canvas><img class="map-sat" id="mapSat" src="img/map-sat.jpg" alt="Иссык-Куль со спутника" data-x="805" data-y="686">
       <div class="clouds" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-      <div class="pin" style="left:57%;top:55%"><b></b></div>
+      <div class="pin" id="mapPin" style="left:57%;top:55%"><b></b></div>
       <div class="map-side"><span></span><p>ak-tengir<br>село тосор,<br>южный берег иссык-куля,<br>кыргызстан</p></div>
       <p class="map-code">5CG6+X83</p>
-      <p class="map-draft">черновик: сюда встанет настоящий спутниковый снимок</p>
+      <p class="map-draft">Изображение © Google, NASA</p>
     </div>
     <div class="pad stack rv" style="padding-top:44px">
       <h2 class="h2">Южный берег Иссык-Куля</h2>
@@ -824,8 +830,6 @@
     var imgs=[].slice.call(st.querySelectorAll('img'));
     st.querySelectorAll('button').forEach(function(b,n){b.onclick=function(){open(imgs,n)}});
   });
-  var viewImgs=[].slice.call(document.querySelectorAll('#views button:not([aria-hidden]) img'));
-  document.querySelectorAll('#views button').forEach(function(b){b.onclick=function(){open(viewImgs,+b.dataset.v)}});
   document.getElementById('lbClose').onclick=close;
   document.getElementById('lbPrev').onclick=function(){show(i-1)};
   document.getElementById('lbNext').onclick=function(){show(i+1)};
@@ -834,7 +838,7 @@
   // ленты: рамка для приближения и подпись из alt
   document.querySelectorAll('.strip-wrap .strip button').forEach(function(b){
     var im=b.querySelector('img');var fr=document.createElement('span');fr.className='frame';b.insertBefore(fr,im);fr.appendChild(im);
-    var c=document.createElement('span');c.className='cap';c.textContent=im.alt;b.appendChild(c);
+    if(!b.closest('.nocap')){var c=document.createElement('span');c.className='cap';c.textContent=im.alt;b.appendChild(c);}
   });
 
   // листалки с точками
@@ -901,4 +905,12 @@
   var tg=document.getElementById('tags'),site=document.getElementById('site');
   tg.onclick=function(){var h=site.classList.toggle('hide-tags');tg.textContent=h?'Показать метки':'Скрыть метки'};
 })();
+
+  // спутниковый снимок: заполняет блок, метка стоит на Тосоре
+  (function(){var m=document.getElementById('map'),im=document.getElementById('mapSat'),pin=document.getElementById('mapPin');if(!im)return;
+    function fit(){var iw=im.naturalWidth,ih=im.naturalHeight;if(!iw)return;var W=m.clientWidth,H=m.clientHeight,k=Math.max(W/iw,H/ih),tx=+im.dataset.x,ty=+im.dataset.y,w=iw*k,h=ih*k;
+      var l=Math.min(0,Math.max(W-w,W*.58-tx*k)),t=Math.min(0,Math.max(H-h,H*.55-ty*k));
+      im.style.width=w+'px';im.style.height=h+'px';im.style.left=l+'px';im.style.top=t+'px';pin.style.left=(l+tx*k)+'px';pin.style.top=(t+ty*k)+'px'}
+    if(im.complete)fit();im.addEventListener('load',fit);addEventListener('resize',fit);if(window.ResizeObserver)new ResizeObserver(fit).observe(m);
+  })();
 </script>
