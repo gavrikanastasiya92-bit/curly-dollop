@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ak-Tengir — юрточный лагерь на Иссык-Куле</title>
+<meta name="description" content="Ak-Tengir — юрточный лагерь на южном берегу Иссык-Куля: баня с чаем из чабреца, фермерская кухня, ретриты и тишина у воды.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Bitter:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- рваный фотографичный край между блоками: feTurbulence(fractalNoise) + feDisplacementMap
+     искажают край сплошной заливки-маски, а не рисуют декоративный мазок — используется
+     на каждом стыке секций через классы .tear-b (низ) / .tear-t (верх), см. css/style.css -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="tearNoiseA" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="5 26" numOctaves="5" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="0.26" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="tearNoiseB" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="6 24" numOctaves="5" seed="23" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="0.26" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <linearGradient id="tearFadeDown">
+      <stop offset="0.85" stop-color="#fff"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+    <linearGradient id="tearFadeUp">
+      <stop offset="0" stop-color="#000"/>
+      <stop offset="0.15" stop-color="#fff"/>
+    </linearGradient>
+    <mask id="tearMaskDown" maskContentUnits="objectBoundingBox">
+      <rect x="-0.5" y="-0.5" width="2" height="1.5" fill="url(#tearFadeDown)" filter="url(#tearNoiseA)"/>
+    </mask>
+    <mask id="tearMaskUp" maskContentUnits="objectBoundingBox">
+      <rect x="-0.5" y="0" width="2" height="1.5" fill="url(#tearFadeUp)" filter="url(#tearNoiseB)"/>
+    </mask>
+  </defs>
+</svg>
+
+<nav class="nav" id="nav">
+  <a href="#hero" class="logo">Ak-Tengir</a>
+  <div class="links">
+    <a href="#founder">История</a>
+    <a href="#stay">Размещение</a>
+    <a href="#banya">Баня</a>
+    <a href="#retreats">Ретриты</a>
+    <a href="#location">Локация</a>
+  </div>
+  <a href="https://wa.me/996558420620" class="cta">WhatsApp</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="ph-bg-wrap">
+    <img class="ph-bg" src="assets/images/hero.jpg" alt="Ak-Tengir на закате" data-slot="hero">
+    <div class="ph-overlay"></div>
+  </div>
+  <div class="wrap">
+    <h1>
+      <span class="l1">Не нужно искать <span class="l1-tight">красивые виды</span></span>
+      <span class="l2">— они за дверью юрты</span>
+    </h1>
+    <p class="sub">Юрты на самом берегу Иссык-Куля. Баня с чаем из чабреца, домашняя еда и вода в двух шагах от кровати.</p>
+    <div class="hero-bridge" aria-hidden="true">
+      <svg width="520" height="160" viewBox="0 0 520 160">
+        <defs>
+          <marker id="bridgeArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--gold)"/>
+          </marker>
+        </defs>
+        <path d="M6,16 C 70,-10 150,-4 195,14 C 215,22 225,24 230,25 L230.6,29.5 L232.4,33.8 L235.3,37.4 L239.4,40.2 L244.5,41.9 L250.5,42.5 L257.4,41.9 L265.0,40.2 L273.2,37.4 L281.9,33.7 L290.9,29.5 L300.0,25.0 L309.1,20.5 L318.1,16.3 L326.8,12.6 L335.0,9.8 L342.6,8.1 L349.5,7.5 L355.5,8.1 L360.6,9.8 L364.7,12.6 L367.6,16.2 L369.4,20.5 L370.0,25.0 L369.4,29.5 L367.6,33.8 L364.7,37.4 L360.6,40.2 L355.5,41.9 L349.5,42.5 L342.6,41.9 L335.0,40.2 L326.8,37.4 L318.1,33.8 L309.1,29.5 L300.0,25.0 L290.9,20.5 L281.9,16.3 L273.2,12.6 L265.0,9.8 L257.4,8.1 L250.5,7.5 L244.5,8.1 L239.4,9.8 L235.3,12.6 L232.4,16.2 L230.6,20.5 L230.0,25.0 C 190,60 160,95 150,125 C 144,143 132,158 118,168"
+          fill="none" stroke="rgba(237,230,214,.55)" stroke-width="1.4" stroke-dasharray="1 7" stroke-linecap="round"
+          marker-end="url(#bridgeArrow)"/>
+      </svg>
+    </div>
+    <div class="cta-row">
+      <a href="#booking" class="btn btn-primary">Забронировать</a>
+      <a href="#stay" class="btn btn-secondary">Варианты размещения</a>
+    </div>
+  </div>
+</section>
+
+<!-- О МЕСТЕ — рваный фотографичный край hero подведён отрицательным отступом под этот блок -->
+<section id="about">
+  <div class="edge-tear left top" aria-hidden="true"></div>
+  <div class="edge-tear left bottom" aria-hidden="true"></div>
+  <div class="edge-tear right top" aria-hidden="true"></div>
+  <div class="edge-tear right bottom" aria-hidden="true"></div>
+  <div class="inner">
+    <div class="about-head">
+      <div class="rule"></div>
+      <h2><span class="nowrap">«Ак-Тенгир»</span> переводится как <span class="accent">«светлое пространство»</span></h2>
+      <p>Место выбрано осознанно: с одной стороны горы, с другой — Иссык-Куль. Первые десять лет сюда нельзя было просто приехать — только по личному приглашению. Сейчас двери открыты для всех, а тишина осталась.</p>
+    </div>
+    <div class="story-row">
+      <div class="story-item">
+        <div class="story-frame"><img src="assets/images/banya.jpg" alt="Баня — печь с камнями внутри юрты"></div>
+        <div class="cap"><b>Баня</b><span>пар и чабрец после дня в горах</span></div>
+      </div>
+      <svg class="story-arrow" viewBox="0 0 56 24" aria-hidden="true">
+        <defs><marker id="storyArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--terracotta)"/></marker></defs>
+        <path d="M2,18 C18,20 30,10 42,8" marker-end="url(#storyArrow)"/>
+      </svg>
+      <div class="story-item">
+        <div class="story-frame"><img src="assets/images/room-standard.jpg" alt="Спальня в юрте"></div>
+        <div class="cap"><b>Своя юрта</b><span>мягкий свет, войлок под ногами</span></div>
+      </div>
+      <svg class="story-arrow" viewBox="0 0 56 24" aria-hidden="true">
+        <path d="M2,8 C18,6 30,18 42,16" marker-end="url(#storyArrow)"/>
+      </svg>
+      <div class="story-item">
+        <div class="story-frame"><img src="assets/images/room-beach.jpg" alt="Окна юрты с видом на Иссык-Куль"></div>
+        <div class="cap"><b>Окна на воду</b><span>просыпаешься — и сразу видишь озеро</span></div>
+      </div>
+      <svg class="story-arrow" viewBox="0 0 56 24" aria-hidden="true">
+        <path d="M2,18 C18,20 30,10 42,8" marker-end="url(#storyArrow)"/>
+      </svg>
+      <div class="story-item">
+        <div class="story-frame"><img src="assets/images/story-beach.jpg" alt="Пляж на закате у Иссык-Куля"></div>
+        <div class="cap"><b>Пляж на закате</b><span>песок ещё тёплый, вода — рядом</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ИСТОРИЯ И ОСНОВАТЕЛЬ — тот же рваный край, зеркально, подведён под founder -->
+<section id="founder">
+  <div class="f-media">
+    <img src="assets/images/founder.jpg" alt="Женишбек Назаралиев" data-slot="founder">
+  </div>
+  <div class="f-text">
+    <h2>
+      <span class="l1">Женишбек Назаралиев</span>
+      <span class="l2"><span class="nowrap">врач-психиатр</span> и основатель <span class="nowrap">Ак-Тенгира</span></span>
+    </h2>
+    <p>Доктор медицинских наук, профессор, основатель Медицинского центра доктора Назаралиева, где уже больше 30 лет занимаются реабилитацией и психическим здоровьем. Много лет изучал духовные и психотерапевтические традиции разных стран.</p>
+    <p>Первые годы <span class="nowrap">Ак-Тенгир</span> был закрытым пространством — для восстановления самого Назаралиева и его семьи, а также для психотренингов: сюда приезжали спортсмены, в том числе олимпийцы, и участники реабилитационных программ. Попасть можно было только по личному приглашению.</p>
+    <p>Сегодня историю продолжает его дочь — трансперсональный психолог и гипнотерапевт, которая выросла на этой земле и с детства перенимала методы отца.</p>
+    <div class="cite">Медицинский центр Назаралиева работает с 1991 года</div>
+  </div>
+</section>
+
+<!-- ТРИ ПОВОДА ПРИЕХАТЬ -->
+<section id="directions">
+  <div class="inner">
+    <div class="head">
+      <h2>Юрты, баня без ночёвки или ретрит</h2>
+    </div>
+    <div class="menu-collage">
+      <svg class="menu-line" viewBox="0 0 980 660" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 100 201 C 180 320, 220 420, 306 494 C 380 460, 460 300, 547 130 C 610 220, 700 320, 767 413" />
+        <circle class="ml-dot" cx="100" cy="201" r="4"/>
+        <circle class="ml-dot" cx="767" cy="413" r="4"/>
+      </svg>
+      <a class="menu-card mc-yurts" href="#stay" style="--tilt:-4deg;">
+        <img src="assets/images/menu-yurts.jpg" alt="Юрта — плетёные кресла у входа, собака на пороге">
+        <span class="cap">Дом на одну ночь</span>
+      </a>
+      <a class="menu-card mc-lake" href="#territory" style="--tilt:3deg;">
+        <img src="assets/images/menu-lake.jpg" alt="Панорамные окна юрты на закат у воды">
+        <span class="cap">Вода за порогом юрты</span>
+      </a>
+      <a class="menu-card mc-banya" href="#banya" style="--tilt:-3deg;">
+        <img src="assets/images/menu-banya.jpg" alt="Баня — печь с камнями, веники">
+        <span class="cap">Пар и чабрец</span>
+      </a>
+      <a class="menu-card mc-retreats" href="#retreats" style="--tilt:4deg;">
+        <img src="assets/images/menu-retreats.jpg" alt="Групповая практика в шатре">
+        <span class="cap">Тишина, куда хочется вернуться</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- РАЗМЕЩЕНИЕ -->
+<section id="stay">
+  <div class="inner">
+    <div class="head">
+      <h2>Четыре формата — от аутентичной юрты до дома с террасой</h2>
+      <p style="font-size:15.5px; color:#544c43; margin-top:16px;">11 юрт, два пляжных домика и отдельный Premium домик. Работаем круглый год — пока многие лагеря на Иссык-Куле сезонные, мы сейчас дополнительно утепляем юрты и делаем тёплые санузлы.</p>
+    </div>
+    <div class="grid">
+      <div class="room-card">
+        <div class="room-photo"><img src="assets/images/room-standard.jpg" alt="Юрта Стандарт — интерьер с несколькими спальными местами" data-slot="room-standard"></div>
+        <div class="room-body">
+          <div class="room-top"><h3>Юрта Стандарт</h3><div class="price">$45<span> / чел, сутки</span></div></div>
+          <p>Классическая войлочная юрта: тюндюк, шырдак на полу, несколько спальных мест. Завтрак включён.</p>
+          <div class="tagline">Для тех, кто хочет прочувствовать традицию</div>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="room-photo"><img src="assets/images/room-vip.jpg" alt="ВИП юрта — интерьер с резной мебелью" data-slot="room-vip"></div>
+        <div class="room-body">
+          <div class="room-top"><h3>ВИП юрта</h3><div class="price">$120<span> / сутки</span></div></div>
+          <p>Улучшенный интерьер, больше приватности. Завтрак включён, обед и ужин — отдельно.</p>
+          <div class="tagline">Единственные VIP-юрты на южном берегу</div>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="room-photo"><img src="assets/images/room-beach.jpg" alt="Пляжная премиум юрта — вид на озеро" data-slot="room-beach"></div>
+        <div class="room-body">
+          <div class="room-top"><h3>Пляжная премиум юрта</h3><div class="price">$350<span> / сутки</span></div></div>
+          <p>Юрта премиум-отделки в паре шагов от воды: резная мебель, панорамный вид на озеро прямо из кровати.</p>
+          <div class="tagline">Проснуться и увидеть озеро, не вставая с постели</div>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="room-photo"><img src="assets/images/room-house.jpg" alt="Премиум Юрта-Дом — интерьер, коридор в спальню" data-slot="room-house"></div>
+        <div class="room-body">
+          <div class="room-top"><h3>Премиум Юрта-Дом</h3><div class="price">$550<span> / сутки</span></div></div>
+          <p>Капитальная постройка в форме юрты — стеклянная дверь, пергола в зелени, собственная терраса.</p>
+          <div class="tagline">Тишина и приватность дома, душа юрты</div>
+          <a href="https://www.instagram.com/reel/DaK2BUPo3jp/" target="_blank" rel="noopener" style="display:inline-block; margin-top:10px; font-size:13.5px; font-weight:500; color:var(--terracotta);">Смотреть обзор блогера →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- БАНЯ -->
+<section id="banya">
+  <div class="banya-media">
+    <img class="kenburns" src="assets/images/banya.jpg" alt="Баня — интерьер настоящей юрты на берегу" data-slot="banya">
+  </div>
+  <div class="banya-text">
+    <h2>Настоящая юрта в 5–10 метрах от воды</h2>
+    <p>Баня — внутри настоящей юрты на самом берегу: горячая парная и отдельный предбанник с большими витражными окнами на Иссык-Куль. Особенно красиво на закате.</p>
+    <p>Предбанник — чай с местным чабрецом, сезонные фрукты, арбуз или сладости. Веники — по запросу. По предварительному запросу можно добавить ритуал с местной белой глиной.</p>
+    <div class="drop-in">Доступна без проживания</div>
+    <div class="price-line">
+      <div class="amount">2000 сом</div>
+      <div class="cond">с человека / час,<br>минимум 2 часа на компанию от 2 человек</div>
+    </div>
+  </div>
+</section>
+
+<!-- ПИТАНИЕ -->
+<section id="food">
+  <div class="inner">
+    <h2>От нашей земли — к вашему столу</h2>
+    <p class="lead">Больше 10 лет для гостей готовит тётя Диля — домашняя выпечка и свежий хлеб каждый день. Огород устроен по принципам пермакультуры — его помогал закладывать специалист из Италии, а часть семян мы заказываем из разных стран. На территории почти 20 лет растут яблони, вишня, черешня и гинкго билоба. Из своих яблок и абрикосов — домашние компоты и смузи.</p>
+    <div class="food-photo"><img class="kenburns" src="assets/images/food.jpg" alt="Домашний стол Ak-Tengir"></div>
+    <div class="row">
+      <span class="tag">Свой огород</span>
+      <span class="tag">Закрутки на зиму</span>
+      <span class="tag">Свой хлеб</span>
+      <span class="tag">Пермакультура</span>
+    </div>
+    <div class="meals">
+      <div class="meal"><div class="label">Завтрак</div><div class="val">Включён</div><div class="note">шведский стол, во всех категориях</div></div>
+      <div class="meal"><div class="label">Обед</div><div class="val">1200 сом</div><div class="note">отдельно, меню каждый день разное</div></div>
+      <div class="meal"><div class="label">Ужин</div><div class="val">1500 сом</div><div class="note">отдельно, меню каждый день разное</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ТЕРРИТОРИЯ И АКТИВНОСТИ -->
+<section id="territory">
+  <div class="t-media shimmer"><img src="assets/images/territory.jpg" alt="Лаунж-зона у озера" data-slot="territory"></div>
+  <div class="t-text">
+    <h2>Выйти на воду прямо с берега</h2>
+    <p>Сапборды, плетёные кресла в тени и вид на горы — для тех, кто хочет и активности, и просто посидеть с чаем.</p>
+    <p>Можно с питомцами — мы pet-friendly.</p>
+    <div class="activity-list">
+      <div class="activity"><span class="name">Сапборд</span><span class="badge-pending">отдельно, цена уточняется</span></div>
+      <div class="activity"><span class="name">Питомцы</span><span class="price">можно, бесплатно</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- РЕТРИТЫ -->
+<section id="retreats">
+  <div class="inner">
+    <h2><span class="nowrap">Ак-Тенгир</span> — открытая площадка для ретритов</h2>
+    <p class="lead">Здесь созданы все условия, чтобы выключить телефон и наконец услышать себя.</p>
+    <div class="quote">«Escape the noise. Reconnect with yourself.»</div>
+    <p class="lead">Ретриты ведёт наш постоянный практик, а также приглашённые психологи и тренеры — камерными группами. Можно закрыть весь лагерь под одну группу, чтобы участникам никто не мешал.</p>
+    <p class="lead" style="margin-bottom:52px;">Организации могут заказать корпоративный ретрит или тимбилдинг — соберём команду психологов и практику по методике Назаралиева.</p>
+    <div class="features">
+      <div class="feature">Стеклянный йога-бунгало</div>
+      <div class="feature">Костровая зона из валунов</div>
+      <div class="feature">Баня на берегу</div>
+      <div class="feature">Приватная территория</div>
+    </div>
+    <div class="retreats-photo"><img class="kenburns" src="assets/images/retreats.jpg" alt="Вечерний круг у костра из валунов, юрты на фоне" data-slot="retreats"></div>
+    <p class="lead" style="margin-top:24px; font-size:14.5px;">Костровая зона сложена из крупных природных валунов — здесь проводят вечерние круги, медитации и разговоры у огня.</p>
+  </div>
+</section>
+
+<!-- ОТЗЫВЫ -->
+<section id="reviews">
+  <div class="inner">
+    <h2>Что говорят гости</h2>
+    <div class="review-grid">
+      <div class="review-card"><div class="quote-mark">"</div><span>отзыв скоро</span></div>
+      <div class="review-card"><div class="quote-mark">"</div><span>отзыв скоро</span></div>
+      <div class="review-card"><div class="quote-mark">"</div><span>отзыв скоро</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- КАК ДОБРАТЬСЯ -->
+<section id="location">
+  <div class="loc-inner">
+    <div class="loc-text">
+      <h2>Южный берег Иссык-Куля</h2>
+      <p>Село Тосор. Добраться можно на такси, арендованной машине или через InDrive / маршрутку.</p>
+      <div class="addr-code">5CG6+X83, Иссык-Кульская область</div>
+    </div>
+    <div class="loc-map shimmer">Карта — вставим embed по адресу</div>
+  </div>
+</section>
+
+<!-- БРОНИРОВАНИЕ -->
+<section id="booking">
+  <div class="farewell">Гости обычно увозят с собой одну мысль — когда получится вернуться.</div>
+  <h2>Забронировать</h2>
+  <p>Свяжитесь с нами напрямую — ответим быстро</p>
+  <div class="cta-row">
+    <a href="https://wa.me/996558420620" class="btn btn-primary">Написать в WhatsApp</a>
+    <a href="tel:+996558420620" class="btn btn-secondary">Позвонить: +996 558 420 620</a>
+  </div>
+</section>
+
+<footer>© Ak-Tengir — южный берег Иссык-Куля</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

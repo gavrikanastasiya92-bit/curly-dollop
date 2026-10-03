@@ -1,0 +1,318 @@
+<title>Актенгир 1</title>
+<meta name="description" content="Мобильный мокап Ak-Tengir: Montserrat + Marck Script, стеклянные кнопки, пробковая доска, фото-элементы и орнаменты.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#16211C; --panel:#1E2E24; --panel2:#2A3D2F;
+  --paper:#EFE9DC; --card:#FBF8F1;
+  --rust:#C1502E; --water:#6FB0C9; --gold:#C79A3E;
+  --on-dark:#EEE9DC; --on-dark-muted:rgba(238,233,220,.7);
+  --on-light:#2F3129; --on-light-muted:#7E7A6A;
+  --wood-ink:#2B1C10;
+  --font-script:'Marck Script', cursive;
+  --font-main:'Montserrat', -apple-system, sans-serif;
+  color-scheme: dark;
+}
+*{box-sizing:border-box;}
+body{margin:0; background:#0c110f; font-family:var(--font-main); overflow-x:hidden;}
+h1,h2,h3,p{margin:0;}
+img{max-width:100%; display:block;}
+.frame{max-width:428px; margin:0 auto; background:var(--ink); color:var(--on-dark); overflow:visible;}
+
+.ph{
+  background:
+    radial-gradient(ellipse at 62% 22%, rgba(111,176,201,.28) 0%, transparent 55%),
+    radial-gradient(ellipse at 25% 90%, rgba(199,154,62,.18) 0%, transparent 50%),
+    linear-gradient(165deg, var(--panel2), var(--ink));
+}
+
+/* ===== glass buttons ===== */
+.glass{
+  position:relative; display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none;
+  font-family:var(--font-main); font-weight:600; font-size:14px; color:#fff; letter-spacing:.01em;
+  padding:15px 30px; border-radius:999px;
+  background:linear-gradient(160deg, rgba(255,255,255,.34), rgba(255,255,255,.06) 55%, rgba(111,176,201,.2));
+  border:1px solid rgba(255,255,255,.48);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,.75), inset 0 -8px 14px rgba(0,0,0,.2), 0 12px 26px rgba(0,0,0,.32);
+  -webkit-backdrop-filter:blur(7px); backdrop-filter:blur(7px);
+  transition:transform .2s ease;
+}
+.glass::before{
+  content:''; position:absolute; top:4px; left:16px; width:34%; height:40%;
+  background:radial-gradient(ellipse at 30% 30%, rgba(255,255,255,.85), transparent 70%);
+  border-radius:50%; pointer-events:none;
+}
+.glass:active{transform:scale(.97);}
+.drop{
+  position:relative; display:inline-block; text-decoration:none; text-align:center;
+  font-family:var(--font-main); font-weight:700; font-size:13px; color:#fff;
+  padding:13px 24px; border-radius:26px 34px 30px 40px/34px 26px 40px 30px;
+  background:linear-gradient(150deg, rgba(255,255,255,.42), rgba(111,176,201,.16) 60%, rgba(255,255,255,.05));
+  border:1px solid rgba(255,255,255,.42);
+  box-shadow: inset 0 2px 2px rgba(255,255,255,.6), inset 0 -10px 16px rgba(0,0,0,.22), 0 10px 22px rgba(0,0,0,.3);
+  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+}
+:focus-visible{outline:2px solid var(--water); outline-offset:3px;}
+
+/* ===== HERO ===== */
+.hero{position:relative; min-height:700px; padding:130px 22px 130px; display:flex; flex-direction:column; justify-content:flex-end;}
+.hero .bg{position:absolute; inset:0;}
+.hero .bg::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(22,33,28,.1) 0%, rgba(22,33,28,.35) 45%, rgba(22,33,28,.85) 100%);}
+.nav{position:absolute; top:0; left:0; right:0; z-index:5; display:flex; justify-content:space-between; align-items:center; padding:20px 22px;}
+.nav .logo{font-weight:800; font-size:13px; letter-spacing:.14em; text-transform:uppercase;}
+.nav .logo i{font-family:var(--font-script); font-style:normal; font-weight:400; letter-spacing:0; text-transform:none; font-size:19px; color:var(--water); margin-left:3px;}
+.nav .menu{width:22px; height:14px; display:flex; flex-direction:column; justify-content:space-between;}
+.nav .menu span{display:block; height:1.5px; background:var(--on-dark);}
+.hero .content{position:relative; z-index:2;}
+.hero .script{display:block; font-family:var(--font-script); font-size:clamp(34px,10vw,44px); line-height:1; color:var(--water); margin-bottom:-4px; margin-left:4px; transform:rotate(-4deg); transform-origin:left;}
+.hero h1{font-weight:900; text-transform:uppercase; font-size:clamp(58px,17.5vw,76px); line-height:.9; letter-spacing:-.02em;}
+.hero h1 span{display:block;}
+.hero h1 .thin{font-weight:500; letter-spacing:.01em; font-size:.48em; line-height:1.3; margin-top:6px;}
+.hero p{margin-top:18px; font-size:13.5px; font-weight:500; line-height:1.6; color:var(--on-dark-muted); max-width:30ch;}
+.hero .actions{margin-top:26px; display:flex; align-items:center; gap:18px;}
+.hero .price{font-size:11.5px; color:var(--on-dark-muted); line-height:1.4;}
+.hero .price b{display:block; color:var(--on-dark); font-size:15px; font-weight:800;}
+
+/* watercolor seam */
+.seam{position:relative; height:90px; margin-top:-90px; z-index:3;}
+.seam svg{position:absolute; inset:0; width:100%; height:100%; overflow:visible;}
+.branch{position:absolute; z-index:7; width:calc(100% + 44px); max-width:none; left:-22px; top:-2px; filter:drop-shadow(0 14px 12px rgba(0,0,0,.3)); pointer-events:none;}
+
+/* ===== ROUTE / signpost ===== */
+.route{position:relative; background:var(--paper); color:var(--on-light); padding:112px 22px 40px;}
+.sign{position:relative; width:330px; max-width:100%; margin:0 auto -4px; }
+.sign img{width:100%;}
+.sign .t{position:absolute; left:8%; right:6%; text-align:center; color:#20140a; text-shadow:0 1px 0 rgba(255,235,200,.35); white-space:nowrap;}
+.sign .t1{top:14%; font-weight:900; font-size:21px; letter-spacing:.06em; text-transform:uppercase;}
+.sign .t2{top:39%; font-family:var(--font-script); font-size:25px; transform:rotate(-1.5deg);}
+.sign .t3{top:58.5%; font-weight:700; font-size:13px; letter-spacing:.08em; text-transform:uppercase;}
+.map-box{position:relative; background:var(--card); border-radius:18px; padding:18px 12px 20px; box-shadow:0 12px 28px rgba(40,30,15,.12);}
+.map-box svg{width:100%; height:auto; display:block;}
+.map-box .distance{
+  position:absolute; top:42%; left:48%; transform:translate(-50%,-50%) rotate(-7deg);
+  background:var(--card); border:1px solid rgba(0,0,0,.12); border-radius:999px; padding:6px 13px;
+  font-weight:700; font-size:11px; color:var(--on-light); box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+.route .note{margin-top:12px; font-size:11px; color:var(--on-light-muted); text-align:center;}
+
+/* ===== ORNAMENT ===== */
+.orn{display:block; width:100%; height:26px;}
+
+/* ===== CORK ===== */
+.cork{
+  position:relative; padding:34px 18px 70px;
+  background-color:#B98C58;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .2 0 0 0 0 .08 0 0 0 1.1 -.35'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 30% 20%, rgba(255,230,190,.25), transparent 60%);
+  box-shadow:inset 0 0 0 10px #6E4A2A, inset 0 0 0 12px #4E331C, inset 0 18px 30px rgba(0,0,0,.28), inset 0 -18px 30px rgba(0,0,0,.22);
+}
+.note-tag{
+  position:relative; display:inline-block; background:var(--card); color:var(--on-light);
+  padding:16px 20px 14px; transform:rotate(-2deg); margin-left:8px;
+  box-shadow:0 10px 18px rgba(0,0,0,.28);
+  clip-path:polygon(0 3%,8% 0,20% 2%,34% 0,50% 3%,66% 0,82% 2%,100% 0,99% 30%,100% 62%,98% 100%,80% 97%,62% 100%,44% 97%,26% 100%,10% 97%,0 100%,1% 60%);
+}
+.note-tag .s{display:block; font-family:var(--font-script); font-size:22px; color:var(--rust); line-height:1;}
+.note-tag h2{font-weight:900; font-size:22px; text-transform:uppercase; letter-spacing:-.01em; line-height:1.05;}
+.pin{position:absolute; width:16px; height:16px; border-radius:50%; box-shadow:0 4px 6px rgba(0,0,0,.4), inset -2px -3px 4px rgba(0,0,0,.25), inset 2px 2px 3px rgba(255,255,255,.35);}
+.pin.red{background:var(--rust);} .pin.gold{background:var(--gold);} .pin.blue{background:var(--water);}
+.note-tag .pin{top:6px; left:50%; transform:translateX(-50%);}
+
+.board{position:relative; height:486px; margin-top:18px;}
+.board .route-line{position:absolute; inset:0; width:100%; height:100%;}
+.polaroid{position:absolute; width:152px; background:var(--card); padding:8px 8px 30px; box-shadow:0 14px 24px rgba(0,0,0,.35);}
+.polaroid .ph{aspect-ratio:4/5;}
+.polaroid .cap{position:absolute; left:0; right:0; bottom:6px; text-align:center; font-family:var(--font-script); font-size:16px; color:var(--on-light);}
+.polaroid .pin{top:-7px; left:50%; transform:translateX(-50%);}
+.pa{left:4px; top:10px; transform:rotate(-5deg);}
+.pb{right:6px; top:150px; transform:rotate(4deg);}
+.pc{left:30px; top:258px; width:132px; transform:rotate(-2deg);}
+.hang{position:absolute; right:18px; top:4px; width:108px; z-index:3; transform-origin:50% 0; animation:sway 6s ease-in-out infinite;}
+.hang .nail{position:absolute; left:50%; top:0; width:12px; height:12px; margin-left:-6px; border-radius:50%; background:#8d8d88; box-shadow:0 3px 4px rgba(0,0,0,.45), inset -2px -2px 3px rgba(0,0,0,.3), inset 2px 2px 2px rgba(255,255,255,.5); z-index:2;}
+.hang .cord{position:absolute; left:50%; top:6px; width:1.5px; height:34px; margin-left:-.75px; background:linear-gradient(#5a3b22,#8a5f3a);}
+.hang img{position:relative; margin-top:36px; width:100%; filter:drop-shadow(6px 10px 8px rgba(40,20,5,.35));}
+@keyframes sway{0%,100%{transform:rotate(2.5deg);}50%{transform:rotate(-2.5deg);}}
+@media (prefers-reduced-motion: reduce){ .hang{animation:none;} }
+.ticket{
+  position:absolute; right:26px; top:338px; background:var(--card); color:var(--on-light);
+  padding:10px 14px; font-size:11px; font-weight:600; transform:rotate(3deg); box-shadow:0 8px 14px rgba(0,0,0,.3);
+  border-left:3px dashed rgba(0,0,0,.18);
+}
+.ticket b{display:block; font-size:15px; font-weight:800; color:var(--rust);}
+.ticket .pin{top:-7px; right:12px;}
+
+/* ===== ROOMS ===== */
+.rooms{position:relative; background:var(--panel); padding:88px 22px 56px;}
+.seam-top{position:absolute; left:0; right:0; top:-40px; height:60px; z-index:2;}
+.seam-top svg{width:100%; height:100%; display:block; overflow:visible;}
+.mush{position:absolute; left:-22px; top:-54px; width:calc(100% + 44px); max-width:none; z-index:6; filter:drop-shadow(0 14px 12px rgba(0,0,0,.4)); pointer-events:none;}
+.rooms .head{position:relative; z-index:3; text-align:right; margin-bottom:26px;}
+.rooms .head .s{display:block; font-family:var(--font-script); font-size:26px; color:var(--water); line-height:1;}
+.rooms .head h2{font-weight:900; font-size:30px; text-transform:uppercase; letter-spacing:-.01em; line-height:1;}
+.room{position:relative; border-radius:22px; overflow:hidden; aspect-ratio:5/6; margin-bottom:18px; box-shadow:0 18px 30px rgba(0,0,0,.35);}
+.room .ph{position:absolute; inset:0;}
+.room::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 35%, rgba(12,18,15,.85));}
+.room .info{position:absolute; left:18px; right:18px; bottom:18px; z-index:2; display:flex; align-items:flex-end; justify-content:space-between; gap:12px;}
+.room .s{display:block; font-family:var(--font-script); font-size:20px; color:var(--water); line-height:1;}
+.room h3{font-weight:900; font-size:22px; text-transform:uppercase; line-height:1.05;}
+.room .meta{margin-top:6px; font-size:11.5px; color:var(--on-dark-muted); font-weight:500;}
+.room .meta b{color:var(--on-dark); font-weight:800;}
+.room .chip{position:absolute; top:16px; left:16px; z-index:2; font-size:10.5px; font-weight:700; padding:6px 11px; border-radius:999px; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.3); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);}
+
+/* ===== FINAL ===== */
+.final{position:relative; background:var(--ink); text-align:center; padding:34px 22px 64px;}
+.final .s{display:block; font-family:var(--font-script); font-size:36px; color:var(--water); line-height:1; transform:rotate(-3deg);}
+.final h2{font-weight:900; font-size:clamp(44px,13vw,56px); text-transform:uppercase; line-height:.95; letter-spacing:-.02em;}
+.final p{margin:16px auto 26px; font-size:13px; color:var(--on-dark-muted); max-width:28ch; line-height:1.6;}
+.final .coords{margin-top:30px; font-size:10.5px; letter-spacing:.12em; color:var(--on-dark-muted); font-weight:600;}
+
+/* ===== ORNAMENT SET ===== */
+.set{max-width:428px; margin:0 auto; padding:40px 18px 60px; color:#EEE9DC;}
+.set h3{font-weight:800; font-size:13px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px;}
+.set > p{font-size:12.5px; color:rgba(238,233,220,.6); margin-bottom:18px; line-height:1.5;}
+.orn-card{background:var(--paper); border-radius:14px; padding:16px 16px 12px; margin-bottom:10px;}
+.orn-card .n{font-size:11.5px; font-weight:700; color:var(--on-light); margin-top:8px;}
+.orn-card .n span{font-weight:500; color:var(--on-light-muted);}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="wc" x="-5%" y="-40%" width="110%" height="180%">
+      <feTurbulence type="fractalNoise" baseFrequency=".018 .06" numOctaves="3" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" scale="22"/>
+    </filter>
+    <pattern id="o-wave" width="16" height="26" patternUnits="userSpaceOnUse"><path d="M0 13c0-7 8-7 8 0s8 7 8 0" fill="none" stroke="#C1502E" stroke-width="1.6" stroke-linecap="round"/></pattern>
+    <pattern id="o-horn" width="52" height="26" patternUnits="userSpaceOnUse"><path d="M26 24C26 12 16 5 9 9 4 12 6 19 11 18c3-1 3-5 0-5M26 24c0-12 10-19 17-15 5 3 3 10-2 9-3-1-3-5 0-5" fill="none" stroke="#C1502E" stroke-width="1.6" stroke-linecap="round"/></pattern>
+    <pattern id="o-tumar" width="28" height="26" patternUnits="userSpaceOnUse"><path d="M3 22 14 4 25 22Z" fill="none" stroke="#2F3129" stroke-width="1.4" stroke-linejoin="round"/><path d="M9.5 19 14 11.5 18.5 19Z" fill="#C1502E"/></pattern>
+    <pattern id="o-peaks" width="34" height="26" patternUnits="userSpaceOnUse"><path d="M0 22 9 8l6 8 7-12 12 18" fill="none" stroke="#2F3129" stroke-width="1.5" stroke-linejoin="round"/><circle cx="27" cy="7" r="2" fill="#C1502E"/></pattern>
+    <pattern id="o-peaks-l" width="34" height="26" patternUnits="userSpaceOnUse"><path d="M0 22 9 8l6 8 7-12 12 18" fill="none" stroke="#EEE9DC" stroke-width="1.5" stroke-linejoin="round" opacity=".7"/><circle cx="27" cy="7" r="2" fill="#C1502E"/></pattern>
+    <pattern id="o-stitch" width="18" height="26" patternUnits="userSpaceOnUse"><path d="M0 6h18M0 20h18" stroke="#2F3129" stroke-width="1.3" stroke-dasharray="4 3"/><path d="M6 10l6 6M12 10l-6 6" stroke="#C1502E" stroke-width="1.5" stroke-linecap="round"/></pattern>
+  </defs>
+</svg>
+
+<div class="frame">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="bg ph"></div>
+    <div class="nav">
+      <div class="logo">Ak-Tengir<i>берег</i></div>
+      <div class="menu"><span></span><span></span></div>
+    </div>
+    <div class="content">
+      <span class="script">светлое пространство</span>
+      <h1><span>Юрты</span><span>у воды</span><span class="thin">южный берег Иссык-Куля</span></h1>
+      <p>11 юрт и 2 пляжных домика. Баня в пяти шагах от воды, ужин с собственного огорода.</p>
+      <div class="actions">
+        <a class="glass" href="#rooms">Забронировать</a>
+        <div class="price">от<b>$90 / сутки</b></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="seam">
+    <svg viewBox="0 0 428 90" preserveAspectRatio="none">
+      <path filter="url(#wc)" fill="var(--paper)" d="M-20,52 C30,30 70,70 120,48 C170,26 210,62 262,44 C310,28 350,60 400,40 C420,34 440,40 450,44 L450,120 L-20,120 Z"/>
+      <circle cx="60" cy="26" r="2.4" fill="var(--paper)" opacity=".8"/>
+      <circle cx="84" cy="18" r="1.4" fill="var(--paper)" opacity=".7"/>
+      <circle cx="318" cy="22" r="1.8" fill="var(--paper)" opacity=".7"/>
+    </svg>
+    <img class="branch" src="el/branch_flat.webp" alt="">
+  </div>
+
+  <!-- ROUTE -->
+  <section class="route">
+    <div class="sign">
+      <img src="el/signpost2.webp" alt="Деревянный указатель: как добраться — до берега Ak-Tengir, Бишкек ~370 км">
+    </div>
+    <div class="map-box">
+      <svg viewBox="0 0 380 200" fill="none">
+        <path d="M40 30 C 90 60, 60 110, 120 130 C 170 150, 230 140, 300 170" stroke="var(--rust)" stroke-width="1.8" stroke-dasharray="1 7" stroke-linecap="round"/>
+        <circle cx="40" cy="30" r="5" fill="var(--on-light)"/>
+        <text x="52" y="34" font-family="Montserrat" font-size="12" font-weight="700" fill="var(--on-light)">Бишкек</text>
+        <circle cx="300" cy="170" r="9" fill="var(--rust)" opacity=".2"/>
+        <circle cx="300" cy="170" r="5" fill="var(--rust)"/>
+        <text x="200" y="193" font-family="Marck Script" font-size="19" fill="var(--on-light)">наш берег</text>
+      </svg>
+      <div class="distance">5–6 ч в пути</div>
+    </div>
+    <p class="note">Расстояние и время ориентировочные — уточним по точному адресу.</p>
+  </section>
+
+  <div style="background:var(--paper); padding:0 22px 18px;">
+    <svg class="orn" aria-hidden="true"><rect width="100%" height="26" fill="url(#o-peaks)"/></svg>
+  </div>
+
+  <!-- CORK -->
+  <section class="cork">
+    <div class="note-tag">
+      <span class="pin red"></span>
+      <span class="s">один день</span>
+      <h2>на берегу</h2>
+    </div>
+    <div class="hang" aria-hidden="true"><span class="nail"></span><span class="cord"></span><img src="el/dream2.webp" alt=""></div>
+    <div class="board">
+      <svg class="route-line" viewBox="0 0 390 420" preserveAspectRatio="none" fill="none">
+        <path d="M95 60 C 180 80, 250 120, 300 190 C 330 240, 200 260, 130 300" stroke="rgba(40,22,8,.55)" stroke-width="1.6" stroke-dasharray="1 7" stroke-linecap="round"/>
+      </svg>
+      <div class="polaroid pa"><span class="pin gold"></span><div class="ph"></div><div class="cap">рассвет на веранде</div></div>
+      <div class="polaroid pb"><span class="pin blue"></span><div class="ph"></div><div class="cap">баня у воды</div></div>
+      <div class="polaroid pc"><span class="pin red"></span><div class="ph"></div><div class="cap">ужин у огня</div></div>
+      <div class="ticket"><span class="pin gold"></span>сапборд<b>от $10 / час</b></div>
+    </div>
+  </section>
+
+  <!-- ROOMS -->
+  <section class="rooms" id="rooms">
+    <div class="seam-top">
+      <svg viewBox="0 0 428 60" preserveAspectRatio="none">
+        <path filter="url(#wc)" fill="var(--panel)" d="M-20,30 C40,10 90,44 150,24 C210,6 260,40 320,22 C360,10 400,30 450,20 L450,80 L-20,80 Z"/>
+      </svg>
+    </div>
+    <img class="mush" src="el/log.webp" alt="">
+    <div class="head">
+      <span class="s">где остановиться</span>
+      <h2>Юрты и домики</h2>
+    </div>
+
+    <article class="room">
+      <div class="ph"></div>
+      <span class="chip">круглый год</span>
+      <div class="info">
+        <div>
+          <span class="s">с видом на озеро</span>
+          <h3>ВИП юрта</h3>
+          <div class="meta"><b>$120</b> / сутки · завтрак включён</div>
+        </div>
+        <a class="drop" href="#">Хочу</a>
+      </div>
+    </article>
+
+    <article class="room">
+      <div class="ph"></div>
+      <span class="chip">май — октябрь</span>
+      <div class="info">
+        <div>
+          <span class="s">в пяти метрах от воды</span>
+          <h3>Пляжный домик</h3>
+          <div class="meta"><b>$90</b> / сутки · сапборд по запросу</div>
+        </div>
+        <a class="drop" href="#">Хочу</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final">
+    <svg class="orn" aria-hidden="true" style="margin-bottom:26px; opacity:.9"><rect width="100%" height="26" fill="url(#o-peaks-l)"/></svg>
+    <span class="s">до встречи</span>
+    <h2>на берегу</h2>
+    <p>Напишите в WhatsApp — подберём даты и юрту, обычно отвечаем в течение часа.</p>
+    <a class="glass" href="#">Написать в WhatsApp</a>
+    <div class="coords">42.4°N · 76.9°E · ИССЫК-КУЛЬ</div>
+  </section>
+</div>
+
