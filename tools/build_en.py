@@ -11,7 +11,7 @@ from pathlib import Path
 
 # Пока перевод не утверждён, английская страница закрыта от поисковиков.
 # Когда утвердят: поставить True, пересобрать и убрать строку `.lang{display:none!important}` в site/index.html.
-EN_PUBLISHED = False
+EN_PUBLISHED = True
 
 ROOT = Path(__file__).resolve().parent.parent / "site"
 EN = json.loads((ROOT / "i18n" / "en.json").read_text(encoding="utf-8"))
