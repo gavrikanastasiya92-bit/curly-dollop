@@ -1,7 +1,7 @@
 // Публикация сайта на Cloudflare (Workers, статический сайт).
 // Отдаётся только папка site/. Имя должно совпадать с именем проекта в Cloudflare.
 {
-  "name": "aktengir",
+  "name": "curly-dollop",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./site"
