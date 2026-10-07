@@ -21,3 +21,10 @@
 ## Публикация (Cloudflare Pages)
 
 Workers & Pages → Create → Pages → подключить этот репозиторий. Build command — пусто, Build output directory — `site`. Затем Custom domains → `aktengir.com`.
+
+## Не забыть после правок
+
+- [ ] Google Search Console — добавить aktengir.com, отправить sitemap.xml
+- [ ] Яндекс Вебмастер — добавить сайт, отправить sitemap.xml
+- [ ] Счётчик посещений (Яндекс Метрика или Google Analytics) + цель «нажатие на WhatsApp»
+- [ ] Ссылка на aktengir.com в Instagram, Booking, 2GIS и Google Maps
