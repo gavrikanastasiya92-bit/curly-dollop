@@ -285,6 +285,19 @@
   .site.wide .strip-wrap.tight .strip button img{height:clamp(360px,30vw,480px)}
   .site.wide .sec-leisure .strip-wrap.tight .strip button img{height:clamp(240px,20vw,330px)}
   /* ——— версия для компьютера (v14) ——— */
+  .qnav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;padding:16px 24px;border-bottom:1px solid var(--line);background:var(--milk);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+  .qnav::-webkit-scrollbar{display:none}
+  .qnav a{text-decoration:none;color:var(--grey);padding:4px 0;flex:0 0 auto}
+  .qnav a:hover,.qnav a:focus-visible{color:var(--ink)}
+  .wide .qnav{justify-content:center;gap:36px;padding:20px var(--padx)}
+  .note-box{margin-top:28px;padding:22px 22px 24px;background:var(--sand);display:grid;gap:10px}
+  .kw{font-weight:500;color:var(--ink)}
+  .places{list-style:none;margin:36px 0 0;padding:0;display:grid;border-top:1px solid var(--line)}
+  .places li{padding:22px 0;border-bottom:1px solid var(--line);display:grid;gap:8px;align-content:start}
+  .places .h3{font-size:24px}
+  .places .caps{color:var(--grey);margin:0}
+  .places-note{margin-top:14px!important;font-size:12.5px}
+  .wide .places{grid-template-columns:1fr 1fr;column-gap:6vw}
   .hnav,.hbook{display:none}
   .lang{display:flex;align-items:center;gap:6px;margin-left:auto;margin-right:18px;font-size:11px;font-weight:500;letter-spacing:.16em}
   .lang a{text-decoration:none;padding:4px 0;opacity:.55;transition:opacity .3s}
@@ -550,6 +563,7 @@
     </div>
     <div class="foot fade d5">Issyk-Kul · Tosor village</div>
   </section>
+  <nav class="qnav" aria-label="Site sections"><a href="#stay">Yurts</a><a href="#banya">Banya</a><a href="#kitchen">Kitchen</a><a href="#leisure">Leisure</a><a href="#retreats">Retreats</a><a href="#nearby">Nearby</a><a href="#where">Getting here</a><a href="#book">Booking</a></nav>
 
   <!-- 2 -->
   <section class="blk pad sec-resort">
@@ -593,6 +607,10 @@
           <tr data-go="#room-house"><td><a class="go" href="#room-house">Premium Ethno-House<span aria-hidden="true">→</span></a><small>two yurts joined into one house, private terrace</small></td><td>from $450</td></tr>
         </tbody>
       </table>
+      <div class="note-box">
+        <h3 class="h3" style="font-size:24px">Tailored terms</h3>
+        <p class="txt">For families with children, groups, retreats, tour operators and corporate events, we agree terms individually. We are flexible and open to working together — contact us directly.</p>
+      </div>
     </div>
     <div style="margin-top:40px"><div class="strip-wrap b4 nocap"><div class="strip"><button type="button"><img src="../img/n-48.jpg" alt="Carved yurt door" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-46.jpg" alt="Tunduk: a view of the sky" loading="lazy" decoding="async"></button><button type="button"><img src="../img/t-curtain-door.jpg" alt="Door to the terrace" loading="lazy" decoding="async"></button><button type="button"><img src="../img/y-d5.jpg" alt="Bathroom in the Ethno-House" loading="lazy" decoding="async"></button><button type="button"><img src="../img/y-d11.jpg" alt="Ethno-House living room" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-45.jpg" alt="Candles and tableware in a yurt" loading="lazy" decoding="async"></button><button type="button"><img src="../img/y-d7.jpg" alt="Ethno-House bedroom with a garden window" loading="lazy" decoding="async"></button><button type="button"><img src="../img/y-d2.jpg" alt="Ethno-House entrance under the pergola" loading="lazy" decoding="async"></button></div><div class="strip-hint"><span>Swipe to see more</span><span>8 photos</span></div></div></div>
   </section>
@@ -648,6 +666,8 @@
         <li><span>6–10 guests</span><b>15,000 som</b></li>
         <li><span>More than 10 guests</span><span>price on request</span></li>
       </ul>
+      <p class="txt">A session lasts 2.5 hours. Extensions, bath treatments, ceremonies and extra services are arranged individually.</p>
+      <p class="txt">For guests not staying at Ak-Tengir, a towel and bathrobe set is 400 som per person.</p>
       <a class="btn" href="#book">Book the banya</a>
     </div>
   </section>
@@ -676,16 +696,16 @@
   </section>
 
   <!-- 8 -->
-  <section class="blk pad sec-leisure" style="background:var(--sand)">
+  <section class="blk pad sec-leisure" id="leisure" style="background:var(--sand)">
     <div class="stack rv l1">
       <h2 class="h2">Active and easy days</h2>
-      <p class="txt">SUP boards and fishing on request, wicker chairs in the shade and a view of the mountains. Everything for an active day, or simply for sitting with a book and a cup of tea.</p>
-      <p class="txt" style="font-size:12.5px">SUP and boat prices on request.</p>
+      <p class="txt"><b class="kw">SUP boards</b> and <b class="kw">fishing</b> on request, wicker chairs in the shade and a view of the mountains. Everything for an active day, or simply for sitting with a book and a cup of tea.</p>
+      <p class="txt" style="font-size:12.5px"><b class="kw">SUP</b> and <b class="kw">boat</b> prices on request.</p>
     </div>
     <div class="lstrip" style="margin-top:32px"><div class="strip-wrap tight"><div class="strip"><button type="button"><img src="../img/n-3.jpg" alt="SUP boards on clear water" loading="lazy" decoding="async"></button><button type="button"><img src="../img/t-topchan.jpg" alt="Topchan in the courtyard" loading="lazy" decoding="async"></button><button type="button"><img src="../img/t-swing.jpg" alt="Swing with cushions" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-5.jpg" alt="Path to the gazebo" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-20.jpg" alt="SUP boards on the sand" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-14.jpg" alt="Chairs under a reed parasol" loading="lazy" decoding="async"></button></div><div class="strip-hint"><span>Swipe to see more</span><span>6 photos</span></div></div></div>
     <div class="stack rv l2" style="margin-top:40px">
-      <p class="txt">There is a small bar on site: freshly brewed coffee, lemonades, local and imported snacks. You can also taste cured meats, juices and local wines by <b style="color:var(--ink);font-weight:500">Attila</b>.</p>
-      <p class="txt">And for a slow evening by the lake, a hookah is available on request.</p>
+      <p class="txt">There is a small <b class="kw">bar</b> on site: freshly brewed <b class="kw">coffee</b>, lemonades, local and imported snacks. You can also taste cured meats, juices and local wines by <b style="color:var(--ink);font-weight:500">Attila</b>.</p>
+      <p class="txt">And for a slow evening by the lake, a <b class="kw">hookah</b> is available on request.</p>
     </div>
   </section>
   <div class="center-cta" style="background:var(--sand);padding-top:0"><a class="btn" href="#book">Book now</a></div>
@@ -744,6 +764,19 @@
   </section>
 
   <!-- 12 -->
+  <section class="blk pad sec-nearby" id="nearby">
+    <div class="stack rv">
+      <h2 class="h2">What to see nearby</h2>
+      <p class="txt">Ak-Tengir is a convenient base for exploring the south shore of Issyk-Kul. Canyons, mountain gorges, waterfalls and nomadic traditions are all close by.</p>
+    </div>
+    <ul class="places rv"><li><h3 class="h3">Skazka (Fairy Tale) Canyon</h3><p class="caps">≈ 8 km · 10–15 min</p><p class="txt">Red and orange rocks, strange shapes and panoramic views of Issyk-Kul. Especially beautiful at sunset.</p></li><li><h3 class="h3">Barskoon Gorge and waterfalls</h3><p class="caps">≈ 30–35 km · 45–60 min</p><p class="txt">A mountain gorge with spruce forests, a river and several waterfalls. On the way you pass a monument to Yuri Gagarin. The waterfalls are about 15–20 km into the gorge from Barskoon.</p></li><li><h3 class="h3">Golden eagle show</h3><p class="caps">near Bokonbaevo · ≈ 40 km · 45–55 min</p><p class="txt">A chance to see berkutchi, the Kyrgyz tradition of hunting with golden eagles. Shows are usually arranged in advance.</p></li><li><h3 class="h3">Jeti-Oguz</h3><p class="caps">≈ 75–80 km · 1.5 hours</p><p class="txt">The famous red rocks “Seven Bulls” and “Broken Heart”, and further on the Kok-Jaiyk mountain valley, walks and waterfalls.</p></li><li><h3 class="h3">Karakol</h3><p class="caps">≈ 110 km · about 2 hours</p><p class="txt">The main town of eastern Issyk-Kul: old wooden architecture, the Dungan Mosque, markets, cafés and Karakol’s famous cuisine.</p></li><li><h3 class="h3">Karakol ski resort</h3><p class="caps">≈ 120 km · 2–2.5 hours</p><p class="txt">One of Kyrgyzstan’s main ski resorts, among Tian Shan spruces. In winter: skiing and snowboarding, high-altitude runs and panoramic views of Issyk-Kul.</p></li></ul>
+    <p class="txt places-note">Distances and travel times are approximate.</p>
+    <div class="stack rv" style="margin-top:36px">
+      <p class="txt">We can help you find a taxi or a shared ride, arrange a group transfer and choose a tour of the south shore.</p>
+      <p class="txt">For larger groups, we can plan a custom route with you and organise a trip around your format and interests.</p>
+    </div>
+  </section>
+
   <section class="blk" id="where">
     <div class="map" id="map">
       <img class="map-sat" id="mapSat" src="../img/map-sat.jpg" alt="Issyk-Kul from space" data-x="805" data-y="686">
@@ -784,6 +817,7 @@
     <button class="close" type="button" id="close">Close</button>
     <img src="../img/logo-color.png" alt="">
     <a href="#stay">Stay</a>
+    <a href="#nearby">Nearby</a>
     <a href="#where">Getting here</a>
     <a href="#book">Booking</a>
   </nav>

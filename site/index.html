@@ -285,6 +285,19 @@
   .site.wide .strip-wrap.tight .strip button img{height:clamp(360px,30vw,480px)}
   .site.wide .sec-leisure .strip-wrap.tight .strip button img{height:clamp(240px,20vw,330px)}
   /* ——— версия для компьютера (v14) ——— */
+  .qnav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;padding:16px 24px;border-bottom:1px solid var(--line);background:var(--milk);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+  .qnav::-webkit-scrollbar{display:none}
+  .qnav a{text-decoration:none;color:var(--grey);padding:4px 0;flex:0 0 auto}
+  .qnav a:hover,.qnav a:focus-visible{color:var(--ink)}
+  .wide .qnav{justify-content:center;gap:36px;padding:20px var(--padx)}
+  .note-box{margin-top:28px;padding:22px 22px 24px;background:var(--sand);display:grid;gap:10px}
+  .kw{font-weight:500;color:var(--ink)}
+  .places{list-style:none;margin:36px 0 0;padding:0;display:grid;border-top:1px solid var(--line)}
+  .places li{padding:22px 0;border-bottom:1px solid var(--line);display:grid;gap:8px;align-content:start}
+  .places .h3{font-size:24px}
+  .places .caps{color:var(--grey);margin:0}
+  .places-note{margin-top:14px!important;font-size:12.5px}
+  .wide .places{grid-template-columns:1fr 1fr;column-gap:6vw}
   .hnav,.hbook{display:none}
   .lang{display:flex;align-items:center;gap:6px;margin-left:auto;margin-right:18px;font-size:11px;font-weight:500;letter-spacing:.16em}
   .lang a{text-decoration:none;padding:4px 0;opacity:.55;transition:opacity .3s}
@@ -550,6 +563,7 @@
     </div>
     <div class="foot fade d5">Иссык-Куль · село Тосор</div>
   </section>
+  <nav class="qnav" aria-label="Разделы сайта"><a href="#stay">Юрты</a><a href="#banya">Баня</a><a href="#kitchen">Кухня</a><a href="#leisure">Досуг</a><a href="#retreats">Ретриты</a><a href="#nearby">Что рядом</a><a href="#where">Как добраться</a><a href="#book">Бронь</a></nav>
 
   <!-- 2 -->
   <section class="blk pad sec-resort">
@@ -593,6 +607,10 @@
           <tr data-go="#room-house"><td><a class="go" href="#room-house">Премиум Этно-Дом<span aria-hidden="true">→</span></a><small>дом из двух юрт, своя терраса</small></td><td>от $450</td></tr>
         </tbody>
       </table>
+      <div class="note-box">
+        <h3 class="h3" style="font-size:24px">Индивидуальные условия</h3>
+        <p class="txt">Для семей с детьми, групповых заездов, ретритов, туроператоров и корпоративов условия размещения обсуждаются индивидуально. Мы гибки и открыты к сотрудничеству — свяжитесь с нами напрямую.</p>
+      </div>
     </div>
     <div style="margin-top:40px"><div class="strip-wrap b4 nocap"><div class="strip"><button type="button"><img src="img/n-48.jpg" alt="Резная дверь юрты" loading="lazy" decoding="async"></button><button type="button"><img src="img/n-46.jpg" alt="Тюндюк: вид в небо" loading="lazy" decoding="async"></button><button type="button"><img src="img/t-curtain-door.jpg" alt="Выход на террасу" loading="lazy" decoding="async"></button><button type="button"><img src="img/y-d5.jpg" alt="Ванная в Этно-Доме" loading="lazy" decoding="async"></button><button type="button"><img src="img/y-d11.jpg" alt="Гостиная Этно-Дома" loading="lazy" decoding="async"></button><button type="button"><img src="img/n-45.jpg" alt="Свечи и утварь в юрте" loading="lazy" decoding="async"></button><button type="button"><img src="img/y-d7.jpg" alt="Спальня Этно-Дома с окном в сад" loading="lazy" decoding="async"></button><button type="button"><img src="img/y-d2.jpg" alt="Вход в Этно-Дом под перголой" loading="lazy" decoding="async"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>8 фото</span></div></div></div>
   </section>
@@ -648,6 +666,8 @@
         <li><span>6–10 гостей</span><b>15 000 сом</b></li>
         <li><span>Более 10 гостей</span><span>по индивидуальному расчёту</span></li>
       </ul>
+      <p class="txt">Продолжительность сеанса — 2,5 часа. Продление, банные процедуры, церемонии и дополнительные услуги обсуждаются индивидуально.</p>
+      <p class="txt">Для гостей, не проживающих в Ак-Тенгире, аренда комплекта полотенец и халата — 400 сом с человека.</p>
       <a class="btn" href="#book">Записаться в баню</a>
     </div>
   </section>
@@ -676,16 +696,16 @@
   </section>
 
   <!-- 8 -->
-  <section class="blk pad sec-leisure" style="background:var(--sand)">
+  <section class="blk pad sec-leisure" id="leisure" style="background:var(--sand)">
     <div class="stack rv l1">
       <h2 class="h2">Активный и спокойный досуг</h2>
-      <p class="txt">Сапборды и рыбалка по запросу, плетёные кресла в тени и вид на горы. Всё — как для активного досуга, так и для того, чтобы просто посидеть и почитать с чаем.</p>
-      <p class="txt" style="font-size:12.5px">Цены на сапборд и лодку уточняются отдельно.</p>
+      <p class="txt"><b class="kw">Сапборды</b> и <b class="kw">рыбалка</b> по запросу, плетёные кресла в тени и вид на горы. Всё — как для активного досуга, так и для того, чтобы просто посидеть и почитать с чаем.</p>
+      <p class="txt" style="font-size:12.5px">Цены на <b class="kw">сапборд</b> и <b class="kw">лодку</b> уточняются отдельно.</p>
     </div>
     <div class="lstrip" style="margin-top:32px"><div class="strip-wrap tight"><div class="strip"><button type="button"><img src="img/n-3.jpg" alt="Сапборды на прозрачной воде" loading="lazy" decoding="async"></button><button type="button"><img src="img/t-topchan.jpg" alt="Топчан во дворе" loading="lazy" decoding="async"></button><button type="button"><img src="img/t-swing.jpg" alt="Качели с подушками" loading="lazy" decoding="async"></button><button type="button"><img src="img/n-5.jpg" alt="Дорожка к беседке" loading="lazy" decoding="async"></button><button type="button"><img src="img/n-20.jpg" alt="Сапборды на песке" loading="lazy" decoding="async"></button><button type="button"><img src="img/n-14.jpg" alt="Кресла под камышовым зонтом" loading="lazy" decoding="async"></button></div><div class="strip-hint"><span>Листайте в сторону</span><span>6 фото</span></div></div></div>
     <div class="stack rv l2" style="margin-top:40px">
-      <p class="txt">На территории работает небольшой бар: свежесваренный кофе, лимонады, локальные и импортные снеки. Здесь можно попробовать мясные деликатесы, соки и вина местного производства от <b style="color:var(--ink);font-weight:500">Attila</b>.</p>
-      <p class="txt">А для неспешного вечера у озера по запросу доступен кальян.</p>
+      <p class="txt">На территории работает небольшой <b class="kw">бар</b>: свежесваренный <b class="kw">кофе</b>, лимонады, локальные и импортные снеки. Здесь можно попробовать мясные деликатесы, соки и вина местного производства от <b style="color:var(--ink);font-weight:500">Attila</b>.</p>
+      <p class="txt">А для неспешного вечера у озера по запросу доступен <b class="kw">кальян</b>.</p>
     </div>
   </section>
   <div class="center-cta" style="background:var(--sand);padding-top:0"><a class="btn" href="#book">Забронировать</a></div>
@@ -744,6 +764,19 @@
   </section>
 
   <!-- 12 -->
+  <section class="blk pad sec-nearby" id="nearby">
+    <div class="stack rv">
+      <h2 class="h2">Что посмотреть рядом</h2>
+      <p class="txt">Ак-Тенгир — удобная точка для путешествий по южному берегу Иссык-Куля. Каньоны, горные ущелья, водопады и традиции кочевой культуры — многое находится совсем недалеко.</p>
+    </div>
+    <ul class="places rv"><li><h3 class="h3">Каньон Сказка</h3><p class="caps">≈ 8 км · 10–15 мин</p><p class="txt">Красно-оранжевые скалы, причудливые формы и панорамные виды на Иссык-Куль. Особенно красиво на закате.</p></li><li><h3 class="h3">Барскоонское ущелье и водопады</h3><p class="caps">≈ 30–35 км · 45–60 мин</p><p class="txt">Горное ущелье с еловыми лесами, рекой и несколькими водопадами. По дороге — памятник Юрию Гагарину. От Барскоона водопады примерно в 15–20 км в глубине ущелья.</p></li><li><h3 class="h3">Шоу беркутов</h3><p class="caps">район Боконбаево · ≈ 40 км · 45–55 мин</p><p class="txt">Знакомство с традицией беркутчи — кыргызской охоты с беркутом. Показы обычно организуются по предварительной договорённости.</p></li><li><h3 class="h3">Джети-Огуз</h3><p class="caps">≈ 75–80 км · 1,5 часа</p><p class="txt">Знаменитые красные скалы «Семь быков» и «Разбитое сердце», а дальше — горная долина Кок-Жайык, прогулки и водопады.</p></li><li><h3 class="h3">Каракол</h3><p class="caps">≈ 110 км · около 2 часов</p><p class="txt">Главный город восточного Иссык-Куля: старинная деревянная архитектура, Дунганская мечеть, рынки, кафе и знаменитая каракольская кухня.</p></li><li><h3 class="h3">Горнолыжная база Каракол</h3><p class="caps">≈ 120 км · 2–2,5 часа</p><p class="txt">Одна из главных горнолыжных баз Кыргызстана среди тянь-шаньских елей. Зимой — лыжи и сноуборд, высокогорные трассы и панорамные виды на Иссык-Куль.</p></li></ul>
+    <p class="txt places-note">Расстояния и время в пути указаны примерно.</p>
+    <div class="stack rv" style="margin-top:36px">
+      <p class="txt">Мы можем помочь найти такси или попутку, организовать трансфер для группы и подобрать подходящий тур по южному берегу.</p>
+      <p class="txt">Для больших групп можем вместе с вами составить индивидуальный маршрут и организовать поездку под ваш формат и интересы.</p>
+    </div>
+  </section>
+
   <section class="blk" id="where">
     <div class="map" id="map">
       <img class="map-sat" id="mapSat" src="img/map-sat.jpg" alt="Иссык-Куль со спутника" data-x="805" data-y="686">
@@ -784,6 +817,7 @@
     <button class="close" type="button" id="close">Закрыть</button>
     <img src="img/logo-color.png" alt="">
     <a href="#stay">Размещение</a>
+    <a href="#nearby">Что рядом</a>
     <a href="#where">Как добраться</a>
     <a href="#book">Бронь</a>
   </nav>

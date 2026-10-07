@@ -15,6 +15,8 @@ EN_PUBLISHED = True
 
 ROOT = Path(__file__).resolve().parent.parent / "site"
 EN = json.loads((ROOT / "i18n" / "en.json").read_text(encoding="utf-8"))
+# Абзацы с выделением внутри (<b>) переводятся целиком: «русский HTML» → «английский HTML»
+EN_HTML = EN.pop("__html__", {})
 
 HEAD = {
     '<html lang="ru">': '<html lang="en">',
@@ -63,6 +65,10 @@ def build():
         src = src.replace(a, b)
     if not EN_PUBLISHED:
         src = src.replace("<title>", '<meta name="robots" content="noindex">\n<title>', 1)
+    for a, b in EN_HTML.items():
+        if a not in src:
+            sys.exit(f"не найден абзац для перевода: {a[:70]}")
+        src = src.replace(a, b)
     missing = set()
     parts = re.split(r"(<script\b.*?</script>|<style\b.*?</style>|<[^>]+>)", src, flags=re.S)
     out = []
