@@ -22,13 +22,13 @@ def e(t):
 CSS = """
 @import url(../fonts/fonts.css);
 @page{size:303mm 216mm;margin:0}
-:root{--milk:#F3F1EC;--sand:#E9E5DD;--ink:#2B2A28;--grey:#6A655D;--line:#D3CEC4;
+:root{--milk:#F3F1EC;--bg:var(--milk);--sand:#E9E5DD;--ink:#2B2A28;--grey:#6A655D;--line:#D3CEC4;
 --serif:"Cormorant Garamond",Georgia,serif;--sans:"Montserrat",Arial,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--milk)}
+html,body{background:var(--bg)}
 body{font-family:var(--sans);font-weight:400;color:var(--grey);font-size:7.6pt;line-height:1.62;
 -webkit-print-color-adjust:exact;print-color-adjust:exact}
-.sheet{width:303mm;height:216mm;display:grid;grid-template-columns:102mm 99mm 102mm;overflow:hidden;page-break-after:always;background:var(--milk)}
+.sheet{width:303mm;height:216mm;display:grid;grid-template-columns:102mm 99mm 102mm;overflow:hidden;page-break-after:always;background:var(--bg)}
 .sheet:last-child{page-break-after:auto}
 .p{position:relative;height:216mm;padding:13mm 7mm 12mm;display:flex;flex-direction:column;gap:4mm;overflow:hidden}
 .p.l{padding-left:10mm}.p.r{padding-right:10mm}
@@ -58,7 +58,7 @@ h3{font-size:14pt}
 .p.cover{padding:0}
 .cover .photo{position:relative;flex:1 1 0;min-height:0}
 .cover .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 40%;filter:saturate(.82) contrast(.96)}
-.cover .photo:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:48%;background:linear-gradient(180deg,rgba(243,241,236,0) 0%,rgba(243,241,236,.75) 60%,var(--milk) 92%)}
+.cover .photo:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:48%;background:linear-gradient(180deg,transparent 0%,color-mix(in srgb,var(--bg) 75%,transparent) 60%,var(--bg) 92%)}
 .cover .in{display:flex;flex-direction:column;align-items:center;text-align:center;gap:3mm;padding:0 12mm 14mm 15mm;margin-top:-16mm;position:relative}
 .cover h1{font-size:25pt;letter-spacing:.06em;margin-top:2mm}
 .cover .sub{font-family:var(--serif);font-style:italic;font-size:13pt;line-height:1.25;color:var(--ink);max-width:66mm}
@@ -71,13 +71,19 @@ h3{font-size:14pt}
 .quote{font-family:var(--serif);font-style:italic;font-size:15pt;line-height:1.2;color:var(--ink)}
 """
 
+# Варианты фона: milk — молочный по системе «Актенгир 2», blue — нежно-голубой в тон неба на обложке
+VARIANTS = {
+    "milk": "",
+    "blue": ":root{--bg:#E3EAEF;--sand:#D5DFE6;--line:#C3CFD8}",
+}
+
 def rows(items):
     return '<ul class="rows">' + "".join(f'<li><b>{e(a)}</b><span class="v">{e(b)}</span></li>' for a, b in items) + "</ul>"
 
 def ph(src, cls="grow", style=""):
     return f'<div class="ph {cls}"><img src="{IMG}{src}" alt=""{f" style={chr(34)}{style}{chr(34)}" if style else ""}></div>'
 
-def page(t):
+def page(t, variant="milk"):
     stay = '<ul class="rows stay">' + "".join(
         f'<li><span class="n">{e(n)}</span><span class="d">{e(d)}</span><span class="pr">{e(p)}<small>{e(u)}</small></span></li>'
         for n, d, p, u in t["stay_rows"]) + "</ul>"
@@ -88,7 +94,7 @@ def page(t):
         f'<figure><img src="../{f}.svg" alt=""><span class="caps">{e(t[k])}</span></figure>'
         for f, k in (("qr-wa", "qr_wa"), ("qr-ig", "qr_ig"), ("qr-site", "qr_site"))) + "</div>"
     return f"""<!doctype html><html lang="{t['lang']}"><head><meta charset="utf-8">
-<title>Ак-Тенгир — буклет ({t['lang'].upper()})</title><style>{CSS}</style></head><body>
+<title>Ак-Тенгир — буклет ({t['lang'].upper()})</title><style>{CSS}{VARIANTS[variant]}</style></head><body>
 
 <section class="sheet">
   <div class="p l cover">
@@ -152,9 +158,11 @@ def page(t):
 </body></html>"""
 
 if __name__ == "__main__":
-    langs = sys.argv[1:] or [p.stem for p in (HERE / "texts").glob("*.json")]
+    langs = sys.argv[1:] or [p.stem for p in (HERE / "texts").glob("*.json") if not p.stem.startswith("banya-")]
     (HERE / "out").mkdir(exist_ok=True)
     for lang in langs:
         t = json.loads((HERE / "texts" / f"{lang}.json").read_text(encoding="utf-8"))
-        (HERE / "out" / f"booklet-{lang}.html").write_text(page(t), encoding="utf-8")
-        print("out/booklet-%s.html" % lang)
+        for v in VARIANTS:
+            name = f"booklet-{lang}" + ("" if v == "milk" else f"-{v}")
+            (HERE / "out" / f"{name}.html").write_text(page(t, v), encoding="utf-8")
+            print(f"out/{name}.html")
