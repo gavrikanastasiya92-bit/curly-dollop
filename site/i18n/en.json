@@ -266,5 +266,11 @@
   "<p class=\"txt\" style=\"font-size:12.5px\">Цены на <b class=\"kw\">сапборд</b> и <b class=\"kw\">лодку</b> уточняются отдельно.": "<p class=\"txt\" style=\"font-size:12.5px\"><b class=\"kw\">SUP</b> and <b class=\"kw\">boat</b> prices on request.",
   "<p class=\"txt\">На территории работает небольшой <b class=\"kw\">бар</b>: свежесваренный <b class=\"kw\">кофе</b>, лимонады, локальные и импортные снеки. Здесь можно попробовать мясные деликатесы, соки и вина местного производства от <b style=\"color:var(--ink);font-weight:500\">Attila</b>.": "<p class=\"txt\">There is a small <b class=\"kw\">bar</b> on site: freshly brewed <b class=\"kw\">coffee</b>, lemonades, local and imported snacks. You can also taste cured meats, juices and local wines by <b style=\"color:var(--ink);font-weight:500\">Attila</b>.",
   "<p class=\"txt\">А для неспешного вечера у озера по запросу доступен <b class=\"kw\">кальян</b>.": "<p class=\"txt\">And for a slow evening by the lake, a <b class=\"kw\">hookah</b> is available on request."
- }
+ },
+ "Красные скалы каньона Сказка над Иссык-Кулем": "Red rocks of Skazka Canyon above Issyk-Kul",
+ "Водопад в еловом лесу": "Waterfall in a spruce forest",
+ "Беркутчи на конях с беркутами": "Eagle hunters on horseback with golden eagles",
+ "Красные скалы «Семь быков» в Джети-Огузе": "The red Seven Bulls rocks at Jeti-Oguz",
+ "Горная долина с юртой под Караколом": "Mountain valley with a yurt near Karakol",
+ "Склон горнолыжной базы среди елей": "Ski slope among spruce trees"
 }
