@@ -1,0 +1,144 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<title>Ак-Тенгир — гармошка 8 панелей (RU)</title><style>
+@import url(../fonts/fonts.css);
+@page{size:303mm 216mm;margin:0}
+:root{--milk:#F3F1EC;--bg:var(--milk);--sand:#E9E5DD;--ink:#2B2A28;--grey:#6A655D;--line:#D3CEC4;
+--serif:"Cormorant Garamond",Georgia,serif;--sans:"Montserrat",Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg)}
+body{font-family:var(--sans);font-weight:400;color:var(--grey);font-size:7.6pt;line-height:1.62;
+-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sheet{width:303mm;height:216mm;display:grid;grid-template-columns:102mm 99mm 102mm;overflow:hidden;page-break-after:always;background:var(--bg)}
+.sheet:last-child{page-break-after:auto}
+.p{position:relative;height:216mm;padding:13mm 7mm 12mm;display:flex;flex-direction:column;gap:4mm;overflow:hidden}
+.p.l{padding-left:10mm}.p.r{padding-right:10mm}
+h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--ink);line-height:1.08;text-wrap:balance}
+h2{font-size:19pt}
+h3{font-size:14pt}
+.it{font-family:var(--serif);font-style:italic;font-size:11pt;color:var(--ink);line-height:1.25;margin-top:-2mm}
+.caps{font-size:6pt;font-weight:500;letter-spacing:.17em;text-transform:uppercase;color:var(--ink)}
+.ph{background:var(--sand);overflow:hidden;flex:none}
+.ph.grow{flex:1 1 0;min-height:24mm}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(.96)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:1.2mm;flex:1 1 0;min-height:24mm}
+.pair .ph{height:100%}
+.rows{list-style:none;border-top:.25mm solid var(--line)}
+.rows li{display:flex;justify-content:space-between;align-items:baseline;gap:3mm;padding:1.6mm 0;border-bottom:.25mm solid var(--line)}
+.rows b{font-weight:500;color:var(--ink)}
+.rows .v{white-space:nowrap;color:var(--ink);font-weight:500}
+.stay li{display:grid;grid-template-columns:1fr auto;column-gap:3mm;row-gap:.2mm;padding:2mm 0}
+.stay .n{font-family:var(--serif);font-size:11.5pt;font-weight:500;color:var(--ink);line-height:1.15}
+.stay .d{font-size:6.6pt;grid-column:1}
+.stay .pr{grid-column:2;grid-row:1/3;text-align:right;align-self:center;font-weight:500;color:var(--ink);white-space:nowrap;line-height:1.35}
+.stay .pr small{display:block;font-weight:400;font-size:6pt;color:var(--grey)}
+.box{border:.25mm solid var(--line);padding:3mm 3.4mm;display:grid;gap:1mm}
+.small{font-size:6.6pt}
+.logo{display:block}
+/* обложка: фото сверху растворяется в молочном фоне, ниже знак и название */
+.p.cover{padding:0}
+.cover .photo{position:relative;flex:1 1 0;min-height:0}
+.cover .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 40%;filter:saturate(.82) contrast(.96)}
+.cover .photo:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:48%;background:linear-gradient(180deg,transparent 0%,color-mix(in srgb,var(--bg) 75%,transparent) 60%,var(--bg) 92%)}
+.cover .in{display:flex;flex-direction:column;align-items:center;text-align:center;gap:3mm;padding:0 12mm 14mm 15mm;margin-top:-16mm;position:relative}
+.cover h1{font-size:25pt;letter-spacing:.06em;margin-top:2mm}
+.cover .sub{font-family:var(--serif);font-style:italic;font-size:13pt;line-height:1.25;color:var(--ink);max-width:66mm}
+.cover .place{margin-top:5mm}
+/* задняя обложка */
+.qr{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
+.qr figure{display:grid;gap:1.4mm;justify-items:center}
+.qr img{width:100%;max-width:21mm;aspect-ratio:1;display:block}
+.qr .caps{font-size:5.4pt}
+.quote{font-family:var(--serif);font-style:italic;font-size:15pt;line-height:1.2;color:var(--ink)}
+
+@page{size:402mm 216mm;margin:0}
+.sheet{width:402mm;grid-template-columns:102mm 99mm 99mm 102mm}
+.tags{display:flex;flex-wrap:wrap;gap:1mm 2.6mm;font-size:5.8pt;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink)}
+.tags span:not(:last-child):after{content:"·";margin-left:2.6mm;color:var(--grey)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.2mm}
+.fill{flex:1 1 0;min-height:0}
+.cards{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:4mm 3mm}
+.card{display:flex;flex-direction:column;gap:1.2mm;min-height:0}
+.card .ph{flex:1 1 0;min-height:18mm}
+.card .n{font-family:var(--serif);font-size:11pt;font-weight:500;color:var(--ink);line-height:1.1;margin-top:.8mm}
+.card .d{font-size:6.3pt;line-height:1.4}
+.card .pr{font-size:7pt;font-weight:500;color:var(--ink)}
+.near{list-style:none;display:flex;flex-direction:column;gap:2.4mm}
+.near li{display:grid;grid-template-columns:30mm 1fr;gap:3mm;align-items:center;flex:1 1 0;min-height:0}
+.near .ph{height:100%;min-height:15mm}
+.near b{display:block;font-family:var(--serif);font-size:11pt;font-weight:500;color:var(--ink);line-height:1.15}
+.near span{font-size:6.6pt}
+.pn{font-size:6.2pt;font-style:normal;color:var(--grey);border-left:.4mm solid var(--line);padding-left:2.4mm}
+.cta{display:grid;grid-template-columns:19mm 1fr;gap:3mm;align-items:center;border-top:.25mm solid var(--line);padding-top:3mm}
+.cta img{width:19mm;height:19mm}
+.p.cover.rr .in{padding:0 15mm 14mm 12mm}
+.end .qr{grid-template-columns:repeat(2,22mm);gap:6mm}
+:root{--bg:#E3EAEF;--sand:#D5DFE6;--line:#C3CFD8}</style></head><body>
+
+<section class="sheet">
+  <div class="p l end">
+    <div class="ph fill"><img src="../../../site/img/n-6.jpg" alt=""></div>
+    <h2>До встречи в Ak-Tengir</h2>
+    <span class="caps" style="margin-top:-1.5mm">Tosor · South Shore of Issyk-Kul · Kyrgyzstan</span>
+    <ul class="rows"><li><span class="caps" style="font-size:5.6pt">WhatsApp</span><span class="v">+996 558 420 620</span></li><li><span class="caps" style="font-size:5.6pt">Instagram</span><span class="v">@ak.tengir_yurtresort</span></li><li><span class="caps" style="font-size:5.6pt">Сайт</span><span class="v">aktengir.com</span></li></ul>
+    <p class="small">Туроператорам, организаторам и группам — свяжитесь с нами напрямую, обсудим индивидуальные условия.</p>
+    <div class="qr"><figure><img src="../qr-wa.svg" alt=""><span class="caps" style="font-size:5.4pt">WhatsApp · бронь</span></figure>
+      <figure><img src="../qr-site.svg" alt=""><span class="caps" style="font-size:5.4pt">Сайт</span></figure></div>
+  </div>
+
+  <div class="p">
+    <h2>Отдыхайте в своём ритме</h2>
+    <div class="tags"><span>SUP</span><span>Рыбалка на лодке</span><span>Пляж</span><span>Прогулки</span><span>Отдых у воды</span></div>
+    <p>Можно провести день активно или просто остаться на территории с книгой, чаем и видом на горы.</p>
+    <div class="grid2 fill" style="grid-template-rows:repeat(3,1fr)">
+      <div class="ph "><img src="../../../site/img/n-3.jpg" alt=""></div><div class="ph "><img src="../../../site/img/n-22.jpg" alt=""></div><div class="ph "><img src="../../../site/img/n-47.jpg" alt=""></div><div class="ph "><img src="../../../site/img/n-8.jpg" alt=""></div><div class="ph "><img src="../../../site/img/t-umbrella-lake.jpg" alt=""></div><div class="ph "><img src="../../../site/img/v-boards-sunset.jpg" alt=""></div>
+    </div>
+  </div>
+
+  <div class="p">
+    <h2>Исследуйте южный берег Иссык-Куля</h2>
+    <ul class="near fill"><li><div class="ph "><img src="../../../site/img/near-skazka.jpg" alt=""></div><div><b>Каньон Сказка</b><span>10–15 мин</span></div></li><li><div class="ph "><img src="../../../site/img/near-barskoon.jpg" alt=""></div><div><b>Барскоон и водопады</b><span>45–60 мин</span></div></li><li><div class="ph "><img src="../../../site/img/near-eagle.jpg" alt=""></div><div><b>Шоу беркутов</b><span>45–55 мин</span></div></li><li><div class="ph "><img src="../../../site/img/near-jeti.jpg" alt=""></div><div><b>Джети-Огуз</b><span>≈ 1,5 часа</span></div></li><li><div class="ph "><img src="../../../site/img/near-karakol.jpg" alt=""></div><div><b>Каракол и горнолыжная база</b><span>≈ 2–2,5 часа</span></div></li></ul>
+    <p class="small">Время в пути примерное. Поможем найти такси или попутку, организуем трансфер для группы и подберём тур. Для больших групп составим индивидуальный маршрут.</p>
+  </div>
+
+  <div class="p r cover rr">
+    <div class="photo"><img src="../../../site/img/hero-30.jpg" alt=""></div>
+    <div class="in"><img class="logo" src="../../../site/img/logo-color.png" alt="Ak-Tengir" style="width:22mm">
+      <h1>AK-TENGIR</h1><p class="sub">Yurt Resort · Retreat · Banya</p><p class="caps place">South Shore of Issyk-Kul · Tosor</p></div>
+  </div>
+</section>
+
+<section class="sheet">
+  <div class="p l">
+    <h2>Место между горами и Иссык-Кулем</h2>
+    <p>Камерный юрточный резорт на южном берегу Иссык-Куля. С одной стороны — горы, с другой — озеро, поэтому здесь особенно тихо, уединённо и свободно. Первые десять лет сюда приезжали только по личному приглашению.</p>
+    <div class="tags"><span>Частный пляж</span><span>Собственный сад</span><span>Домашняя кухня</span><span>Бар</span><span>Костровая зона</span></div>
+    <div class="ph fill"><img src="../../../site/img/n-19.jpg" alt=""></div>
+    <div class="grid2" style="height:36mm"><div class="ph "><img src="../../../site/img/t-garden-arch.jpg" alt=""></div><div class="ph "><img src="../../../site/img/k-table.jpg" alt=""></div></div>
+  </div>
+
+  <div class="p">
+    <h2>Проживание</h2>
+    <div class="cards fill"><div class="card"><div class="ph "><img src="../../../site/img/y-st2.jpg" alt=""></div><span class="n">Юрта Стандарт</span><span class="d">3–4 спальных места</span><span class="pr">от $45</span></div><div class="card"><div class="ph "><img src="../../../site/img/y-v2.jpg" alt=""></div><span class="n">ВИП юрта</span><span class="d">свой санузел, витражные окна</span><span class="pr">от $150</span></div><div class="card"><div class="ph "><img src="../../../site/img/y-p2.jpg" alt=""></div><span class="n">Пляжная Премиум Юрта</span><span class="d">в паре шагов от воды</span><span class="pr">от $250</span></div><div class="card"><div class="ph "><img src="../../../site/img/y-d2.jpg" alt=""></div><span class="n">Премиум Этно-Дом</span><span class="d">дом из двух юрт, своя терраса</span><span class="pr">от $450</span></div></div>
+    <p class="small">Семьи с детьми, дополнительные места и другие форматы — индивидуально.</p>
+    <p class="pn">Актуальные цены и специальные условия обсуждаются лично.</p>
+  </div>
+
+  <div class="p">
+    <div class="ph fill"><img src="../../../site/img/b-room.jpg" alt=""></div>
+    <h2>Баня на берегу Иссык-Куля</h2>
+    <p>Этно-баня в настоящей юрте в 5–10 метрах от воды. Горячая парная, предбанник с витражными окнами на озеро — и сразу после парной нырнуть в Иссык-Куль.</p>
+    <ul class="rows"><li><b>Сеанс 2,5 часа</b><span class="v">от 10 000 сом</span></li></ul>
+    <div style="display:grid;gap:1mm"><p class="small">Продление, банные процедуры и церемонии обсуждаются отдельно.</p><p class="small">Гостям, не проживающим в Ak-Tengir: полотенца и халат — 400 сом с человека.</p><p class="small">Небольшим компаниям иногда можно объединиться с другими гостями и разделить стоимость.</p></div>
+    <p class="pn">Актуальные цены и специальные условия обсуждаются лично.</p>
+  </div>
+
+  <div class="p r">
+    <div class="ph fill"><img src="../../../site/img/r-group.jpg" alt=""></div>
+    <h2>Место для ваших идей</h2>
+    <div class="tags"><span>Ретриты</span><span>Йога-туры</span><span>Корпоративы</span><span>Тимбилдинги</span><span>Туристические группы</span></div>
+    <p>Приезжайте со своей программой или создайте её вместе с нами. Для организаторов ретритов, туроператоров, корпоративных и больших групп — индивидуальные условия.</p>
+    <ul class="rows"><li><span>Размещение</span></li><li><span>Питание</span></li><li><span>Пространство для практик</span></li><li><span>Трансфер</span></li><li><span>Дополнительная программа</span></li></ul>
+    <div class="cta"><img src="../qr-wa.svg" alt=""><span class="caps" style="line-height:1.6">Обсудить групповой заезд → WhatsApp</span></div>
+  </div>
+</section>
+</body></html>

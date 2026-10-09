@@ -158,7 +158,7 @@ def page(t, variant="milk"):
 </body></html>"""
 
 if __name__ == "__main__":
-    langs = sys.argv[1:] or [p.stem for p in (HERE / "texts").glob("*.json") if not p.stem.startswith("banya-")]
+    langs = sys.argv[1:] or [p.stem for p in (HERE / "texts").glob("*.json") if not p.stem.startswith(("banya-", "accordion8-"))]
     (HERE / "out").mkdir(exist_ok=True)
     for lang in langs:
         t = json.loads((HERE / "texts" / f"{lang}.json").read_text(encoding="utf-8"))
