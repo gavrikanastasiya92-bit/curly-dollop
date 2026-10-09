@@ -35,7 +35,7 @@ EXTRA = """
 .cta{display:grid;grid-template-columns:19mm 1fr;gap:3mm;align-items:center;border-top:.25mm solid var(--line);padding-top:3mm}
 .cta img{width:19mm;height:19mm}
 .p.cover.rr .in{padding:0 15mm 14mm 12mm}
-.end .qr{grid-template-columns:repeat(2,22mm);gap:6mm}
+.end .qr{grid-template-columns:repeat(3,21mm);gap:4.5mm}
 """
 
 def tags(items):
@@ -66,6 +66,7 @@ def page(t, variant="milk"):
     {contacts}
     <p class="small">{e(t['end_note'])}</p>
     <div class="qr"><figure><img src="../qr-wa.svg" alt=""><span class="caps" style="font-size:5.4pt">{e(t['qr_wa'])}</span></figure>
+      <figure><img src="../qr-ig.svg" alt=""><span class="caps" style="font-size:5.4pt">{e(t['qr_ig'])}</span></figure>
       <figure><img src="../qr-site.svg" alt=""><span class="caps" style="font-size:5.4pt">{e(t['qr_site'])}</span></figure></div>
   </div>
 
