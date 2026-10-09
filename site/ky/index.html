@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="ky">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Ак-Теңир — Ысык-Көлдүн түштүк жээгиндеги боз үй курорту</title>
+<meta name="description" content="Ысык-Көлдүн түштүк жээгиндеги Тосор айылынын жанындагы боз үй курорту: Стандарттан VIPке чейинки боз үйлөр, пляждагы боз үй жана этно-үй, жээктеги мончо, өз багыбыз жана ашканабыз. Жыл бою ачык.">
+<link rel="alternate" hreflang="ru" href="https://aktengir.com/">
+<link rel="alternate" hreflang="en" href="https://aktengir.com/en/">
+<link rel="canonical" href="https://aktengir.com/ky/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ак-Теңир — Ысык-Көлдөгү боз үй курорту">
+<meta property="og:description" content="Боз үйлөр, жээктеги мончо жана тоолор менен Ысык-Көлдүн ортосундагы тынчтык.">
+<meta property="og:image" content="https://aktengir.com/img/og.jpg">
+<meta property="og:url" content="https://aktengir.com/ky/">
+<link rel="icon" type="image/png" href="../img/logo-color.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --milk:#F3F1EC;
+    --sand:#E9E5DD;
+    --paper:#DCD8CF;
+    --ink:#2B2A28;
+    --grey:#77726A;
+    --line:#D3CEC4;
+    --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+    --sans:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --ease:cubic-bezier(.2,.7,.2,1);
+    color-scheme:light;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--milk);color:var(--ink);font-family:var(--sans);font-weight:300}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+
+
+  .site{margin:0 auto;background:var(--milk);position:relative;overflow-x:clip}
+
+  /* номер блока */
+  .blk{position:relative}
+
+  /* типографика */
+  .h1{font-family:var(--serif);font-weight:500;font-size:44px;line-height:1.05;letter-spacing:.06em;margin:0}
+  .h2{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.12;margin:0;text-wrap:balance}
+  .h3{font-family:var(--serif);font-weight:500;font-size:28px;line-height:1.15;margin:0;text-wrap:balance}
+  .caps{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;line-height:1.6}
+  .txt{font-size:14px;line-height:1.75;color:var(--grey);margin:0}
+  .pad{padding:72px 24px}
+  .stack{display:grid;gap:18px}
+
+  /* ссылки: линия уходит и возвращается */
+  .lnk{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;position:relative;padding-bottom:5px;justify-self:start;display:inline-block}
+  .lnk::after,.lnk::before{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transition:transform .5s cubic-bezier(.6,0,.2,1)}
+  .lnk::after{transform-origin:right}
+  .lnk::before{transform:scaleX(0);transform-origin:left;transition-delay:.3s}
+  .lnk:hover::after,.lnk:focus-visible::after{transform:scaleX(0)}
+  .lnk:hover::before,.lnk:focus-visible::before{transform:scaleX(1)}
+  .lnk:focus-visible{outline:none}
+
+  /* кнопка 4: сплошная, при наведении рамка */
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:17px 30px;border:1px solid var(--ink);background:var(--ink);color:var(--milk);transition:background-color .45s ease,color .45s ease;cursor:pointer;justify-self:start}
+  .btn:hover,.btn:focus-visible{background:transparent;color:var(--ink);outline:none}
+  .btn.light{border-color:#fff;background:#fff;color:var(--ink)}
+  .btn.light:hover,.btn.light:focus-visible{background:transparent;color:#fff}
+  .btn.wide{width:100%}
+
+  /* фото: медленное приближение */
+  .ph{overflow:hidden;position:relative;background:var(--sand)}
+  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+  .ph:hover img{transform:scale(1.05)}
+
+  /* появление при прокрутке (в покое всё видно) */
+  .rv.in{animation:rise 1.1s var(--ease) both}
+
+  /* ——— 1 · шапка и первый экран ——— */
+  .hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;height:64px;margin-bottom:-64px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;color:#fff;border-bottom:1px solid rgba(255,255,255,.22);transition:background-color .5s ease,color .5s ease,border-color .5s ease}
+  .hdr .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:.08em}
+  .hdr .brand .lw,.hdr .brand .lc{width:26px;height:26px}
+  .hdr .brand .lc{display:none}
+  .hdr.solid{background:rgba(243,241,236,.96);color:var(--ink);border-color:var(--line)}
+  .hdr.solid .lw{display:none}
+  .hdr.solid .lc{display:block}
+  .burger{width:28px;height:28px;display:grid;align-content:center;gap:7px;background:none;border:0;padding:0;color:inherit;cursor:pointer}
+  .burger i{display:block;height:1px;background:currentColor;transition:transform .4s var(--ease)}
+  .burger:focus-visible{outline:1px dashed currentColor;outline-offset:4px}
+
+  .menu:not(.open){display:none}
+  .menu{position:fixed;inset:0;z-index:50;background:var(--milk);display:grid;align-content:center;justify-items:center;gap:22px;opacity:0;pointer-events:none;transition:opacity .5s ease}
+  .menu.open{opacity:1;pointer-events:auto;animation:fade .5s ease}
+  .menu a{font-family:var(--serif);font-size:34px;font-weight:500;text-decoration:none}
+  .menu img{width:54px;margin-bottom:18px}
+  .menu .close{position:absolute;top:18px;right:20px;background:none;border:0;font:inherit;font-size:12px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;color:var(--ink)}
+
+  .hero{height:760px;position:relative;overflow:hidden;color:#fff;background:#3a3631}
+  .hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+  .hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,16,.42) 0%,rgba(20,18,16,.12) 26%,rgba(20,18,16,.22) 55%,rgba(20,18,16,.6) 100%)}
+  .hero .center{text-shadow:0 1px 18px rgba(0,0,0,.28)}
+  .hero .center{position:absolute;left:0;right:0;top:170px;display:grid;justify-items:center;text-align:center;padding-inline:28px}
+  .hero .logo{width:124px;margin-bottom:30px}
+  .hero .h1{text-transform:uppercase}
+  .hero .sub{margin:14px 0 34px;font-size:15px;line-height:1.65;font-weight:300;opacity:.92}
+  .hero .btn{justify-self:center}
+  .hero .foot{position:absolute;bottom:26px;left:0;right:0;text-align:center;font-size:10.5px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;opacity:.75}
+
+  .load .rise{animation:rise 1.1s var(--ease) backwards}
+  .load .fade{animation:fade 1.6s ease backwards}
+  .load .mark{animation:mark 1.6s var(--ease) backwards}
+  .load .zoom{animation:zoom 6s cubic-bezier(.2,.6,.2,1) backwards}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}}
+  @keyframes fade{from{opacity:0}}
+  @keyframes mark{from{opacity:0;transform:scale(.92) rotate(-25deg)}}
+  @keyframes zoom{from{transform:scale(1.12)}}
+  .d1{animation-delay:.15s!important}.d2{animation-delay:.35s!important}.d3{animation-delay:.55s!important}.d4{animation-delay:.75s!important}.d5{animation-delay:.95s!important}
+
+  /* ——— 2 · вступление ——— */
+  .intro .ph{aspect-ratio:4/5;margin-top:44px;margin-inline:-24px}
+
+  /* ——— 3 · форматы ——— */
+  .fmt{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums}
+  .fmt th{font-family:var(--sans);font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);text-align:left;padding:0 0 12px;border-bottom:1px solid var(--line)}
+  .fmt th:last-child,.fmt td:last-child{text-align:right}
+  .fmt td{padding:16px 0;border-bottom:1px solid var(--line);vertical-align:baseline}
+  .fmt td:first-child{font-family:var(--serif);font-size:20px;font-weight:500;line-height:1.2;padding-right:12px}
+  .fmt td:last-child{font-family:var(--serif);font-size:22px;font-weight:500;white-space:nowrap}
+  .fmt small{display:block;font-family:var(--sans);font-size:11px;font-weight:300;color:var(--grey)}
+  .fmt tr{transition:background-color .4s ease}
+  .fmt tbody tr:hover{background:var(--sand)}
+
+  /* ——— 4 · лента фото ——— */
+  .strip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .strip::-webkit-scrollbar{display:none}
+  .strip button{flex:0 0 46%;position:relative;overflow:hidden;height:calc(min(430px, 100vw - 32px) * .46 * 5 / 3);border:0;padding:0;scroll-snap-align:start;cursor:zoom-in;background:var(--sand)}
+  .strip button img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease),filter .6s ease}
+  .strip button:hover img{transform:scale(1.06);filter:brightness(1.05)}
+  .strip button:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+  .strip-hint{display:flex;justify-content:space-between;padding:14px 24px 0;font-size:11px;letter-spacing:.08em;color:var(--grey)}
+
+  .lb{position:fixed;inset:0;z-index:60;background:rgba(24,23,21,.96);color:#fff;display:grid;grid-template-rows:auto 1fr auto;opacity:0;pointer-events:none;transition:opacity .45s ease}
+  .lb:not(.open){display:none}
+  .lb.open{opacity:1;pointer-events:auto;animation:fade .45s ease}
+  .lb-top{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;font-size:12px;letter-spacing:.1em}
+  .lb-top img{width:26px}
+  .lb-top button,.lb-nav button{background:none;border:0;color:#fff;font:inherit;font-size:12px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;padding:8px}
+  .lb-img{display:grid;place-items:center;padding:0 12px;min-height:0}
+  .lb-img img{max-height:72vh;width:auto;max-width:100%;object-fit:contain;transition:opacity .35s ease}
+  .lb-cap{text-align:center;font-size:13px;line-height:1.6;opacity:.8;padding:0 24px}
+  .lb-nav{display:flex;justify-content:space-between;align-items:center;padding:14px 18px 24px}
+
+  /* ——— 5 · юрты ——— */
+  .room{display:grid;gap:16px}
+  .room + .room{margin-top:64px;padding-top:64px;border-top:1px solid var(--line)}
+  .room .ph{aspect-ratio:4/3;margin-inline:-24px}
+  .room .ph.tall{aspect-ratio:4/5}
+  .room .price{font-family:var(--serif);font-size:26px;font-weight:500;font-variant-numeric:tabular-nums}
+  .room .price small{font-family:var(--sans);font-size:12px;font-weight:300;color:var(--grey)}
+  .room .row{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+  .nophoto{aspect-ratio:4/3;margin-inline:-24px;background:var(--sand);display:grid;place-items:center;text-align:center;padding:24px}
+  .nophoto img{width:56px;opacity:.28;margin:0 auto 14px}
+  .nophoto span{font-size:12px;letter-spacing:.08em;color:var(--grey)}
+
+  /* ——— 2 · ряд видов ——— */
+  .views{margin:44px -24px 0;overflow:hidden}
+  .views-track{display:flex;width:max-content;animation:drift 70s linear infinite}
+  .views:hover .views-track,.views:focus-within .views-track{animation-play-state:paused}
+  .views button{flex:0 0 auto;width:168px;height:280px;position:relative;border:0;padding:0;cursor:zoom-in;background:var(--sand);overflow:hidden}
+  .views button img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease),filter .6s ease}
+  .views button:hover img{transform:scale(1.06);filter:brightness(1.05)}
+  .views button:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+  @keyframes drift{to{transform:translateX(-50%)}}
+  .views-hint{display:flex;justify-content:space-between;padding-top:14px;font-size:11px;letter-spacing:.08em;color:var(--grey)}
+
+  /* листалка фото: юрты и баня */
+  .slider{margin-inline:-24px;position:relative}
+  .slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth}
+  .slides::-webkit-scrollbar{display:none}
+  .slides > *{flex:0 0 100%;scroll-snap-align:start;height:calc(min(430px, 100vw - 32px) * 1.25);overflow:hidden;position:relative}
+  .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+  .slides > :hover img{transform:scale(1.04)}
+  .dots{position:absolute;bottom:16px;left:0;right:0;display:flex;justify-content:center;gap:9px;pointer-events:none}
+  .dots i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 0 0 1px rgba(43,42,40,.18);transition:background-color .3s,transform .3s}
+  .dots i.on{background:#fff;transform:scale(1.35)}
+  .slot{background:var(--sand);display:grid;place-items:center;text-align:center;padding:24px}
+  .slides .slot img{position:static;width:44px;height:auto;opacity:.3;margin:0 auto 12px}
+  .slot span{display:block;font-size:12px;line-height:1.6;letter-spacing:.04em;color:var(--grey);max-width:26ch}
+  .video{background:#2b2a28}
+  .video img{filter:brightness(.55)}
+  .video .play{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:16px;color:#fff;font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:24px}
+  .video .play b{width:66px;height:66px;border:1px solid rgba(255,255,255,.9);border-radius:50%;display:grid;place-items:center}
+  .video .play b::after{content:"";margin-left:5px;border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent}
+  .video .play small{font-size:11px;font-weight:300;letter-spacing:.04em;text-transform:none;opacity:.8}
+
+  /* ——— 6 · раскрывающиеся списки ——— */
+  .acc{border-top:1px solid var(--line)}
+  .acc details{border-bottom:1px solid var(--line)}
+  .acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:20px 0;font-family:var(--serif);font-size:23px;font-weight:500}
+  .acc summary::-webkit-details-marker{display:none}
+  .acc summary::before{content:"+";font-family:var(--sans);font-weight:300;font-size:20px;width:14px;transition:transform .45s var(--ease)}
+  .acc details[open] summary::before{transform:rotate(45deg)}
+  .acc summary:focus-visible{outline:1px dashed var(--ink);outline-offset:4px}
+  .acc .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+  .acc details[open] .body{grid-template-rows:1fr}
+  .acc .body > div{overflow:hidden}
+  .acc ul{margin:0;padding:0 0 22px 28px;display:grid;gap:8px;font-size:14px;line-height:1.6;color:var(--grey)}
+  .acc li::marker{color:var(--line)}
+
+  /* ——— 7 · баня ——— */
+  .banya{background:var(--sand)}
+  .banya .ph{aspect-ratio:4/5}
+  .price-line{display:flex;align-items:baseline;gap:14px;padding:18px 0;border-block:1px solid var(--line)}
+  .price-line b{font-family:var(--serif);font-size:30px;font-weight:500;white-space:nowrap}
+  .price-line span{font-size:12.5px;line-height:1.55;color:var(--grey)}
+
+  /* ——— 8 · карточки ——— */
+  .cards{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-inline:24px;scroll-padding-inline:24px;scrollbar-width:none;margin-top:32px}
+  .cards::-webkit-scrollbar{display:none}
+  .card{flex:0 0 78%;scroll-snap-align:start;display:grid;gap:12px;align-content:start}
+  .card .ph{height:calc(min(430px, 100vw - 32px) * .78 * 1.25)}
+  .card .txt{font-size:13.5px}
+
+  /* ——— 9 · знак ——— */
+  .mark-pause{text-align:center;display:grid;justify-items:center;gap:22px;padding:88px 32px}
+  .mark-pause img{width:88px}
+  .mark-pause .h2{font-style:italic;font-weight:400;font-size:32px}
+
+  /* ——— 10 · как добраться ——— */
+  .facts{display:grid;border-top:1px solid var(--line)}
+  .facts div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.6}
+  .facts dt{font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);padding-top:3px}
+  .facts dd{margin:0}
+  .facts .code{font-variant-numeric:tabular-nums;letter-spacing:.06em}
+
+  /* ——— 10 · карта ——— */
+  .map{position:relative;height:560px;overflow:hidden;background:#1d211d;color:rgba(243,241,236,.8)}
+  .map canvas{position:absolute;inset:0;width:100%;height:100%}
+  .map-sat{position:absolute;max-width:none;filter:saturate(.85) brightness(.82)}
+  .map::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(20,22,20,.55),rgba(20,22,20,0) 45%)}
+  .map .pin,.map .map-side,.map .map-code,.map .map-draft{z-index:2}
+  .map .clouds{z-index:1;opacity:.55}
+  .map .map-draft,.map .map-code,.map .map-side p{text-shadow:0 1px 3px rgba(0,0,0,.8);opacity:.85}
+  .clouds{position:absolute;inset:-10% -60%;pointer-events:none}
+  .clouds i{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.95),rgba(255,255,255,.55) 45%,rgba(255,255,255,0));filter:blur(6px);animation:cloud 48s linear infinite}
+  .clouds i:nth-child(1){width:360px;height:220px;top:4%;left:10%}
+  .clouds i:nth-child(2){width:260px;height:160px;top:12%;left:34%;animation-duration:62s;opacity:.85}
+  .clouds i:nth-child(3){width:320px;height:200px;top:70%;left:48%;animation-duration:55s;opacity:.8}
+  .clouds i:nth-child(4){width:200px;height:130px;top:78%;left:22%;animation-duration:70s;opacity:.7}
+  @keyframes cloud{from{transform:translateX(-18%)}50%{transform:translateX(18%)}to{transform:translateX(-18%)}}
+  .pin{position:absolute;transform:translate(-50%,-100%);z-index:2}
+  .pin b{display:block;width:16px;height:16px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#C8452C;box-shadow:0 2px 6px rgba(0,0,0,.4)}
+  .pin::after{content:"";position:absolute;left:50%;bottom:-6px;width:10px;height:4px;margin-left:-5px;border-radius:50%;background:rgba(200,69,44,.45);animation:ping 2.4s ease-out infinite}
+  @keyframes ping{from{transform:scale(1);opacity:.9}to{transform:scale(5);opacity:0}}
+  .map-side{position:absolute;left:24px;top:0;bottom:0;display:flex;align-items:center;gap:0;pointer-events:none}
+  .map-side span{position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(243,241,236,.28)}
+  .map-side p{margin:0 0 0 12px;font-size:10px;line-height:1.55;letter-spacing:.04em;max-width:17ch;transform:translateY(-40px)}
+  .map-code{position:absolute;left:36px;bottom:26px;margin:0;font-size:10px;letter-spacing:.14em}
+  .map-draft{position:absolute;right:16px;bottom:24px;margin:0;font-size:9.5px;letter-spacing:.04em;opacity:.55;max-width:20ch;text-align:right}
+
+  /* ——— 11 · бронь ——— */
+  .book{text-align:center;display:grid;justify-items:center;gap:18px;border-top:1px solid var(--line)}
+  .book img{width:46px}
+  .book .btn{justify-self:stretch}
+  .book .tel{font-family:var(--serif);font-size:24px;font-weight:500;user-select:all;font-variant-numeric:tabular-nums}
+
+  /* ——— 12 · подвал ——— */
+  .footer{background:var(--ink);color:rgba(243,241,236,.72);padding:48px 24px 40px;display:grid;gap:22px}
+  .footer .brand{display:flex;align-items:center;gap:12px;color:var(--milk);font-family:var(--serif);font-size:24px;font-weight:500;letter-spacing:.06em}
+  .footer .brand img{width:34px}
+  .footer nav{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:12.5px}
+  .footer nav a{text-decoration:none}
+  .footer nav a:hover{color:var(--milk)}
+  .footer small{font-size:11px;letter-spacing:.06em;opacity:.7}
+
+
+  /* ——— v16 ——— */
+  .kphoto{margin:32px -24px 0;height:calc(min(430px, 100vw - 32px) * 1.1)}
+  .strip-wrap.tight .strip button img{object-position:50% 22%}
+  .wide .sec-kitchen .kphoto{grid-column:2;grid-row:2;align-self:center;margin:96px 0 0;height:clamp(320px,28vw,420px)}
+  .wide .sec-kitchen .kphoto img{object-position:50% 70%}
+  .wide .sec-kitchen .k2{align-self:start}
+  .site.wide .sec-kitchen .kstrip{grid-row:3;margin-top:96px!important}
+  .site.wide .sec-kitchen .klist{grid-column:1/-1;grid-row:4;margin-top:64px!important;display:grid;grid-template-columns:repeat(3,1fr);column-gap:48px;border-top:0}
+  .wide .sec-kitchen .klist li{border-top:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:6px}
+  .wide .sec-kitchen .klist li b{order:-1;font-size:30px}
+  .site.wide .strip-wrap.tight .strip button img{height:clamp(360px,30vw,480px)}
+  .site.wide .sec-leisure .strip-wrap.tight .strip button img{height:clamp(240px,20vw,330px)}
+  /* ——— версия для компьютера (v14) ——— */
+  .qnav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;padding:16px 24px;border-bottom:1px solid var(--line);background:var(--milk);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+  .qnav::-webkit-scrollbar{display:none}
+  .qnav a{text-decoration:none;color:var(--grey);padding:4px 0;flex:0 0 auto}
+  .qnav a:hover,.qnav a:focus-visible{color:var(--ink)}
+  .wide .qnav{justify-content:center;gap:36px;padding:20px var(--padx)}
+  .note-box{margin-top:28px;padding:22px 22px 24px;background:var(--sand);display:grid;gap:10px}
+  .kw{font-weight:500;color:var(--ink)}
+  .places{list-style:none;margin:36px 0 0;padding:0;display:grid;border-top:1px solid var(--line)}
+  .places li{padding:22px 0;border-bottom:1px solid var(--line);display:grid;gap:8px;align-content:start}
+  .places .h3{font-size:24px}
+  .places .caps{color:var(--grey);margin:0}
+  .places-note{margin-top:14px!important;font-size:12.5px}
+  .place-ph{aspect-ratio:3/2;margin-bottom:10px}
+  .wide .places{grid-template-columns:1fr 1fr;column-gap:6vw}
+  .hnav,.hbook{display:none}
+  .lang{display:flex;align-items:center;gap:6px;margin-left:auto;margin-right:18px;font-size:11px;font-weight:500;letter-spacing:.16em}
+  .lang a{text-decoration:none;padding:4px 0;opacity:.55;transition:opacity .3s}
+  .lang a:hover{opacity:1}
+  .lang a[aria-current]{opacity:1;border-bottom:1px solid currentColor}
+  .lang span{opacity:.45}
+  .wide .lang{margin-left:28px;margin-right:0;order:3}
+  .wide .hbook{order:4;margin-left:28px}
+  .wide .burger{order:5}
+  .site{transition:max-width .6s var(--ease)}
+  .site.wide{max-width:1440px;--padx:6vw}
+  .wide .hdr{height:76px;margin-bottom:-76px;padding:0 var(--padx)}
+  .wide .hdr .brand{font-size:24px}
+  .wide .hdr .brand .lw,.wide .hdr .brand .lc{width:32px;height:32px}
+  .wide .hnav{display:flex;gap:34px;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+  .wide .hnav a{text-decoration:none;position:relative;padding:6px 0}
+  .wide .hnav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+  .wide .hnav a:hover::after{transform:scaleX(1);transform-origin:left}
+  .wide .hbook{display:inline-flex;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:12px 22px;border:1px solid currentColor;transition:background-color .4s,color .4s}
+  .wide .hdr:not(.solid) .hbook:hover{background:#fff;color:var(--ink)}
+  .wide .hdr.solid .hbook:hover{background:var(--ink);color:var(--milk)}
+  .wide .burger{display:none}
+  .wide .tag{font-size:11.5px}
+  /* типографика крупнее */
+  .wide .h2{font-size:52px;line-height:1.08}
+  .wide .h3{font-size:38px}
+  .wide .txt{font-size:15.5px;line-height:1.8}
+  .wide .lead{font-size:17px}
+  .wide .for{font-size:22px!important}
+  .wide .pad{padding:128px var(--padx)}
+  /* 1 — первый экран */
+  .wide .hero{height:min(92vh,920px);min-height:680px}
+  .wide .hero .center{top:50%;transform:translateY(-50%)}
+  .wide .hero .logo{width:150px}
+  .wide .hero .h1{font-size:96px}
+  .wide .hero .sub{font-size:18px}
+  .wide .hero .foot{bottom:36px}
+  /* 2 — резорт */
+  .wide .sec-resort{display:grid;grid-template-columns:6fr 5fr;column-gap:8vw;align-items:end}
+  .wide .sec-resort .stack{grid-column:1;grid-row:1}
+  .wide .sec-resort .list{grid-column:2;grid-row:1;margin-top:0!important}
+  .wide .sec-resort .views{grid-column:1/-1;grid-row:2;margin:72px calc(-1 * var(--padx)) 0}
+  .wide .sec-resort .views-strip{grid-column:1/-1;grid-row:2;margin-top:72px!important}
+  .wide .views button{width:300px;height:420px;margin-right:8px}
+  /* ленты: несколько фото сразу */
+  .wide .strip-wrap{margin-inline:calc(-1 * var(--padx))}
+  .wide .strip-wrap .strip{padding-inline:var(--padx);scroll-padding-inline:var(--padx)}
+  .wide .strip-wrap .strip-hint{padding-inline:var(--padx)}
+  .wide .strip-wrap .strip button{flex:0 0 calc((100% - 3 * 7px) / 4.3)}
+  .wide .strip-wrap .strip button img{height:clamp(300px,26vw,420px)}
+  .wide .strip-wrap.tight .strip button{flex:0 0 calc((100% - 3 * 3px) / 4)}
+  .wide .strip-wrap.tight .strip button img{height:clamp(260px,22vw,360px)}
+  /* 3 — светлое пространство */
+  .wide .story .stack{grid-template-columns:5fr 6fr;column-gap:8vw;grid-auto-flow:dense}
+  .wide .story .stack > *{grid-column:2}
+  .wide .story .stack > .logo{grid-column:1;grid-row:1}
+  .wide .story .stack > .h2{grid-column:1;grid-row:2/6;align-self:start}
+  /* 4 — форматы */
+  .wide .sec-formats .stack{grid-template-columns:5fr 7fr;column-gap:6vw}
+  .wide .sec-formats .stack > *{grid-column:1}
+  .wide .sec-formats .stack > .fmt{grid-column:2;grid-row:1/5;align-self:start}
+  .wide .fmt td:first-child{font-size:26px}
+  .wide .fmt td:last-child{font-size:28px}
+  .wide .fmt td{padding:22px 0}
+  /* 5 — юрты */
+  .wide .sec-rooms{padding-top:40px!important}
+  .wide .room{grid-template-columns:7fr 5fr;column-gap:5vw;align-content:start}
+  .wide .room > *{grid-column:2}
+  .wide .room > .slider{grid-column:1;grid-row:1/7;margin:0}
+  .wide .room > .sl-ctrl{grid-column:1;grid-row:7;margin:0;padding-inline:0}
+  .wide .room > .h3{align-self:end;margin-top:24px}
+  .wide .room:nth-of-type(even){grid-template-columns:5fr 7fr}
+  .wide .room:nth-of-type(even) > *{grid-column:1}
+  .wide .room:nth-of-type(even) > .slider,.wide .room:nth-of-type(even) > .sl-ctrl{grid-column:2}
+  .wide .room + .room{margin-top:110px;padding-top:110px}
+  .wide .room .slides > *{height:clamp(420px,42vw,640px)}
+  .wide .room .price{font-size:32px}
+  /* 6 — баня */
+  .wide .banya{display:grid;grid-template-columns:6fr 5fr;column-gap:5vw;padding:128px var(--padx);align-items:center}
+  .wide .banya > div:first-of-type{padding:0!important}
+  .wide .banya .slider{margin:0}
+  .wide .banya .sl-ctrl{margin:0;padding-inline:0}
+  .wide .banya .slides > *{height:clamp(440px,44vw,660px)}
+  .wide .banya > .pad{padding:0!important}
+  /* 7 — кухня и сад */
+  .wide .sec-kitchen{display:grid;grid-template-columns:5fr 6fr;column-gap:6vw;align-items:start}
+  .wide .sec-kitchen .k1{grid-column:1;grid-row:1}
+  .wide .sec-kitchen .kimg{grid-column:2;grid-row:1;margin:0!important}
+  .wide .sec-kitchen .kimg .slides > *{height:420px}
+  .wide .sec-kitchen .kimg .slider{margin-inline:0}
+  .wide .sec-kitchen .k2{grid-column:1;grid-row:2;margin-top:96px!important}
+  .wide .sec-kitchen .klist{grid-column:2;grid-row:2;align-self:end;margin-top:96px!important}
+  .wide .sec-kitchen .kstrip{grid-column:1/-1;grid-row:3;margin-top:72px!important}
+  /* 8 — досуг */
+  .wide .sec-leisure{display:grid;grid-template-columns:5fr 6fr;column-gap:6vw;align-items:start}
+  .wide .sec-leisure .l1{grid-column:1;grid-row:1}
+  .wide .sec-leisure .l2{grid-column:1;grid-row:2}
+  .wide .sec-leisure .lstrip{grid-column:2;grid-row:1/3;margin:0!important}
+  .wide .sec-leisure .strip-wrap{margin:0}
+  .wide .sec-leisure .strip{display:grid!important;grid-template-columns:1fr 1fr;padding:0!important;overflow:visible}
+  .wide .sec-leisure .strip-wrap.tight .strip button img{height:clamp(220px,19vw,320px)}
+  .wide .sec-leisure .strip-hint{display:none}
+  /* 9 — ретриты */
+  .wide #retreats .stack{max-width:860px;margin-inline:auto}
+  .wide #retreats .h2{font-size:48px}
+  .wide #retreats .slider{max-width:1100px;margin:56px auto 0}
+  .wide #retreats .sl-ctrl{max-width:1100px;margin:0 auto;padding-inline:0}
+  .wide .slider.land .slides > *{height:clamp(420px,46vw,620px)}
+  .wide #retreats .list{display:grid;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:48px auto 0!important;border-top:0}
+  .wide #retreats .list li{border-bottom:0;border-left:1px solid rgba(243,241,236,.18);padding:4px 18px;font-size:13.5px}
+  /* 10 — основатель */
+  .wide .founder{display:grid;grid-template-columns:5fr 6fr;column-gap:6vw;align-items:start}
+  .wide .founder .ph{margin:0;height:clamp(460px,44vw,680px)}
+  .wide .founder > .stack{margin-top:0!important}
+  /* 11 — отзывы */
+  .wide .mark-pause{padding:128px var(--padx)}
+  .wide .mark-pause > .h2{font-size:48px;max-width:22ch}
+  .wide .mark-pause .slider.rev,.wide .mark-pause .sl-ctrl{margin-inline:calc(-1 * var(--padx))}
+  .wide .mark-pause .sl-ctrl{padding-inline:var(--padx)}
+  .wide .slider.rev .slides{padding-inline:var(--padx);scroll-padding-inline:var(--padx)}
+  .wide .slider.rev .slides > .rev-card{flex:0 0 calc((100% - 2 * 12px) / 3.15)}
+  .wide .rev-more{max-width:70ch}
+  /* 12 — карта */
+  .wide #where{display:grid;grid-template-columns:7fr 5fr;align-items:center}
+  .wide .map{height:640px}
+  .wide #where > .pad{padding:64px var(--padx) 64px 5vw!important}
+  /* 13 — бронь */
+  .wide .book{padding-block:140px}
+  .wide .book .btn{justify-self:center;min-width:360px}
+  .wide .book > *{max-width:560px}
+  .center-cta .btn{justify-self:center}
+  /* 14 — подвал */
+  .wide .footer{grid-template-columns:auto 1fr auto;align-items:center;column-gap:48px;padding:56px var(--padx)}
+  .wide .footer nav{justify-content:center}
+
+  @media (prefers-reduced-motion:reduce){
+    .slider.nudge .slides{animation:none}
+    .views{overflow-x:auto}
+    .views-track{animation:none}
+    .clouds i,.pin::after{animation:none}
+    .load *{animation:none!important}
+    *,*::before,*::after{transition:none!important}
+    .rv.in{animation:none}
+  }
+
+  /* ——— отзывы v13 ——— */
+  .rev-total{display:flex;align-items:center;gap:16px;justify-content:center;text-align:left}
+  .rev-total .big{font-family:var(--serif);font-size:64px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+  .rev-total span:last-child{font-size:12px;line-height:1.6;color:var(--grey)}
+  .rev-total b{display:block;font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink)}
+  .mark-pause .slider.rev{justify-self:stretch;margin-inline:-32px;text-align:left;min-width:0}
+  .mark-pause .sl-ctrl{justify-self:stretch}
+  .slider.rev .slides{gap:12px;padding-inline:32px;scroll-padding-inline:32px}
+  .slider.rev .slides > .rev-card{flex:0 0 88%;height:auto;background:var(--milk);padding:26px 22px 22px;display:flex;flex-direction:column;gap:16px;overflow:visible}
+  .slider.rev .dots{display:none}
+  .mark-pause .sl-ctrl{margin-inline:-32px;padding-inline:32px}
+  .rev-score{font-family:var(--serif);font-size:34px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+  .rev-score small{font-family:var(--sans);font-size:12px;color:var(--grey);margin-left:3px}
+  .rev-q{margin:0;font-family:var(--serif);font-style:italic;font-size:17.5px;line-height:1.45;color:var(--ink);flex:1}
+  .rev-who{margin:0;font-size:12px;letter-spacing:.04em;color:var(--grey);border-top:1px solid var(--line);padding-top:12px}
+  .rev-who b{font-weight:500;color:var(--ink)}
+  .rev-who span{display:block;margin-top:2px;opacity:.8}
+  .rev-more{margin:0;font-size:12.5px;line-height:1.7;color:var(--grey);max-width:36ch}
+  .rev-note{margin:0;font-size:11px;letter-spacing:.04em;color:var(--grey);opacity:.8}
+  /* ——— дополнения v11 ——— */
+  .fmt tbody tr{cursor:pointer}
+  .room,[id]{scroll-margin-top:72px}
+  .fmt a.go{text-decoration:none;display:inline-flex;gap:10px;align-items:baseline}
+  .fmt a.go span{font-family:var(--sans);font-size:14px;color:var(--grey);transition:transform .45s var(--ease),color .45s}
+  .fmt tbody tr:hover a.go span,.fmt a.go:focus-visible span{transform:translateX(6px);color:var(--ink)}
+  .fmt a.go:focus-visible{outline:1px dashed var(--ink);outline-offset:3px}
+  .room:target .h3,.room.flash .h3{animation:flash 1.6s ease}
+  @keyframes flash{0%{color:#C8452C}100%{color:inherit}}
+  /* ——— дополнения v10 ——— */
+  .slider.land .slides > *{height:calc(min(430px, 100vw - 32px) * .75);background:#232220}
+  .slider.land img.fit{object-fit:contain}
+  .slider.land img.sess{object-position:50% 57%}
+  .site.wide .slider.land img.sess{object-position:50% 48%}
+  /* ——— дополнения v8 ——— */
+  /* ряд видов: промежутки и единая тонировка */
+  .views button{margin-right:6px}
+  .views button img,.strip button img{filter:saturate(.82) contrast(.96) brightness(1.02)}
+  .views button:hover img,.strip button:hover img{filter:saturate(1) contrast(1) brightness(1.04)}
+  /* ленты 3 и 4: воздух и подписи */
+  .strip-wrap .strip{gap:7px;padding-inline:24px;scroll-padding-inline:24px}
+  .strip-wrap.b4 .strip{gap:10px}
+  .strip-wrap .strip button{flex:0 0 64%;height:auto;background:none;display:grid;gap:10px;text-align:left;overflow:visible}
+  .strip-wrap .strip button img{position:static;width:100%;height:calc(min(430px, 100vw - 32px) * .64 * 1.25);object-fit:cover}
+  .strip-wrap .strip .cap{font-family:var(--sans);font-size:11.5px;line-height:1.45;color:var(--grey);letter-spacing:.02em}
+  .strip-wrap .strip button:hover img{transform:none}
+  .strip-wrap .strip button span.frame{display:block;overflow:hidden}
+  .strip-wrap .strip button:hover span.frame img{transform:scale(1.04)}
+  /* сад и досуг: почти вплотную */
+  .strip-wrap.tight .strip{gap:3px;padding-inline:0}
+  .strip-wrap.tight .strip button{flex:0 0 48%;gap:0}
+  .strip-wrap.tight .strip button img{height:calc(min(430px, 100vw - 32px) * .48 * 1.3);filter:none}
+  .strip-wrap.tight .strip .cap{display:none}
+  /* листалки: стрелки и счётчик */
+  .sl-ctrl{display:flex;align-items:center;justify-content:space-between;padding:14px 24px 0;margin-inline:-24px}
+  .sl-count{font-size:11.5px;letter-spacing:.14em;color:var(--grey);font-variant-numeric:tabular-nums}
+  .sl-arrows{display:flex;gap:8px}
+  .sl-arrows button{width:44px;height:44px;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-size:16px;cursor:pointer;transition:background-color .35s,color .35s,border-color .35s}
+  .sl-arrows button:hover,.sl-arrows button:focus-visible{background:var(--ink);color:var(--milk);border-color:var(--ink);outline:none}
+  .sl-arrows button:disabled{opacity:.3;cursor:default;background:transparent;color:var(--ink);border-color:var(--line)}
+  .dark .sl-count{color:rgba(243,241,236,.6)}
+  .dark .sl-arrows button{border-color:rgba(243,241,236,.3);color:var(--milk)}
+  .dark .sl-arrows button:hover{background:var(--milk);color:var(--ink)}
+  .dark .sl-arrows button:disabled{background:transparent;color:var(--milk)}
+  .slider.nudge .slides{animation:nudge 1.4s var(--ease) .4s 1}
+  @keyframes nudge{30%{transform:translateX(-38px)}60%{transform:translateX(0)}}
+  /* ——— дополнения v7 ——— */
+  .slides video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:28% 50%}
+  /* ——— дополнения v6 ——— */
+  .eyebrow{font-family:var(--sans);font-size:10.5px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;opacity:.8}
+  .list{display:grid;border-top:1px solid var(--line);margin:0;padding:0;list-style:none}
+  .list li{padding:15px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.5;display:flex;justify-content:space-between;gap:16px}
+  .list li b{font-family:var(--serif);font-size:20px;font-weight:500;white-space:nowrap}
+  .list li span{color:var(--grey)}
+  .lead{font-size:15px;line-height:1.75;color:var(--ink);margin:0;font-weight:400}
+  .quote{font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.3;margin:0}
+  .story .logo{width:64px}
+  .strip-wrap{margin-inline:-24px}
+  .strip-wrap .strip-hint{padding-inline:24px}
+  .room .price{display:block}
+  .room .for{font-size:13px;line-height:1.7;color:var(--ink);margin:0;font-style:italic;font-family:var(--serif);font-size:19px}
+  .center-cta{display:grid;justify-items:center;padding:8px 24px 72px}
+  .founder .ph{height:calc(min(430px, 100vw - 32px) * 1.1);margin-inline:-24px}
+  .more summary{list-style:none;cursor:pointer;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;display:inline-flex;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid currentColor}
+  .more summary::-webkit-details-marker{display:none}
+  .more summary::after{content:"+";font-weight:300;font-size:16px;transition:transform .45s var(--ease)}
+  .more[open] summary::after{transform:rotate(45deg)}
+  .more .body{display:grid;gap:14px;padding-top:20px}
+  .more h4{margin:8px 0 0;font-family:var(--serif);font-size:22px;font-weight:500}
+  .dark{background:var(--ink);color:var(--milk)}
+  .dark .txt{color:rgba(243,241,236,.7)}
+  .dark .list{border-color:rgba(243,241,236,.18)}
+  .dark .list li{border-color:rgba(243,241,236,.18)}
+  .dark .list li span{color:rgba(243,241,236,.6)}
+</style>
+</head>
+<body>
+
+
+<div class="site" id="site">
+
+  <header class="hdr" id="hdr">
+    <a class="brand" href="#top"><img class="lw" src="../img/logo-white.png" alt=""><img class="lc" src="../img/logo-color.png" alt="">Ak-Tengir</a>
+    <nav class="hnav"><a href="#stay">Жайгашуу</a><a href="#banya">Мончо</a><a href="#kitchen">Ашкана</a><a href="#retreats">Ретриттер</a><a href="#where">Кантип жетсе болот</a></nav>
+    <a class="hbook" href="#book">Брондоо</a>
+    <nav class="lang" aria-label="Тил"><a href="../" lang="ru" hreflang="ru">RU</a><span aria-hidden="true">·</span><a href="../en/" lang="en" hreflang="en">EN</a><span aria-hidden="true">·</span><a href="./" aria-current="page" lang="ky">KY</a></nav>
+    <button class="burger" type="button" id="burger" aria-label="Менюну ачуу"><i></i><i></i></button>
+  </header>
+
+  <!-- 1 -->
+  <section class="blk hero load" id="top">
+    <img class="zoom" id="heroImg" src="../img/hero-30.jpg" alt="Ысык-Көл жана суунун үстүндөгү булуттар">
+    <div class="shade"></div>
+    <div class="center">
+      <img class="logo mark d1" src="../img/logo-white.png" alt="Ak-Tengir логотиби">
+      <h1 class="h1 rise d2">Ak-Tengir</h1>
+      <p class="sub rise d3">Ысык-Көлдүн түштүк жээгиндеги <span style="white-space:nowrap">боз үй курорту</span></p>
+      <a class="btn light rise d4" href="#book">Брондоо</a>
+    </div>
+    <div class="foot fade d5">Ысык-Көл · Тосор айылы</div>
+  </section>
+  <nav class="qnav" aria-label="Сайттын бөлүмдөрү"><a href="#stay">Боз үйлөр</a><a href="#banya">Мончо</a><a href="#kitchen">Ашкана</a><a href="#leisure">Эс алуу</a><a href="#retreats">Ретриттер</a><a href="#nearby">Жакын жерлер</a><a href="#where">Кантип жетсе болот</a><a href="#book">Брондоо</a></nav>
+
+  <!-- 2 -->
+  <section class="blk pad sec-resort">
+    <div class="stack rv">
+      <h2 class="h2">Тоолор менен Ысык-Көлдүн ортосунда жашырынган боз үй курорту</h2>
+      <p class="txt">Бул жерде өз пляжыбыз, жайлуулук жана ызы-чуудан алысыраак, өзүңө жакыныраак болууга жетиштүү мейкиндик бар.</p>
+    </div>
+    <div class="views-strip" style="margin-top:44px"><div class="strip-wrap"><div class="strip"><button type="button"><img src="../img/n-12.jpg" alt="Карагайлардын арасындагы боз үйлөр" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-8.jpg" alt="Суу жээгиндеги беседка" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-21.jpg" alt="Ак отургучтар коюлган короо" loading="lazy" decoding="async"></button><button type="button"><img src="../img/t-topchan.jpg" alt="Короодогу тапчан" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-5.jpg" alt="Беседкага баруучу жол" loading="lazy" decoding="async"></button><button type="button"><img src="../img/t-umbrella-lake.jpg" alt="Көлгө караган, кол чатыр астындагы терраса" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-14.jpg" alt="Камыш чатыр астындагы отургучтар" loading="lazy" decoding="async"></button><button type="button"><img src="../img/t-apple-tree.jpg" alt="Өрүлгөн отургучтардын жанындагы алма дарагы" loading="lazy" decoding="async"></button><button type="button"><img src="../img/t-garden-arch.jpg" alt="Таш гүлзарлуу көлөкөлүү бак" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-1.jpg" alt="Көшөгөлүү терраса" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-7.jpg" alt="Көлөкөдөгү селкинчек" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-24.jpg" alt="Боз үйлөрдүн жанындагы оюулуу тапчандар" loading="lazy" decoding="async"></button><button type="button"><img src="../img/t-tent-yurt.jpg" alt="Көл жээгиндеги чатыр" loading="lazy" decoding="async"></button></div><div class="strip-hint"><span>Капталга сыдырыңыз</span><span>13 сүрөт</span></div></div></div>
+    <ul class="list rv" style="margin-top:40px">
+      <li>10 ыңгайлуу боз үй жана пляждагы 2 этно-үй</li>
+      <li>Суу 5–10 метр аралыкта</li>
+      <li>Көл жээгиндеги мончо</li>
+      <li>Өз багыбыз, пермакультура жана жаңы бышкан токочтор</li>
+    </ul>
+  </section>
+
+  <!-- 3 -->
+  <section class="blk pad story" style="background:var(--sand)">
+    <div class="stack rv">
+      <img class="logo" src="../img/logo-color.png" alt="">
+      <h2 class="h2">«Ак-Теңир» — «жарык мейкиндик» дегенди билдирет</h2>
+      <p class="txt">Ак-Теңир үчүн жер кокусунан тандалган эмес: бир тарабынан аны тоолор курчап турат, экинчи тарабынан — Кыргызстандын бермети Ысык-Көл. Ошондуктан бул жер өзгөчө тынч, оолак жана эркин.</p>
+      <p class="txt">Ак-Теңир ачылгандан кийинки алгачкы он жылда бул жерге жөн эле келүүгө болчу эмес — жеке чакыруу менен гана келишчү. Бүгүн Ак-Теңирдин эшиги баарына ачык.</p>
+      <p class="lead">Бирок бул жердеги эң негизгиси өзгөргөн жок — тынчтык, купуялык жана шаардын ызы-чуусунан алыс эркин, жарык мейкиндик сезими.</p>
+    </div>
+    <div style="margin-top:40px"><div class="strip-wrap nocap"><div class="strip"><button type="button"><img src="../img/n-30.jpg" alt="Ысык-Көл жана булуттар" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-3.jpg" alt="Тунук суудагы сапборддор" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-22.jpg" alt="Суу жээгиндеги тент астындагы лаунж" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-16.jpg" alt="Террасадан көлгө көрүнүш" loading="lazy" decoding="async"></button><button type="button"><img src="../img/v-yurts-lake.jpg" alt="Ысык-Көлдүн үстүндөгү боз үйлөр" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-19.jpg" alt="Пляждагы боз үйлөр" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-47.jpg" alt="Тоолорго баруучу жол" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-2.jpg" alt="Беседкадан көлгө көрүнүш" loading="lazy" decoding="async"></button><button type="button"><img src="../img/t-window-lake.jpg" alt="Терезеден көлгө көрүнүш" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-6.jpg" alt="Күн батканда тоолор" loading="lazy" decoding="async"></button><button type="button"><img src="../img/v-boards-sunset.jpg" alt="Күн батканда сапборддор" loading="lazy" decoding="async"></button></div><div class="strip-hint"><span>Капталга сыдырыңыз</span><span>11 сүрөт</span></div></div></div>
+  </section>
+
+  <!-- 4 -->
+  <section class="blk pad sec-formats" id="stay">
+    <div class="stack rv">
+      <h2 class="h2">Жайгашуунун төрт түрү</h2>
+      <p class="for" style="font-family:var(--serif);font-style:italic;font-size:20px;margin:0">классикалык боз үйдөн өз террасасы бар этно-үйгө чейин</p>
+      <p class="txt">Стандарттан VIPке чейинки 10 боз үй, пляждагы үйчө жана өзүнчө, кайталангыс Premium этно-үй. Биз жыл бою иштейбиз: Ысык-Көлдөгү көп лагерлер мезгилдүү иштесе, биз мейкиндиктин өзгөчөлүгүн сактап, сиздин ыңгайыңыз үчүн боз үйлөрдү жылуулап, жылуу ажатканаларды жасайбыз.</p>
+      <table class="fmt">
+        <thead><tr><th>Түрү · ачуу үчүн басыңыз</th><th>Сутка</th></tr></thead>
+        <tbody>
+          <tr data-go="#room-std"><td><a class="go" href="#room-std">Стандарт жана Стандарт + боз үйлөрү<span aria-hidden="true">→</span></a><small>3–4 уктоочу орун</small></td><td>$45 / $60дан баштап<small>бир кишиге</small></td></tr>
+          <tr data-go="#room-vip"><td><a class="go" href="#room-vip">VIP боз үй<span aria-hidden="true">→</span></a><small>өз ажатканасы, витраж терезелер</small></td><td>$150дөн баштап</td></tr>
+          <tr data-go="#room-beach"><td><a class="go" href="#room-beach">Пляждагы Премиум боз үй<span aria-hidden="true">→</span></a><small>суудан бир нече кадам алыс</small></td><td>$250дөн баштап</td></tr>
+          <tr data-go="#room-house"><td><a class="go" href="#room-house">Премиум Этно-үй<span aria-hidden="true">→</span></a><small>эки боз үйдөн турган үй, өз террасасы</small></td><td>$450дөн баштап</td></tr>
+        </tbody>
+      </table>
+      <div class="note-box">
+        <h3 class="h3" style="font-size:24px">Жеке шарттар</h3>
+        <p class="txt">Балдары бар үй-бүлөлөр, топтук келүүлөр, ретриттер, туроператорлор жана корпоративдер үчүн жайгашуу шарттары жеке талкууланат. Биз ийкемдүүбүз жана кызматташууга ачыкпыз — бизге түз байланышыңыз.</p>
+      </div>
+    </div>
+    <div style="margin-top:40px"><div class="strip-wrap b4 nocap"><div class="strip"><button type="button"><img src="../img/n-48.jpg" alt="Боз үйдүн оюулуу эшиги" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-46.jpg" alt="Түндүк: асманга көрүнүш" loading="lazy" decoding="async"></button><button type="button"><img src="../img/t-curtain-door.jpg" alt="Террасага чыгуу" loading="lazy" decoding="async"></button><button type="button"><img src="../img/y-d5.jpg" alt="Этно-үйдөгү ванна бөлмөсү" loading="lazy" decoding="async"></button><button type="button"><img src="../img/y-d11.jpg" alt="Этно-үйдүн мейман бөлмөсү" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-45.jpg" alt="Боз үйдөгү шамдар жана идиш-аяк" loading="lazy" decoding="async"></button><button type="button"><img src="../img/y-d7.jpg" alt="Бакка караган терезелүү Этно-үйдүн уктоочу бөлмөсү" loading="lazy" decoding="async"></button><button type="button"><img src="../img/y-d2.jpg" alt="Пергола астындагы Этно-үйдүн кире бериши" loading="lazy" decoding="async"></button></div><div class="strip-hint"><span>Капталга сыдырыңыз</span><span>8 сүрөт</span></div></div></div>
+  </section>
+
+  <!-- 5 -->
+  <section class="blk pad sec-rooms" style="padding-top:0">
+    <article class="room rv" id="room-std">
+      <div class="slider"><div class="slides"><div><img src="../img/y-st2.jpg" alt="Стандарт боз үй" loading="lazy" decoding="async"></div><div><img src="../img/y-st3.jpg" alt="Стандарт боз үй" loading="lazy" decoding="async"></div><div><img src="../img/y-st1.jpg" alt="Стандарт боз үй" loading="lazy" decoding="async"></div><div><img src="../img/y-st5.jpg" alt="Стандарт боз үй" loading="lazy" decoding="async"></div><div><img src="../img/y-st6.jpg" alt="Стандарт боз үй" loading="lazy" decoding="async"></div><div><img src="../img/y-st4.jpg" alt="Стандарт боз үй" loading="lazy" decoding="async"></div></div><div class="dots"></div></div>
+      <h3 class="h3">Стандарт жана Стандарт + боз үйлөрү</h3>
+      <div class="row"><span class="price">$45 жана $60тан баштап <small>/ киши, сутка</small></span><a class="lnk" href="#book">Брондоо</a></div>
+      <p class="txt">Кийиз боз үй: түндүк, жерде шырдак, бир нече уктоочу орун. Стандарт плюс деңгээлиндеги боз үйлөр да бар — кошумча курулган бөлмөсү жана жеке ажатканасы менен.</p>
+      <p class="for">Кыргызстандын салтын сезгиси келгендер жана достор чогуу келиши үчүн. Үчтөн төрткө чейин уктоочу орун.</p>
+    </article>
+
+    <article class="room rv" id="room-vip">
+      <div class="slider"><div class="slides"><div><img src="../img/y-v3.jpg" alt="VIP боз үй" loading="lazy" decoding="async"></div><div><img src="../img/y-v4.jpg" alt="VIP боз үй" loading="lazy" decoding="async"></div><div><img src="../img/y-v2.jpg" alt="VIP боз үй" loading="lazy" decoding="async"></div><div><img src="../img/y-v6.jpg" alt="VIP боз үй" loading="lazy" decoding="async"></div><div><img src="../img/y-v7.jpg" alt="VIP боз үй" loading="lazy" decoding="async"></div><div><img src="../img/y-v5.jpg" alt="VIP боз үй" loading="lazy" decoding="async"></div></div><div class="dots"></div></div>
+      <h3 class="h3">VIP боз үй</h3>
+      <div class="row"><span class="price">$150дөн баштап <small>/ сутка</small></span><a class="lnk" href="#book">Брондоо</a></div>
+      <p class="txt">Жакшыртылган интерьер, витраж терезелер, өз ажатканасы, андан да көп купуялык.</p>
+      <p class="for">Түштүк жээктеги жалгыз VIP боз үйлөр</p>
+    </article>
+
+    <article class="room rv" id="room-beach">
+      <div class="slider"><div class="slides"><div><img src="../img/y-p2.jpg" alt="Пляждагы боз үйдөн көлгө чыгуу" loading="lazy" decoding="async"></div><div><img src="../img/y-p3.jpg" alt="Пляждагы боз үйдүн уктоочу бөлмөсү" loading="lazy" decoding="async"></div><div><img src="../img/y-p5.jpg" alt="Пляждагы Премиум боз үйдүн ичи" loading="lazy" decoding="async"></div></div><div class="dots"></div></div>
+      <h3 class="h3">Пляждагы Премиум боз үй</h3>
+      <div class="row"><span class="price">$250дөн баштап <small>/ сутка</small></span><a class="lnk" href="#book">Брондоо</a></div>
+      <p class="txt">Суудан бир нече кадам алыс, жашылдыкка жашырынган: оюулуу эмерек, төшөктөн эле көлдүн панорамалык көрүнүшү.</p>
+      <p class="for">Ойгонуп, эркин эле көлгө сууга түшүүгө баруу</p>
+    </article>
+
+    <article class="room rv" id="room-house">
+      <div class="slider"><div class="slides"><div><img src="../img/y-d13.jpg" alt="Премиум Этно-үй" loading="lazy" decoding="async"></div><div><img src="../img/y-d12.jpg" alt="Премиум Этно-үй" loading="lazy" decoding="async"></div><div><img src="../img/y-d18.jpg" alt="Премиум Этно-үй" loading="lazy" decoding="async"></div><div><img src="../img/y-d21.jpg" alt="Премиум Этно-үй" loading="lazy" decoding="async"></div><div><img src="../img/y-d22.jpg" alt="Премиум Этно-үй" loading="lazy" decoding="async"></div><div><img src="../img/y-d19.jpg" alt="Премиум Этно-үй" loading="lazy" decoding="async"></div><div><img src="../img/y-d16.jpg" alt="Премиум Этно-үй" loading="lazy" decoding="async"></div><div><img src="../img/y-d17.jpg" alt="Премиум Этно-үй" loading="lazy" decoding="async"></div><div><img src="../img/y-d9.jpg" alt="Премиум Этно-үй" loading="lazy" decoding="async"></div><div><img src="../img/y-d10.jpg" alt="Премиум Этно-үй" loading="lazy" decoding="async"></div><div><img src="../img/y-d15.jpg" alt="Премиум Этно-үй" loading="lazy" decoding="async"></div><div><img src="../img/y-d3.jpg" alt="Премиум Этно-үй" loading="lazy" decoding="async"></div><div><img src="../img/y-d4.jpg" alt="Премиум Этно-үй" loading="lazy" decoding="async"></div><div><img src="../img/y-d1.jpg" alt="Премиум Этно-үй" loading="lazy" decoding="async"></div><div><img src="../img/n-16.jpg" alt="Террасадан көлгө көрүнүш" loading="lazy" decoding="async"></div><div><img src="../img/t-terrace-flowers.jpg" alt="Көлдүн үстүндөгү гүлдүү терраса" loading="lazy" decoding="async"></div><div><img src="../img/t-window-lake.jpg" alt="Терезеден көлгө көрүнүш" loading="lazy" decoding="async"></div></div><div class="dots"></div></div>
+      <h3 class="h3">Премиум Этно-үй</h3>
+      <div class="row"><span class="price">$450дөн баштап <small>/ сутка</small></span><a class="lnk" href="#book">Брондоо</a></div>
+      <p class="txt">Эки боз үйдөн курулган капиталдык үй: айнек витраждар, жашылдыктагы пергола, гүлдөр курчаган өз террасасы жана көлгө түз чыгуу.</p>
+      <p class="for">Үйдүн тынчтыгы жана боз үйдүн жаны</p>
+      <p style="margin-top:20px"><a class="lnk" href="https://www.instagram.com/reel/DaK2BUPo3jp/" target="_blank" rel="noopener">Үйдүн видеосун көрүү</a></p>
+    </article>
+
+  </section>
+  <div class="center-cta"><a class="btn" href="#book">Брондоо</a></div>
+
+  <!-- 6 -->
+  <section class="blk banya" id="banya">
+    <div style="padding:0 24px"><div class="slider"><div class="slides"><div><img src="../img/b-room.jpg" alt="Витраж терезелүү чечинүүчү бөлмө" loading="lazy" decoding="async"></div><div><img src="../img/b-inside.jpg" alt="Мончонун ичи: меш жана текчелер" loading="lazy" decoding="async"></div><div><img src="../img/b-sunset.jpg" alt="Күн батканда чечинүүчү бөлмө, терезелер көлгө карайт" loading="lazy" decoding="async"></div><div><img src="../img/b-yurt-sunset.jpg" style="object-position:50% 80%" alt="Күн батканда пляждагы боз үй" loading="lazy" decoding="async"></div><div><img src="../img/b-hats.jpg" alt="«С лёгким паром» деген мончо калпактары" loading="lazy" decoding="async"></div><div><img src="../img/b-sup-sunset.jpg" style="object-position:50% 62%" alt="Күн батканда сапборддор" loading="lazy" decoding="async"></div><div><img src="../img/n-19.jpg" alt="Пляждагы боз үйлөр" loading="lazy" decoding="async"></div><div><img src="../img/b-beach-house.jpg" style="object-position:85% 70%" alt="Пляждагы мончо имараты жана боз үй" loading="lazy" decoding="async"></div></div><div class="dots"></div></div></div>
+    <div class="pad stack rv" style="padding-top:44px">
+      <h2 class="h2">Чыныгы боз үйдөгү этно-мончо</h2>
+      <p class="for" style="font-family:var(--serif);font-style:italic;font-size:20px;margin:0">суудан 5–10 метр аралыкта</p>
+      <p class="txt">Ысык буу бөлмөсү жана Ысык-Көлгө караган чоң витраж терезелүү өзүнчө чечинүүчү бөлмө. Күн батканда буулануу өзгөчө кооз.</p>
+      <p class="txt">Чечинүүчү бөлмөдө — жергиликтүү кийик оту кошулган чай, мезгилдик жемиштер, дарбыз же таттуулар. Чапкычтар суроо боюнча. Алдын ала жергиликтүү ак чопо менен ритуалды кошсо болот.</p>
+      <ul class="list">
+        <li><span>5 конокко чейин</span><b>10 000 сом</b></li>
+        <li><span>6–10 конок</span><b>15 000 сом</b></li>
+        <li><span>10дон ашык конок</span><span>жеке эсептелет</span></li>
+      </ul>
+      <p class="txt">Сеанстын узактыгы — 2,5 саат. Узартуу, мончо процедуралары, ырым-жөрөлгөлөр жана кошумча кызматтар жеке талкууланат.</p>
+      <p class="txt">Ак-Теңирде жашабаган коноктор үчүн сүлгү жана халат топтомун ижарага алуу — бир кишиге 400 сом.</p>
+      <a class="btn" href="#book">Мончого жазылуу</a>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="blk pad sec-kitchen" id="kitchen">
+    <div class="stack rv k1">
+      <h2 class="h2">Ашкана</h2>
+      <p class="for" style="font-family:var(--serif);font-style:italic;font-size:20px;margin:0">Биздин жерден — сиздин дасторконго</p>
+      <p class="txt">Он жылдан ашык убакыттан бери Ак-Теңирдин конокторуна биздин ишенимдүү ашпозчулар командасы тамак даярдайт. Күн сайын эртең менен жаңы нан жана үй токочторун бышырабыз, улуттук тамактарды ачык отко жасайбыз, ал эми жай жана күз мезгилинде ушул жерде, Ак-Теңирде өстүрүлгөн жашылча-жемиштерден өзүбүз кышка камдайбыз.</p>
+    </div>
+    <div class="kimg" style="margin-top:32px"><div class="slider"><div class="slides"><div><img src="../img/n-1.jpg" alt="Кызыл көшөгөлүү чатыр" loading="lazy" decoding="async"></div><div><img src="../img/k-table.jpg" alt="Көлгө караган терезенин жанындагы эртең мененки тамак" loading="lazy" decoding="async"></div><div><img src="../img/n-8.jpg" alt="Суу жээгиндеги беседка" loading="lazy" decoding="async"></div><div><img src="../img/k-hammock.jpg" alt="Гамак илинген ашкана-чатыр" loading="lazy" decoding="async"></div></div><div class="dots"></div></div></div>
+    <div class="stack rv k2" style="margin-top:48px">
+      <h3 class="h3">Өз багыбыз жана пермакультура</h3>
+      <p class="txt">Биздин бакча пермакультура принциптери боюнча түзүлгөн. Он жылдан ашык мурун аны Италиядан чакырылган адис негиздеген: топурак табигый кийизди жана ар кандай кыртыш түрлөрүн колдонуп, өзгөчө көп катмарлуу ыкма менен түзүлгөн. Бул нымды кармап, жердин түшүмдүүлүгүн сактап, өсүмдүктөр үчүн табигый чөйрө түзүүгө жардам берет.</p>
+      <p class="txt">Бүгүн бул жерде жаңы чөптөр, баклажан, помидор, калемпир, бадыраң жана капуста өсөт, ал эми бакта — алма, алча, гилас жана ал тургай гинкго билоба.</p>
+      <p class="lead">Жерибиз берген түшүмдүн көбү конокторубуздун дасторконуна кайтат. Өз алмаларыбыздан жана жергиликтүү мезгилдик жемиштерден компот, суусундук жана смузи даярдап, эртең мененки, түшкү жана кечки тамакка беребиз.</p>
+    </div>
+    <div class="ph kphoto rv"><img src="../img/n-51.jpg" alt="Карагайлар арасындагы бакча тилкелери" loading="lazy" decoding="async"></div>
+    <div class="kstrip" style="margin-top:32px"><div class="strip-wrap tight"><div class="strip"><button type="button"><img src="../img/n-4.jpg" alt="Бакчадагы жашылчалар" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-33.jpg" alt="Бадыраң түшүмү" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-34.jpg" alt="Жашылча-жемиш коюлган стол" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-35.jpg" alt="Капуста түшүмү" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-39.jpg" alt="Мезгилдик жашылча-жемиштер" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-49.jpg" alt="Түшүм салынган кутулар" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-42.jpg" alt="Бактагы кара өрүк" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-40.jpg" alt="Жашылча салынган себеттер" loading="lazy" decoding="async"></button></div><div class="strip-hint"><span>Капталга сыдырыңыз</span><span>8 сүрөт</span></div></div></div>
+    <ul class="list rv klist" style="margin-top:40px">
+      <li><span>Эртең мененки тамак, швед столу</span><b>баага кирет</b></li>
+      <li><span>Түшкү тамак, өзүнчө төлөнөт</span><b>1200 сом</b></li>
+      <li><span>Кечки тамак, өзүнчө төлөнөт</span><b>1500 сом</b></li>
+    </ul>
+  </section>
+
+  <!-- 8 -->
+  <section class="blk pad sec-leisure" id="leisure" style="background:var(--sand)">
+    <div class="stack rv l1">
+      <h2 class="h2">Активдүү жана тынч эс алуу</h2>
+      <p class="txt"><b class="kw">Сапборддор</b> жана <b class="kw">балык уулоо</b> суроо боюнча, көлөкөдөгү өрүлгөн отургучтар жана тоолорго көрүнүш. Баары — активдүү эс алуу үчүн да, жөн гана чай ичип, китеп окуп отуруу үчүн да.</p>
+      <p class="txt" style="font-size:12.5px"><b class="kw">Сапборд</b> жана <b class="kw">кайыктын</b> баасы өзүнчө такталат.</p>
+    </div>
+    <div class="lstrip" style="margin-top:32px"><div class="strip-wrap tight"><div class="strip"><button type="button"><img src="../img/n-3.jpg" alt="Тунук суудагы сапборддор" loading="lazy" decoding="async"></button><button type="button"><img src="../img/t-topchan.jpg" alt="Короодогу тапчан" loading="lazy" decoding="async"></button><button type="button"><img src="../img/t-swing.jpg" alt="Жаздыктуу селкинчек" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-5.jpg" alt="Беседкага баруучу жол" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-20.jpg" alt="Кумдагы сапборддор" loading="lazy" decoding="async"></button><button type="button"><img src="../img/n-14.jpg" alt="Камыш чатыр астындагы отургучтар" loading="lazy" decoding="async"></button></div><div class="strip-hint"><span>Капталга сыдырыңыз</span><span>6 сүрөт</span></div></div></div>
+    <div class="stack rv l2" style="margin-top:40px">
+      <p class="txt">Аймакта чакан <b class="kw">бар</b> иштейт: жаңы кайнатылган <b class="kw">кофе</b>, лимонаддар, жергиликтүү жана импорттук снектер. Бул жерден эт деликатестерин, <b style="color:var(--ink);font-weight:500">Attila</b> өндүргөн жергиликтүү шире жана шараптарды татып көрсөңүз болот.</p>
+      <p class="txt">Ал эми көл жээгиндеги шашылбаган кеч үчүн суроо боюнча <b class="kw">кальян</b> бар.</p>
+    </div>
+  </section>
+  <div class="center-cta" style="background:var(--sand);padding-top:0"><a class="btn" href="#book">Брондоо</a></div>
+
+  <!-- 9 -->
+  <section class="blk pad dark" id="retreats">
+    <div class="stack rv" style="text-align:center;justify-items:center">
+      <h2 class="h2">Ак-Теңир — эс алуучу жай гана эмес, ретриттериңиз жана тимбилдингдериңиз үчүн ачык аянтча</h2>
+      <p class="quote">Escape the noise. Reconnect with yourself.</p>
+      <p class="txt">Эгер сиз жол көрсөтүүчү, психолог, йога практиги же өз программаңыздын алып баруучусу болсоңуз, Ак-Теңир тобуңуз үчүн мейкиндик боло алат. Купуялыкты, тынчтыкты жана терең чөмүлүү атмосферасын сактоо үчүн курорттун аймагын ретритиңизге толугу менен жаап бере алабыз.</p>
+      <p class="txt">Ошондой эле Ак-Теңирде өзүбүздүн чакан программалар өтөт. Алардын негизинде — туруктуу практигибиз иштеген текшерилген методикалар, ошондой эле чакырылган психологдор, дене терапевттери жана тренерлер.</p>
+      <p class="txt">Компаниялар үчүн белгилүү бир команданын максаттарына ылайык корпоративдик ретриттерди жана тимбилдингдерди түзөбүз — Ак-Теңирдин негиздөөчүсү Жеңишбек Назаралиевдин методикасынын негизинде иштелип чыккан программа менен.</p>
+      <p class="lead" style="color:var(--milk)">Бул жерге өз программаңыз менен келсеңиз болот — же аны түзүүнү бизге ишенип бериңиз.</p>
+    </div>
+    <div class="slider land" style="margin-top:36px"><div class="slides"><div><img src="../img/r-group.jpg" alt="Устат менен топтук практика" loading="lazy" decoding="async"></div><div><img src="../img/f-session.jpg" class="sess" alt="Жеңишбек Назаралиев сабак өткөрүүдө" loading="lazy" decoding="async"></div><div><img src="../img/r-fire.jpg" alt="От жагуучу аймак: от жанындагы кечки тегерек" loading="lazy" decoding="async"></div></div><div class="dots"></div></div>
+    <ul class="list" style="margin-top:32px">
+      <li>Практикалар үчүн айнек йога-бунгало</li>
+      <li>От жагуучу аймак</li>
+      <li>Символика</li>
+      <li>Жээктеги мончо, саунд-хилинг үчүн чөйчөктөр</li>
+      <li>Жеке аймак</li>
+    </ul>
+  </section>
+
+  <!-- 10 -->
+  <section class="blk pad founder">
+    <div class="ph rv"><img src="../img/f-sadhu.jpg" alt="Жеңишбек Назаралиев Индияда" loading="lazy" decoding="async"></div>
+    <div class="stack rv" style="margin-top:32px">
+      <h2 class="h2">Ак-Теңирдин негиздөөчүсү жана идеологу ким?</h2>
+      <p class="txt"><b style="color:var(--ink);font-weight:500">Жеңишбек Назаралиев</b> — психиатр жана нарколог-дарыгер, медицина илимдеринин доктору, профессор, Доктор Назаралиевдин медициналык борборунун жана «Разум вне наркотика» Бүткүл дүйнөлүк лигасынын негиздөөчүсү.</p>
+      <details class="more">
+        <summary>Тарыхын окуу</summary>
+        <div class="body">
+          <p class="txt">1990-жылдардын башынан тартып анын кесиптик жолу адамдын психикасын, көз карандылыктарды жана адамдын ички өзгөрүү мүмкүнчүлүктөрүн изилдөө менен байланыштуу болгон. Бирок анын изденүүсү эч качан клиниканын дубалдары менен чектелген эмес.</p>
+          <p class="txt">Профессор Назаралиев ар кайсы өлкөлөрдүн жана маданияттардын тажрыйбасын үйрөнүп, дүйнө кыдырган. Анын жолу беш континент аркылуу өттү — Индия жана Гималайдан Африка жана Түштүк Америкага чейин. Ал ар кайсы элдердин медициналык ыкмалары, руханий салттары, медитациялык жана дене практикалары менен таанышкан. Бул жолдун бир бөлүгү анын «Избавь и прости» китебинин негизин түзгөн.</p>
+          <p class="txt">Ушул жылдар бою ал өз ордун да издеди — табият, тынчтык жана тышкы дүйнөдөн алыстык адамдын ички ишинин бир бөлүгү боло ала турган мейкиндикти. Ошентип Ысык-Көлдүн түштүк жээгинде Ак-Теңир — «Жарык Мейкиндик» пайда болду.</p>
+          <h4>Алгачкы он жыл</h4>
+          <p class="txt">Ак-Теңир жабык мейкиндик бойдон калган. Бул жерде Жеңишбек Назаралиевдин коноктору жана бейтаптары калыбына келишип, психотренингдер жана практикалар өткөрүлгөн. Бул жерге ошондой эле спортчулар, анын ичинде олимпиадачылар, ар кайсы өлкөлөрдүн бизнесмендери жана ишкерлери келишкен. Жарык Мейкиндикке жеке чакыруу менен гана келүүгө болчу.</p>
+          <h4>Бүгүн</h4>
+          <p class="txt">Бүгүн Ак-Теңирдин тарыхын анын негиздөөчүсүнүн үй-бүлөсү улантууда. Мейкиндиктин эшиги биринчи жолу кеңири ачылууда — Кыргызстандан келген коноктор жана дүйнөнүн бардык бурчунан келген саякатчылар үчүн. Ошол эле учурда бул жер качандыр бир кезде эмне үчүн тандалганын аяр сактайбыз: купуялыкты, тынчтыкты, табиятка жакындыкты жана жашоонун адаттагы ыргагынан бир азга чыгуу мүмкүнчүлүгүн.</p>
+          <p class="lead">Сизди анын тарыхы жана философиясы менен таанышууга — жана тоолор менен Ысык-Көлдүн ортосунда жашырынган, сүйүү жана маани менен түзүлгөн бул бурчту өзүңүз үчүн ачууга чакырабыз.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section class="blk mark-pause" style="background:var(--sand)">
+    <img class="rv" src="../img/logo-color.png" alt="">
+    <p class="h2 rv">Коноктор адатта өздөрү менен бир ойду ала кетишет: качан кайра келсем болот</p>
+    <div class="rev-total rv"><span class="big">8,6</span><span><b>Укмуш</b>Booking.com сайтында 51 пикир</span></div>
+    <div class="slider rev rv"><div class="slides"><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Мончону абдан сунуштайм: буу бөлмөсүнөн чыгып эле көлгө секирүү — таза бакыт. Тамак — өзүнчө келүүгө себеп: Кыргызстан боюнча бүт саякаттагы эң мыктысы, жаңы жана абдан даамдуу. Бактан баштап боз үйгө жана тамактарга чейин кожоюндардын табити жана камкордугу сезилет. Кайра келүүнү унутпаш үчүн бул пикирди жазып жатам.</p><p class="rev-who"><b>Margie</b> · Түштүк Корея<span>август 2026</span></p></article><article class="rev-card"><div class="rev-score">9<small>/10</small></div><p class="rev-q">Сонун чакан боз үй лагери. Таза жана жыйнактуу, айланада бактар жана гүлдөр, көпөлөктөр учуп жүрөт. Кызматкерлер боорукер жана жардам берүүгө даяр. Тамак — сонун, дээрлик баары ушул жерде өстүрүлгөн. Пляж мыкты: тынч, тоолордун фонунда өзүнчө суу жана кум тилкеси. Мен кеч келдим, бирок мени күтүп, боз үйгө чейин узатып коюшту. Кайра келем деп үмүттөнөм.</p><p class="rev-who"><b>Naadia</b> · Улуу Британия<span>август 2024</span></p></article><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Идеалдуу эс алуу. Бардык өтүнүчтөрүбүздү — боз үйгө жылыткыч, бакка чырак, кечки тамакты кеч берүү — дароо аткарышты. Бүт саякаттагы эң мыкты тамак: сапаты, көлөмү жана ар түрдүүлүгү боюнча. «Жомок» каньонуна жана түштүк жээк боюнча барып келүү ыңгайлуу. Рахмат, 10дон 10.</p><p class="rev-who"><b>Alex</b> · Германия<span>сентябрь 2026</span></p></article><article class="rev-card"><div class="rev-score">9<small>/10</small></div><p class="rev-q">Аймак укмуштуудай жана тынч, кызматкерлер сылык жана меймандос. Тамак — жөн эле сонун: даамдуу, ар түрдүү жана токтук. Пляж кооз, суу жылуу. Альфа аттуу овчарка абдан эрке жана таякча алып келгенди жакшы көрөт. Баары эле супер.</p><p class="rev-who"><b>Walter</b> · Швейцария<span>июль 2026</span></p></article><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Мыкты боз үй лагери! Төшөлгөн жолдор, беседкалар, бүт аймакта жарык. Боз үйлөр таза жана кенен, төшөк жакшы. Ар бир боз үйдүн өз тапчаны жана термелме отургучу бар. Беседкалары бар мыкты пляж.</p><p class="rev-who"><b>Sergey</b> · Казакстан<span>июль 2024</span></p></article><article class="rev-card"><div class="rev-score">9<small>/10</small></div><p class="rev-q">Укмуштуудай өзүнчө пляжы, жыйнактуу аймагы жана башка жерлерде жок шарттары бар сонун боз үй лагери.</p><p class="rev-who"><b>Amir</b> · Россия<span>август 2024</span></p></article><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Кызматкерлер абдан меймандос, таза жана заманбап, даамдуу тамак, кооз көрүнүштөр. Иттер сонун, конокторду ээрчип жүрүшөт. Бизди өз багынын алма-алмуруту менен сыйлашты.</p><p class="rev-who"><b>Eunje</b> · Түштүк Корея<span>сентябрь 2026</span></p></article><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Кызматкерлер абдан боорукер жана бардык нерседе жардам берүүгө даяр. Көл жээгиндеги укмуш жер. Тамак абдан жакшы.</p><p class="rev-who"><b>Stefano</b> · Италия<span>апрель 2025</span></p></article><article class="rev-card"><div class="rev-score">8<small>/10</small></div><p class="rev-q">Тынч пляждын дал жанында укмуштуудай жайгашкан. Жакшы боз үйлөр, боз үйдүн жанында ыңгайлуу эмерек, жыйнактуу бак. Эртең мененки тамак жакшы.</p><p class="rev-who"><b>Marlene</b> · Дания<span>июль 2026</span></p></article><article class="rev-card"><div class="rev-score">8<small>/10</small></div><p class="rev-q">Укмуш жер жана абдан боорукер кызматкерлер. Тамак да мыкты.</p><p class="rev-who"><b>Sonia</b> · Улуу Британия<span>апрель 2026</span></p></article><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Абдан боорукер үй-бүлө, кооз турак жай, таза.</p><p class="rev-who"><b>Miriam</b> · Австрия<span>июль 2026</span></p></article><article class="rev-card"><div class="rev-score">8<small>/10</small></div><p class="rev-q">Абдан таза жана тынч, кызматкерлер сонун.</p><p class="rev-who"><b>Mark</b> · Австралия<span>октябрь 2025</span></p></article><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Баары: короодогу иттерден баштап терезеден көрүнгөн көрүнүштөргө чейин.</p><p class="rev-who"><b>Toktaliev</b> · Кыргызстан<span>август 2026</span></p></article><article class="rev-card"><div class="rev-score">9<small>/10</small></div><p class="rev-q">Эртең мененки тамак мыкты! Боз үй супер! Жер сонун!</p><p class="rev-who"><b>Eleonora</b> · Россия<span>август 2024</span></p></article><article class="rev-card"><div class="rev-score">10<small>/10</small></div><p class="rev-q">Укмуш жер!</p><p class="rev-who"><b>Vladimir</b> · Казакстан<span>ноябрь 2024</span></p></article></div><div class="dots"></div></div>
+    <p class="rev-more rv">Дагы 11 конок пикир калтырбай баа коюшту: Rebekka (Германия), Nataliya (Франция), Marie-sophie (Германия), Viktor (Казакстан), Anastasiya (Италия) — 10; Alan (Польша), Wolfgang (Германия), Vadim (Россия) — 9; Claudia (Германия), Helle (Дания), Samuel (Швейцария) — 8.</p>
+    <p class="rev-note rv">Пикирлер Booking.com сайтынан алынып, кыргызчага которулуп, кыскартылды.</p>
+    <a class="btn rv" href="#book" style="justify-self:center">Брондоо</a>
+  </section>
+
+  <!-- 12 -->
+  <section class="blk pad sec-nearby" id="nearby">
+    <div class="stack rv">
+      <h2 class="h2">Жакын жерде эмнелерди көрүүгө болот</h2>
+      <p class="txt">Ак-Теңир — Ысык-Көлдүн түштүк жээги боюнча саякаттоо үчүн ыңгайлуу чекит. Каньондор, тоо капчыгайлары, шаркыратмалар жана көчмөн маданиятынын салттары — көп нерсе абдан жакын жерде.</p>
+    </div>
+    <ul class="places rv"><li><div class="ph place-ph"><img src="../img/near-skazka.jpg" alt="Ысык-Көлдүн үстүндөгү «Жомок» каньонунун кызыл аскалары" loading="lazy" decoding="async"></div><h3 class="h3">«Жомок» каньону</h3><p class="caps">≈ 8 км · 10–15 мүн</p><p class="txt">Кызгылт сары аскалар, кереметтүү формалар жана Ысык-Көлгө панорамалык көрүнүштөр. Күн батканда өзгөчө кооз.</p></li><li><div class="ph place-ph"><img src="../img/near-barskoon.jpg" alt="Карагай токоюндагы шаркыратма" loading="lazy" decoding="async"></div><h3 class="h3">Барскоон капчыгайы жана шаркыратмалары</h3><p class="caps">≈ 30–35 км · 45–60 мүн</p><p class="txt">Карагай токойлору, дарыясы жана бир нече шаркыратмасы бар тоо капчыгайы. Жолдо — Юрий Гагаринге эстелик. Шаркыратмалар Барскоондон капчыгайдын тереңинде болжол менен 15–20 км аралыкта.</p></li><li><div class="ph place-ph"><img src="../img/near-eagle.jpg" alt="Бүркүттөрү менен ат үстүндөгү бүркүтчүлөр" loading="lazy" decoding="async"></div><h3 class="h3">Бүркүт шоусу</h3><p class="caps">Бөкөнбаев аймагы · ≈ 40 км · 45–55 мүн</p><p class="txt">Бүркүтчүлүк салты — бүркүт менен кыргыз аңчылыгы менен таанышуу. Көрсөтүүлөр адатта алдын ала макулдашуу боюнча уюштурулат.</p></li><li><div class="ph place-ph"><img src="../img/near-jeti.jpg" alt="Жети-Өгүздөгү «Жети өгүз» кызыл аскалары" loading="lazy" decoding="async"></div><h3 class="h3">Жети-Өгүз</h3><p class="caps">≈ 75–80 км · 1,5 саат</p><p class="txt">«Жети өгүз» жана «Сынган жүрөк» деген атактуу кызыл аскалар, андан ары — Көк-Жайык тоо өрөөнү, сейилдөөлөр жана шаркыратмалар.</p></li><li><div class="ph place-ph"><img src="../img/near-karakol.jpg" alt="Караколдогу жыгач Ыйык Троица собору" style="object-position:50% 30%" loading="lazy" decoding="async"></div><h3 class="h3">Каракол</h3><p class="caps">≈ 110 км · 2 саатка жакын</p><p class="txt">Чыгыш Ысык-Көлдүн башкы шаары: байыркы жыгач архитектура, Дунган мечити, базарлар, кафелер жана атактуу каракол ашканасы.</p></li><li><div class="ph place-ph"><img src="../img/near-ski.jpg" alt="Карагайлар арасындагы тоо лыжа базасынын эңиши" loading="lazy" decoding="async"></div><h3 class="h3">Каракол тоо лыжа базасы</h3><p class="caps">≈ 120 км · 2–2,5 саат</p><p class="txt">Тянь-Шань карагайларынын арасындагы Кыргызстандын негизги тоо лыжа базаларынын бири. Кышында — лыжа жана сноуборд, бийик тоолуу трассалар жана Ысык-Көлгө панорамалык көрүнүштөр.</p></li></ul>
+    <p class="txt places-note">Аралыктар жана жолдогу убакыт болжолдуу көрсөтүлгөн.</p>
+    <div class="stack rv" style="margin-top:36px">
+      <p class="txt">Такси же жолдош унаа табууга, топ үчүн трансфер уюштурууга жана түштүк жээк боюнча ылайыктуу тур тандоого жардам бере алабыз.</p>
+      <p class="txt">Чоң топтор үчүн сиз менен бирге жеке маршрут түзүп, сапарды сиздин форматыңызга жана кызыкчылыктарыңызга ылайык уюштура алабыз.</p>
+    </div>
+  </section>
+
+  <section class="blk" id="where">
+    <div class="map" id="map">
+      <img class="map-sat" id="mapSat" src="../img/map-sat.jpg" alt="Ысык-Көл спутниктен" data-x="805" data-y="686">
+      <div class="clouds" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="pin" id="mapPin" style="left:57%;top:55%"><b></b></div>
+      <div class="map-side"><span></span><p>ak-tengir<br>тосор айылы,<br>ысык-көлдүн түштүк жээги,<br>кыргызстан</p></div>
+      <p class="map-code">5CG6+X83</p>
+      <p class="map-draft map-credit">Сүрөт © Google, NASA</p>
+    </div>
+    <div class="pad stack rv" style="padding-top:44px">
+      <h2 class="h2">Ысык-Көлдүн түштүк жээги</h2>
+      <dl class="facts">
+        <div><dt>Дарек</dt><dd>Тосор айылы, Ысык-Көл облусу</dd></div>
+        <div><dt>Plus Code</dt><dd class="code">5CG6+X83</dd></div>
+        <div><dt>Кантип жетсе болот</dt><dd>Такси, жеке унаа, InDrive же маршрутка</dd></div>
+      </dl>
+      <a class="lnk" href="https://www.google.com/maps/search/?api=1&amp;query=5CG6%2BX83" target="_blank" rel="noopener">Google Maps'те ачуу</a>
+    </div>
+  </section>
+
+  <!-- 13 -->
+  <section class="blk pad book" id="book">
+    <img class="rv" src="../img/logo-color.png" alt="">
+    <h2 class="h2 rv">Брондоо</h2>
+    <p class="txt rv">Бизге түз жазыңыз, биз сизге кубануу менен кеңеш беребиз.</p>
+    <a class="btn wide rv" href="https://wa.me/996558420620" target="_blank" rel="noopener">WhatsApp'ка жазуу</a>
+    <span class="tel rv">+996 558 420 620</span>
+  </section>
+
+  <!-- 14 -->
+  <footer class="blk footer">
+    <div class="brand"><img src="../img/logo-white.png" alt="">Ak-Tengir</div>
+    <nav><a href="#stay">Жайгашуу</a><a href="#where">Кантип жетсе болот</a><a href="#book">Брондоо</a><a href="https://www.instagram.com/ak.tengir_yurtresort/" target="_blank" rel="noopener">Instagram</a></nav>
+    <small>© Ak-Tengir · Ысык-Көлдүн түштүк жээгиндеги боз үй курорту</small>
+  </footer>
+
+  <nav class="menu" id="menu" aria-hidden="true">
+    <button class="close" type="button" id="close">Жабуу</button>
+    <img src="../img/logo-color.png" alt="">
+    <a href="#stay">Жайгашуу</a>
+    <a href="#nearby">Жакын жерлер</a>
+    <a href="#where">Кантип жетсе болот</a>
+    <a href="#book">Брондоо</a>
+  </nav>
+</div>
+
+<div class="lb" id="lb" aria-hidden="true">
+  <div class="lb-top"><img src="../img/logo-white.png" alt=""><span id="lbCount">1 / 6</span><button type="button" id="lbClose">Жабуу</button></div>
+  <div class="lb-img"><img id="lbImg" src="../img/hero-6.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div><p class="lb-cap" id="lbCap"></p><div class="lb-nav"><button type="button" id="lbPrev">Артка</button><button type="button" id="lbNext">Алдыга</button></div></div>
+</div>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var hdr=document.getElementById('hdr'),hero=document.getElementById('top');
+  function onScroll(){hdr.classList.toggle('solid',hero.getBoundingClientRect().bottom<70)}
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // появление при прокрутке: прячем только то, что ниже экрана
+  var rv=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){if(e.boundingClientRect.top>innerHeight*.4)e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el){io.observe(el)});
+  }
+
+  // меню
+  var menu=document.getElementById('menu');
+  function setMenu(o){menu.classList.toggle('open',o);menu.setAttribute('aria-hidden',!o)}
+  document.getElementById('burger').onclick=function(){setMenu(true)};
+  document.getElementById('close').onclick=function(){setMenu(false)};
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+
+  // просмотр фото: лента (блок 4) и ряд видов (блок 2)
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),group=[],i=0;
+  function show(n){i=(n+group.length)%group.length;var s=group[i];lbImg.style.opacity=0;setTimeout(function(){lbImg.src=s.src;lbImg.alt=s.alt;lbImg.style.opacity=1},180);document.getElementById('lbCap').textContent=s.alt;document.getElementById('lbCount').textContent=(i+1)+' / '+group.length}
+  function open(list,n){group=list;show(n);lb.classList.add('open');lb.setAttribute('aria-hidden','false')}
+  function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true')}
+  document.querySelectorAll('.strip').forEach(function(st){
+    var imgs=[].slice.call(st.querySelectorAll('img'));
+    st.querySelectorAll('button').forEach(function(b,n){b.onclick=function(){open(imgs,n)}});
+  });
+  document.getElementById('lbClose').onclick=close;
+  document.getElementById('lbPrev').onclick=function(){show(i-1)};
+  document.getElementById('lbNext').onclick=function(){show(i+1)};
+  addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
+
+  // ленты: рамка для приближения и подпись из alt
+  document.querySelectorAll('.strip-wrap .strip button').forEach(function(b){
+    var im=b.querySelector('img');var fr=document.createElement('span');fr.className='frame';b.insertBefore(fr,im);fr.appendChild(im);
+    if(!b.closest('.nocap')){var c=document.createElement('span');c.className='cap';c.textContent=im.alt;b.appendChild(c);}
+  });
+
+  // листалки с точками
+  document.querySelectorAll('.slider').forEach(function(sl){
+    var tr=sl.querySelector('.slides'),dots=sl.querySelector('.dots'),n=tr.children.length;
+    for(var k=0;k<n;k++)dots.appendChild(document.createElement('i'));
+    var ctrl=null,cnt,prev,next;
+    if(n>1){
+      ctrl=document.createElement('div');ctrl.className='sl-ctrl';
+      ctrl.innerHTML='<span class="sl-count"></span><div class="sl-arrows"><button type="button" aria-label="Мурунку сүрөт">←</button><button type="button" aria-label="Кийинки сүрөт">→</button></div>';
+      sl.insertAdjacentElement('afterend',ctrl);cnt=ctrl.querySelector('.sl-count');prev=ctrl.querySelectorAll('button')[0];next=ctrl.querySelectorAll('button')[1];
+      var step=function(){var c=tr.children[0];return c?c.getBoundingClientRect().width+12:tr.clientWidth};
+      prev.onclick=function(){tr.scrollBy({left:-(sl.classList.contains('rev')?step():tr.clientWidth),behavior:'smooth'})};
+      next.onclick=function(){tr.scrollBy({left:(sl.classList.contains('rev')?step():tr.clientWidth),behavior:'smooth'})};
+      if('IntersectionObserver' in window){var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){sl.classList.add('nudge');o.disconnect()}},{threshold:.6});o.observe(sl)}
+    }
+    function upd(){var w=sl.classList.contains('rev')&&tr.children[0]?tr.children[0].getBoundingClientRect().width+12:tr.clientWidth;var k=Math.min(n-1,Math.round(tr.scrollLeft/w));if(tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-4)k=n-1;[].forEach.call(dots.children,function(d,j){d.classList.toggle('on',j===k)});
+      if(ctrl){cnt.textContent=(k+1)+' / '+n;prev.disabled=k===0;next.disabled=k===n-1}}
+    tr.addEventListener('scroll',upd,{passive:true});upd();
+  });
+
+
+  // строки таблицы ведут к нужной юрте
+  document.querySelectorAll('.fmt tr[data-go]').forEach(function(tr){tr.addEventListener('click',function(e){if(e.target.closest('a'))return;var a=tr.querySelector('a.go');a&&a.click()})});
+  document.querySelectorAll('a.go').forEach(function(a){a.addEventListener('click',function(){var r=document.querySelector(a.getAttribute('href'));if(r){r.classList.remove('pre');r.classList.remove('flash');void r.offsetWidth;r.classList.add('flash')}})});
+
+
+
+  // версия для компьютера включается по ширине экрана
+  (function(){
+    var site=document.getElementById('site'),mq=matchMedia('(min-width: 1000px)');
+    function set(){var w=mq.matches;if(site.classList.contains('wide')===w&&site.dataset.ready)return;site.dataset.ready=1;site.classList.toggle('wide',w);
+      document.querySelectorAll('.slides').forEach(function(t){t.scrollLeft=0});onScroll()}
+    set();mq.addEventListener?mq.addEventListener('change',set):mq.addListener(set);
+  })();
+})();
+
+  // спутниковый снимок: заполняет блок, метка стоит на Тосоре
+  (function(){var m=document.getElementById('map'),im=document.getElementById('mapSat'),pin=document.getElementById('mapPin');if(!im)return;
+    function fit(){var iw=im.naturalWidth,ih=im.naturalHeight;if(!iw)return;var W=m.clientWidth,H=m.clientHeight,k=Math.max(W/iw,H/ih),tx=+im.dataset.x,ty=+im.dataset.y,w=iw*k,h=ih*k;
+      var l=Math.min(0,Math.max(W-w,W*.58-tx*k)),t=Math.min(0,Math.max(H-h,H*.55-ty*k));
+      im.style.width=w+'px';im.style.height=h+'px';im.style.left=l+'px';im.style.top=t+'px';pin.style.left=(l+tx*k)+'px';pin.style.top=(t+ty*k)+'px'}
+    if(im.complete)fit();im.addEventListener('load',fit);addEventListener('resize',fit);if(window.ResizeObserver)new ResizeObserver(fit).observe(m);
+  })();
+</script>
+</body>
+</html>
