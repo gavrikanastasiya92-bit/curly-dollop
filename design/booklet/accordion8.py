@@ -16,8 +16,8 @@ HERE = Path(__file__).resolve().parent
 EXTRA = """
 @page{size:402mm 216mm;margin:0}
 .sheet{width:402mm;grid-template-columns:102mm 99mm 99mm 102mm}
-.tags{display:flex;flex-wrap:wrap;gap:1mm 2.6mm;font-size:5.8pt;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink)}
-.tags span:not(:last-child):after{content:"·";margin-left:2.6mm;color:var(--grey)}
+.tags{display:flex;flex-wrap:wrap;gap:.8mm 1.4mm;font-size:6pt;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.tags span:not(:last-child):after{content:"·";margin-left:1.4mm;color:var(--grey)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.2mm}
 .fill{flex:1 1 0;min-height:0}
 .cards{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:4mm 3mm}
@@ -62,7 +62,7 @@ def page(t, variant="milk"):
   <div class="p l end">
     {ph("n-6.jpg", "fill")}
     <h2>{e(t['end_h'])}</h2>
-    <span class="caps" style="margin-top:-1.5mm">{e(t['end_place'])}</span>
+    <span class="caps" style="margin-top:-1.5mm;letter-spacing:.06em">{e(t['end_place'])}</span>
     {contacts}
     <p class="small">{e(t['end_note'])}</p>
     <div class="qr"><figure><img src="../qr-wa.svg" alt=""><span class="caps" style="font-size:5.4pt">{e(t['qr_wa'])}</span></figure>
