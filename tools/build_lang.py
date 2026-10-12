@@ -24,6 +24,7 @@ HEAD_EN = {
     '<meta property="og:url" content="https://aktengir.com/">': '<meta property="og:url" content="https://aktengir.com/en/">',
     '<a href="./" aria-current="page" lang="ru">RU</a>': '<a href="../" lang="ru" hreflang="ru">RU</a>',
     '<a href="en/" lang="en" hreflang="en">EN</a>': '<a href="./" aria-current="page" lang="en">EN</a>',
+    '<a href="ky/" lang="ky" hreflang="ky">KY</a>': '<a href="../ky/" lang="ky" hreflang="ky">KY</a>',
 }
 
 HEAD_KY = {
@@ -36,14 +37,14 @@ HEAD_KY = {
     'content="Ак-Тенгир — юрточный резорт на Иссык-Куле"': 'content="Ак-Теңир — Ысык-Көлдөгү боз үй курорту"',
     'content="Юрты, баня на берегу и тишина между горами и Иссык-Кулем."': 'content="Боз үйлөр, жээктеги мончо жана тоолор менен Ысык-Көлдүн ортосундагы тынчтык."',
     '<meta property="og:url" content="https://aktengir.com/">': '<meta property="og:url" content="https://aktengir.com/ky/">',
-    '<a href="./" aria-current="page" lang="ru">RU</a><span aria-hidden="true">·</span><a href="en/" lang="en" hreflang="en">EN</a>':
+    '<a href="./" aria-current="page" lang="ru">RU</a><span aria-hidden="true">·</span><a href="en/" lang="en" hreflang="en">EN</a><span aria-hidden="true">·</span><a href="ky/" lang="ky" hreflang="ky">KY</a>':
         '<a href="../" lang="ru" hreflang="ru">RU</a><span aria-hidden="true">·</span><a href="../en/" lang="en" hreflang="en">EN</a><span aria-hidden="true">·</span><a href="./" aria-current="page" lang="ky">KY</a>',
 }
 
 # published: False — страница закрыта от поисковиков (noindex) и не видна в переключателе языков.
 LANGS = {
     "en": {"head": HEAD_EN, "published": True},
-    "ky": {"head": HEAD_KY, "published": False},  # черновик: перевод на вычитке у носителя языка
+    "ky": {"head": HEAD_KY, "published": True},  # перевод вычитан носителем языка, 12.10.2026
 }
 
 EN = {}  # словарь текущего языка, заполняется в build()
