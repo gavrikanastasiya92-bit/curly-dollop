@@ -1,0 +1,56 @@
+{
+ "lang": "en",
+ "brand": "Ak-Tengir · yurt resort",
+ "h": "Ethno-banya in a real yurt",
+ "sub": "on the shore of Issyk-Kul, 5–10 metres from the water",
+ "p1": "A hot steam room and a separate lounge with large stained-glass windows facing Issyk-Kul. Sunset is the most beautiful time — and right after the steam, a dip in the lake.",
+ "p2": "The banya is open to guests staying elsewhere, too.",
+ "incl_h": "In the lounge",
+ "incl": [
+  "Tea with local wild thyme",
+  "Seasonal fruit, watermelon or sweets",
+  "Birch or oak venik — on request",
+  "Local white clay ritual — booked in advance"
+ ],
+ "price_h": "Session price",
+ "prices": [
+  [
+   "Up to 5 guests",
+   "from 10,000 som"
+  ],
+  [
+   "6–10 guests",
+   "from 15,000 som"
+  ],
+  [
+   "More than 10 guests",
+   "on request"
+  ]
+ ],
+ "price_notes": [
+  "A session lasts 2.5 hours.",
+  "Towels and robe — 400 som per person.",
+  "Extensions and extra treatments are arranged individually.",
+  "Current prices and special terms are discussed personally."
+ ],
+ "quote": "“I highly recommend the banya: jumping into the lake straight from the steam room is pure bliss.”",
+ "quote_who": "Margie, South Korea · Booking.com review",
+ "book_h": "Book in advance",
+ "phone": "+996 558 420 620",
+ "phone_note": "WhatsApp",
+ "addr": "Tosor village, south shore of Issyk-Kul",
+ "qr": [
+  [
+   "qr-wa",
+   "WhatsApp"
+  ],
+  [
+   "qr-map",
+   "Directions"
+  ],
+  [
+   "qr-ig",
+   "Instagram"
+  ]
+ ]
+}

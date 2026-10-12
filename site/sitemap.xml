@@ -4,10 +4,18 @@
     <loc>https://aktengir.com/</loc>
     <xhtml:link rel="alternate" hreflang="ru" href="https://aktengir.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://aktengir.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ky" href="https://aktengir.com/ky/"/>
   </url>
   <url>
     <loc>https://aktengir.com/en/</loc>
     <xhtml:link rel="alternate" hreflang="ru" href="https://aktengir.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://aktengir.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ky" href="https://aktengir.com/ky/"/>
+  </url>
+  <url>
+    <loc>https://aktengir.com/ky/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aktengir.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aktengir.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ky" href="https://aktengir.com/ky/"/>
   </url>
 </urlset>

@@ -12,7 +12,7 @@
 
 1. Русский текст — в `index.html`.
 2. Перевод — в `i18n/en.json`. Ключ — русская строка ровно так, как она стоит на странице (пробелы не важны).
-3. Собрать английскую версию: `python3 tools/build_en.py` из корня репозитория. Скрипт перечислит строки, для которых нет перевода.
+3. Собрать языковые версии (EN и KY): `python3 tools/build_lang.py` из корня репозитория. Скрипт перечислит строки, для которых нет перевода.
 
 ## Версия для компьютера
 
@@ -21,3 +21,10 @@
 ## Публикация (Cloudflare Pages)
 
 Workers & Pages → Create → Pages → подключить этот репозиторий. Build command — пусто, Build output directory — `site`. Затем Custom domains → `aktengir.com`.
+
+## Не забыть после правок
+
+- [ ] Google Search Console — добавить aktengir.com, отправить sitemap.xml
+- [ ] Яндекс Вебмастер — добавить сайт, отправить sitemap.xml
+- [ ] Счётчик посещений (Яндекс Метрика или Google Analytics) + цель «нажатие на WhatsApp»
+- [ ] Ссылка на aktengir.com в Instagram, Booking, 2GIS и Google Maps
