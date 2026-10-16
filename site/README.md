@@ -24,7 +24,7 @@ Workers & Pages → Create → Pages → подключить этот репо�
 
 ## Не забыть после правок
 
-- [ ] Google Search Console — добавить aktengir.com, отправить sitemap.xml
+- [x] Google Search Console — ресурс https://aktengir.com/ подтверждён мета-тегом (16.10.2026), sitemap.xml отправлен, индексирование RU/EN/KY запрошено. Добавить заказчицу владельцем: Настройки → Пользователи и разрешения
 - [ ] Яндекс Вебмастер — добавить сайт, отправить sitemap.xml
-- [ ] Счётчик посещений (Яндекс Метрика или Google Analytics) + цель «нажатие на WhatsApp»
+- [ ] Яндекс Метрика + цель «нажатие на WhatsApp» (16.10 кабинет Метрики был недоступен из-за сбоя у Яндекса — повторить)
 - [ ] Ссылка на aktengir.com в Instagram, Booking, 2GIS и Google Maps
