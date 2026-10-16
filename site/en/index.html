@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="google-site-verification" content="Y7ziXjjy8kTZ1sk4r3maPKguz7D4uHs9Iu4eM7hmjbw" />
 <meta name="yandex-verification" content="8489abb24b7d4814" />
+<!-- Google Analytics: посещения и нажатия на WhatsApp / Instagram (событие whatsapp_click — ключевое) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C46RLPJNTH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C46RLPJNTH');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.href, lang = document.documentElement.lang;
+    if (/wa\.me|whatsapp\.com/.test(h)) gtag('event', 'whatsapp_click', { link_url: h, page_language: lang });
+    else if (/instagram\.com/.test(h)) gtag('event', 'instagram_click', { link_url: h, page_language: lang });
+  });
+</script>
 <title>Ak-Tengir — a yurt resort on the south shore of Lake Issyk-Kul</title>
 <meta name="description" content="A yurt resort near Tosor village on the south shore of Lake Issyk-Kul: yurts from Standard to VIP, a beach yurt and an ethno-house, a lakeside banya, our own garden and kitchen. Open all year round.">
 <link rel="alternate" hreflang="ru" href="https://aktengir.com/">

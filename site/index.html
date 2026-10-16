@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="google-site-verification" content="Y7ziXjjy8kTZ1sk4r3maPKguz7D4uHs9Iu4eM7hmjbw" />
 <meta name="yandex-verification" content="8489abb24b7d4814" />
+<!-- Google Analytics: посещения и нажатия на WhatsApp / Instagram (событие whatsapp_click — ключевое) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C46RLPJNTH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C46RLPJNTH');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.href, lang = document.documentElement.lang;
+    if (/wa\.me|whatsapp\.com/.test(h)) gtag('event', 'whatsapp_click', { link_url: h, page_language: lang });
+    else if (/instagram\.com/.test(h)) gtag('event', 'instagram_click', { link_url: h, page_language: lang });
+  });
+</script>
 <title>Ак-Тенгир — юрточный резорт на южном берегу Иссык-Куля</title>
 <meta name="description" content="Юрточный резорт у села Тосор на южном берегу Иссык-Куля: юрты от Стандарта до VIP, пляжная юрта и этно-дом, баня на берегу, свой сад и кухня. Открыто круглый год.">
 <link rel="alternate" hreflang="ru" href="https://aktengir.com/">
