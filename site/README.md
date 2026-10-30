@@ -18,14 +18,21 @@
 
 Включается сама при ширине экрана от 1000 px (класс `wide` на `#site`), ниже — мобильная.
 
-## Публикация (Cloudflare Pages)
+## Публикация — вручную, Cloudflare не связан с GitHub
 
-Workers & Pages → Create → Pages → подключить этот репозиторий. Build command — пусто, Build output directory — `site`. Затем Custom domains → `aktengir.com`.
+Сайт aktengir.com живёт в Cloudflare на аккаунте Алимы, проект **tiny-scene-c4f1** (Workers & Pages). Все версии загружаются **вручную**: изменения в GitHub (в том числе принятые запросы на объединение) **сами на сайт не попадают**.
+
+Как опубликовать:
+1. Взять папку `site/` из ветки `main` (Claude может прислать её архивом; `README.md` внутри не нужен).
+2. Cloudflare → Workers & Pages → `tiny-scene-c4f1` → Deployments → **New deployment** → загрузить содержимое папки → Deploy.
+3. Проверить: открыть исходный код https://aktengir.com/?v=<любое число> и найти в нём то, что меняли.
+
+Имя `curly-dollop` в `wrangler.jsonc` с проектом в Cloudflare не совпадает; если когда-нибудь подключать автопубликацию из GitHub, имя нужно поменять на `tiny-scene-c4f1`.
 
 ## Не забыть после правок
 
 - [x] Google Search Console — ресурс https://aktengir.com/ подтверждён мета-тегом (16.10.2026), sitemap.xml отправлен, индексирование RU/EN/KY запрошено. Подтвердила Анастасия (подтверждённый владелец), Алима добавлена владельцем
 - [x] Яндекс Вебмастер — подтверждён мета-тегом. [ ] Отправить sitemap.xml, когда починят раздел (16.10 был только на чтение)
 - [x] Google Analytics 4 (G-C46RLPJNTH): посещения + события whatsapp_click и instagram_click. В GA отметить whatsapp_click ключевым событием
-- [ ] Яндекс Метрика — по желанию, когда заработает (16.10 был сбой у Яндекса)
+- [x] Яндекс Метрика (счётчик 113938372, Вебвизор, карта кликов): опубликована 31.10.2026, проверено в режиме `?_ym_debug=1` — PageView и цель whatsapp_click срабатывают. Цели в Метрике — JavaScript-события `whatsapp_click` (избранная), `instagram_click` и `book_click` (нажатие любой «Забронировать», в параметре `link_text` — какая кнопка); те же события уходят в GA4. Все «Забронировать» ведут к блоку `#book`, в WhatsApp ведёт только кнопка «Написать в WhatsApp»
 - [ ] Ссылка на aktengir.com в Instagram, Booking, 2GIS и Google Maps

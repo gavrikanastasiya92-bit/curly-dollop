@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="google-site-verification" content="Y7ziXjjy8kTZ1sk4r3maPKguz7D4uHs9Iu4eM7hmjbw" />
 <meta name="yandex-verification" content="8489abb24b7d4814" />
-<!-- Google Analytics + Яндекс Метрика: посещения и нажатия на WhatsApp / Instagram (whatsapp_click — ключевая цель в обоих) -->
+<!-- Google Analytics + Яндекс Метрика: посещения и нажатия на WhatsApp / Instagram (whatsapp_click — ключевая цель в обоих; book_click — нажали «Забронировать») -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C46RLPJNTH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -16,10 +16,11 @@
     var a = e.target.closest && e.target.closest('a[href]');
     if (!a) return;
     var h = a.href, lang = document.documentElement.lang;
-    var goal = /wa\.me|whatsapp\.com/.test(h) ? 'whatsapp_click' : /instagram\.com/.test(h) ? 'instagram_click' : '';
+    var goal = /wa\.me|whatsapp\.com/.test(h) ? 'whatsapp_click' : /instagram\.com/.test(h) ? 'instagram_click' : a.getAttribute('href') === '#book' ? 'book_click' : '';
     if (!goal) return;
-    gtag('event', goal, { link_url: h, page_language: lang });
-    if (window.ym) ym(113938372, 'reachGoal', goal, { link_url: h, page_language: lang });
+    var p = { link_url: h, link_text: a.textContent.trim().slice(0, 60), page_language: lang };
+    gtag('event', goal, p);
+    if (window.ym) ym(113938372, 'reachGoal', goal, p);
   });
 </script>
 <!-- Яндекс Метрика, счётчик 113938372 (Вебвизор, карта кликов) -->
