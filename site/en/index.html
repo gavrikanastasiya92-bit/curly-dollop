@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="google-site-verification" content="Y7ziXjjy8kTZ1sk4r3maPKguz7D4uHs9Iu4eM7hmjbw" />
 <meta name="yandex-verification" content="8489abb24b7d4814" />
-<!-- Google Analytics: посещения и нажатия на WhatsApp / Instagram (событие whatsapp_click — ключевое) -->
+<!-- Google Analytics + Яндекс Метрика: посещения и нажатия на WhatsApp / Instagram (whatsapp_click — ключевая цель в обоих) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C46RLPJNTH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -16,9 +16,21 @@
     var a = e.target.closest && e.target.closest('a[href]');
     if (!a) return;
     var h = a.href, lang = document.documentElement.lang;
-    if (/wa\.me|whatsapp\.com/.test(h)) gtag('event', 'whatsapp_click', { link_url: h, page_language: lang });
-    else if (/instagram\.com/.test(h)) gtag('event', 'instagram_click', { link_url: h, page_language: lang });
+    var goal = /wa\.me|whatsapp\.com/.test(h) ? 'whatsapp_click' : /instagram\.com/.test(h) ? 'instagram_click' : '';
+    if (!goal) return;
+    gtag('event', goal, { link_url: h, page_language: lang });
+    if (window.ym) ym(113938372, 'reachGoal', goal, { link_url: h, page_language: lang });
   });
+</script>
+<!-- Яндекс Метрика, счётчик 113938372 (Вебвизор, карта кликов) -->
+<script>
+  (function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+  })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=113938372', 'ym');
+  ym(113938372, 'init', {ssr:true, webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
 <title>Ak-Tengir — a yurt resort on the south shore of Lake Issyk-Kul</title>
 <meta name="description" content="A yurt resort near Tosor village on the south shore of Lake Issyk-Kul: yurts from Standard to VIP, a beach yurt and an ethno-house, a lakeside banya, our own garden and kitchen. Open all year round.">
@@ -559,6 +571,7 @@
 </style>
 </head>
 <body>
+<noscript><div><img src="https://mc.yandex.ru/watch/113938372" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 
 
 <div class="site" id="site">
