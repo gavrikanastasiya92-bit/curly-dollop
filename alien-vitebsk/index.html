@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>АЛЬЕН — бельё, подобранное по науке · Витебск</title>
+<meta name="description" content="Магазин нижнего белья АЛЬЕН в Витебске. Профессиональный брафиттинг, размеры чашек от A до J, SPF-купальники, мужское, спортивное и свадебное бельё.">
+<meta name="theme-color" content="#FBF6F2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ===== Токены ===== */
+  :root{
+    --milk:#FBF6F2;      /* фон */
+    --blush:#F4E6E0;     /* мягкие секции */
+    --powder:#EBD3CA;    /* плашки, заглушки фото */
+    --rose:#C9928A;      /* акцент, линии */
+    --wine:#7A3E46;      /* кнопки, ссылки */
+    --wine-deep:#5E2D35;
+    --cocoa:#33241F;     /* текст */
+    --muted:#7C6A64;     /* второстепенный текст */
+    --line:#E6D6CF;
+    --white:#FFFFFF;
+    --serif:"Cormorant Garamond", Georgia, serif;
+    --sans:"Manrope", system-ui, -apple-system, sans-serif;
+    --r:18px;
+    --pad:20px;
+    --max:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:var(--sans);font-size:16px;line-height:1.6;color:var(--cocoa);background:var(--milk);overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  button,input,select,textarea{font:inherit;color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+  section{padding:72px 0;scroll-margin-top:64px}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em}
+  h2{font-size:clamp(34px,8vw,54px);margin-bottom:18px}
+  h2 em,h1 em{font-style:italic;color:var(--wine)}
+  .lead{font-size:17px;color:var(--muted);max-width:560px}
+
+  /* Места для заполнения — видно, что это заглушка */
+  .fill{display:inline-block;padding:0 .45em;border:1px dashed var(--rose);border-radius:6px;color:var(--wine);background:rgba(201,146,138,.08);font-size:.92em;white-space:nowrap}
+
+  /* ===== Кнопки ===== */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;border:1px solid var(--wine);background:var(--wine);color:#fff;text-decoration:none;font-weight:600;font-size:15px;letter-spacing:.02em;cursor:pointer;transition:background .25s,transform .25s}
+  .btn:hover{background:var(--wine-deep)}
+  .btn:active{transform:scale(.98)}
+  .btn--ghost{background:transparent;color:var(--wine)}
+  .btn--ghost:hover{background:rgba(122,62,70,.06)}
+  .btn--light{background:#fff;border-color:#fff;color:var(--wine)}
+  .btn svg{width:20px;height:20px;flex:none}
+
+  /* ===== Фото-слот: если файла нет — видна подпись ===== */
+  .ph{position:relative;overflow:hidden;background:
+      radial-gradient(120% 90% at 20% 10%,#F6E9E3 0%,transparent 60%),
+      radial-gradient(90% 80% at 90% 100%,#E4C3B9 0%,transparent 65%),
+      var(--powder)}
+  .ph>span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-family:var(--serif);font-style:italic;font-size:18px;color:rgba(94,45,53,.55)}
+  .ph>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+  /* ===== Шапка ===== */
+  .top{position:sticky;top:0;z-index:50;background:rgba(251,246,242,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+  .top.is-scrolled{border-color:var(--line)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:var(--serif);font-size:28px;font-weight:600;letter-spacing:.14em;text-decoration:none;color:var(--wine)}
+  .logo small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.32em;color:var(--muted);font-weight:500;margin-top:-4px}
+  .nav{display:none;gap:28px;font-size:14px}
+  .nav a{text-decoration:none;color:var(--muted);transition:color .2s}
+  .nav a:hover{color:var(--wine)}
+  .top .btn{min-height:40px;padding:0 18px;font-size:13px}
+
+  /* ===== 1. Первый экран ===== */
+  .hero{padding:0;position:relative}
+  .hero__photo{height:min(62vh,520px);border-radius:0 0 var(--r) var(--r)}
+  .hero__photo::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(to top,rgba(251,246,242,.9),transparent)}
+  .hero__body{position:relative;margin-top:-120px;padding-bottom:56px}
+  .hero h1{font-size:clamp(46px,12.5vw,88px)}
+  .hero .lead{margin:18px 0 28px;color:var(--cocoa)}
+  .hero__actions{display:flex;flex-direction:column;gap:12px}
+  .sizes{margin-top:34px;display:flex;align-items:center;gap:14px}
+  .sizes__label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .sizes__row{display:flex;flex:1;justify-content:space-between;font-family:var(--serif);font-size:22px;color:var(--wine)}
+  .sizes__row b{font-weight:500;opacity:.45;transition:opacity .4s}
+  .sizes__row b.on{opacity:1}
+
+  /* ===== 2. Брафиттинг ===== */
+  .why{background:var(--blush)}
+  .why__grid{display:grid;gap:36px}
+  .why__photo{aspect-ratio:4/5;border-radius:var(--r)}
+  .points{margin-top:28px;display:grid;gap:22px;list-style:none}
+  .points li{padding-left:22px;border-left:1px solid var(--rose)}
+  .points h3{font-size:24px;margin-bottom:4px}
+  .points p{color:var(--muted);font-size:15px}
+  .quote{margin-top:32px;font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.25;color:var(--wine)}
+
+  /* ===== 3. Каталог ===== */
+  .chips{display:flex;gap:8px;overflow-x:auto;margin:26px calc(var(--pad)*-1) 26px;padding:2px var(--pad) 6px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;min-height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:14px;font-weight:500;color:var(--muted);transition:all .2s}
+  .chip[aria-pressed="true"]{background:var(--cocoa);border-color:var(--cocoa);color:#fff}
+  .cat-note{font-size:14px;color:var(--muted);margin:-8px 0 22px;min-height:22px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 14px}
+  .card{display:flex;flex-direction:column}
+  .card .ph{aspect-ratio:3/4;border-radius:14px}
+  .card .ph>span{font-size:15px}
+  .tag{position:absolute;top:10px;left:10px;z-index:2;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.9);font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--wine)}
+  .card h3{font-family:var(--sans);font-size:15px;font-weight:600;margin-top:12px;line-height:1.3}
+  .card__meta{font-size:13px;color:var(--muted);margin-top:2px}
+  .card__price{margin-top:6px;font-size:15px}
+  .card button{margin-top:10px;min-height:40px;border-radius:999px;border:1px solid var(--line);background:transparent;font-size:13px;font-weight:600;color:var(--wine);cursor:pointer;transition:all .2s}
+  .card button:hover{border-color:var(--wine);background:#fff}
+  .catalog__more{margin-top:34px;text-align:center}
+
+  /* ===== 4. Шаги ===== */
+  .steps{background:var(--cocoa);color:var(--milk)}
+  .steps h2 em{color:var(--powder)}
+  .steps .lead{color:rgba(251,246,242,.7)}
+  .steps__list{list-style:none;margin-top:36px;display:grid;gap:0}
+  .step{display:grid;grid-template-columns:52px 1fr;gap:4px 14px;padding:24px 0;border-top:1px solid rgba(251,246,242,.15)}
+  .step__n{font-family:var(--serif);font-size:40px;line-height:1;color:var(--rose)}
+  .step h3{font-size:26px}
+  .step p{grid-column:2;color:rgba(251,246,242,.72);font-size:15px}
+  .steps__info{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14px;color:rgba(251,246,242,.8)}
+  .steps .fill{color:var(--powder);border-color:rgba(235,211,202,.5);background:transparent}
+  .steps__cta{margin-top:32px}
+
+  /* ===== 5. О магазине ===== */
+  .about__grid{display:grid;gap:36px}
+  .about__photo{aspect-ratio:1/1;border-radius:var(--r)}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:28px}
+  .fact{background:var(--milk);padding:20px 18px}
+  .fact b{display:block;font-family:var(--serif);font-weight:500;font-size:44px;line-height:1;color:var(--wine)}
+  .fact span{font-size:13px;color:var(--muted)}
+  .about p+p{margin-top:14px}
+
+  /* ===== 6. Отзывы ===== */
+  .reviews{background:var(--blush)}
+  .rev-list{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:30px calc(var(--pad)*-1) 0;padding:0 var(--pad) 8px;scrollbar-width:none}
+  .rev-list::-webkit-scrollbar{display:none}
+  .rev{flex:0 0 84%;scroll-snap-align:start;background:#fff;border-radius:var(--r);padding:24px;border:1px dashed var(--rose);position:relative}
+  .rev__badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);background:var(--blush);padding:3px 10px;border-radius:999px;margin-bottom:14px}
+  .rev p{font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.35;color:var(--muted)}
+  .rev footer{margin-top:16px;font-size:14px;color:var(--muted)}
+  .rev-hint{margin-top:16px;font-size:13px;color:var(--muted)}
+
+  /* ===== 7. Форма ===== */
+  .book__grid{display:grid;gap:34px}
+  .form{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 20px;display:grid;gap:16px}
+  .field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+  .field input,.field select,.field textarea{width:100%;min-height:52px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--milk);font-size:16px;outline:none;transition:border-color .2s,background .2s}
+  .field textarea{min-height:84px;resize:vertical}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--wine);background:#fff}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .consent{display:flex;gap:10px;font-size:13px;color:var(--muted);line-height:1.45}
+  .consent input{width:20px;height:20px;flex:none;accent-color:var(--wine);margin-top:1px}
+  .form .btn{width:100%}
+  .form__ok{display:none;text-align:center;padding:30px 10px}
+  .form__ok h3{font-size:30px;color:var(--wine);margin-bottom:8px}
+  .form.is-sent>*:not(.form__ok){display:none}
+  .form.is-sent .form__ok{display:block}
+  .or{display:flex;align-items:center;gap:14px;margin:26px 0 16px;font-size:13px;color:var(--muted)}
+  .or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+  .messengers{display:grid;gap:10px}
+
+  /* ===== 8. Контакты ===== */
+  .contacts{padding-bottom:110px}
+  .contacts__grid{display:grid;gap:28px}
+  .clist{list-style:none;display:grid;gap:18px;margin-top:8px}
+  .clist small{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .clist a{text-decoration:none;border-bottom:1px solid var(--rose)}
+  .map{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--powder);border:1px solid var(--line)}
+  .map iframe{width:100%;height:100%;border:0;filter:saturate(.6) sepia(.12)}
+  .foot{border-top:1px solid var(--line);padding:26px 0 120px;font-size:13px;color:var(--muted)}
+  .foot .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+  /* ===== Липкая панель на телефоне ===== */
+  .dock{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;display:flex;gap:8px;padding:8px;border-radius:999px;background:rgba(51,36,31,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(51,36,31,.25);transform:translateY(140%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+  .dock.is-on{transform:none}
+  .dock .btn{flex:1;min-height:46px;background:var(--milk);border-color:var(--milk);color:var(--wine);font-size:14px}
+  .dock__ic{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(251,246,242,.25);color:var(--milk)}
+  .dock__ic svg{width:21px;height:21px}
+
+  /* ===== Появление ===== */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+  /* ===== Планшет / десктоп ===== */
+  @media (min-width:720px){
+    :root{--pad:32px}
+    section{padding:100px 0}
+    .grid{grid-template-columns:repeat(3,1fr);gap:34px 22px}
+    .hero__actions{flex-direction:row}
+    .rev{flex-basis:46%}
+    .messengers{grid-template-columns:1fr 1fr}
+  }
+  @media (min-width:1000px){
+    .nav{display:flex}
+    .hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 64px)}
+    .hero__photo{order:2;height:auto;border-radius:0 0 0 calc(var(--r)*2)}
+    .hero__photo::after{display:none}
+    .hero__body{margin:0;align-self:center;padding:60px 56px 60px max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)))}
+    .why__grid,.about__grid,.book__grid{grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+    .why__photo{order:-1}
+    .steps__list{grid-template-columns:repeat(4,1fr);gap:28px}
+    .step{grid-template-columns:1fr;border-top:1px solid rgba(251,246,242,.25);padding-top:26px}
+    .step p{grid-column:1}
+    .step__n{margin-bottom:14px}
+    .rev-list{overflow:visible;margin:30px 0 0;padding:0}
+    .rev{flex:1}
+    .book__grid{align-items:start}
+    .contacts__grid{grid-template-columns:1fr 1.4fr;gap:56px;align-items:center}
+    .dock{display:none}
+    .foot{padding-bottom:26px}
+    .contacts{padding-bottom:100px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ ШАПКА ============ -->
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#hero" aria-label="АЛЬЕН — на главную">АЛЬЕН<small>ВИТЕБСК</small></a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#bra">Брафиттинг</a>
+      <a href="#catalog">Каталог</a>
+      <a href="#steps">Как проходит</a>
+      <a href="#about">О нас</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn" href="#book">Записаться</a>
+  </div>
+</header>
+
+<main>
+<!-- ============ 1. ПЕРВЫЙ ЭКРАН ============ -->
+<section class="hero" id="hero">
+  <div class="ph hero__photo">
+    <span>фото: главный кадр<br>из Instagram</span>
+    <img src="img/hero.jpg" alt="" onerror="this.remove()">
+  </div>
+  <div class="hero__body wrap">
+    <h1>Бельё, подобранное <em>по&nbsp;науке</em></h1>
+    <p class="lead">Профессиональный брафиттинг в Витебске. Найдём ваш настоящий размер и модель, в которой удобно весь день. Любая форма груди — наша любимая.</p>
+    <div class="hero__actions">
+      <a class="btn" href="#book">Записаться на брафиттинг</a>
+      <a class="btn btn--ghost" href="#catalog">Смотреть каталог</a>
+    </div>
+    <div class="sizes" aria-label="Размеры чашек от A до J">
+      <span class="sizes__label">Чашки</span>
+      <div class="sizes__row" aria-hidden="true"><b>A</b><b>B</b><b>C</b><b>D</b><b>E</b><b>F</b><b>G</b><b>H</b><b>I</b><b>J</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. ЧТО ТАКОЕ БРАФИТТИНГ ============ -->
+<!-- Текст — черновик. Перед запуском согласовать формулировки с экспертом магазина. -->
+<section class="why" id="bra">
+  <div class="wrap why__grid">
+    <div class="rv">
+      <h2>Что такое <em>брафиттинг</em></h2>
+      <p class="lead">Это профессиональный подбор белья: специалист снимает мерки, учитывает форму груди и посадку, а потом помогает примерить несколько моделей. Цель простая — бельё, о котором вы забываете, пока оно на вас.</p>
+      <ul class="points">
+        <li><h3>Комфорт</h3><p>Бретели не врезаются, косточки не давят, ничего не натирает к вечеру.</p></li>
+        <li><h3>Поддержка</h3><p>Правильно подобранный пояс держит грудь сам, без перегрузки плеч и спины.</p></li>
+        <li><h3>Забота о себе</h3><p>Бельё по размеру не сдавливает и не стесняет — это про здоровье, а не только про красоту.</p></li>
+      </ul>
+      <p class="quote">«Подбираем бельё по науке»</p>
+    </div>
+    <div class="ph why__photo rv">
+      <span>фото: консультант<br>во время подбора</span>
+      <img src="img/brafitting.jpg" alt="" onerror="this.remove()">
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. КАТАЛОГ ============ -->
+<section id="catalog">
+  <div class="wrap">
+    <h2 class="rv">Каталог</h2>
+    <p class="lead rv">Посмотрите модели заранее — и отметьте те, что хотите примерить. Наличие размеров уточним в ответ на заявку.</p>
+    <div class="chips" role="group" aria-label="Разделы каталога" id="chips"></div>
+    <p class="cat-note" id="catNote"></p>
+    <div class="grid" id="grid"></div>
+    <div class="catalog__more">
+      <a class="btn btn--ghost" href="https://instagram.com/alien_vitebsk" target="_blank" rel="noopener">Больше моделей в Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. КАК ПРОХОДИТ ПОДБОР ============ -->
+<section class="steps" id="steps">
+  <div class="wrap">
+    <h2 class="rv">Как проходит <em>подбор</em></h2>
+    <p class="lead rv">Спокойно, без спешки и неловкости. Можно прийти просто за советом.</p>
+    <ol class="steps__list">
+      <li class="step rv"><span class="step__n">1</span><h3>Запись</h3><p>Оставьте заявку на сайте или напишите в директ — подберём удобное время.</p></li>
+      <li class="step rv"><span class="step__n">2</span><h3>Знакомство</h3><p>Расскажете, что беспокоит и что нравится. Специалист снимет мерки и оценит форму груди.</p></li>
+      <li class="step rv"><span class="step__n">3</span><h3>Примерка</h3><p>Принесём несколько моделей вашего размера и покажем, как проверить правильную посадку.</p></li>
+      <li class="step rv"><span class="step__n">4</span><h3>Выбор</h3><p>Вы выбираете то, в чём комфортно. Подскажем, как ухаживать за бельём, чтобы оно служило дольше.</p></li>
+    </ol>
+    <div class="steps__info rv">
+      <span>Длительность: <span class="fill">__ мин</span></span>
+      <span>Стоимость подбора: <span class="fill">уточнить</span></span>
+    </div>
+    <div class="steps__cta rv"><a class="btn btn--light" href="#book">Записаться на брафиттинг</a></div>
+  </div>
+</section>
+
+<!-- ============ 5. О МАГАЗИНЕ ============ -->
+<section class="about" id="about">
+  <div class="wrap about__grid">
+    <div class="ph about__photo rv">
+      <span>фото: команда<br>или интерьер магазина</span>
+      <img src="img/team.jpg" alt="" onerror="this.remove()">
+    </div>
+    <div class="rv">
+      <h2>Магазин, где <em>разбираются</em> в белье</h2>
+      <p class="lead">АЛЬЕН — магазин нижнего белья в Витебске. Наша команда — эксперты по подбору: мы знаем, как сидит каждая модель, и помогаем найти своё даже тем, кто давно отчаялся.</p>
+      <p class="lead">В Instagram делимся знаниями о белье и здоровье груди в рубриках «Мнение эксперта» и «PRO бельё».</p>
+      <div class="facts">
+        <div class="fact"><b>7 лет</b><span>работаем в Витебске</span></div>
+        <div class="fact"><b>A–J</b><span>размеры чашек</span></div>
+        <div class="fact"><b>SPF 35</b><span>купальники с защитой</span></div>
+        <div class="fact"><b class="fill" style="font-size:28px">__</b><span>специалистов в команде</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. ОТЗЫВЫ (заглушки) ============ -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <h2 class="rv">Отзывы</h2>
+    <div class="rev-list">
+      <article class="rev rv"><span class="rev__badge">Пример</span><p>Здесь будет реальный отзыв клиентки — с её разрешения.</p><footer>Имя, <span class="fill">дата</span></footer></article>
+      <article class="rev rv"><span class="rev__badge">Пример</span><p>Место для отзыва о брафиттинге: что изменилось после подбора.</p><footer>Имя, <span class="fill">дата</span></footer></article>
+      <article class="rev rv"><span class="rev__badge">Пример</span><p>Место для отзыва о купальниках или свадебном белье.</p><footer>Имя, <span class="fill">дата</span></footer></article>
+    </div>
+    <p class="rev-hint">Блок-заготовка. Реальные отзывы добавим позже.</p>
+  </div>
+</section>
+
+<!-- ============ 7. ЗАПИСЬ ============ -->
+<section class="book" id="book">
+  <div class="wrap book__grid">
+    <div class="rv">
+      <h2>Запишитесь на <em>брафиттинг</em></h2>
+      <p class="lead">Оставьте контакты — мы перезвоним или напишем, чтобы подтвердить время. Если вы уже выбрали модели в каталоге, они появятся в комментарии.</p>
+      <div class="or">или напишите нам</div>
+      <div class="messengers">
+        <a class="btn btn--ghost" href="https://ig.me/m/alien_vitebsk" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          Директ Instagram
+        </a>
+        <!-- TODO: вставить ссылку на Telegram магазина -->
+        <a class="btn btn--ghost" href="#" data-todo="telegram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 4 3 11l6 2.5M21 4l-3 16-9-6.5M21 4 9 13.5V19l3-3.5"/></svg>
+          Telegram
+        </a>
+      </div>
+    </div>
+
+    <form class="form rv" id="form" novalidate>
+      <div class="field"><label for="f-name">Имя</label><input id="f-name" name="name" autocomplete="given-name" required placeholder="Как к вам обращаться"></div>
+      <div class="field"><label for="f-phone">Телефон</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="+375 (__) ___-__-__"></div>
+      <div class="row2">
+        <div class="field"><label for="f-date">День</label><input id="f-date" name="date" type="date"></div>
+        <div class="field"><label for="f-time">Время</label>
+          <select id="f-time" name="time">
+            <option>Любое</option><option>Утро</option><option>День</option><option>Вечер</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label for="f-note">Комментарий</label><textarea id="f-note" name="note" placeholder="Например: ищу бельё на каждый день или купальник"></textarea></div>
+      <label class="consent"><input type="checkbox" required> <span>Согласна на обработку персональных данных</span></label>
+      <button class="btn" type="submit">Записаться</button>
+      <div class="form__ok" role="status">
+        <h3>Спасибо!</h3>
+        <p class="lead" style="margin:0 auto">Это демо-версия сайта: заявка пока никуда не отправляется. На рабочем сайте здесь будет подтверждение записи.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ 8. КОНТАКТЫ ============ -->
+<section class="contacts" id="contacts">
+  <div class="wrap contacts__grid">
+    <div class="rv">
+      <h2>Ждём <em>в гости</em></h2>
+      <ul class="clist">
+        <li><small>Адрес</small>Витебск, ул. Черняховского, 11</li>
+        <li><small>Часы работы</small><span class="fill">пн–пт __:__–__:__</span> <span class="fill">сб–вс __:__–__:__</span></li>
+        <li><small>Телефон</small><span class="fill">+375 __ ___-__-__</span></li>
+        <li><small>Instagram</small><a href="https://instagram.com/alien_vitebsk" target="_blank" rel="noopener">@alien_vitebsk</a></li>
+        <li><small>Маршрут</small><a href="https://yandex.by/maps/?text=%D0%92%D0%B8%D1%82%D0%B5%D0%B1%D1%81%D0%BA%2C%20%D1%83%D0%BB.%20%D0%A7%D0%B5%D1%80%D0%BD%D1%8F%D1%85%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2C%2011" target="_blank" rel="noopener">Открыть в Яндекс Картах</a></li>
+      </ul>
+    </div>
+    <div class="map rv">
+      <iframe title="Карта: Витебск, ул. Черняховского, 11" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q=%D0%92%D0%B8%D1%82%D0%B5%D0%B1%D1%81%D0%BA%2C%20%D1%83%D0%BB.%20%D0%A7%D0%B5%D1%80%D0%BD%D1%8F%D1%85%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2C%2011&z=16&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© АЛЬЕН, Витебск</span>
+    <span>Демо-версия сайта · тексты и цены уточняются</span>
+  </div>
+</footer>
+
+<!-- Липкая панель для телефона -->
+<div class="dock" id="dock">
+  <a class="btn" href="#book">Записаться на брафиттинг</a>
+  <a class="dock__ic" href="https://ig.me/m/alien_vitebsk" target="_blank" rel="noopener" aria-label="Написать в Instagram">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+  </a>
+</div>
+
+<script>
+/* ===== Данные каталога — редактируются здесь =====
+   photo: файл в папке img/ (если его нет — показывается заглушка)
+   price: null = место для цены */
+const CATS = [
+  {id:'all',   name:'Все'},
+  {id:'lingerie', name:'Бельё', note:''},
+  {id:'swim',  name:'SPF-купальники', note:'Пляжная коллекция 2026 · защита SPF 35'},
+  {id:'men',   name:'Мужское', note:''},
+  {id:'sport', name:'Sport & Comfort', note:''},
+  {id:'wedding', name:'Свадебное', note:'Wedding — бельё для самого важного дня'}
+];
+const ITEMS = [
+  {cat:'lingerie', name:'Название модели', meta:'Бюстгальтер · чашки: уточнить', photo:'lingerie-1.jpg'},
+  {cat:'lingerie', name:'Название модели', meta:'Комплект · чашки: уточнить',     photo:'lingerie-2.jpg'},
+  {cat:'lingerie', name:'Название модели', meta:'Бюстгальтер · чашки: уточнить', photo:'lingerie-3.jpg'},
+  {cat:'swim', tag:'SPF 35', name:'Название модели', meta:'Купальник · размеры: уточнить', photo:'swim-1.jpg'},
+  {cat:'swim', tag:'SPF 35', name:'Название модели', meta:'Купальник · размеры: уточнить', photo:'swim-2.jpg'},
+  {cat:'swim', tag:'2026',   name:'Название модели', meta:'Пляжная коллекция',             photo:'swim-3.jpg'},
+  {cat:'men',  name:'Название модели', meta:'Мужское · размеры: уточнить', photo:'men-1.jpg'},
+  {cat:'men',  name:'Название модели', meta:'Мужское · размеры: уточнить', photo:'men-2.jpg'},
+  {cat:'men',  name:'Название модели', meta:'Мужское · размеры: уточнить', photo:'men-3.jpg'},
+  {cat:'sport', name:'Название модели', meta:'Спортивный топ · размеры: уточнить', photo:'sport-1.jpg'},
+  {cat:'sport', name:'Название модели', meta:'Comfort · размеры: уточнить',        photo:'sport-2.jpg'},
+  {cat:'sport', name:'Название модели', meta:'Спортивный топ · размеры: уточнить', photo:'sport-3.jpg'},
+  {cat:'wedding', tag:'Wedding', name:'Название модели', meta:'Свадебное · размеры: уточнить', photo:'wedding-1.jpg'},
+  {cat:'wedding', tag:'Wedding', name:'Название модели', meta:'Свадебное · размеры: уточнить', photo:'wedding-2.jpg'},
+  {cat:'wedding', tag:'Wedding', name:'Название модели', meta:'Свадебное · размеры: уточнить', photo:'wedding-3.jpg'}
+];
+
+const catName = id => CATS.find(c => c.id === id).name;
+const chips = document.getElementById('chips');
+const grid = document.getElementById('grid');
+const note = document.getElementById('catNote');
+
+chips.innerHTML = CATS.map((c,i) =>
+  `<button class="chip" type="button" data-cat="${c.id}" aria-pressed="${i===0}">${c.name}</button>`).join('');
+
+function render(cat){
+  const list = cat === 'all' ? ITEMS : ITEMS.filter(i => i.cat === cat);
+  note.textContent = (CATS.find(c => c.id === cat) || {}).note || '';
+  grid.innerHTML = list.map(i => `
+    <article class="card">
+      <div class="ph">
+        ${i.tag ? `<em class="tag">${i.tag}</em>` : ''}
+        <span>фото модели<br>${catName(i.cat).toLowerCase()}</span>
+        <img src="img/${i.photo}" alt="${i.name}" loading="lazy" onerror="this.remove()">
+      </div>
+      <h3>${i.name}</h3>
+      <div class="card__meta">${i.meta}</div>
+      <div class="card__price">${i.price ? i.price + ' BYN' : '<span class="fill">__ BYN</span>'}</div>
+      <button type="button" data-try="${catName(i.cat)}: ${i.name}">Хочу примерить</button>
+    </article>`).join('');
+}
+render('all');
+
+chips.addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  chips.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c === b));
+  render(b.dataset.cat);
+});
+
+/* «Хочу примерить» → модель в комментарий формы */
+const noteField = document.getElementById('f-note');
+grid.addEventListener('click', e => {
+  const b = e.target.closest('[data-try]'); if (!b) return;
+  const line = 'Хочу примерить — ' + b.dataset.try;
+  if (!noteField.value.includes(line)) noteField.value = (noteField.value ? noteField.value + '\n' : '') + line;
+  b.textContent = 'Добавлено в заявку ✓';
+  document.getElementById('book').scrollIntoView({behavior:'smooth'});
+});
+
+/* Форма (демо) */
+const form = document.getElementById('form');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const bad = [...form.querySelectorAll('[required]')].find(f => f.type === 'checkbox' ? !f.checked : !f.value.trim());
+  if (bad) { bad.focus(); bad.closest('.field, .consent').animate([{transform:'translateX(-4px)'},{transform:'translateX(4px)'},{transform:'none'}],{duration:240}); return; }
+  form.classList.add('is-sent');
+});
+document.getElementById('f-date').min = new Date().toISOString().slice(0,10);
+
+/* Telegram — пока ссылки нет */
+document.querySelector('[data-todo="telegram"]').addEventListener('click', e => {
+  e.preventDefault(); alert('Демо: сюда добавим ссылку на Telegram магазина.');
+});
+
+/* Шапка, липкая панель, появление блоков, буквы размеров */
+const header = document.getElementById('top'), dock = document.getElementById('dock');
+const book = document.getElementById('book');
+addEventListener('scroll', () => {
+  header.classList.toggle('is-scrolled', scrollY > 10);
+  const r = book.getBoundingClientRect();
+  const nearForm = r.top < innerHeight && r.bottom > 0;
+  dock.classList.toggle('is-on', scrollY > innerHeight * .6 && !nearForm);
+}, {passive:true});
+
+const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }), {threshold:.12});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+const letters = document.querySelectorAll('.sizes__row b');
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  letters.forEach((l,i) => setTimeout(() => l.classList.add('on'), 400 + i*110));
+} else letters.forEach(l => l.classList.add('on'));
+</script>
+</body>
+</html>
